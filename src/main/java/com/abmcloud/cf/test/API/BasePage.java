@@ -1,4 +1,4 @@
-package com.abmcloud.cf.test.architecture;
+package com.abmcloud.cf.test.API;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

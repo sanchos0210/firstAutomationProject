@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.pages;
 
-import com.abmcloud.cf.test.architecture.BasePage;
+import com.abmcloud.cf.test.API.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +16,7 @@ public class AppListPage extends BasePage {
 
     //row locators
     public By filesButton = By.cssSelector("actions-bar-cell .fa.fa-paperclip");
-    public By actionMenu = By.cssSelector("td:nth-of-type(2) actions-bar-cell #msg-dd1");
+    public By actionMenu = By.cssSelector("td:nth-of-type(2) actions-bar-cell #msg-dd1 .dropdown-toggle");
     public By numberOfApp = By.cssSelector(".ui-cell-data int-cell *");
     public By category = By.cssSelector("td:nth-of-type(4) .ui-cell-data filter-item .element *");
     //action menu locators
@@ -54,7 +54,7 @@ public class AppListPage extends BasePage {
     @FindBy(css = ".btn.btn-primary.btn-sm.pointer")
             public WebElement addNewButton;
 
-    @FindBy(css = "table tbody tr")
+    @FindBy(css = "p-datatable table tbody tr")
             public List<WebElement> table;
 
     @FindBy(css = "#comment")
@@ -77,13 +77,4 @@ public class AppListPage extends BasePage {
 
     @FindBy(css = "[name='daterangeInput'] *")
             public WebElement selectedDate;
-
-
-    /*public void createNewApp() {
-        addNewButton.click();
-        EditAppDataProline appEditPage = new EditAppDataProline(driver);
-        appEditPage.typeRequiredFieldsForDeposits(BaseTest.amount, BaseTest.clientNameField, BaseTest.contactPersonField,
-                        BaseTest.contactPersonNumberField, BaseTest.sukuBungaField);
-        //appEditPage.saveButton.click();
-    }*/
 }

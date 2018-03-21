@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.DataInfo;
 
-import com.abmcloud.cf.test.architecture.BaseTest;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,13 +44,13 @@ public class EditAppDataProline extends EditAppData {
     public WebElement applicationChannelButton;
 
 
-    @FindBy(xpath = "//label[contains(text(), 'Client name')]/following-sibling::textarea")
+    @FindBy(xpath = "//label[contains(text(), 'Client name')]/following-sibling::*/textarea")
     public WebElement clientNameField;
 
-    @FindBy(xpath = "//label[contains(text(), 'Contact Person')]/following-sibling::textarea")
+    @FindBy(xpath = "//label[contains(text(), 'Contact Person')]/following-sibling::*/textarea")
     public WebElement contactPersonField;
 
-    @FindBy(xpath = "//label[contains(text(), 'Contact Person Number')]/following-sibling::textarea")
+    @FindBy(xpath = "//label[contains(text(), 'Contact Person Number')]/following-sibling::*/textarea")
     public WebElement contactPersonNumberField;
 
     @FindBy(xpath = "//label[contains(text(), 'Suku Bunga, %')]/following-sibling::*/input")

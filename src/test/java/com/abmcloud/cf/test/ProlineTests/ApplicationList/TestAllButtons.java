@@ -2,7 +2,7 @@ package com.abmcloud.cf.test.ProlineTests.ApplicationList;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 

@@ -3,7 +3,7 @@ package com.abmcloud.cf.test.ProlineTests.ApplicationList;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.Test;
 
 public class CancelApp extends BaseTest {
@@ -17,6 +17,7 @@ public class CancelApp extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .cancelButtonClick("Охрана отмена", selectedApp)
+                .asserts()
                 .assertTrue(compare(textOfNotification, "Document # " + numberOfSelectedApp + " was canceled."));
     }
 
@@ -28,6 +29,7 @@ public class CancelApp extends BaseTest {
                 .createApp(new EditAppDataProline())
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(CANCEL, selectedApp, "Охрана отмена")
+                .asserts()
                 .assertTrue(compare(textOfNotification, "Document # " + numberOfSelectedApp + " was canceled."));
     }
 
@@ -41,6 +43,7 @@ public class CancelApp extends BaseTest {
                 .clickOnNumberOf(selectedApp)
                 .cancelButtonClick()
                 .cancelInCancelPopup("Охрана отмена")
+                .asserts()
                 .assertTrue(compare(textOfNotification,
                 "Document # " + numberOfSelectedApp + " was canceled."));
     }
@@ -58,6 +61,7 @@ public class CancelApp extends BaseTest {
                 .clickOnNumberOf(selectedApp)
                 .cancelButtonClick()
                 .cancelInCancelPopup("Cancel")
+                .asserts()
         .assertTrue(compare(textOfNotification,
                 "Document # " + numberOfSelectedApp + " was canceled."));
     }

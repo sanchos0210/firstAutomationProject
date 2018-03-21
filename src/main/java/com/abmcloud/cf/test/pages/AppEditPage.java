@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.pages;
 
-import com.abmcloud.cf.test.architecture.BasePage;
+import com.abmcloud.cf.test.API.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +27,6 @@ public class AppEditPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Amount')]//parent::legend")
             public WebElement amountHistory;
 
-
     @FindBy(css = ".absolute.pointer.slide_info.slide_info-left")
             public WebElement showInformationBlock;
 
@@ -44,10 +43,10 @@ public class AppEditPage extends BasePage {
             public WebElement paymentDateField;
 
     @FindBy(xpath = "//table[@class='table-condensed']//td[@class='today active start-date active end-date available']/following::td[1]")
-            public WebElement futureDate;
+            public WebElement tomorrowDate;
 
     @FindBy(xpath = "//table[@class='table-condensed']//td[@class='today active start-date active end-date available']/preceding::td[1]")
-            public WebElement precedentDate;
+            public WebElement yesterdayDate;
 
     @FindBy(css = ".col-xs-2.col-md-2.select_bool.input__switch p-inputswitch")
             public WebElement inOutSwitch;
@@ -55,4 +54,18 @@ public class AppEditPage extends BasePage {
     @FindBy(css = "desktop-buttons .btn.btn-default.no-border.pointer.close_btn")
             public WebElement backToAppList;
 
+    @FindBy(css = ".btn.btn-danger.btn_accept.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only")
+            public WebElement yesGoOut;
+
+    @FindBy(css = ".ui-button-primary.select_clear")
+            public WebElement clearCatalogValueButton;
+
+    @FindBy(css = ".pull-right .fa.fa-close.pointer")
+            public WebElement closeCatalogPopupLocator;
+
+    @FindBy(css = "select-catalog .modal_full-screen.over.overlay")
+            public WebElement headerOfCatalogPopup;
+
+    @FindBy(css = "#copy-link")
+    public WebElement copyLinkButton;
 }

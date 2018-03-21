@@ -2,8 +2,8 @@ package com.abmcloud.cf.test.ProlineTests;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
-import com.abmcloud.cf.test.steps.EditAppSteps;
+import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,12 +14,12 @@ import static org.testng.Assert.assertEquals;
 public class EditAppTests extends BaseTest {
 
     String savedValue;
-    EditAppSteps editAppSteps;
+    AppFormSteps appFormSteps;
     EditAppDataProline editAppDataProline;
 
     @BeforeMethod
     public void objectCreation() {
-        editAppSteps = new EditAppSteps();
+        appFormSteps = new AppFormSteps();
         editAppDataProline = new EditAppDataProline();
     }
 
@@ -41,11 +41,11 @@ public class EditAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .editButtonClick(selectedApp);
-        assertEquals(editAppSteps.getDecimalValue(editAppDataProline.amountField), "20000");
-        assertEquals(editAppSteps.getStringValue(editAppDataProline.clientNameField), "Eddy");
-        assertEquals(editAppSteps.getStringValue(editAppDataProline.contactPersonField), "Max");
-        assertEquals(editAppSteps.getStringValue(editAppDataProline.contactPersonNumberField), "0998774565");
-        assertEquals(editAppSteps.getDecimalValue(editAppDataProline.sukuBungaField), "12.1");
+        assertEquals(appFormSteps.getDecimalValue(editAppDataProline.amountField), "20000");
+        assertEquals(appFormSteps.getStringValue(editAppDataProline.clientNameField), "Eddy");
+        assertEquals(appFormSteps.getStringValue(editAppDataProline.contactPersonField), "Max");
+        assertEquals(appFormSteps.getStringValue(editAppDataProline.contactPersonNumberField), "0998774565");
+        assertEquals(appFormSteps.getDecimalValue(editAppDataProline.sukuBungaField), "12.1");
     }
 
     @Test(priority = 2)
@@ -65,10 +65,12 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 1"))
                 .changesHistoryClick()
+                .asserts()
                 .checkHistoryOf("Amount", amount, "20.000")
                                         //Need to make same verify for currency
+                .getAppFormStep()
                 .catalogElementClick(appEditPage.paymentDateField)
-                .catalogElementClick(appEditPage.futureDate)
+                .catalogElementClick(appEditPage.tomorrowDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
@@ -76,7 +78,8 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 2"))
                 .changesHistoryClick()
-                .checkHistoryOf("Payment date", getTodaysDate(), getTommorowDate())
+                .asserts().checkHistoryOf("Payment date", getTodaysDate(), getTomorrowDate())
+                .getAppFormStep()
                 .booleanButtonClick(editAppDataProline.applicationChannelButton)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
@@ -85,7 +88,8 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 3"))
                 .changesHistoryClick()
-                .checkHistoryOf("Application Channel", "Offline", "Online")
+                .asserts().checkHistoryOf("Application Channel", "Offline", "Online")
+                .getAppFormStep()
                 .edit(editAppDataProline.clientNameField, "Batman")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
@@ -94,7 +98,8 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 4"))
                 .changesHistoryClick()
-                .checkHistoryOf("Client name", clientName, "Batman")
+                .asserts().checkHistoryOf("Client name", clientName, "Batman")
+                .getAppFormStep()
                 .edit(editAppDataProline.contactPersonField, "Superman")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
@@ -103,7 +108,8 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 5"))
                 .changesHistoryClick()
-                .checkHistoryOf("Contact Person", contactPerson, "Superman")
+                .asserts().checkHistoryOf("Contact Person", contactPerson, "Superman")
+                .getAppFormStep()
                 .edit(editAppDataProline.contactPersonNumberField, "0998774565")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
@@ -112,7 +118,8 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 6"))
                 .changesHistoryClick()
-                .checkHistoryOf("Contact Person Number", contactPersonNumber, "0998774565")
+                .asserts().checkHistoryOf("Contact Person Number", contactPersonNumber, "0998774565")
+                .getAppFormStep()
                 .edit(editAppDataProline.sukuBungaField, "12,1")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
@@ -121,7 +128,7 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 7"))
                 .changesHistoryClick()
-                .checkHistoryOf("Suku Bunga", "44.00", "12.1");
+                .asserts().checkHistoryOf("Suku Bunga", "44.00", "12.1");
     }
 
     @Test(priority = 3)

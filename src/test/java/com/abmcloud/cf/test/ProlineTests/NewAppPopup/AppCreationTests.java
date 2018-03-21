@@ -2,8 +2,8 @@ package com.abmcloud.cf.test.ProlineTests.NewAppPopup;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
-import com.abmcloud.cf.test.steps.EditAppSteps;
+import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,12 +14,12 @@ public class AppCreationTests extends BaseTest {
 
     EditAppDataProline editAppDataProline;
     String savedValue;
-    EditAppSteps editAppSteps;
+    AppFormSteps appFormSteps;
 
     @BeforeMethod
     public void objectCreation() {
         editAppDataProline = new EditAppDataProline();
-        editAppSteps = new EditAppSteps();
+        appFormSteps = new AppFormSteps();
     }
 
     /*@Test(priority = 1)
@@ -31,15 +31,15 @@ public class AppCreationTests extends BaseTest {
                 .saveNumberOfCreatedAppTo()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp);
-        savedValue = editAppSteps.getDecimalValue(editAppDataProline.amountField);
+        savedValue = appFormSteps.getDecimalValue(editAppDataProline.amountField);
         assertEquals(savedValue, EditAppDataProline.amount);
-        savedValue = editAppSteps.getStringValue(editAppDataProline.clientNameField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.clientNameField);
         assertEquals(savedValue, EditAppDataProline.clientName);
-        savedValue = editAppSteps.getStringValue(editAppDataProline.contactPersonField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.contactPersonField);
         assertEquals(savedValue, EditAppDataProline.contactPerson);
-        savedValue = editAppSteps.getStringValue(editAppDataProline.contactPersonNumberField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.contactPersonNumberField);
         assertEquals(savedValue, EditAppDataProline.contactPersonNumber);
-        savedValue = editAppSteps.getDecimalValue(editAppDataProline.sukuBungaField);
+        savedValue = appFormSteps.getDecimalValue(editAppDataProline.sukuBungaField);
         assertEquals(savedValue, EditAppDataProline.sukuBunga);
     }*/
 
@@ -103,7 +103,7 @@ public class AppCreationTests extends BaseTest {
         steps
                 .open(TEST_PROLINE)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openApplList(editAppDataProline.pencairanDepositMenuButton)
+                .openAppList(editAppDataProline.pencairanDepositMenuButton)
                 .createAppButtonClick();
         editAppDataProline.typeRequiredFieldsForDeposits(amount, clientName, contactPerson, contactPersonNumber, sukuBunga);
         appEditPage.saveButton.click();
@@ -115,7 +115,7 @@ public class AppCreationTests extends BaseTest {
         steps
                 .open(TEST_PROLINE)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openApplList(editAppDataProline.loanBusinessMenuButton)
+                .openAppList(editAppDataProline.loanBusinessMenuButton)
                 .createAppButtonClick();
         editAppDataProline.typeRequiredFieldsForLoanBusiness();
         appEditPage.saveButton.click();

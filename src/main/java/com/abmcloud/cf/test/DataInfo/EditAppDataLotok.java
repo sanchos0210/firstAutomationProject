@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.DataInfo;
 
-import com.abmcloud.cf.test.architecture.BaseTest;
-import com.abmcloud.cf.test.steps.EditAppSteps;
+import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,7 +18,7 @@ public class EditAppDataLotok extends EditAppData {
 
     //---------------------------------Boolean InOut locators-----------------------------------------------------------
     @FindBy(xpath = "//*[.='Надходження']//parent::*")
-    public WebElement incomeBooleanButton;
+    public String incomeBooleanButton;
     //------------------------------------------------------------------------------------------------------------------
 
     @FindBy(xpath = "//label[contains(text(), 'Сума до сплати')]/following-sibling::*/input")
@@ -64,19 +64,19 @@ public class EditAppDataLotok extends EditAppData {
     public WebElement mfoField;
 
     public void createApp() {
-        EditAppSteps editAppSteps = new EditAppSteps();
+        AppFormSteps appFormSteps = new AppFormSteps();
         article.click();        //click on article catalog field
-        editAppSteps.catalogElementClick(incomeFolder)   //click on folder "Income"
+        appFormSteps.catalogElementClick(incomeFolder)   //click on folder "Income"
                     .catalogElementClick(banksPerCent);    //now we already choose article for application
         summField.sendKeys("5000");
         accountsSummField.sendKeys("5243");
         contractor.click();
-        editAppSteps.catalogElementClick(supliersFolder)
+        appFormSteps.catalogElementClick(supliersFolder)
                     .catalogElementClick(firstResult);        //now we already choose contractor for application
         calcAccount.click();
-        editAppSteps.catalogElementClick(firstResult);        //now we already choose calculation account for application
+        appFormSteps.catalogElementClick(firstResult);        //now we already choose calculation account for application
         agreement.click();
-        editAppSteps.catalogElementClick(firstResult);        //now we already choose agreement account for application
+        appFormSteps.catalogElementClick(firstResult);        //now we already choose agreement account for application
         appEditPage.saveButton.click();
     }
 }

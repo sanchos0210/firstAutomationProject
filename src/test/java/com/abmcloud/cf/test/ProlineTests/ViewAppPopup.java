@@ -2,7 +2,7 @@ package com.abmcloud.cf.test.ProlineTests;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -34,10 +34,10 @@ public class ViewAppPopup extends BaseTest {
                 .backButtonClick()      //Check that button is working
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
-                .assertTrue(isElementPresent(appEditPage.changesHistory))
+                .asserts().assertTrue(isElementPresent(appEditPage.changesHistory))
                 .assertTrue(isElementPresent(appEditPage.viewsHistory))
                 .assertTrue(isElementPresent(appEditPage.approveAppButton))
-                .assertTrue(isElementPresent(appEditPage.saveButton))
+                .assertFalse(isElementPresent(appEditPage.saveButton))
                 .assertTrue(isElementPresent(appEditPage.cancelAppButton));
     }
 }

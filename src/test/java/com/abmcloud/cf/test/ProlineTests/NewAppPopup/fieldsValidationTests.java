@@ -3,8 +3,8 @@ package com.abmcloud.cf.test.ProlineTests.NewAppPopup;
 import com.abmcloud.cf.test.DataInfo.EditAppDataLotok;
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import com.abmcloud.cf.test.Fields.DateField;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,12 +15,13 @@ public class fieldsValidationTests extends BaseTest {
 
     EditAppDataProline editAppDataProline;
     EditAppDataLotok editAppDataLotok;
+    DateField dateField;
 
     @BeforeMethod
     public void objectCreation() {
         editAppDataProline = new EditAppDataProline();
         editAppDataLotok = new EditAppDataLotok();
-
+        dateField = new DateField();
     }
 
     @Test(priority = 1)
@@ -77,7 +78,7 @@ public class fieldsValidationTests extends BaseTest {
         appListPage.addNewButton.click();
         editAppDataProline.amountField.sendKeys(amount);
         appEditPage.paymentDateField.click();
-        appEditPage.precedentDate.click();
+        appEditPage.yesterdayDate.click();
         editAppDataProline.clientNameField.sendKeys(clientName);
         editAppDataProline.contactPersonField.sendKeys(contactPerson);
         editAppDataProline.contactPersonNumberField.sendKeys(contactPersonNumber);
@@ -95,7 +96,7 @@ public class fieldsValidationTests extends BaseTest {
         appListPage.addNewButton.click();
         editAppDataProline.amountField.sendKeys(amount);
         appEditPage.paymentDateField.click();
-        appEditPage.futureDate.click();
+        appEditPage.tomorrowDate.click();
         editAppDataProline.clientNameField.sendKeys(clientName);
         editAppDataProline.contactPersonField.sendKeys(contactPerson);
         editAppDataProline.contactPersonNumberField.sendKeys(contactPersonNumber);
@@ -104,7 +105,7 @@ public class fieldsValidationTests extends BaseTest {
         verificationThat(textToBePresentInElement(appListPage.applSavedNotification, "was successfully saved"));
     }
 
-    @Test(priority = 6)
+   /* @Test(priority = 6)
     public void createAppAsOutflow() {
         steps
                 .open(TEST_LOTOK)
@@ -125,10 +126,10 @@ public class fieldsValidationTests extends BaseTest {
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .assertValueOfBooleanField(editAppDataLotok.incomeBooleanButton, "Виплати");
-    }
+                .asserts().assertTrue(compare(dateField.getValue(editAppDataLotok.incomeBooleanButton), "Виплати"));
+    }*/
 
-    @Test(priority = 7)
+   /* @Test(priority = 7)
     public void createAppAsIncome() {
         steps
                 .open(TEST_LOTOK)
@@ -150,34 +151,34 @@ public class fieldsValidationTests extends BaseTest {
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .assertValueOfBooleanField(editAppDataLotok.incomeBooleanButton, "Надходження");
-    }
+                .asserts().assertValueOfBooleanField(editAppDataLotok.incomeBooleanButton, "Надходження");
+    }*/
 
-    @Test(priority = 8)
+    /*@Test(priority = 8)
     public void disabledBooleanFieldWithDefaultValue() {
         steps
                 .open(TEST_PROLINE)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
+                .asserts().assertTrue(editAppDataProline.disabledHeadersBooleanButton)
                 .assertThat(ExpectedConditions.attributeContains(editAppDataProline.headersBooleanButton, CURRENT_VALUE, "true"))
                 .backButtonClick()
-                .openApplList(editAppDataProline.pencairanDepositMenuButton)
+                .openAppList(editAppDataProline.pencairanDepositMenuButton)
                 .createAppButtonClick()
-                .assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
+                .asserts().assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
                 .assertThat(ExpectedConditions.attributeContains(editAppDataProline.headersBooleanButton, CURRENT_VALUE, "false"))
                 .backButtonClick()
-                .openApplList(editAppDataProline.loanBusinessMenuButton)
+                .openAppList(editAppDataProline.loanBusinessMenuButton)
                 .createAppButtonClick()
-                .assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
+                .asserts().assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
                 .assertThat(ExpectedConditions.attributeContains(editAppDataProline.headersBooleanButton, CURRENT_VALUE, "false"))
                 .backButtonClick()
-                .openApplList(editAppDataProline.expenseMenuButton)
+                .openAppList(editAppDataProline.expenseMenuButton)
                 .createAppButtonClick()
-                .assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
+                .asserts().assertThatFieldIsDisabled(editAppDataProline.disabledHeadersBooleanButton)
                 .assertThat(ExpectedConditions.attributeContains(editAppDataProline.headersBooleanButton, CURRENT_VALUE, "false"));
     }
-
+*/
     @Test(priority = 9)
     public void requiredCatalogFieldValidation() {
         steps
@@ -195,7 +196,7 @@ public class fieldsValidationTests extends BaseTest {
                 .catalogElementClick(editAppDataLotok.firstResult)
                 .type("56987", editAppDataLotok.accountsSummField)
                 .saveButtonClick()
-                .assertTrue(compare(textOfNotification, "Упс! Похоже, вы не заполнили все необходимые поля!"));
+                .asserts().assertTrue(compare(textOfNotification, "Упс! Похоже, вы не заполнили все необходимые поля!"));
     }
 
     /*@Test(priority = 10)
@@ -209,13 +210,13 @@ public class fieldsValidationTests extends BaseTest {
                 .assertTextInElement(editAppDataLotok.)
     }*/
 
-    @Test(priority = 11)
+  /*  @Test(priority = 11)
     public void verifyOfDisabledDecimalField() {
         steps
                 .open(TEST_LOTOK)
                 .loginAs(new UsersData("тест Заявитель", "buysome@ukr.net", "123456", RU))
                 .createAppButtonClick()
-                .assertThatFieldIsDisabled(editAppDataLotok.mfoField);
+                .asserts().assertThatFieldIsDisabled(editAppDataLotok.mfoField);
     }
 
     @Test(priority = 12)
@@ -224,15 +225,6 @@ public class fieldsValidationTests extends BaseTest {
                 .open(TEST_LOTOK)
                 .loginAs(new UsersData("тест Заявитель", "buysome@ukr.net", "123456", RU))
                 .createAppButtonClick()
-                .assertThatFieldIsDisabled(editAppDataLotok.banksNames);
-    }
-
-    @Test(priority = 11)
-    public void verifyOfDisabledDateField() {
-        steps
-                .open(TEST_LOTOK)
-                .loginAs(new UsersData("тест Заявитель", "buysome@ukr.net", "123456", RU))
-                .createAppButtonClick()
-                .assertThatDateFieldIsDisabled(editAppDataLotok.dateOfAgreement);
-    }
+                .asserts().assertThatFieldIsDisabled(editAppDataLotok.banksNames);
+    }*/
 }

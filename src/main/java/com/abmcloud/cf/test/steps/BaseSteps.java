@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.steps;
 
-import com.abmcloud.cf.test.architecture.API;
+import com.abmcloud.cf.test.API.Asserts;
+import com.abmcloud.cf.test.API.API;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -13,9 +14,13 @@ public class BaseSteps extends API {
         return driver;
     }
 
-    public AppListSteps openApplList(WebElement menuButton) {
+    public AppListSteps openAppList(WebElement menuButton) {
         menuButton.click();
         loginWait();
         return new AppListSteps();
+    }
+
+    public Asserts asserts() {
+        return new Asserts();
     }
 }

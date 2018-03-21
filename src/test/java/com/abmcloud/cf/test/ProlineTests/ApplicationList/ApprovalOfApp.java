@@ -2,7 +2,7 @@ package com.abmcloud.cf.test.ProlineTests.ApplicationList;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.Test;
 
 public class ApprovalOfApp extends BaseTest {
@@ -15,7 +15,8 @@ public class ApprovalOfApp extends BaseTest {
                 .createApp(new EditAppDataProline())
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
-        .assertTrue(compare(textOfNotification, "Document # "+ numberOfSelectedApp +" was successfully sent for approval"));
+                .asserts()
+                .assertTrue(compare(textOfNotification, "Document # "+ numberOfSelectedApp +" was successfully sent for approval"));
     }
 
     @Test(priority = 2)
@@ -27,7 +28,8 @@ public class ApprovalOfApp extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .sendForApprovalButtonClick(selectedApp)
-        .assertTrue(compare(textOfNotification, "Document # "+ numberOfSelectedApp +" was successfully sent for approval"));
+                .asserts()
+                .assertTrue(compare(textOfNotification, "Document # "+ numberOfSelectedApp +" was successfully sent for approval"));
     }
 
     @Test(priority = 3)
@@ -42,6 +44,7 @@ public class ApprovalOfApp extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .approveButtonClick("Ok", selectedApp)
+                .asserts()
         .assertTrue(compare(textOfNotification, "Document # "+ numberOfSelectedApp +" was successfully approved."));
     }
 
@@ -56,6 +59,7 @@ public class ApprovalOfApp extends BaseTest {
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(APPROVE, selectedApp, "Ok")
+                .asserts()
         .assertTrue(compare(textOfNotification,
                 "Document # "+ numberOfSelectedApp +" was successfully approved."));
     }
@@ -73,6 +77,7 @@ public class ApprovalOfApp extends BaseTest {
                 .clickOnNumberOf(selectedApp)
                 .approveButtonClick()
                 .approveInApprovePopup("Ok")
+                .asserts()
         .assertTrue(compare(textOfNotification,
                 "Document # " + numberOfSelectedApp + " was successfully approved."));
 

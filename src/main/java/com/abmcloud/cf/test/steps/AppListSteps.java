@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.DataInfo.EditAppData;
-import com.abmcloud.cf.test.architecture.BaseTest;
+import com.abmcloud.cf.test.API.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -20,9 +20,10 @@ public class AppListSteps extends BaseSteps {
         return new LoginSteps();
     }
 
-    public EditAppSteps createAppButtonClick() {
+    public AppFormSteps createAppButtonClick() {
         appListPage.addNewButton.click();
-        return new EditAppSteps();
+        waitForElementClicable(4, appEditPage.editPopupTitle);
+        return new AppFormSteps();
     }
 
     /*public void selectAppByStatus(String text) {
@@ -86,9 +87,9 @@ public class AppListSteps extends BaseSteps {
         return this;
     }
 
-    public EditAppSteps clickOnNumberOf(WebElement application) {
+    public AppFormSteps clickOnNumberOf(WebElement application) {
         clickOn(appListPage.numberOfApp, application);
-        return new EditAppSteps();
+        return new AppFormSteps();
     }
 
     public void openFilesOf(WebElement application) {
@@ -172,9 +173,9 @@ public class AppListSteps extends BaseSteps {
         return this;
     }
 
-    public EditAppSteps editButtonClick(WebElement application) {
+    public AppFormSteps editButtonClick(WebElement application) {
         clickOn(appListPage.edit, application);
-        return new EditAppSteps();
+        return new AppFormSteps();
     }
 
     public AppListSteps approveButtonClick(WebElement application) {
@@ -189,9 +190,9 @@ public class AppListSteps extends BaseSteps {
         return this;
     }
 
-    public EditAppSteps copyButtonClick(WebElement application) {
+    public AppFormSteps copyButtonClick(WebElement application) {
         clickOn(appListPage.copy, application);
-        return new EditAppSteps();
+        return new AppFormSteps();
     }
 
     public AppListSteps cancelButtonClick(WebElement application) {
@@ -202,18 +203,6 @@ public class AppListSteps extends BaseSteps {
     public AppListSteps cancelButtonClick(String comment, WebElement application) {
         clickOn(appListPage.cancel, application);
         cancelInCancelPopup(comment);
-        return this;
-    }
-
-    //-----------------------------------Asserts for application list steps---------------------------------------------
-
-    public AppListSteps assertTrue(boolean condition) {
-        verificationOf(condition, 'A');
-        return this;
-    }
-
-    public AppListSteps assertFalse(boolean condition) {
-        verificationOf(condition, 'B');
         return this;
     }
 }

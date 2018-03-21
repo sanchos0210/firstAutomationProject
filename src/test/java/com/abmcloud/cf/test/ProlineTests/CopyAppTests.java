@@ -2,8 +2,8 @@ package com.abmcloud.cf.test.ProlineTests;
 
 import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
 import com.abmcloud.cf.test.DataInfo.UsersData;
-import com.abmcloud.cf.test.architecture.BaseTest;
-import com.abmcloud.cf.test.steps.EditAppSteps;
+import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,13 +12,13 @@ import static org.testng.Assert.assertEquals;
 
 public class CopyAppTests extends BaseTest {
 
-    EditAppSteps editAppSteps;
+    AppFormSteps appFormSteps;
     EditAppDataProline editAppDataProline;
     String savedValue;
 
     @BeforeMethod
     public void objectCreation() {
-        editAppSteps = new EditAppSteps();
+        appFormSteps = new AppFormSteps();
         editAppDataProline = new EditAppDataProline();
     }
 
@@ -35,15 +35,15 @@ public class CopyAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .editButtonClick(selectedApp);
-        savedValue = editAppSteps.getDecimalValue(editAppDataProline.amountField);
+        savedValue = appFormSteps.getDecimalValue(editAppDataProline.amountField);
         assertEquals(savedValue, "10000000");
-        savedValue = editAppSteps.getStringValue(editAppDataProline.clientNameField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.clientNameField);
         assertEquals(savedValue, clientName);
-        savedValue = editAppSteps.getStringValue(editAppDataProline.contactPersonField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.contactPersonField);
         assertEquals(savedValue, contactPerson);
-        savedValue = editAppSteps.getStringValue(editAppDataProline.contactPersonNumberField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.contactPersonNumberField);
         assertEquals(savedValue, contactPersonNumber);
-        savedValue = editAppSteps.getDecimalValue(editAppDataProline.sukuBungaField);
+        savedValue = appFormSteps.getDecimalValue(editAppDataProline.sukuBungaField);
         assertEquals(savedValue, sukuBunga);
     }
 
@@ -65,15 +65,15 @@ public class CopyAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .editButtonClick(selectedApp);
-        savedValue = editAppSteps.getDecimalValue(editAppDataProline.amountField);
+        savedValue = appFormSteps.getDecimalValue(editAppDataProline.amountField);
         assertEquals(savedValue, "7500000");
-        savedValue = editAppSteps.getStringValue(editAppDataProline.clientNameField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.clientNameField);
         assertEquals(savedValue, "Eddy");
-        savedValue = editAppSteps.getStringValue(editAppDataProline.contactPersonField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.contactPersonField);
         assertEquals(savedValue, "Max");
-        savedValue = editAppSteps.getStringValue(editAppDataProline.contactPersonNumberField);
+        savedValue = appFormSteps.getStringValue(editAppDataProline.contactPersonNumberField);
         assertEquals(savedValue, "0998774565");
-        savedValue = editAppSteps.getDecimalValue(editAppDataProline.sukuBungaField);
+        savedValue = appFormSteps.getDecimalValue(editAppDataProline.sukuBungaField);
         assertEquals(savedValue, "12.1");
     }
 
@@ -89,6 +89,7 @@ public class CopyAppTests extends BaseTest {
                 .backButtonClick()      //Check that button is working
                 .actionMenuButtonClick(selectedApp)
                 .copyButtonClick(selectedApp)
+                .asserts()
                 .assertFalse(isElementPresent(appEditPage.changesHistory))
                 .assertFalse(isElementPresent(appEditPage.viewsHistory))
                 .assertFalse(isElementPresent(appEditPage.changesHistory))

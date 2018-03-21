@@ -1,4 +1,4 @@
-package com.abmcloud.cf.test.architecture;
+package com.abmcloud.cf.test.API;
 
 import com.abmcloud.cf.test.DataInfo.UsersData;
 import com.abmcloud.cf.test.pages.AppEditPage;
@@ -48,10 +48,19 @@ public class BaseTest extends API {
         return s;
     }
 
-    public String getTommorowDate() {
+    public String getTomorrowDate() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, 1);
+        Date tomorrow = c.getTime();
+        String s = df.format(tomorrow);
+        return s;
+    }
+
+    public String getYesterdayDate() {
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DAY_OF_MONTH, -1);
         Date tomorrow = c.getTime();
         String s = df.format(tomorrow);
         return s;

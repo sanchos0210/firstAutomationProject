@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.DataInfo;
 
-import com.abmcloud.cf.test.architecture.API;
+import com.abmcloud.cf.test.API.API;
 import org.openqa.selenium.WebDriver;
 
 public abstract class EditAppData extends API {
