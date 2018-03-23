@@ -35,11 +35,17 @@ public class AppFormDBInfo extends EditAppData {
 
     @FindBy(xpath = "//span[contains(text(), 'Project1')]//parent::*//parent::*")
     public WebElement project1;
+
+    @FindBy(xpath = "//span[contains(text(), 'Project2')]//parent::*//parent::*")
+    public WebElement project2;
     //-------------------------------------------Catalog field 2--------------------------------------------------------
     public String catalogField2 = "Catalog field 2";
 
     @FindBy(xpath = "//span[contains(text(), 'Contractor 1')]//parent::*//parent::*")
     public WebElement contractor1;
+
+    @FindBy(xpath = "//span[contains(text(), 'Contractor 2')]//parent::*//parent::*")
+    public WebElement contractor2;
     //---------------------------------------Names of decimal fields----------------------------------------------------
     public String decimalField1 = "Decimal field 1";
 

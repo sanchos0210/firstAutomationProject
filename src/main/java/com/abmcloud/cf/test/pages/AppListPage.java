@@ -54,7 +54,7 @@ public class AppListPage extends BasePage {
     @FindBy(css = ".btn.btn-primary.btn-sm.pointer")
             public WebElement addNewButton;
 
-    @FindBy(css = "p-datatable table tbody tr")
+    @FindBy(css = "table tbody tr")
             public List<WebElement> table;
 
     @FindBy(css = "#comment")

@@ -11,6 +11,11 @@ public class BooleanField extends BaseField {
         return headerOfBooleanField;
     }
 
+    private WebElement getHeaderOfBooleanFieldTCH(String nameOfField) {
+        WebElement headerOfBooleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*/bool-field"));
+        return headerOfBooleanField;
+    }
+
     public WebElement getField(String nameOfField) {
         WebElement booleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*//*[@class='d-inline-block pointer select_btn']"));
         return booleanField;
@@ -18,6 +23,10 @@ public class BooleanField extends BaseField {
 
     public String getValue(String nameOfField) {
         return getHeaderOfBooleanField(nameOfField).getAttribute("ng-reflect-value");
+    }
+
+    public String getValueTCH(String nameOfField) {
+        return getHeaderOfBooleanFieldTCH(nameOfField).getAttribute("ng-reflect-value");
     }
 
     public boolean isDisable(String nameOfField) {
