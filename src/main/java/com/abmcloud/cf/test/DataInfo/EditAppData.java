@@ -15,7 +15,7 @@ public abstract class EditAppData extends API {
     public abstract void createApp();
 
     /*public void catalogElementClick(WebElement element) {
-        waitForElementClicable(10, element);
+        waitForElementClickable(10, element);
         element.click();
     }*/
 }

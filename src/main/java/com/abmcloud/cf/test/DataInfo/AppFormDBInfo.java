@@ -81,8 +81,10 @@ public class AppFormDBInfo extends EditAppData {
 
     public String dateField2 = "Date field 2";
 
-    @FindBy(xpath = "//*[contains(text(), 'Date field 4')]//following::span")
-    public WebElement dateField4;
+    public String dateField4 = "Date field 4";
+
+    /*@FindBy(xpath = "//*[contains(text(), 'Date field 4')]//following::span")
+    public WebElement dateField4;*/
 
     public void createApp() {
         DecimalField decimalField = new DecimalField();

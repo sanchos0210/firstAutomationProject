@@ -1,15 +1,18 @@
 package com.abmcloud.cf.test.steps;
 
-import com.abmcloud.cf.test.DataInfo.EditAppData;
 import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.DataInfo.EditAppData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 
 public class AppListSteps extends BaseSteps {
 
-    private void clickOn(By selector, WebElement row) {
+    public void clickOn(By selector, WebElement row) {
         row.findElement(selector).click();
     }
 
@@ -20,38 +23,38 @@ public class AppListSteps extends BaseSteps {
         return new LoginSteps();
     }
 
+    public AppListSteps closeChainStepsPopup() {
+        $(By.cssSelector(".fa.fa-fw.fa-close")).click();
+        return this;
+    }
+
     public AppFormSteps createAppButtonClick() {
         appListPage.addNewButton.click();
-        waitForElementClicable(4, appEditPage.editPopupTitle);
+        waitForElementClickable(4, appEditPage.editPopupTitle);
         return new AppFormSteps();
     }
 
-    /*public void selectAppByStatus(String text) {
-        int i = appListPage.table.size();
-        for(int j = 0; j < i; j++) {
-            WebElement row = appListPage.table.get(j);
-            String status = row.findElement(appListPage.statusOfApp).getText();
-            if(status.equals(text)) {
-                BaseTest.selectedApp = row;
-                BaseTest.numberOfSelectedApp = row.findElement(appListPage.numberOfApp).getText();
-                BaseTest.statusOfSelectedApp = row.findElement(appListPage.statusOfApp).getText();
-                break;
-            }
-        }
-    }*/
-    public AppListSteps selectAppByNumber(String number) {
-        waitForClicable(appListPage.numberOfApp);
-        int i = appListPage.table.size();
-        for(int j = 0; j < i; j++) {
-            WebElement row = appListPage.table.get(j);
+    public void selectAppByNumberInTable(String number, List<WebElement> table) {
+        waitForClickable(appListPage.numberOfApp);
+        //List<WebElement> table = $$(By.cssSelector("table tbody tr"));
+        for(int j = 0; j < table.size(); j++) {
+            WebElement row = table.get(j);
             String n = row.findElement(appListPage.numberOfApp).getText();
             if(n.equals(number)) {
                 BaseTest.selectedApp = row;
                 BaseTest.numberOfSelectedApp = row.findElement(appListPage.numberOfApp).getText();
-                BaseTest.statusOfSelectedApp = row.findElement(appListPage.statusOfApp).getText();
+                try {
+                    BaseTest.statusOfSelectedApp = row.findElement(appListPage.statusOfApp).getText();
+                } catch(NoSuchElementException e) {
+                    BaseTest.statusOfSelectedApp = null;
+                }
                 break;
             }
         }
+    }
+
+    public AppListSteps selectAppByNumber(String number) {
+        selectAppByNumberInTable(number, $$(By.cssSelector("table tbody tr")));
         return this;
     }
 
@@ -92,8 +95,9 @@ public class AppListSteps extends BaseSteps {
         return new AppFormSteps();
     }
 
-    public void openFilesOf(WebElement application) {
+    public AppListSteps openFilesOf(WebElement application) {
         clickOn(appListPage.filesButton, application);
+        return this;
     }
 
     //------------------------------------Global filter steps-----------------------------------------------------------
@@ -113,8 +117,9 @@ public class AppListSteps extends BaseSteps {
     }
     //----------------------------------Status steps--------------------------------------------------------------------
 
-    public void clickOnStatusOf(WebElement application) {
+    public AppListSteps clickOnStatusOf(WebElement application) {
         clickOn(appListPage.statusOfApp, application);
+        return this;
     }
 
     public AppListSteps status(char point, WebElement application) {

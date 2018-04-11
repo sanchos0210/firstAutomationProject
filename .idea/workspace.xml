@@ -2,12 +2,84 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a67760b9-e7ba-4c6e-84d7-e0be07645478" name="Default" comment="3rd">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/pages/AppListPage.class" afterPath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/pages/AppListPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/BooleanField.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/BooleanField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppListPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppListPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/TCHFieldsValidation.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/TCHFieldsValidation.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppListDBInfo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/CalendarDBInfo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/CalendarPage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/CalendarSteps.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/ActionMenuTests.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/ElementsVisibilityOfAppList.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/StatusOfAppTests.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/BuisnessProcessTests/ChainsStepsTests.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/BuisnessProcessTests/ChainsTests.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/Calendar/CalendarTests.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_1_3.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_3_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_16_0_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_5_7_Final.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_cssparser_cssparser_0_9_18.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_2_21.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_core_js_2_17.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_neko_htmlunit_2_21.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_3.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_2.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_2_15_v20160210.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_2_15_v20160210.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_api_9_2_15_v20160210.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_client_9_2_15_v20160210.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_common_9_2_15_v20160210.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_htmlunit_driver_2_21.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_leg_rc_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_2_53_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_w3c_css_sac_1_3.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_serializer_2_7_2.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_7_2.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/CashflowWebDriverTest.iml" afterPath="$PROJECT_DIR$/CashflowWebDriverTest.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/API.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/API.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Asserts.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Asserts.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BaseTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BaseTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppData.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppData.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataProline.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataProline.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/CatalogField.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/CatalogField.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppEditPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppEditPage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppListPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppListPage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppFormSteps.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppFormSteps.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppListSteps.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppListSteps.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/BaseSteps.java" afterPath="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/BaseSteps.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/AppListTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/AppListTests.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/Body/FieldsValidation.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/Body/FieldsValidation.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/ElementVisibility.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/ElementVisibility.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/TCHFieldsValidation.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/TCH/TCHFieldsValidation.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/Title/FieldsValidation.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/Title/FieldsValidation.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/EditAppTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/EditAppTests.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/DataInfo/EditAppDataProline.class" afterPath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/DataInfo/EditAppDataProline.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/pages/AppEditPage.class" afterPath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/pages/AppEditPage.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/pages/AppListPage.class" afterPath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/pages/AppListPage.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/steps/AppListSteps.class" afterPath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/steps/AppListSteps.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/steps/BaseSteps.class" afterPath="$PROJECT_DIR$/target/classes/com/abmcloud/cf/test/steps/BaseSteps.class" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/abmcloud/cf/test/ProlineTests/ApplicationList/TestAllButtons.class" afterPath="$PROJECT_DIR$/target/test-classes/com/abmcloud/cf/test/ProlineTests/ApplicationList/TestAllButtons.class" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/abmcloud/cf/test/ProlineTests/EditAppTests.class" afterPath="$PROJECT_DIR$/target/test-classes/com/abmcloud/cf/test/ProlineTests/EditAppTests.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,40 +93,65 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CashflowWebDriverTest$com_abmcloud_cf_test_ProlineTests_in_CashflowWebDriverTest.coverage" NAME="com.abmcloud.cf.test.ProlineTests in CashflowWebDriverTest Coverage Results" MODIFIED="1516365858485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.abmcloud.cf.test.ProlineTests.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/CashflowWebDriverTest$com_abmcloud_cf_test_NewAppPopup_in_CashflowWebDriverTest.coverage" NAME="com.abmcloud.cf.test.NewAppPopup in CashflowWebDriverTest Coverage Results" MODIFIED="1513767405664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.abmcloud.cf.test.NewAppPopup.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CashflowWebDriverTest$com_abmcloud_cf_test_ProlineTests_in_CashflowWebDriverTest.coverage" NAME="com.abmcloud.cf.test.ProlineTests in CashflowWebDriverTest Coverage Results" MODIFIED="1516365858485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.abmcloud.cf.test.ProlineTests.*</FILTER>
     </SUITE>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FieldsValidation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/Body/FieldsValidation.java">
+      <file leaf-file-name="CalendarTests.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/Calendar/CalendarTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+            <state relative-caret-position="680">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppListSteps.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppListSteps.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="70" column="113" lean-forward="true" selection-start-line="70" selection-start-column="113" selection-end-line="70" selection-end-column="113" />
+            <state relative-caret-position="193">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarSteps.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/CalendarSteps.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="82" column="167" lean-forward="false" selection-start-line="82" selection-start-column="167" selection-end-line="82" selection-end-column="167" />
+              <folding>
+                <element signature="e#2732#2733#0" expanded="true" />
+                <element signature="e#2807#2808#0" expanded="true" />
+                <element signature="e#2846#2847#0" expanded="true" />
+                <element signature="e#2922#2923#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateField.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="23" column="102" lean-forward="false" selection-start-line="23" selection-start-column="102" selection-end-line="23" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="API.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/API.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,47 +184,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataProline.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/architecture/BaseAsserts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Asserts/BaseAsserts.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/LotokTests/AppFormTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/AppFormTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/DecimalFieldValidation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Asserts/AppListAsserts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/EditAppSteps.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/architecture/BaseTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppEditPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsTCHValidationTests/TCH.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsValidationTests/StringFieldValidation.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsValidationTests/DateFieldValidation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/BaseField.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/architecture/Conditions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/architecture/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/architecture/API.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataLotok.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Asserts/AppFormAsserts.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsValidationTests/BooleanFieldValidation.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsValidationTests/CatalogFieldValidation.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/NewAppPopup/fieldsValidationTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/CopyAppTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/EditAppTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/BaseSteps.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppFormSteps.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/LoginSteps.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/ElementVisibility.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/ViewAppPopup.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/LoginTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppListSteps.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Asserts/Asserts.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/ApplicationList/ApprovalOfApp.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/ApplicationList/CancelApp.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsValidationTests/DecimalFieldValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/architecture/Asserts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Asserts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/CatalogField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/FieldsTCHValidationTests/DecimalTCHFieldValidation.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/DecimalTCHFieldValidation.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/FieldsValidation.java" />
@@ -136,8 +204,37 @@
         <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/StringField.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/BooleanField.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/TCHFieldsValidation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppFormSteps.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/ElementsVisibillityOfAppList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppListDBInfo.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/BuisnessProcessTests/ChainsTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/BuisnessProcessTests/ChainsStepsTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/AppListTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/ElementsVisibilityOfAppList.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/AppListTests/AppListTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppListTests/AppListTests/ElementsVisibilityOfAppList.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/ElementsVisibilityOfAppList.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/StatusTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/StatusOfAppTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/ActionMenuTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Asserts.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/BuisnessProcessTests/ChainsStepsTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppListPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppListSteps.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/CatalogField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/CalendarDBInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataProline.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppEditPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/BaseSteps.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/API.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/Body/FieldsValidation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/Calendar/CalendarTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/CalendarPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/CalendarSteps.java" />
       </list>
     </option>
   </component>
@@ -160,10 +257,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="487" />
+    <option name="y" value="111" />
+    <option name="width" value="980" />
+    <option name="height" value="517" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -180,42 +277,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -223,17 +322,26 @@
               <item name="API" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="DataInfo" type="462c0819:PsiDirectoryNode" />
+              <item name="Fields" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -241,80 +349,49 @@
               <item name="steps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
+              <item name="cashflow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashflow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="AppFormTests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="AppFormTests" type="462c0819:PsiDirectoryNode" />
-              <item name="Body" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="AppFormTests" type="462c0819:PsiDirectoryNode" />
-              <item name="TCH" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cashflowAutoTests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cashflowAutoTests" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="AppFormTests" type="462c0819:PsiDirectoryNode" />
-              <item name="Title" type="462c0819:PsiDirectoryNode" />
+              <item name="Calendar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.5126437" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-9.0.4/lib/deploy" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -336,224 +413,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.FieldsValidation.autoInsert1Verification">
-    <configuration name="AppListTests" type="TestNG" factoryName="TestNG" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.pp.krotov.pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="FirstWebDriverTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="ua.pp.krotov" />
-      <option name="MAIN_CLASS_NAME" value="ua.pp.krotov.AppListTests" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="ElementVisibility.elementsVisibilityInCreationAppPopup" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.abmcloud.cf.test.AppFormTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CashflowWebDriverTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.AppFormTests" />
-      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.AppFormTests.ElementVisibility" />
-      <option name="METHOD_NAME" value="elementsVisibilityInCreationAppPopup" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="FieldsValidation" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.abmcloud.cf.test.AppFormTests.Body.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CashflowWebDriverTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.AppFormTests.Body" />
-      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.AppFormTests.Body.FieldsValidation" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="FieldsValidation.autoInsert1Verification" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.abmcloud.cf.test.AppFormTests.Body.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CashflowWebDriverTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.AppFormTests.Body" />
-      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.AppFormTests.Body.FieldsValidation" />
-      <option name="METHOD_NAME" value="autoInsert1Verification" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="Run tests. Maven" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="-e" />
-                <option value="clean" />
-                <option value="test" />
-              </list>
-            </option>
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-    </configuration>
-    <configuration name="TCHFieldsValidation" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.abmcloud.cf.test.AppFormTests.TCH.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CashflowWebDriverTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.AppFormTests.TCH" />
-      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.AppFormTests.TCH.TCHFieldsValidation" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="TCHFieldsValidation.requiredDecimalTCHField" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.abmcloud.cf.test.AppFormTests.TCH.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CashflowWebDriverTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.AppFormTests.TCH" />
-      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.AppFormTests.TCH.TCHFieldsValidation" />
-      <option name="METHOD_NAME" value="requiredDecimalTCHField" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
+  <component name="RunManager" selected="TestNG.CalendarTests.changePaymentDateInRegistry">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -607,11 +467,30 @@
       <module name="FirstWebDriverTest" />
       <envs />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+    <configuration name="Run tests. Maven" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="-e" />
+                <option value="clean" />
+                <option value="test" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -619,6 +498,166 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+    </configuration>
+    <configuration name="AppListTests" type="TestNG" factoryName="TestNG" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.pp.krotov.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="FirstWebDriverTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="ua.pp.krotov" />
+      <option name="MAIN_CLASS_NAME" value="ua.pp.krotov.AppListTests" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="CalendarTests.changePaymentDateInRegistry" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.abmcloud.cf.test.Calendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CashflowWebDriverTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.Calendar" />
+      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.Calendar.CalendarTests" />
+      <option name="METHOD_NAME" value="changePaymentDateInRegistry" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="CalendarTests.payAppTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.abmcloud.cf.test.Calendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CashflowWebDriverTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.Calendar" />
+      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.Calendar.CalendarTests" />
+      <option name="METHOD_NAME" value="payAppTest" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="CalendarTests.payAppTest2" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.abmcloud.cf.test.Calendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CashflowWebDriverTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.Calendar" />
+      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.Calendar.CalendarTests" />
+      <option name="METHOD_NAME" value="payAppTest2" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="CalendarTests.testtest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.abmcloud.cf.test.Calendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CashflowWebDriverTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.Calendar" />
+      <option name="MAIN_CLASS_NAME" value="com.abmcloud.cf.test.Calendar.CalendarTests" />
+      <option name="METHOD_NAME" value="testtest" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -647,22 +686,60 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="com.abmcloud.cf.test.AppForm" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.abmcloud.cf.test.AppForm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="CashflowWebDriverTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.abmcloud.cf.test.AppForm" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Maven.Run tests. Maven" />
       <item index="1" class="java.lang.String" itemvalue="TestNG.AppListTests" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.TCHFieldsValidation" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.TCHFieldsValidation.requiredDecimalTCHField" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.ElementVisibility.elementsVisibilityInCreationAppPopup" />
-      <item index="5" class="java.lang.String" itemvalue="TestNG.FieldsValidation" />
-      <item index="6" class="java.lang.String" itemvalue="TestNG.FieldsValidation.autoInsert1Verification" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.CalendarTests.testtest" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.CalendarTests.payAppTest" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.CalendarTests.payAppTest2" />
+      <item index="5" class="java.lang.String" itemvalue="TestNG.com.abmcloud.cf.test.AppForm" />
+      <item index="6" class="java.lang.String" itemvalue="TestNG.CalendarTests.changePaymentDateInRegistry" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.FieldsValidation.autoInsert1Verification" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.FieldsValidation" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.TCHFieldsValidation" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.ElementVisibility.elementsVisibilityInCreationAppPopup" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.TCHFieldsValidation.requiredDecimalTCHField" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.CalendarTests.changePaymentDateInRegistry" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.CalendarTests.payAppTest" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.com.abmcloud.cf.test.AppForm" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.CalendarTests.payAppTest2" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.CalendarTests.testtest" />
       </list>
     </recent_temporary>
   </component>
@@ -691,35 +768,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ElementVisibility_elementsVisibilityInCreationAppPopup - 2018.03.21 at 14h 50m 46s.xml">
-      <configuration name="ElementVisibility.elementsVisibilityInCreationAppPopup" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 02m 19s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FieldsValidation - 2018.03.21 at 15h 11m 46s.xml">
-      <configuration name="FieldsValidation" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 06m 15s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FieldsValidation - 2018.03.21 at 15h 22m 22s.xml">
-      <configuration name="FieldsValidation" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 12m 21s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FieldsValidation_autoInsert1Verification - 2018.03.21 at 15h 24m 42s.xml">
-      <configuration name="FieldsValidation.autoInsert1Verification" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 13m 13s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TCHFieldsValidation - 2018.03.21 at 14h 39m 32s.xml">
-      <configuration name="TCHFieldsValidation" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 17m 11s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TCHFieldsValidation - 2018.03.21 at 14h 43m 20s.xml">
-      <configuration name="TCHFieldsValidation" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 39m 02s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TCHFieldsValidation - 2018.03.21 at 14h 59m 41s.xml">
-      <configuration name="TCHFieldsValidation" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 43m 16s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TCHFieldsValidation_autoLimitCatalogFieldTCHByFieldFromBody - 2018.03.21 at 13h 50m 35s.xml">
-      <configuration name="TCHFieldsValidation.autoLimitCatalogFieldTCHByFieldFromBody" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 49m 05s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TCHFieldsValidation_clearChosenValueOfCatalogTCHField - 2018.03.21 at 13h 38m 48s.xml">
-      <configuration name="TCHFieldsValidation.clearChosenValueOfCatalogTCHField" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 52m 41s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TCHFieldsValidation_requiredDecimalTCHField - 2018.03.21 at 14h 22m 18s.xml">
-      <configuration name="TCHFieldsValidation.requiredDecimalTCHField" configurationId="TestNG" />
+    <history-entry file="CalendarTests_changePaymentDateInRegistry - 2018.04.11 at 16h 58m 33s.xml">
+      <configuration name="CalendarTests.changePaymentDateInRegistry" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -733,56 +810,63 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14565217" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47121534" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47717392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34891304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042644" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15138593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13478261" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21413043" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4173913" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41675505" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24891305" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47121534" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28695652" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18017058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4173913" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18152174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35023773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06973059" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45166403" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21010248" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41675505" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -794,15 +878,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/Body/FieldsValidation.java</url>
-          <line>132</line>
-          <properties />
-          <option name="timeStamp" value="283" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="284" />
+      <option name="time" value="336" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -811,174 +887,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Throwable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="458" column="34" lean-forward="false" selection-start-line="458" selection-start-column="34" selection-end-line="458" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/MenuSteps.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.6/testng-6.9.6.jar!/org/testng/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/UsersData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/2.53.1/selenium-support-2.53.1.jar!/org/openqa/selenium/support/ui/ExpectedConditions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="221" column="17" lean-forward="true" selection-start-line="221" selection-start-column="17" selection-end-line="221" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppEditPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="69" column="36" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataProline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="104" column="53" lean-forward="false" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/2.53.1/selenium-support-2.53.1.jar!/org/openqa/selenium/support/FindBy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.6/testng-6.9.6.jar!/org/testng/internal/Invoker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="434" column="0" lean-forward="false" selection-start-line="434" selection-start-column="0" selection-end-line="434" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/BaseField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/2.53.1/selenium-support-2.53.1.jar!/org/openqa/selenium/support/PageFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BasePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Conditions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataLotok.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/ApplicationList/TestAllButtons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-350">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/NewAppPopup/fieldsValidationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="228" column="7" lean-forward="false" selection-start-line="228" selection-start-column="7" selection-end-line="228" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/NewAppPopup/AppCreationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-554">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/EditAppTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/BaseSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/LoginSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Asserts/AppListAsserts.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Asserts/BaseAsserts.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/ViewAppPopup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/LoginTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/CopyAppTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="895">
@@ -1000,25 +908,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Asserts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-203">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/Title/FieldsValidation.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/Title/FieldsValidation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,34 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="14" column="117" lean-forward="false" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/API.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding>
-            <marker date="1521382754000" expanded="false" signature="3789:3800" ph=" { " />
-            <marker date="1521382754000" expanded="false" signature="3852:3858" ph=" }" />
-            <marker date="1521382754000" expanded="false" signature="3897:3908" ph=" { " />
-            <marker date="1521382754000" expanded="false" signature="3934:3940" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppFormSteps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/CatalogField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="87" lean-forward="false" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
         </state>
       </provider>
     </entry>
@@ -1075,74 +940,314 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/TCH/TCHFieldsValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="286" column="64" lean-forward="false" selection-start-line="286" selection-start-column="64" selection-end-line="286" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/AppListTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/AppListTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/ElementVisibility.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/ElementVisibility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/ProlineTests/ApplicationList/TestAllButtons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/ElementsVisibilityOfAppList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/StatusOfAppTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.11.0/selenium-support-3.11.0.jar!/org/openqa/selenium/support/pagefactory/internal/LocatingElementHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/AppListTests/ActionMenuTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2159">
+          <caret line="130" column="40" lean-forward="false" selection-start-line="130" selection-start-column="16" selection-end-line="130" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.11.0/selenium-api-3.11.0.jar!/org/openqa/selenium/NoSuchElementException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt://C:/Program Files/Java/jdk-9.0.4!/jdk.deploy/com/sun/deploy/util/StringUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/BuisnessProcessTests/ChainsStepsTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppList/BuisnessProcessTests/ChainsTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppListDBInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataLotok.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppDataProline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="118" column="46" lean-forward="false" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="569" column="6" lean-forward="false" selection-start-line="569" selection-start-column="6" selection-end-line="569" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppListPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppFormTests/Body/FieldsValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <caret line="15" column="109" lean-forward="false" selection-start-line="15" selection-start-column="109" selection-end-line="15" selection-end-column="109" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BasePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="102" lean-forward="false" selection-start-line="27" selection-start-column="102" selection-end-line="27" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/AppEditPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/BaseSteps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="e#1054#1055#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppListSteps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="183">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/CalendarDBInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Asserts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/Conditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/EditAppData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/BaseField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/TCH/TCHFieldsValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/CatalogField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="87" lean-forward="false" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/AppFormSteps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/DataInfo/AppFormDBInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="86" column="35" lean-forward="false" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/AppForm/Body/FieldsValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="420" column="0" lean-forward="true" selection-start-line="420" selection-start-column="0" selection-end-line="420" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/pages/CalendarPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/Fields/DateField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="102" lean-forward="false" selection-start-line="23" selection-start-column="102" selection-end-line="23" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="70" column="113" lean-forward="true" selection-start-line="70" selection-start-column="113" selection-end-line="70" selection-end-column="113" />
+        <state relative-caret-position="193">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/3.11.0/selenium-remote-driver-3.11.0.jar!/org/openqa/selenium/remote/RemoteWebElement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/API/API.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.6/testng-6.9.6.jar!/org/testng/internal/Invoker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="534" column="0" lean-forward="false" selection-start-line="534" selection-start-column="0" selection-end-line="534" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/abmcloud/cf/test/steps/CalendarSteps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="82" column="167" lean-forward="false" selection-start-line="82" selection-start-column="167" selection-end-line="82" selection-end-column="167" />
+          <folding>
+            <element signature="e#2732#2733#0" expanded="true" />
+            <element signature="e#2807#2808#0" expanded="true" />
+            <element signature="e#2846#2847#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/abmcloud/cf/test/Calendar/CalendarTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1156,7 +1261,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.5126437" />
               </list>
             </option>
           </splitter-proportions>
@@ -1168,7 +1273,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.5126437" />
               </list>
             </option>
           </splitter-proportions>
@@ -1179,7 +1284,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.5126437" />
               </list>
             </option>
           </splitter-proportions>
@@ -1187,11 +1292,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>9</last-edited>
+          <last-edited>9.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.5126437" />
               </list>
             </option>
           </splitter-proportions>
@@ -1203,7 +1308,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.5126437" />
                 <option value="0.6" />
               </list>
             </option>
@@ -1228,7 +1333,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.5126437" />
               </list>
             </option>
           </splitter-proportions>

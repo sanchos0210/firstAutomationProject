@@ -78,7 +78,7 @@ public class EditAppTests extends BaseTest {
                 .showInformationBlockClick()
                 .assertThat(ExpectedConditions.textToBePresentInElement(appEditPage.changesHistory, "Changes history 2"))
                 .changesHistoryClick()
-                .asserts().checkHistoryOf("Payment date", getTodaysDate(), getTomorrowDate())
+                .asserts().checkHistoryOf("Payment date", getTodayFullDate(), getTomorrowFullDate())
                 .getAppFormStep()
                 .booleanButtonClick(editAppDataProline.applicationChannelButton)
                 .saveApplication()

@@ -42,17 +42,19 @@ public class AppEditPage extends BasePage {
     @FindBy(css = "date-field div.form-control.pointer.catalog-value.catalog-editable")
             public WebElement paymentDateField;
 
-    @FindBy(xpath = "//table[@class='table-condensed']//td[@class='today active start-date active end-date available']/following::td[1]")
+    @FindBy(xpath = "//table[@class='table-condensed']//td[@class='today active start-date active end-date available'"+
+            "or @class='today weekend active start-date active end-date available']/following::td[1]")
             public WebElement tomorrowDate;
 
-    @FindBy(xpath = "//table[@class='table-condensed']//td[@class='today active start-date active end-date available']/preceding::td[1]")
+    @FindBy(xpath = "//table[@class='table-condensed']//td[@class='today active start-date active end-date available'"+
+            "or @class='today weekend active start-date active end-date available']/preceding::td[1]")
             public WebElement yesterdayDate;
 
     @FindBy(css = ".col-xs-2.col-md-2.select_bool.input__switch p-inputswitch")
             public WebElement inOutSwitch;
 
     @FindBy(css = "desktop-buttons .btn.btn-default.no-border.pointer.close_btn")
-            public WebElement backToAppList;
+            public WebElement closeAppFormButton;
 
     @FindBy(css = ".btn.btn-danger.btn_accept.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only")
             public WebElement yesGoOut;

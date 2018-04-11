@@ -47,14 +47,14 @@ public class AppFormSteps extends BaseSteps {
     }
 
     public AppFormSteps catalogElementClick(WebElement element) {
-        waitForElementClicable(10, element);
+        waitForElementClickable(10, element);
         element.click();
         return this;
     }
 
     public AppFormSteps clearCatalogValue(WebElement catalogField) {
         catalogField.click();
-        waitForElementClicable(4, appEditPage.clearCatalogValueButton);
+        waitForElementClickable(4, appEditPage.clearCatalogValueButton);
         appEditPage.clearCatalogValueButton.click();
         appEditPage.closeCatalogPopupLocator.click();
         return this;
@@ -95,13 +95,13 @@ public class AppFormSteps extends BaseSteps {
     }
 
     public AppListSteps backButtonClick() {
-        appEditPage.backToAppList.click();
+        appEditPage.closeAppFormButton.click();
         appEditPage.yesGoOut.click();
         return new AppListSteps();
     }
 
     public AppFormSteps showInformationBlockClick() {
-        waitForElementClicable(2, appEditPage.showInformationBlock);
+        waitForElementClickable(2, appEditPage.showInformationBlock);
         appEditPage.showInformationBlock.click();
         return this;
     }

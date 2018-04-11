@@ -117,7 +117,6 @@ public class EditAppDataProline extends EditAppData {
         contactPersonField.sendKeys(contactPersonStr);
         contactPersonNumberField.sendKeys(contactPersonNumberStr);
         sukuBungaField.sendKeys(sukuBungaStr);
-
     }
 
     public void typeRequiredFieldsForLoanBusiness() {

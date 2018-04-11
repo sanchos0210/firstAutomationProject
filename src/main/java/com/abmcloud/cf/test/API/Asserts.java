@@ -35,9 +35,9 @@ public class Asserts extends API {
         String fromValue2;
         String toValue2;
         WebElement assertsField = getWebDriver().findElement(By.xpath("//*[contains(text(), '"+ nameOfField +"')]//parent::legend"));
-        waitForElementClicable(2, assertsField);
+        waitForElementClickable(2, assertsField);
         assertsField.click();
-        waitForElementClicable(4, assertsField.findElement(By.xpath(".//following-sibling::div//*[@class = 'backspace2X']/b[1]")));
+        waitForElementClickable(4, assertsField.findElement(By.xpath(".//following-sibling::div//*[@class = 'backspace2X']/b[1]")));
         fromValue2 = assertsField.findElement(By.xpath(".//following-sibling::div//*[@class = 'backspace2X']/b[1]")).getText();
         fromValue2 = fromValue2.substring(1,fromValue2.length()-1);
         assertTrue(compare(fromValue2, fromValue));
@@ -49,6 +49,16 @@ public class Asserts extends API {
 
     public Asserts assertTextInElement(WebElement element, String text) {
         verificationThat(ExpectedConditions.textToBePresentInElement(element, text));
+        return this;
+    }
+
+    public Asserts assertTextIn(WebElement row, By element, String text) {
+        checkThat(row, element, text);
+        return this;
+    }
+
+    public Asserts assertVisibilityButtonInRow(WebElement row, By buttonLocator) {
+        waitForElementClickable(2, row.findElement(buttonLocator));
         return this;
     }
 

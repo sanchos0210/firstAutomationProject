@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 public class AppListPage extends BasePage {
 
     public AppListPage(WebDriver driver) {
@@ -15,6 +13,7 @@ public class AppListPage extends BasePage {
     }
 
     //row locators
+    public By checkBox = By.cssSelector("p-dtcheckbox .ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default");
     public By filesButton = By.cssSelector("actions-bar-cell .fa.fa-paperclip");
     public By actionMenu = By.cssSelector("td:nth-of-type(2) actions-bar-cell #msg-dd1 .dropdown-toggle");
     public By numberOfApp = By.cssSelector(".ui-cell-data int-cell *");
@@ -54,23 +53,27 @@ public class AppListPage extends BasePage {
     @FindBy(css = ".btn.btn-primary.btn-sm.pointer")
             public WebElement addNewButton;
 
-    @FindBy(css = "table tbody tr")
+    /*@FindBy(css = "table tbody tr")
             public List<WebElement> table;
-
+            */
     @FindBy(css = "#comment")
             public WebElement commentFieldInCancelPopUp;
 
     @FindBy(css = "button.btn.btn-danger.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left")
             public WebElement cancelButtonInCancelPopUp;
 
-    @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Approve']")
+    @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']")
             public WebElement approveButtonInApprovePopUp;
 
     @FindBy(css = "upload-popup p-dialog .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top .ui-dialog-title")
             public WebElement FilesPopup;
-
+    //-------------------------------------Steps popup locators---------------------------------------------------------
     @FindBy(css = "steps-popup p-dialog .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top .ui-dialog-title")
             public WebElement stepsPopup;
+
+    @FindBy(css = "")
+            public WebElement stepName;
+    //------------------------------------------------------------------------------------------------------------------
 
     @FindBy(xpath = "//li[@class='active'][contains(text(), 'This month')]")
             public WebElement datePickerThisMonth;

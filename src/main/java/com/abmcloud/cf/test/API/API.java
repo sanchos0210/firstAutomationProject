@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.API;
 
 import com.abmcloud.cf.test.pages.AppEditPage;
 import com.abmcloud.cf.test.pages.AppListPage;
+import com.abmcloud.cf.test.pages.CalendarPage;
 import com.abmcloud.cf.test.pages.LoginPage;
 import com.google.common.base.Function;
 import org.openqa.selenium.*;
@@ -30,18 +31,27 @@ public abstract class API {
     public static LoginPage loginPage;
     public static AppListPage appListPage;
     public static AppEditPage appEditPage;
+    public static CalendarPage calendarPage;
 
     //-----------------------------------------------CONSTANT VALUES----------------------------------------------------
     //URL constants
     public static final String TEST_PROLINE = "https://test5.cf.abmcloud.com/";
     public static final String TEST_LOTOK = "https://test12.cf.abmcloud.com";
     public static final String APP_FORM_DEMO_DB = "https://demo.cf.abmcloud.com";
-
+    public static final String APP_LIST_DEMO_DB = "https://demo5.cf.abmcloud.com";
+    public static final String CALENDAR_DEMO_DB = "https://demo12.cf.abmcloud.com";
+    //types of pages constants
+    public static final char APP_LIST = 'A';
+    public static final char CALENDAR = 'B';
     //--------------------------------------Data information about test users-------------------------------------------
     //General test user
     public static final String USER = "Alexandr Verezhevych";
     public static final String EMAIL = "indonesia.cashflow@gmail.com";
     public static final String PASSWORD = "123456";
+    //First test user
+    public static final String USER1 = "User1 Test1";
+    public static final String EMAIL1 = "user1.indonesia@gmail.com";
+    public static final String PASSWORD1 = "123456";
     //Second user
     public static final String USER2 = "User4 Test4";
     public static final String EMAIL2 = "user4.indonesia@ukr.net";
@@ -56,7 +66,9 @@ public abstract class API {
     //True and False constants
     public static final char TRUE = 'A';
     public static final char FALSE = 'B';
-
+    //Chains
+    public static final char SUM = 'A';
+    public static final char CONTRACTOR = 'B';
     //-----------------------------------Constant names of application status-------------------------------------------
     public static final String NEW = "New";
     public static final String IN_PROGRESS = "In progress";
@@ -76,22 +88,11 @@ public abstract class API {
         (new WebDriverWait(getWebDriver(), 4)).until(condition);
         getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
-/*
-    public <V> V assThat(Function<? super WebDriver, V> condition) {
-        return (new WebDriverWait(getWebDriver(), 4)).until(condition);
-    }
 
-    public WebElement $(By locator) {
-        return assThat(visibilityOfElementLocated(locator));
-    }
-
-    public WebElement $(String xpath) {
-        return $(By.xpath(xpath));
-    }
-*/
     public void checkThat(WebElement row, By locator, String text) {
         getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        (new WebDriverWait(getWebDriver(), 6)).until(ExpectedConditions.textToBePresentInElement(row.findElement(locator), text));
+        (new WebDriverWait(getWebDriver(), 6)).until(
+                ExpectedConditions.textToBePresentInElement(row.findElement(locator), text));
         getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
@@ -107,11 +108,11 @@ public abstract class API {
             }
         }
     }
-    //-----------------------------------------BaseAsserts methods----------------------------------------------------------
+    //-----------------------------------------BaseAsserts methods------------------------------------------------------
     public boolean isElementPresent(WebElement element) {
         getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         try {
-            (new WebDriverWait(getWebDriver(), 2)).until(ExpectedConditions.elementToBeClickable(element));
+            waitForElementClickable(2, element);
             return true;
         } catch (TimeoutException e) {
             return false;
@@ -120,42 +121,86 @@ public abstract class API {
         }
     }
 
+    public boolean isButtonPresentInRow(WebElement row, By buttonLocator) {
+        getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        try {
+            waitForElementClickable(2, row.findElement(buttonLocator));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        } finally {
+            getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        }
+    }
+
     public boolean compare(String referenseValue, String verificationValue) {
-        boolean s = referenseValue.equals(verificationValue);
-        return s;
+        return referenseValue.equals(verificationValue);
+    }
+
+    public boolean compare(String[][] referenseArray, String[][] verificationArray) {
+        for(int i = 0; i < verificationArray.length; i++) {
+            for(int j = 0; j < 2; j++) {
+                String referenceValue = referenseArray[i][j];
+                String verificationValue = verificationArray[i][j];
+                if(referenceValue == null & verificationValue == null) break;
+                Asserts asserts = new Asserts();
+                asserts.assertTrue(referenceValue.equals(verificationValue));
+            }
+        }
+        return true;
+    }
+
+    public boolean compare(String[] referenseArray, String[] verificationArray) {
+        for(int i = 0; i < verificationArray.length; i++) {
+            String referenceValue = referenseArray[i];
+            String verificationValue = verificationArray[i];
+            if(referenceValue == null & verificationValue == null) break;
+            Asserts asserts = new Asserts();
+            asserts.assertTrue(referenceValue.equals(verificationValue));
+        }
+        return true;
     }
     //--------------------------------------------Waiters---------------------------------------------------------------
 
 
     public void loginWait() {
         getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        //(new WebDriverWait(getWebDriver(), 20)).until(ExpectedConditions.attributeContains
-               // (By.cssSelector("tbody tr:nth-of-type(1) td:nth-of-type(4) filter-item i"), "title", "Filter by " + CATEGORY));
         try {
-            (new WebDriverWait(getWebDriver(), 20)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("tbody td:nth-of-type(3)")));
+            waitForClickable(20, By.cssSelector("tbody td:nth-of-type(3)"));
         }catch(TimeoutException e) {
             TimeoutException a = new TimeoutException("Тест упал. Логин занял больше 20 секунд.");
-            //System.out.print("Тест упал. Логин занял больше 20 секунд.");
             throw a;
         }
         getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
-    public void waitForClicable(By locator) {
-        (new WebDriverWait(getWebDriver(), 4)).until(ExpectedConditions.elementToBeClickable(locator));
+    public void waitForClickable(By locator) {
+        waitForClickable(4, locator);
     }
 
-    public void waitForElementClicable(int seconds, WebElement element) {
+    public void waitForClickable(int seconds, By locator) {
+        (new WebDriverWait(getWebDriver(), seconds)).until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void waitForElementClickable(int seconds, WebElement element) {
         (new WebDriverWait(getWebDriver(), seconds)).until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void preloadWait() {
         getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         (new WebDriverWait(getWebDriver(), 6)).until(ExpectedConditions.attributeContains
-                (By.cssSelector("div#preloader"), "style", "display: block; background: none rgba(0, 0, 0, 0.7);"));
+                (By.cssSelector("div#preloader"), "style",
+                        "display: block; background: none rgba(0, 0, 0, 0.7);"));
         (new WebDriverWait(getWebDriver(), 6)).until(ExpectedConditions.attributeContains
-                (By.cssSelector("div#preloader"), "style", "display: none; background: none;"));
+                (By.cssSelector("div#preloader"), "style",
+                        "display: none; background: none;"));
         getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+    }
+
+    public void calendarPreloadWait() {
+        verificationThat(ExpectedConditions.attributeContains(By.cssSelector("spec-loader #calendarLoader"), "style", "display: block;"));
+        verificationThat(ExpectedConditions.attributeContains(By.cssSelector("spec-loader #calendarLoader"), "style", "display: none;"));
+        waitForClickable(5, By.cssSelector(".cell-gr1 calendar-table-cell"));
     }
 
     class ProxiedWebElement implements WebElement{

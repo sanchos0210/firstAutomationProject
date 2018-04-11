@@ -14,4 +14,8 @@ public class CatalogField extends BaseField {
         WebElement selectedValue = getField(nameOfField).findElement(By.cssSelector("a"));
         return selectedValue.getText();
     }
+
+    public WebElement getItem(String nameOfItem) {
+        return $(By.xpath("//span[contains(text(), '"+nameOfItem+"')]//parent::*//parent::*"));
+    }
 }
