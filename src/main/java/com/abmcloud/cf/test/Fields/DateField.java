@@ -19,6 +19,10 @@ public class DateField extends BaseField {
         return $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::span//span"));
     }
 
+    public String getTCHValue(String nameOfField) {
+        return getTCHField(nameOfField).getText();
+    }
+
     public WebElement getDateInDatePicker(WebElement datePicker, String date) {
         WebElement soughtDate = null;
         List<WebElement> datesInThisMonth = datePicker.findElements(By.xpath(".//*[@class = 'calendar left single']//table[@class = 'table-condensed']//td[@class = 'available' or @class = 'weekend available']"));

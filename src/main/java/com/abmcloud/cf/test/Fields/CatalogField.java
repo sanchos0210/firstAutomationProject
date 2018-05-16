@@ -16,6 +16,6 @@ public class CatalogField extends BaseField {
     }
 
     public WebElement getItem(String nameOfItem) {
-        return $(By.xpath("//span[contains(text(), '"+nameOfItem+"')]//parent::*//parent::*"));
+        return $(By.xpath("//directoryelement//span[contains(text(), '"+nameOfItem+"')]//parent::*//parent::*"));
     }
 }

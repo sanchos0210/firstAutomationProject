@@ -43,6 +43,12 @@ public class AppListPage extends BasePage {
     @FindBy(css = ".col-xs-12.col-sm-4.col-md-4.col-lg-4.border-left .dropdown-item:nth-of-type(2) *")
     public WebElement createdByMeButton;
 
+    @FindBy(css = ".col-xs-12.col-sm-4.col-md-4.col-lg-4.border-left .dropdown-item:nth-of-type(3) *")
+    public WebElement approved;
+
+    @FindBy(css = ".col-xs-12.col-sm-5.col-md-5.col-lg-5.border-left .dropdown-item:nth-of-type(1) *")
+    public WebElement approvedByMe;
+
     @FindBy(css = ".col-xs-12.col-sm-5.col-md-5.col-lg-5.border-left .dropdown-item:nth-of-type(2) *")
     public WebElement onMyApprovalButton;
 
@@ -74,10 +80,4 @@ public class AppListPage extends BasePage {
     @FindBy(css = "")
             public WebElement stepName;
     //------------------------------------------------------------------------------------------------------------------
-
-    @FindBy(xpath = "//li[@class='active'][contains(text(), 'This month')]")
-            public WebElement datePickerThisMonth;
-
-    @FindBy(css = "[name='daterangeInput'] *")
-            public WebElement selectedDate;
 }

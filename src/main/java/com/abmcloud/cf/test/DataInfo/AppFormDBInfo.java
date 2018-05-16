@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AppFormDBInfo extends EditAppData {
 
+
     public AppFormDBInfo() {
         this.driver = BaseTest.driver;
         PageFactory.initElements(this.driver, this);
@@ -21,6 +22,12 @@ public class AppFormDBInfo extends EditAppData {
 
     @FindBy(xpath = "//*[contains(text(), 'Prepare Payments 3')]")
     public WebElement preparePayments3;
+
+    @FindBy(xpath = "//*[contains(text(), 'Prepare Payments 4')]")
+    public WebElement preparePayments4;
+
+    @FindBy(xpath = "//*[contains(text(), 'Prepare Payments 5')]")
+    public WebElement preparePayments5;
     //-------------------------------------------Catalog field 3--------------------------------------------------------
     public String catalogField3 = "Catalog field 3";
 

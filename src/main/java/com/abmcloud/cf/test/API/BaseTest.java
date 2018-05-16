@@ -141,7 +141,12 @@ public class BaseTest extends API {
         calendarPage = new CalendarPage(driver);
         steps = new LoginSteps(driver);
     }
-
+/*
+    @AfterMethod
+    public void clearCookies() {
+        driver.manage().deleteAllCookies();
+    }
+*/
     @AfterMethod
     public void tearDown() {
         // Close all browser windows and safely end the session

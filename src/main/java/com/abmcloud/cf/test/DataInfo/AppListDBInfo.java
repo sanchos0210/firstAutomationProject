@@ -47,6 +47,10 @@ public class AppListDBInfo extends EditAppData {
                 contractorItem = val;
                 break;
             }
+            case 'C': {
+                sum = "10000";
+                contractorItem = "Контрагент 2";
+            }
         }
     }
 

@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DataInfo.EditAppData;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,7 @@ public class AppListSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Кликаем на кнопку \"Новая заявка\"")
     public AppFormSteps createAppButtonClick() {
         appListPage.addNewButton.click();
         waitForElementClickable(4, appEditPage.editPopupTitle);
@@ -101,6 +103,27 @@ public class AppListSteps extends BaseSteps {
     }
 
     //------------------------------------Global filter steps-----------------------------------------------------------
+
+    public AppListSteps openAvailableToMe() {
+        appListPage.globalFilter.click();
+        appListPage.availibleToMe.click();
+        preloadWait();
+        return this;
+    }
+
+    public AppListSteps openApproved() {
+        appListPage.globalFilter.click();
+        appListPage.approved.click();
+        preloadWait();
+        return this;
+    }
+
+    public AppListSteps openApprovedByMe() {
+        appListPage.globalFilter.click();
+        appListPage.approvedByMe.click();
+        preloadWait();
+        return this;
+    }
 
     public AppListSteps openOnMyApproval() {
         appListPage.globalFilter.click();

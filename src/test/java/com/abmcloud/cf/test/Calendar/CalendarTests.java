@@ -31,7 +31,7 @@ public class CalendarTests extends BaseTest {
                 .assertPaid(getTodayFullDate(), "(1 000)");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 10)
     public void changePaymentDateInRegistry() {
         steps
                 .open(CALENDAR_DEMO_DB)
@@ -44,7 +44,36 @@ public class CalendarTests extends BaseTest {
                 .checkAppWithNumber(numberOfCreatedApp)
                 .changePaymentDate(getTomorrowDate())
                 .closeRegistry()
-                .clickOnSum(getTomorrowFullDate(), "Организация 1", 'B')
+                .clickOnSum(getTomorrowFullDate(), "Организация 1", OUTCOME)
                 .checkAppWithNumber(numberOfCreatedApp);
     }
+
+    @Test(priority = 20)
+    public void checkPeriodFilterVisibility() {
+       steps
+                .open(CALENDAR_DEMO_DB)
+                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .openCalendar(calendarDBInfo.calendarMenuButton)
+                .clickOnPeriodFilter()
+               .asserts()
+               .assertTextInElement(calendarPage.datePickerToday, "Сегодня")
+               .assertTextInElement(calendarPage.datePickerThisMonth, "Этот месяц")
+               .assertTextInElement(calendarPage.datePickerThisYear, "Этот год")
+               .assertTextInElement(calendarPage.datePickerLastMonth, "Прошлый месяц")
+               .assertTextInElement(calendarPage.datePickerLastYear, "Прошлый год");
+    }
+/*
+    @Test(priority = 30)
+    public void checkPeriodicityFilterVisibility() {
+        steps
+                .open(CALENDAR_DEMO_DB)
+                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .openCalendar(calendarDBInfo.calendarMenuButton)
+                //.clickOnPeriodicityFilter()
+                .asserts()
+                .assertTextInElement(calendarPage.periodicityByDays, "по дням")
+                .assertTextInElement(calendarPage.periodicityByWeeks, "по неделям")
+                .assertTextInElement(calendarPage.periodicityByMonth, "по месяцам")
+                .assertTextInElement(calendarPage.periodicityByYears, "по годам");
+    }*/
 }

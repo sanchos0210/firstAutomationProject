@@ -1,8 +1,10 @@
 package com.abmcloud.cf.test.steps;
 
-import com.abmcloud.cf.test.DataInfo.UsersData;
 import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.DataInfo.UsersData;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps extends BaseSteps {
@@ -13,6 +15,7 @@ public class LoginSteps extends BaseSteps {
         this.driver = driver;
     }
 
+    @Step("Заходим на страницу логина")
     public LoginSteps open(String url) {
         driver.get(url);
         return this;
@@ -31,10 +34,13 @@ public class LoginSteps extends BaseSteps {
         return  new AppListSteps();
     }
 
+    @Step("Логинимся")
     public AppListSteps loginAs(UsersData user) {
-        login(user.getUserEmail(), user.getUserPassword());
-        loginWait();
-        BaseTest.activeUser = user;
+        try {
+            login(user.getUserEmail(), user.getUserPassword());
+            loginWait();
+            BaseTest.activeUser = user;
+        }catch(NoSuchElementException e) {}
         return  new AppListSteps();
     }
 

@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.API;
 
 import com.abmcloud.cf.test.steps.AppFormSteps;
 import com.abmcloud.cf.test.steps.AppListSteps;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class Asserts extends API {
         return this;
     }
 
+    @Step("Проверка")
     public Asserts assertFalse(boolean condition) {
         Assert.assertFalse(condition);
         return this;

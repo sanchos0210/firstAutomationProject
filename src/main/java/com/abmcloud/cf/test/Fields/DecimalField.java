@@ -3,6 +3,8 @@ package com.abmcloud.cf.test.Fields;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class DecimalField extends BaseField {
 
     public WebElement getField(String nameOfField) {
@@ -10,9 +12,22 @@ public class DecimalField extends BaseField {
     }
 
     public String getValue(String nameOfField) {
-        WebElement headerOfDecimalField = getField(nameOfField).findElement(By.xpath(".//parent::div//parent::div//parent::decimal-field"));
+        return getValue(getField(nameOfField));
+    }
+
+    private String getValue(WebElement field) {
+        WebElement headerOfDecimalField = field.findElement(By.xpath(".//parent::div//parent::div//parent::decimal-field"));
         String decimalValue = headerOfDecimalField.getAttribute("ng-reflect-value");
+        if(decimalValue == null) decimalValue = "";
         return decimalValue;
+    }
+
+    public String getTCHValue(String nameOfField) {
+        return getValue(getTCHField(nameOfField));
+    }
+
+    public String getTCHValue(String nameOfField, int rowNumber) {
+        return getValue(getTCHField(nameOfField, rowNumber));
     }
 
     public boolean isDisabled(String nameOfField) {
@@ -30,13 +45,11 @@ public class DecimalField extends BaseField {
     }
 
     public WebElement getTCHField(String nameOfField) {
-        return $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//input"));
+        return getTCHField(nameOfField, 1);
     }
 
-    public String getValueTCH(String nameOfField) {
-        WebElement headerOfDecimalField = getTCHField(nameOfField).findElement(By.xpath(".//parent::div//parent::div//parent::decimal-field"));
-        String decimalValue = headerOfDecimalField.getAttribute("ng-reflect-value");
-        if(decimalValue == null) decimalValue = "";
-        return decimalValue;
+    public WebElement getTCHField(String nameOfField, int rowNumber) {
+        List<WebElement> decimalTCHFields = $$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//*[@class='relative d-flex']/input"));
+        return decimalTCHFields.get(rowNumber-1);
     }
 }

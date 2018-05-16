@@ -9,7 +9,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -63,12 +62,12 @@ public abstract class API {
     //Localize information
     public static final char EN = 'A';
     public static final char RU = 'B';
-    //True and False constants
-    public static final char TRUE = 'A';
-    public static final char FALSE = 'B';
-    //Chains
+    //Fields
     public static final char SUM = 'A';
     public static final char CONTRACTOR = 'B';
+    public static final char CONTRACTOR_AND_SUM = 'C';
+    public static final char INCOME = 'A';
+    public static final char OUTCOME = 'B';
     //-----------------------------------Constant names of application status-------------------------------------------
     public static final String NEW = "New";
     public static final String IN_PROGRESS = "In progress";
@@ -78,9 +77,6 @@ public abstract class API {
     public static final char SEND_FOR_APPROVAL = 'A';
     public static final char APPROVE = 'C';
     public static final char CANCEL = 'E';
-    //--------------------------------Constant attributes of fields in edit popup---------------------------------------
-    public static final String IS_DISABLE = "readonly";
-    public static final String CURRENT_VALUE = "ng-reflect-value";
 
     //--------------------------------------------BaseAsserts---------------------------------------------------------------
     public void verificationThat(ExpectedCondition<Boolean> condition) {
@@ -94,19 +90,6 @@ public abstract class API {
         (new WebDriverWait(getWebDriver(), 6)).until(
                 ExpectedConditions.textToBePresentInElement(row.findElement(locator), text));
         getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-    }
-
-    public void verificationOf(boolean condition, char typeOfVerification) {
-        switch(typeOfVerification) {
-            case 'A': {
-                Assert.assertTrue(condition);
-                break;
-            }
-            case 'B': {
-                Assert.assertFalse(condition);
-                break;
-            }
-        }
     }
     //-----------------------------------------BaseAsserts methods------------------------------------------------------
     public boolean isElementPresent(WebElement element) {
@@ -168,8 +151,9 @@ public abstract class API {
         try {
             waitForClickable(20, By.cssSelector("tbody td:nth-of-type(3)"));
         }catch(TimeoutException e) {
-            TimeoutException a = new TimeoutException("Тест упал. Логин занял больше 20 секунд.");
-            throw a;
+            /*TimeoutException a = new TimeoutException("Тест упал. Логин занял больше 20 секунд.");
+            throw a;*/
+            System.out.println("Неуспешный логин или в списке нету заявок");
         }
         getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
@@ -202,6 +186,7 @@ public abstract class API {
         verificationThat(ExpectedConditions.attributeContains(By.cssSelector("spec-loader #calendarLoader"), "style", "display: none;"));
         waitForClickable(5, By.cssSelector(".cell-gr1 calendar-table-cell"));
     }
+    //------------------------------------------------------------------------------------------------------------------
 
     class ProxiedWebElement implements WebElement{
 
@@ -291,6 +276,7 @@ public abstract class API {
             }
         }
     }
+    //------------------------------------------------------------------------------------------------------------------
 
     private Object newElementFinderProxyInstance(Object obj, By elementLocator){
         return java.lang.reflect.Proxy.newProxyInstance(
@@ -307,6 +293,7 @@ public abstract class API {
         return $(By.cssSelector(cssSelector));
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     class ListOfWebElementsBait implements List<WebElement>{
 
         public int size() {
@@ -426,8 +413,6 @@ public abstract class API {
                 obj.getClass().getInterfaces(),
                 new ElementsFinderProxy(elementsLocator));
     }
-
-
 
     protected List<WebElement> $$(By locator){
         return (List<WebElement>) newElementsFinderProxyInstance(new ListOfWebElementsBait(), locator);

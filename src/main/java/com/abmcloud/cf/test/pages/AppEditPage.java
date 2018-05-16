@@ -7,6 +7,18 @@ import org.openqa.selenium.support.FindBy;
 
 public class AppEditPage extends BasePage {
 
+    @FindBy(css = ".btn.btn-xs.btn-success.pointer.add_line")
+    public WebElement addNewLine;
+
+    @FindBy(css = "desktop-buttons .no-border.pointer.option_btn .fa.fa-paperclip")
+    public WebElement filesTab;
+
+    @FindBy(css = ".ui-fileupload-choose.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left input")
+    public WebElement addFileInput;
+
+    @FindBy(css = ".ui-message.ui-messages-success")
+    public WebElement addFileNotification;
+
     public AppEditPage(WebDriver driver) {
         super(driver);
     }
@@ -30,7 +42,7 @@ public class AppEditPage extends BasePage {
     @FindBy(css = ".absolute.pointer.slide_info.slide_info-left")
             public WebElement showInformationBlock;
 
-    @FindBy(css = "button.no-border.option_btn.option_btn-save")
+    @FindBy(css = ".option_btn-save.pointer.no-border.save_standard")
             public WebElement saveButton;
 
     @FindBy(css = ".no-border.pointer.option_btn.option_btn-cancel")
@@ -50,7 +62,7 @@ public class AppEditPage extends BasePage {
             "or @class='today weekend active start-date active end-date available']/preceding::td[1]")
             public WebElement yesterdayDate;
 
-    @FindBy(css = ".col-xs-2.col-md-2.select_bool.input__switch p-inputswitch")
+    @FindBy(xpath = "//bool-field[@ng-reflect-key='in_out']//bool-select-button//*[@class='pointer select_btn']")
             public WebElement inOutSwitch;
 
     @FindBy(css = "desktop-buttons .btn.btn-default.no-border.pointer.close_btn")

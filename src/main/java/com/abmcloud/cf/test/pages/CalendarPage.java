@@ -31,4 +31,19 @@ public class CalendarPage extends BasePage {
 
     @FindBy(xpath = "//*[@class = 'action_panel']//text()[not(ancestor::i) and contains(., 'Утвердить')]//parent::*")
     public WebElement approveButton;
+
+    @FindBy(css = "*[title='Изменить периодичность']")
+    public WebElement periodicityButton;
+
+    @FindBy(css = ".text-warning.datepicker_in_header.pointer.ng-pristine.ng-valid.ng-touched *:nth-of-type(1)")
+    public WebElement periodicityByDays;
+
+    @FindBy(css = "date-picker .text-warning.datepicker_in_header.pointer.ng-pristine.ng-valid.ng-touched *:nth-of-type(2)")
+    public WebElement periodicityByWeeks;
+
+    @FindBy(css = "date-picker .text-warning.datepicker_in_header.pointer.ng-pristine.ng-valid.ng-touched *:nth-of-type(3)")
+    public WebElement periodicityByMonth;
+
+    @FindBy(css = "date-picker .text-warning.datepicker_in_header.pointer.ng-pristine.ng-valid.ng-touched *:nth-of-type(4)")
+    public WebElement periodicityByYears;
 }

@@ -1,9 +1,11 @@
 package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AppFormSteps extends BaseSteps {
 
@@ -100,6 +102,7 @@ public class AppFormSteps extends BaseSteps {
         return new AppListSteps();
     }
 
+    @Step("Открываем инфо блок")
     public AppFormSteps showInformationBlockClick() {
         waitForElementClickable(2, appEditPage.showInformationBlock);
         appEditPage.showInformationBlock.click();
@@ -110,9 +113,32 @@ public class AppFormSteps extends BaseSteps {
         appEditPage.changesHistory.click();
         return this;
     }
+
+    public AppFormSteps openTab(String nameOfTab) {
+        $(By.xpath("//*[@class='no-border pointer option_btn']/*[contains(text(), '"+nameOfTab+"')]")).click();
+        verificationThat(ExpectedConditions.attributeContains(                      //проверка, что вкладка открыта
+                $(By.xpath("//*[contains(text(), '"+nameOfTab+"')]//parent::button")),
+                "class", "no-border pointer option_btn btn-active"));
+        return this;
+    }
     //-----------------------------------BaseAsserts for edit application steps---------------------------------------------
     public AppFormSteps assertThat(ExpectedCondition<Boolean> condition) {
         verificationThat(condition);
+        return this;
+    }
+
+    public AppFormSteps addNewLineClick() {
+        appEditPage.addNewLine.click();
+        return this;
+    }
+
+    public AppFormSteps openFilesTab() {
+        appEditPage.filesTab.click();
+        return this;
+    }
+
+    public AppFormSteps addFile(String wayToFile) {
+        appEditPage.addFileInput.sendKeys(wayToFile);
         return this;
     }
 }

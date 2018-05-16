@@ -10,6 +10,16 @@ import java.util.List;
 
 public class CalendarSteps extends BaseSteps {
 
+    public CalendarSteps clickOnPeriodFilter() {
+        calendarPage.periodButton.click();
+        return this;
+    }
+
+    public CalendarSteps clickOnPeriodicityFilter() {
+        calendarPage.periodicityButton.click();
+        return this;
+    }
+
     public CalendarSteps openRegistry() {
         calendarPage.reestrButton.click();
         waitForElementClickable(3, calendarPage.headerOfRegistry);
@@ -48,6 +58,7 @@ public class CalendarSteps extends BaseSteps {
         dateField.getDateInDatePicker($(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()]")), date).click();
         calendarPage.changePaymentDateApproveButton.click();
         waitForElementClickable(3, calendarPage.headerOfRegistry);
+        appListPage.applSavedNotification.click();
         return this;
     }
 

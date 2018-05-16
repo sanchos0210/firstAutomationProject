@@ -27,4 +27,23 @@ public class BasePage extends API {
 
     @FindBy(css = "ul.dropdown-menu.top-dropdown-menu.profile-dropdown li.dropdown-item span.signout")
     public WebElement signOutButton;
+
+    //---------------------------------------------------Date picker----------------------------------------------------
+    @FindBy(css = "[name='daterangeInput'] *")
+    public WebElement periodButton;
+
+    @FindBy(xpath = "//*[@class='daterangepicker dropdown-menu ltr show-calendar opensleft'][last()]//li[contains(text(), 'Сегодня')]")
+    public WebElement datePickerToday;
+
+    @FindBy(xpath = "//*[@class='daterangepicker dropdown-menu ltr show-calendar opensleft'][last()]//li[contains(text(), 'Этот месяц')]")
+    public WebElement datePickerThisMonth;
+
+    @FindBy(xpath = "//*[@class='daterangepicker dropdown-menu ltr show-calendar opensleft'][last()]//li[contains(text(), 'Этот год')]")
+    public WebElement datePickerThisYear;
+
+    @FindBy(xpath = "//*[@class='daterangepicker dropdown-menu ltr show-calendar opensleft'][last()]//li[contains(text(), 'Прошлый месяц')]")
+    public WebElement datePickerLastMonth;
+
+    @FindBy(xpath = "//*[@class='daterangepicker dropdown-menu ltr show-calendar opensleft'][last()]//li[contains(text(), 'Прошлый год')]")
+    public WebElement datePickerLastYear;
 }

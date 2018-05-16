@@ -17,7 +17,7 @@ public class BooleanField extends BaseField {
     }
 
     public WebElement getField(String nameOfField) {
-        WebElement booleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*//*[@class='d-inline-block pointer select_btn']"));
+        WebElement booleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*//*[@class='pointer select_btn']"));
         return booleanField;
     }
 
@@ -32,6 +32,24 @@ public class BooleanField extends BaseField {
     public boolean isDisable(String nameOfField) {
         try {
             getField(nameOfField).click();
+            return false;
+        }catch(TimeoutException e) {
+            return true;
+        }
+    }
+
+    public String getInOutValue() {
+        String inOutValue;
+        if($((("bool-field[ng-reflect-key='in_out']"))).getAttribute("ng-reflect-value").equals("false")) {
+            inOutValue = "Outflow";
+        }
+        else inOutValue = "Inflow";
+        return inOutValue;
+    }
+
+    public boolean isInOutDisable() {
+        try {
+            $("bool-field[ng-reflect-key='in_out'] .pointer.select_btn").click();
             return false;
         }catch(TimeoutException e) {
             return true;
