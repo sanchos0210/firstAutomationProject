@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -21,6 +21,7 @@ public class LoginSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Попробовать залогинится")
     public LoginSteps login(String email, String pass) {
         loginPage.emailInput.sendKeys(email);
         loginPage.passwordInput.sendKeys(pass);
@@ -28,13 +29,14 @@ public class LoginSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Залогинится")
     public AppListSteps loginWithSuccessful(String email, String pass) {
         login(email, pass);
         loginWait();
         return  new AppListSteps();
     }
 
-    @Step("Логинимся")
+    @Step("Залогинится")
     public AppListSteps loginAs(UsersData user) {
         try {
             login(user.getUserEmail(), user.getUserPassword());
@@ -44,6 +46,7 @@ public class LoginSteps extends BaseSteps {
         return  new AppListSteps();
     }
 
+    @Step("Залогинится по кнопке Enter")
     public AppListSteps loginWithEnter(String email, String pass) {
         loginPage.emailInput.sendKeys(email);
         loginPage.passwordInput.sendKeys(pass + Keys.ENTER);
@@ -51,6 +54,7 @@ public class LoginSteps extends BaseSteps {
         return  new AppListSteps();
     }
 
+    @Step("Кликнуть на \"Забыл пароль\"")
     public LoginSteps forgotYourPasswordClick() {
         loginPage.forgotYourPassword.click();
         return this;

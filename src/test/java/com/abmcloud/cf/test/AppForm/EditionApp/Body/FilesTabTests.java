@@ -1,8 +1,8 @@
 package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.AppFormDBInfo;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class FilesTabTests extends BaseTest {

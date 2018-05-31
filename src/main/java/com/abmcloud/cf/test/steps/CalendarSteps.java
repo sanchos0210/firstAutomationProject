@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.Fields.DateField;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -10,22 +11,26 @@ import java.util.List;
 
 public class CalendarSteps extends BaseSteps {
 
+    @Step("Проверить период")
     public CalendarSteps clickOnPeriodFilter() {
         calendarPage.periodButton.click();
         return this;
     }
 
+    @Step("Открыть фильтр \"Период\"")
     public CalendarSteps clickOnPeriodicityFilter() {
         calendarPage.periodicityButton.click();
         return this;
     }
 
+    @Step("Открыть Реестр")
     public CalendarSteps openRegistry() {
         calendarPage.reestrButton.click();
         waitForElementClickable(3, calendarPage.headerOfRegistry);
         return this;
     }
 
+    @Step("Открыть реестр на дату:")
     public CalendarSteps changeDateInRegistryOn(String date) {
         calendarPage.dateInRegistry.click();
         DateField dateField = new DateField();
@@ -33,6 +38,7 @@ public class CalendarSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Выбрать платежку с номером:")
     public CalendarSteps checkAppWithNumber(String numberOfApp) {
         AppListSteps appListSteps = new AppListSteps();
         appListSteps.selectAppByNumberInTable(numberOfApp, $$(By.cssSelector("table.appl_table.bg_on_hover tbody tr")));
@@ -40,18 +46,21 @@ public class CalendarSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Оплатить выбранные платежки")
     public CalendarSteps payButtonClick() {
         calendarPage.pauButton.click();
         waitForElementClickable(3, calendarPage.headerOfRegistry);
         return this;
     }
 
+    @Step("Закрыть реестр")
     public CalendarSteps closeRegistry() {
         calendarPage.closeRegistry.click();
         calendarPreloadWait();
         return this;
     }
 
+    @Step("Изменить дату оплаты в реестре на:")
     public CalendarSteps changePaymentDate(String date) {
         DateField dateField = new DateField();
         dateField.getField("Сменить дату оплаты").click();
@@ -110,6 +119,7 @@ public class CalendarSteps extends BaseSteps {
         return cellsInRow;
     }
 
+    @Step("Расшифровать сумму с нужными датой, группировкой и инаутом")
     public CalendarSteps clickOnSum(String date, String rowGroup, char in_out) {
         List<WebElement> cells = getCellsInRowWithGroup(getRowsBy(in_out), rowGroup);
         try {
@@ -121,6 +131,7 @@ public class CalendarSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Проверить оплату на дату с суммой:")
     public CalendarSteps assertPaid(String date, String sum) {
         List<WebElement> paidCells = getPaidCells();
         String verSum = paidCells.get(getNumOfCellInRowForDate(date)).findElement(By.cssSelector("b")).getText();

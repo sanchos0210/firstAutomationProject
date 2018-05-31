@@ -1,8 +1,8 @@
 package com.abmcloud.cf.test.AppList.BuisnessProcessTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.AppListDBInfo;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppListDBInfo;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class ChainsStepsTests extends BaseTest {

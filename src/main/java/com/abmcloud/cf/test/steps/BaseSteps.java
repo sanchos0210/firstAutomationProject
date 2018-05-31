@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.API;
 import com.abmcloud.cf.test.API.Asserts;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -28,11 +29,13 @@ public class BaseSteps extends API {
         }
     }
 
+    @Step("Открыть список заявок:")
     public AppListSteps openAppList(WebElement menuButton) {
         openMenuTab(menuButton, APP_LIST);
         return new AppListSteps();
     }
 
+    @Step("Открыть календарь:")
     public CalendarSteps openCalendar(WebElement menuButton) {
         openMenuTab(menuButton, CALENDAR);
         return new CalendarSteps();

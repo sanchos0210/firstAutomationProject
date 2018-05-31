@@ -36,8 +36,8 @@ public abstract class API {
     //URL constants
     public static final String TEST_PROLINE = "https://test5.cf.abmcloud.com/";
     public static final String TEST_LOTOK = "https://test12.cf.abmcloud.com";
-    public static final String APP_FORM_DEMO_DB = "https://demo.cf.abmcloud.com";
-    public static final String APP_LIST_DEMO_DB = "https://demo5.cf.abmcloud.com";
+    public static final String APP_FORM_DEMO_DB = "https://test12.cf.abmcloud.com";
+    public static final String APP_LIST_DEMO_DB = "https://test.cf.abmcloud.com";
     public static final String CALENDAR_DEMO_DB = "https://demo12.cf.abmcloud.com";
     //types of pages constants
     public static final char APP_LIST = 'A';
@@ -66,6 +66,7 @@ public abstract class API {
     public static final char SUM = 'A';
     public static final char CONTRACTOR = 'B';
     public static final char CONTRACTOR_AND_SUM = 'C';
+    public static final char ALL_FIELDS_ARE_FILLED = 'D';
     public static final char INCOME = 'A';
     public static final char OUTCOME = 'B';
     //-----------------------------------Constant names of application status-------------------------------------------

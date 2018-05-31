@@ -1,8 +1,8 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.AppFormDBInfo;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.Fields.*;
 import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.testng.annotations.BeforeMethod;
@@ -233,13 +233,13 @@ public class FieldsValidation extends BaseTest {
                 .catalogElementClick(appFormDB.value1)
                 .edit(appFormDB.decimalField3, "150")
                 .edit(appFormDB.stringField3, "text3")
-                .catalogElementClick(appFormDB.catalogField2)
+                .catalogElementClick(appFormDB.CATALOG_FIELD)
                 .catalogElementClick(appFormDB.contractor1)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts().assertValueOfBooleanField(appFormDB.booleanField3, "true");
-                .clearCatalogValue(appFormDB.catalogField2)
+                .clearCatalogValue(appFormDB.CATALOG_FIELD)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)

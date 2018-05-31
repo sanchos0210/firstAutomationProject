@@ -1,8 +1,8 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.AppFormDBInfo;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.Fields.DecimalField;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

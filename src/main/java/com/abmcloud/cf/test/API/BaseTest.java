@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.API;
 
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppField;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.pages.AppEditPage;
 import com.abmcloud.cf.test.pages.AppListPage;
 import com.abmcloud.cf.test.pages.CalendarPage;
@@ -33,6 +34,8 @@ public class BaseTest extends API {
     public static String statusOfSelectedApp;
     public static String numberOfCreatedApp;
     public static String textOfNotification;
+
+    public static List<AppField> fieldsToFill = null;
 
     @Override
     public WebDriver getWebDriver() {

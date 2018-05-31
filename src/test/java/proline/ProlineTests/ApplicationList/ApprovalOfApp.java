@@ -1,7 +1,7 @@
 package proline.ProlineTests.ApplicationList;
 
-import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.EditAppDataProline;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.Test;
 

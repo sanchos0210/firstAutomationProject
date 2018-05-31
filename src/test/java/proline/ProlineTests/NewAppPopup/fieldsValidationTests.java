@@ -1,14 +1,14 @@
 package proline.ProlineTests.NewAppPopup;
 
-import com.abmcloud.cf.test.DataInfo.EditAppDataLotok;
-import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.EditAppDataLotok;
+import com.abmcloud.cf.test.DBInfo.EditAppDataProline;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.Fields.DateField;
 import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.abmcloud.cf.test.DataInfo.EditAppDataProline.*;
+import static com.abmcloud.cf.test.DBInfo.EditAppDataProline.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 
 public class fieldsValidationTests extends BaseTest {
@@ -111,16 +111,16 @@ public class fieldsValidationTests extends BaseTest {
                 .open(TEST_LOTOK)
                 .loginAs(new UsersData("тест Заявитель", "buysome@ukr.net", "123456", RU))
                 .createAppButtonClick()
-                .catalogElementClick(editAppDataLotok.article)
+                .catalogElementClick(editAppDataLotok.articleFieldName)
                 .catalogElementClick(editAppDataLotok.incomeFolder)
                 .catalogElementClick(editAppDataLotok.banksPerCent)
                 .type("5000", editAppDataLotok.summField)
-                .catalogElementClick(editAppDataLotok.contractor)
+                .catalogElementClick(editAppDataLotok.contractorFieldName)
                 .catalogElementClick(editAppDataLotok.supliersFolder)
                 .catalogElementClick(editAppDataLotok.firstResult)
                 .catalogElementClick(editAppDataLotok.calcAccount)
                 .catalogElementClick(editAppDataLotok.firstResult)
-                .catalogElementClick(editAppDataLotok.agreement)
+                .catalogElementClick(editAppDataLotok.agreementFieldName)
                 .catalogElementClick(editAppDataLotok.firstResult)
                 .type("56987", editAppDataLotok.accountsSummField)
                 .saveApplication()
@@ -136,16 +136,16 @@ public class fieldsValidationTests extends BaseTest {
                 .loginAs(new UsersData("тест Заявитель", "buysome@ukr.net", "123456", RU))
                 .createAppButtonClick()
                 .booleanButtonClick(editAppDataLotok.incomeBooleanButton)
-                .catalogElementClick(editAppDataLotok.article)
+                .catalogElementClick(editAppDataLotok.articleFieldName)
                 .catalogElementClick(editAppDataLotok.incomeFolder)
                 .catalogElementClick(editAppDataLotok.banksPerCent)
                 .type("5000", editAppDataLotok.summField)
-                .catalogElementClick(editAppDataLotok.contractor)
+                .catalogElementClick(editAppDataLotok.contractorFieldName)
                 .catalogElementClick(editAppDataLotok.supliersFolder)
                 .catalogElementClick(editAppDataLotok.firstResult)
                 .catalogElementClick(editAppDataLotok.calcAccount)
                 .catalogElementClick(editAppDataLotok.firstResult)
-                .catalogElementClick(editAppDataLotok.agreement)
+                .catalogElementClick(editAppDataLotok.agreementFieldName)
                 .catalogElementClick(editAppDataLotok.firstResult)
                 .type("56987", editAppDataLotok.accountsSummField)
                 .saveApplication()

@@ -1,4 +1,4 @@
-package com.abmcloud.cf.test.DataInfo;
+package com.abmcloud.cf.test.DBInfo;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.steps.AppFormSteps;
@@ -65,18 +65,18 @@ public class EditAppDataLotok extends EditAppData {
 
     public void createApp() {
         AppFormSteps appFormSteps = new AppFormSteps();
-        article.click();        //click on article catalog field
+        article.click();        //click on articleFieldName catalog field
         appFormSteps.catalogElementClick(incomeFolder)   //click on folder "Income"
-                    .catalogElementClick(banksPerCent);    //now we already choose article for application
+                    .catalogElementClick(banksPerCent);    //now we already choose articleFieldName for application
         summField.sendKeys("5000");
         accountsSummField.sendKeys("5243");
         contractor.click();
         appFormSteps.catalogElementClick(supliersFolder)
-                    .catalogElementClick(firstResult);        //now we already choose contractor for application
+                    .catalogElementClick(firstResult);        //now we already choose contractorFieldName for application
         calcAccount.click();
         appFormSteps.catalogElementClick(firstResult);        //now we already choose calculation account for application
         agreement.click();
-        appFormSteps.catalogElementClick(firstResult);        //now we already choose agreement account for application
+        appFormSteps.catalogElementClick(firstResult);        //now we already choose agreementFieldName account for application
         appEditPage.saveButton.click();
     }
 }

@@ -1,4 +1,4 @@
-package com.abmcloud.cf.test.DataInfo;
+package com.abmcloud.cf.test.DBInfo;
 
 public class UsersData {
 

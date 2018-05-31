@@ -1,13 +1,13 @@
 package proline.ProlineTests;
 
-import com.abmcloud.cf.test.DataInfo.EditAppDataProline;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.EditAppDataProline;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.abmcloud.cf.test.DataInfo.EditAppDataProline.*;
+import static com.abmcloud.cf.test.DBInfo.EditAppDataProline.*;
 import static org.testng.Assert.assertEquals;
 
 public class CopyAppTests extends BaseTest {

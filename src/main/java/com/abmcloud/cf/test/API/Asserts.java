@@ -36,7 +36,7 @@ public class Asserts extends API {
     public Asserts checkHistoryOf(String nameOfField, String fromValue, String toValue) {
         String fromValue2;
         String toValue2;
-        WebElement assertsField = getWebDriver().findElement(By.xpath("//*[contains(text(), '"+ nameOfField +"')]//parent::legend"));
+        WebElement assertsField = $(By.xpath("//*[contains(text(), '"+ nameOfField +"')]//ancestor::legend"));
         waitForElementClickable(2, assertsField);
         assertsField.click();
         waitForElementClickable(4, assertsField.findElement(By.xpath(".//following-sibling::div//*[@class = 'backspace2X']/b[1]")));

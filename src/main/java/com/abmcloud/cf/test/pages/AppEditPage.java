@@ -30,7 +30,7 @@ public class AppEditPage extends BasePage {
     @FindBy(xpath = "//*[contains(text(), 'Changes history')]")
             public WebElement changesHistory;
 
-    @FindBy(xpath = "//*[contains(text(), 'Views history')]//parent::*")
+    @FindBy(xpath = "//div[@class='history']//p-accordiontab[last()]//*[@class='ui-accordion-toggle-icon fa fa-fw fa-caret-right']//parent::a")
             public WebElement viewsHistory;
 
     @FindBy(xpath = "//*[contains(text(), 'Approval steps')]")

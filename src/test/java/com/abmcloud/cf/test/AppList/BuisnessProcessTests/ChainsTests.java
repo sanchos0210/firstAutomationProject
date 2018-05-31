@@ -1,8 +1,8 @@
 package com.abmcloud.cf.test.AppList.BuisnessProcessTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.AppListDBInfo;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppListDBInfo;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.Fields.CatalogField;
 import org.testng.annotations.Test;
 
@@ -100,7 +100,7 @@ public class ChainsTests extends BaseTest {
                 .asserts().assertTrue(compare(appListDBInfo.chain3, getChainSteps()))
                 .getAppListStep().closeChainStepsPopup()
                 .clickOnNumberOf(selectedApp)
-                .catalogElementClick(catalogField.getField(appListDBInfo.contractor))
+                .catalogElementClick(catalogField.getField(appListDBInfo.contractorFieldName))
                 .catalogElementClick(catalogField.getItem("Контрагент 2"))
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)

@@ -1,8 +1,8 @@
 package com.abmcloud.cf.test.AppForm.CreationApp;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DataInfo.AppFormDBInfo;
-import com.abmcloud.cf.test.DataInfo.UsersData;
+import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;

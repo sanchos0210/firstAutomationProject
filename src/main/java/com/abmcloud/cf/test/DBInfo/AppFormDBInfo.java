@@ -1,4 +1,4 @@
-package com.abmcloud.cf.test.DataInfo;
+package com.abmcloud.cf.test.DBInfo;
 
 import com.abmcloud.cf.test.Fields.CatalogField;
 import com.abmcloud.cf.test.Fields.DecimalField;
