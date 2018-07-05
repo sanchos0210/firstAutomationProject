@@ -1,18 +1,8 @@
 package Listeners;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.relevantcodes.extentreports.LogStatus;
-import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-
-
-public class TestListener extends BaseTest implements ITestListener {
-
+public class TestListener {
+//public class TestListener extends BaseTest implements ITestListener {
+/*
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
@@ -100,5 +90,5 @@ public class TestListener extends BaseTest implements ITestListener {
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
         System.out.println("Test failed but it is in defined success ratio " + getTestMethodName(iTestResult));
     }
-
+*/
 }

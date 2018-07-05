@@ -1,0 +1,51 @@
+{
+  "fields_configuration_for_1st_chain":[
+    ["CATALOG_FIELD", "Статья", "Статья 1"],
+    ["DECIMAL_FIELD", "Сумма", "10000"],
+    ["CATALOG_FIELD", "Контрагент", "Контрагент 1"],
+    ["CATALOG_FIELD", "Договор", "Договор 1"]],
+  "fields_configuration_for_2nd_chain":[
+    ["CATALOG_FIELD", "Статья", "Статья 1"],
+    ["DECIMAL_FIELD", "Сумма", "150"],
+    ["CATALOG_FIELD", "Контрагент", "Контрагент 2"],
+    ["CATALOG_FIELD", "Договор", "Договор 1"]],
+  "fields_configuration_for_3rd_chain":[
+    ["CATALOG_FIELD", "Статья", "Статья 1"],
+    ["DECIMAL_FIELD", "Сумма", "150"],
+    ["CATALOG_FIELD", "Контрагент", "Контрагент 1"],
+    ["CATALOG_FIELD", "Договор", "Договор 1"],
+    ["STRING_FIELD", "Описание", "Описание"]],
+  "fields_configuration_for_cancel_chain":[
+    ["CATALOG_FIELD", "Статья", "Статья 1"],
+    ["DECIMAL_FIELD", "Сумма", "10000"],
+    ["CATALOG_FIELD", "Контрагент", "Контрагент 2"],
+    ["CATALOG_FIELD", "Договор", "Договор 1"]],
+  "fields_configuration_for_5th_chain":[
+    ["CATALOG_FIELD", "Статья", "Статья 2"],
+    ["DECIMAL_FIELD", "Сумма", "10000"],
+    ["CATALOG_FIELD", "Контрагент", "Контрагент 1"],
+    ["CATALOG_FIELD", "Договор", "Договор 1"]],
+  "fields_configuration_for_6th_chain":[
+    ["CATALOG_FIELD", "Статья", "Статья 3"],
+    ["DECIMAL_FIELD", "Сумма", "10000"],
+    ["CATALOG_FIELD", "Контрагент", "Контрагент 1"],
+    ["CATALOG_FIELD", "Договор", "Договор 1"]],
+  "cancel_chain":[["Документ создан"],["Документ отменен"], ["Отменятор"]],
+  "default_cancel_chain":[["Документ создан"],["Документ отменен"]],
+  "chain1":[["Документ создан"],["Автор"],["Первый", "Второй"],["Бухгалтер"]],
+  "chain2":[["Документ создан"],["Вместе"],["Оплачено"]],
+  "chain3":[["Документ создан"],["Казначей"]],
+  "chain5":[["Документ создан"],["Бухгалтер"], ["Оплачено"]],
+  "chain6":[["Документ создан"],["Бухгалтер"],["Автор"],["Оплачено"]],
+  "article_field_name":"Статья",
+  "sum_field_name":"Сумма",
+  "currency_field_name":"Валюта",
+  "payment_date_field_name":"Дата оплаты",
+  "contractor_field_name":"Контрагент",
+  "agreement_field_name":"Договор",
+  "payment_type_field_name":"Тип оплаты",
+  "description":"Описание",
+  "prepare_payments":"Подготовка платежей",
+  "payment_calendar":"Оплата",
+  "approve_payment":"Утвердить оплаты"
+}

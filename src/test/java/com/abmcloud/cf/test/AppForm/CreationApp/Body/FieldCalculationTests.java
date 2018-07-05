@@ -1,21 +1,18 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.DecimalField;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FieldCalculationTests extends BaseTest {
 
-    AppFormDBInfo appFormDBInfo;
-    DecimalField decimalField;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        appFormDBInfo = new AppFormDBInfo();
-        decimalField = new DecimalField();
+        dbInfo = new DataBaseInfo("app_form_db.json");
     }
 
     @Test(priority = 1)
@@ -23,12 +20,12 @@ public class FieldCalculationTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments5)
+                .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .openTab("Additional")
                 .asserts()
-                .assertTrue(compare(decimalField.getValue("Decimal field 1"), "35"))
-                .assertTrue(compare(decimalField.getValue("Decimal field 2"), "350"))
-                .assertTrue(compare(decimalField.getValue("Decimal field 3"), "3500"));
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalField("Decimal field 1"), "35"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalField("Decimal field 2"), "350"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalField("Decimal field 3"), "3500"));
     }
 }

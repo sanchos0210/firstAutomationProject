@@ -1,5 +1,6 @@
 package com.abmcloud.cf.test.Fields;
 
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -7,8 +8,12 @@ import java.util.List;
 
 public class DecimalField extends BaseField {
 
+    public DecimalField(Driver driver) {
+        super(driver);
+    }
+
     public WebElement getField(String nameOfField) {
-         return $(By.xpath("//label[contains(text(), '"+nameOfField+"')]/following-sibling::*/input"));
+         return driver.$(By.xpath("//label[contains(text(), '"+nameOfField+"')]/following-sibling::*/input"));
     }
 
     public String getValue(String nameOfField) {
@@ -49,7 +54,7 @@ public class DecimalField extends BaseField {
     }
 
     public WebElement getTCHField(String nameOfField, int rowNumber) {
-        List<WebElement> decimalTCHFields = $$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//*[@class='relative d-flex']/input"));
+        List<WebElement> decimalTCHFields = driver.$$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//*[@class='relative d-flex']/input"));
         return decimalTCHFields.get(rowNumber-1);
     }
 }

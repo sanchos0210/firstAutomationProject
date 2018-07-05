@@ -1,14 +1,14 @@
 package com.abmcloud.cf.test.pages;
 
 import com.abmcloud.cf.test.API.BasePage;
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AppListPage extends BasePage {
 
-    public AppListPage(WebDriver driver) {
+    public AppListPage(Driver driver) {
         super(driver);
     }
 
@@ -68,7 +68,7 @@ public class AppListPage extends BasePage {
     @FindBy(css = "button.btn.btn-danger.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left")
             public WebElement cancelButtonInCancelPopUp;
 
-    @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']")
+    @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']//parent::button")
             public WebElement approveButtonInApprovePopUp;
 
     @FindBy(css = "upload-popup p-dialog .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top .ui-dialog-title")

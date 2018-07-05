@@ -1,12 +1,17 @@
 package com.abmcloud.cf.test.Fields;
 
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class StringField extends BaseField {
 
+    public StringField(Driver driver) {
+        super(driver);
+    }
+
     public WebElement getField(String nameOfField) {
-        return $(By.xpath("//label[contains(text(), '"+nameOfField+"')]/following-sibling::*/textarea"));
+        return driver.$(By.xpath("//label[contains(text(), '"+nameOfField+"')]/following-sibling::*/textarea"));
     }
 
     public String getValue(String nameOfField) {
@@ -24,7 +29,7 @@ public class StringField extends BaseField {
     }
 
     public WebElement getTCHField(String nameOfField) {
-        return $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//textarea"));
+        return driver.$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//textarea"));
     }
 
     public boolean isDisabledTCH(String nameOfField) {

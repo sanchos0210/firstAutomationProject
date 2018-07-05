@@ -1,18 +1,24 @@
 package com.abmcloud.cf.test.AppList.HeaderOfApplList;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppListDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class GlobalFilterTests extends BaseTest {
 
+    DataBaseInfo dbInfo;
+
+    public GlobalFilterTests() {
+        dbInfo = new DataBaseInfo("app_list_db.json");
+    }
+
     @Test(priority = 1)
-    public void availibleToMe() {
+    public void availableToMe() {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .logOut()
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
                 .openAvailableToMe()
@@ -26,7 +32,7 @@ public class GlobalFilterTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
-                .createApp(new AppListDBInfo(CONTRACTOR, "Контрагент 2"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .logOut()
@@ -45,7 +51,7 @@ public class GlobalFilterTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
-                .createApp(new AppListDBInfo(CONTRACTOR, "Контрагент 2"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .logOut()
@@ -66,7 +72,7 @@ public class GlobalFilterTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
-                .createApp(new AppListDBInfo(SUM, "10000"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
@@ -87,7 +93,7 @@ public class GlobalFilterTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
-                .createApp(new AppListDBInfo(SUM, "10000"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)

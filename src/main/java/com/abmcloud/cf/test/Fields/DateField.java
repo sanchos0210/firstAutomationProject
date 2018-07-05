@@ -1,5 +1,6 @@
 package com.abmcloud.cf.test.Fields;
 
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -7,8 +8,12 @@ import java.util.List;
 
 public class DateField extends BaseField {
 
+    public DateField(Driver driver) {
+        super(driver);
+    }
+
     public WebElement getField(String nameOfField) {
-        return $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following::span"));
+        return driver.$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following::div"));
     }
 
     public String getValue(String nameOfField) {
@@ -16,7 +21,7 @@ public class DateField extends BaseField {
     }
 
     public WebElement getTCHField(String nameOfField) {
-        return $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::span//span"));
+        return driver.$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::span//span"));
     }
 
     public String getTCHValue(String nameOfField) {

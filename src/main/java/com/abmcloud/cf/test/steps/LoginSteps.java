@@ -1,18 +1,18 @@
 package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.API.Driver;
 import com.abmcloud.cf.test.DBInfo.UsersData;
+import com.abmcloud.cf.test.pages.LoginPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 
 public class LoginSteps extends BaseSteps {
 
-    public LoginSteps() {}
-
-    public LoginSteps(WebDriver driver) {
+    public LoginSteps(Driver driver) {
         this.driver = driver;
+        loginPage = new LoginPage(driver);
     }
 
     @Step("Заходим на страницу логина")
@@ -32,26 +32,26 @@ public class LoginSteps extends BaseSteps {
     @Step("Залогинится")
     public AppListSteps loginWithSuccessful(String email, String pass) {
         login(email, pass);
-        loginWait();
-        return  new AppListSteps();
+        getWait().loginWait();
+        return  getAppListSteps();
     }
 
     @Step("Залогинится")
     public AppListSteps loginAs(UsersData user) {
         try {
             login(user.getUserEmail(), user.getUserPassword());
-            loginWait();
+            getWait().loginWait();
             BaseTest.activeUser = user;
         }catch(NoSuchElementException e) {}
-        return  new AppListSteps();
+        return  getAppListSteps();
     }
 
     @Step("Залогинится по кнопке Enter")
     public AppListSteps loginWithEnter(String email, String pass) {
         loginPage.emailInput.sendKeys(email);
         loginPage.passwordInput.sendKeys(pass + Keys.ENTER);
-        loginWait();
-        return  new AppListSteps();
+        getWait().loginWait();
+        return  getAppListSteps();
     }
 
     @Step("Кликнуть на \"Забыл пароль\"")

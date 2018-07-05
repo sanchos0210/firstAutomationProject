@@ -1,27 +1,18 @@
 package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppListDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ChangesHistoryTests extends BaseTest {
 
-    DecimalField decimalField;
-    StringField stringField;
-    CatalogField catalogField;
-    BooleanField booleanField;
-    DateField dateField;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        decimalField = new DecimalField();
-        stringField = new StringField();
-        catalogField = new CatalogField();
-        booleanField = new BooleanField();
-        dateField = new DateField();
+        dbInfo = new DataBaseInfo("app_list_db.json");
     }
 
     @Test(priority = 1)
@@ -29,16 +20,16 @@ public class ChangesHistoryTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp2(new AppListDBInfo(ALL_FIELDS_ARE_FILLED))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .edit(decimalField.getField(AppListDBInfo.sumFieldName), "200")
+                .editDecimalField(dbInfo.getString("sum_field_name"), "200")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .changesHistoryClick()
-                .asserts().checkHistoryOf(AppListDBInfo.sumFieldName, AppListDBInfo.sumFieldValue, "200");
+                .asserts().checkHistoryOf(dbInfo.getString("sum_field_name"), "150", "200");
     }
 
     @Test(priority = 2)
@@ -46,16 +37,16 @@ public class ChangesHistoryTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp2(new AppListDBInfo(ALL_FIELDS_ARE_FILLED))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .edit(stringField.getField(AppListDBInfo.descriptionFieldName), "Другое описание")
+                .editStringField(dbInfo.getString("description"), "Другое описание")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .changesHistoryClick()
-                .asserts().checkHistoryOf(AppListDBInfo.descriptionFieldName, AppListDBInfo.descriptionFieldValue, "Другое описание");
+                .asserts().checkHistoryOf(dbInfo.getString("description"),dbInfo.getString("description"), "Другое описание");
     }
 
     @Test(priority = 3)
@@ -63,17 +54,17 @@ public class ChangesHistoryTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp2(new AppListDBInfo(ALL_FIELDS_ARE_FILLED))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .catalogElementClick(catalogField.getField(AppListDBInfo.contractorFieldName))
-                .catalogElementClick(catalogField.getItem(AppListDBInfo.contractorItem2))
+                .catalogFieldClick(dbInfo.getString("contractor_field_name"))
+                .catalogElementClick("Контрагент 2")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .changesHistoryClick()
-                .asserts().checkHistoryOf(AppListDBInfo.contractorFieldName, AppListDBInfo.contractorItem1, AppListDBInfo.contractorItem2);
+                .asserts().checkHistoryOf(dbInfo.getString("contractor_field_name"), "Контрагент 1", "Контрагент 2");
     }
 
     @Test(priority = 4)
@@ -81,16 +72,16 @@ public class ChangesHistoryTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp2(new AppListDBInfo(ALL_FIELDS_ARE_FILLED))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .booleanButtonClick(booleanField.getField(AppListDBInfo.paymentTypeField))
+                .booleanButtonClick(dbInfo.getString("payment_type_field_name"))
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .changesHistoryClick()
-                .asserts().checkHistoryOf(AppListDBInfo.paymentTypeField, "Безналичные", "Наличные");
+                .asserts().checkHistoryOf(dbInfo.getString("payment_type_field_name"), "Безналичные", "Наличные");
     }
 
     @Test(priority = 5)
@@ -98,16 +89,16 @@ public class ChangesHistoryTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp2(new AppListDBInfo(ALL_FIELDS_ARE_FILLED))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .clickOnDateField(dateField.getField(AppListDBInfo.paymentDateField))
-                .catalogElementClick(appEditPage.tomorrowDate)
+                .clickOnDateField(dbInfo.getString("payment_date_field_name"))
+                .buttonClick(appEditPage.tomorrowDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .changesHistoryClick()
-                .asserts().checkHistoryOf(AppListDBInfo.paymentDateField, getTodayFullDate(), getTomorrowFullDate());
+                .asserts().checkHistoryOf(dbInfo.getString("payment_date_field_name"), helpers.getTodayFullDate(), helpers.getTomorrowFullDate());
     }
 }

@@ -1,22 +1,28 @@
 package com.abmcloud.cf.test.AppList.AppListTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppListDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class StatusOfAppTests extends BaseTest {
+
+    DataBaseInfo dbInfo;
+
+    public StatusOfAppTests() {
+        dbInfo = new DataBaseInfo("app_list_db.json");
+    }
 
     @Test(priority = 1)
     public void sendForApprovalButton() {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .checkThat(selectedApp, appListPage.statusOfApp, "Отправлена в банк");
+                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "Отправлена в банк");
     }
 
     @Test(priority = 10)
@@ -24,7 +30,7 @@ public class StatusOfAppTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo(SUM, "10000"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
@@ -36,7 +42,7 @@ public class StatusOfAppTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo(SUM, "10000"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
@@ -55,7 +61,7 @@ public class StatusOfAppTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo(CONTRACTOR, "Контрагент 2"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
@@ -72,12 +78,12 @@ public class StatusOfAppTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo(SUM, "10000"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts()
-                .assertTrue(isButtonPresentInRow(selectedApp, appListPage.cancelFromStatus));
+                .assertTrue(helpers.isButtonPresentInRow(selectedApp, appListPage.cancelFromStatus));
     }
 
     @Test(priority = 50)
@@ -85,11 +91,11 @@ public class StatusOfAppTests extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts()
-                .assertFalse(isButtonPresentInRow(selectedApp, appListPage.cancelFromStatus));
+                .assertFalse(helpers.isButtonPresentInRow(selectedApp, appListPage.cancelFromStatus));
     }
 }

@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.pages;
 
 import com.abmcloud.cf.test.API.BasePage;
-import org.openqa.selenium.WebDriver;
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,7 +19,7 @@ public class AppEditPage extends BasePage {
     @FindBy(css = ".ui-message.ui-messages-success")
     public WebElement addFileNotification;
 
-    public AppEditPage(WebDriver driver) {
+    public AppEditPage(Driver driver) {
         super(driver);
     }
 
@@ -79,6 +79,9 @@ public class AppEditPage extends BasePage {
 
     @FindBy(css = "select-catalog .modal_full-screen.over.overlay")
             public WebElement headerOfCatalogPopup;
+
+    @FindBy(css = ".daterangepicker.dropdown-menu.ltr.single.opensright.show-calendar .calendar.left.single")
+    public WebElement headerOfDatepicker;
 
     @FindBy(css = "#copy-link")
     public WebElement copyLinkButton;

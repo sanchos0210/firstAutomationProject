@@ -1,23 +1,28 @@
 package com.abmcloud.cf.test.Fields;
 
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 public class BooleanField extends BaseField {
 
+    public BooleanField(Driver driver) {
+        super(driver);
+    }
+
     private WebElement getHeaderOfBooleanField(String nameOfField) {
-        WebElement headerOfBooleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::bool-field"));
+        WebElement headerOfBooleanField = driver.$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::bool-field"));
         return headerOfBooleanField;
     }
 
     private WebElement getHeaderOfBooleanFieldTCH(String nameOfField) {
-        WebElement headerOfBooleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*/bool-field"));
+        WebElement headerOfBooleanField = driver.$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*/bool-field"));
         return headerOfBooleanField;
     }
 
     public WebElement getField(String nameOfField) {
-        WebElement booleanField = $(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*//*[@class='pointer select_btn']"));
+        WebElement booleanField = driver.$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//following-sibling::*//*[@class='pointer select_btn']"));
         return booleanField;
     }
 
@@ -40,7 +45,7 @@ public class BooleanField extends BaseField {
 
     public String getInOutValue() {
         String inOutValue;
-        if($((("bool-field[ng-reflect-key='in_out']"))).getAttribute("ng-reflect-value").equals("false")) {
+        if(driver.$((("bool-field[ng-reflect-key='in_out']"))).getAttribute("ng-reflect-value").equals("false")) {
             inOutValue = "Outflow";
         }
         else inOutValue = "Inflow";
@@ -49,7 +54,7 @@ public class BooleanField extends BaseField {
 
     public boolean isInOutDisable() {
         try {
-            $("bool-field[ng-reflect-key='in_out'] .pointer.select_btn").click();
+            driver.$("bool-field[ng-reflect-key='in_out'] .pointer.select_btn").click();
             return false;
         }catch(TimeoutException e) {
             return true;

@@ -1,7 +1,11 @@
 package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.API.Driver;
 import com.abmcloud.cf.test.Fields.DateField;
+import com.abmcloud.cf.test.pages.AppEditPage;
+import com.abmcloud.cf.test.pages.AppListPage;
+import com.abmcloud.cf.test.pages.CalendarPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,6 +14,25 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CalendarSteps extends BaseSteps {
+
+    public CalendarSteps(Driver driver) {
+        this.driver = driver;
+        calendarPage = new CalendarPage(driver);
+    }
+
+    private AppListPage getAppListPage() {
+        if(appListPage == null) {
+            appListPage = new AppListPage(driver);
+        }
+        return appListPage;
+    }
+
+    private AppEditPage getAppEditPage() {
+        if(appEditPage == null) {
+            appEditPage = new AppEditPage(driver);
+        }
+        return appEditPage;
+    }
 
     @Step("Проверить период")
     public CalendarSteps clickOnPeriodFilter() {
@@ -26,48 +49,56 @@ public class CalendarSteps extends BaseSteps {
     @Step("Открыть Реестр")
     public CalendarSteps openRegistry() {
         calendarPage.reestrButton.click();
-        waitForElementClickable(3, calendarPage.headerOfRegistry);
+        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
         return this;
     }
 
     @Step("Открыть реестр на дату:")
     public CalendarSteps changeDateInRegistryOn(String date) {
         calendarPage.dateInRegistry.click();
-        DateField dateField = new DateField();
-        dateField.getDateInDatePicker($(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()-1]")), date).click();
+        DateField dateField = new DateField(driver);
+        dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()-1]")), date).click();
         return this;
     }
 
     @Step("Выбрать платежку с номером:")
     public CalendarSteps checkAppWithNumber(String numberOfApp) {
-        AppListSteps appListSteps = new AppListSteps();
-        appListSteps.selectAppByNumberInTable(numberOfApp, $$(By.cssSelector("table.appl_table.bg_on_hover tbody tr")));
-        appListSteps.clickOn(appListPage.checkBox, BaseTest.selectedApp);
+        AppListSteps appListSteps = getAppListSteps();
+        appListSteps.selectAppByNumberInTable(numberOfApp, driver.$$(By.cssSelector("table.appl_table.bg_on_hover tbody tr")));
+        appListSteps.clickOn(getAppListPage().checkBox, BaseTest.selectedApp);
         return this;
     }
 
     @Step("Оплатить выбранные платежки")
     public CalendarSteps payButtonClick() {
-        calendarPage.pauButton.click();
-        waitForElementClickable(3, calendarPage.headerOfRegistry);
+        calendarPage.payButton.click();
+        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
+        return this;
+    }
+
+    @Step("Утвердить выбранные платежки")
+    public CalendarSteps approveButtonClick() {
+        calendarPage.approveButton.click();
+        getAppEditPage().applSavedNotification.click();
+        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
         return this;
     }
 
     @Step("Закрыть реестр")
     public CalendarSteps closeRegistry() {
         calendarPage.closeRegistry.click();
-        calendarPreloadWait();
+        getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Изменить дату оплаты в реестре на:")
     public CalendarSteps changePaymentDate(String date) {
-        DateField dateField = new DateField();
+        DateField dateField = new DateField(driver);
         dateField.getField("Сменить дату оплаты").click();
-        dateField.getDateInDatePicker($(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()]")), date).click();
+        dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()]")), date).click();
         calendarPage.changePaymentDateApproveButton.click();
-        waitForElementClickable(3, calendarPage.headerOfRegistry);
-        appListPage.applSavedNotification.click();
+        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
+        getAppListPage().applSavedNotification.click();
         return this;
     }
 
@@ -75,11 +106,11 @@ public class CalendarSteps extends BaseSteps {
         List<WebElement> rows = null;
         switch(in_out) {
             case 'A': {     //for income
-                rows = $$(By.xpath("//td[@class = 'total_in_title']//parent::tr//preceding::tr[@class = 'ui-widget-content no-top-border tree-row__0']"));
+                rows = driver.$$(By.xpath("//td[@class = 'total_in_title']//parent::tr//preceding::tr[@class = 'ui-widget-content no-top-border tree-row__0']"));
                 break;
             }
             case 'B': {     //for outcome
-                rows = $$(By.xpath("//td[@class = 'total_in_title']//parent::tr//following::tr[@class = 'ui-widget-content no-top-border tree-row__0']"));
+                rows = driver.$$(By.xpath("//td[@class = 'total_in_title']//parent::tr//following::tr[@class = 'ui-widget-content no-top-border tree-row__0']"));
                 break;
             }
         }
@@ -88,19 +119,19 @@ public class CalendarSteps extends BaseSteps {
     }
 
     private void getTotalIn() {
-        $$(By.xpath("//td[@class = 'total_in_title']//parent::tr"));
+        driver.$$(By.xpath("//td[@class = 'total_in_title']//parent::tr"));
     }
 
     private void getTotalOutCells() {
-        $$(By.xpath("//td[@class = 'total_out_title']//parent::tr"));
+        driver.$$(By.xpath("//td[@class = 'total_out_title']//parent::tr"));
     }
 
     private List<WebElement> getPaidCells() {
-        return $$(By.cssSelector(".ui-widget-content.no-top-border.is_paid_in_calendar td.dropdown.calendar_cell"));
+        return driver.$$(By.cssSelector(".ui-widget-content.no-top-border.is_paid_in_calendar td.dropdown.calendar_cell"));
     }
 
     private int getNumOfCellInRowForDate(String date) {
-        List<WebElement> visibleDates = $$(By.cssSelector(".calendarTable thead .ui-state-default.ui-unselectable-text.width-special span.ui-column-title.calendar_head"));
+        List<WebElement> visibleDates = driver.$$(By.cssSelector(".calendarTable thead .ui-state-default.ui-unselectable-text.width-special span.ui-column-title.calendar_head"));
         for (int i = 0; i < visibleDates.size(); i++) {
             if (date.equals(visibleDates.get(i).getText())) return i;
         }
@@ -127,7 +158,7 @@ public class CalendarSteps extends BaseSteps {
         } catch(NoSuchElementException e) {
             throw new NoSuchElementException("Не найдены данные в ячейке");
         }
-        waitForElementClickable(3, calendarPage.headerOfRegistry);
+        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
         return this;
     }
 
@@ -135,8 +166,7 @@ public class CalendarSteps extends BaseSteps {
     public CalendarSteps assertPaid(String date, String sum) {
         List<WebElement> paidCells = getPaidCells();
         String verSum = paidCells.get(getNumOfCellInRowForDate(date)).findElement(By.cssSelector("b")).getText();
-        asserts()
-                .assertTrue(sum.equals(verSum));
+        asserts().assertTrue(sum.equals(verSum));
         return this;
     }
 }

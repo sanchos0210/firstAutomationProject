@@ -1,18 +1,14 @@
 package com.abmcloud.cf.test.Calendar;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.CalendarDBInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class CalendarTests extends BaseTest {
 
-    CalendarDBInfo calendarDBInfo;
+    /*DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        calendarDBInfo = new CalendarDBInfo();
+        dbInfo = new DataBaseInfo("calendar_db.json");
     }
 
     @Test(priority = 1)
@@ -20,10 +16,10 @@ public class CalendarTests extends BaseTest {
         steps
                 .open(CALENDAR_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new CalendarDBInfo())
+                .createApp(dbInfo.getJsonArray("fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
-                .openCalendar(calendarDBInfo.calendarMenuButton)
+                .openCalendar("Оплата")
                 .openRegistry()
                 .checkAppWithNumber(numberOfCreatedApp)
                 .payButtonClick()
@@ -36,10 +32,10 @@ public class CalendarTests extends BaseTest {
         steps
                 .open(CALENDAR_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new CalendarDBInfo())
+                .createApp(dbInfo.getJsonArray("fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
-                .openCalendar(calendarDBInfo.calendarMenuButton)
+                .openCalendar("Оплата")
                 .openRegistry()
                 .checkAppWithNumber(numberOfCreatedApp)
                 .changePaymentDate(getTomorrowDate())
@@ -53,7 +49,7 @@ public class CalendarTests extends BaseTest {
        steps
                 .open(CALENDAR_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .openCalendar(calendarDBInfo.calendarMenuButton)
+                .openCalendar("Оплата")
                 .clickOnPeriodFilter()
                .asserts()
                .assertTextInElement(calendarPage.datePickerToday, "Сегодня")

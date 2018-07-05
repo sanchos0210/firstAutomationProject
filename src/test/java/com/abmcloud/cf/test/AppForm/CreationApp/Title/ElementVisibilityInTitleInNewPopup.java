@@ -14,8 +14,8 @@ public class ElementVisibilityInTitleInNewPopup extends BaseTest {
                 .createAppButtonClick()
                 .asserts()
                 .assertTextInElement(appEditPage.editPopupTitle, "Add document")
-                .assertTrue(isElementPresent(appEditPage.closeAppFormButton))
-                .assertFalse(isElementPresent(appEditPage.copyLinkButton))
-                .assertTrue(isElementPresent(appEditPage.showInformationBlock));
+                .assertTrue(helpers.isElementPresent(appEditPage.closeAppFormButton))
+                .assertFalse(helpers.isElementPresent(appEditPage.copyLinkButton))
+                .assertTrue(helpers.isElementPresent(appEditPage.showInformationBlock));
     }
 }

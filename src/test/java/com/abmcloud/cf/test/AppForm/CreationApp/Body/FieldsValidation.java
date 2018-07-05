@@ -1,32 +1,18 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.*;
-import com.abmcloud.cf.test.steps.AppFormSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FieldsValidation extends BaseTest {
 
-    AppFormDBInfo appFormDB;
-    AppFormSteps appFormSteps;
-    DecimalField decimalField;
-    StringField stringField;
-    CatalogField catalogField;
-    BooleanField booleanField;
-    DateField dateField;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        appFormDB = new AppFormDBInfo();
-        appFormSteps = new AppFormSteps();
-        decimalField = new DecimalField();
-        stringField = new StringField();
-        catalogField = new CatalogField();
-        booleanField = new BooleanField();
-        dateField = new DateField();
+        dbInfo = new DataBaseInfo("app_form_db.json");
     }
 
     @Test(priority = 1)
@@ -35,11 +21,11 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(stringField.getField(appFormDB.stringField3),"text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editStringField(dbInfo.getString("string_field_3"),"text")
                 .saveButtonClick()
-                .asserts().assertTrue(compare(textOfNotification,
+                .asserts().assertTrue(helpers.compare(textOfNotification,
                         "Oops! Looks like you have not filled out all of the required fields!"));
     }
 
@@ -48,8 +34,8 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .createApp(appFormDB)
-                .asserts().assertTrue(compare(textOfNotification,
+                .createApp(dbInfo.getJsonArray("required_fields"))
+                .asserts().assertTrue(helpers.compare(textOfNotification,
                 "Document # "+numberOfCreatedApp+" was successfully saved."));
     }
 
@@ -59,12 +45,12 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"-150")
-                .edit(stringField.getField(appFormDB.stringField3),"text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"-150")
+                .editStringField(dbInfo.getString("string_field_3"),"text")
                 .saveButtonClick()
-                .asserts().assertTrue(compare(textOfNotification,
+                .asserts().assertTrue(helpers.compare(textOfNotification,
                 "Oops! Looks like you have not filled out all of the required fields!"));
     }
 
@@ -74,12 +60,12 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"0")
-                .edit(stringField.getField(appFormDB.stringField3),"text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"0")
+                .editStringField(dbInfo.getString("string_field_3"),"text")
                 .saveButtonClick()
-                .asserts().assertTrue(compare(textOfNotification,
+                .asserts().assertTrue(helpers.compare(textOfNotification,
                 "Oops! Looks like you have not filled out all of the required fields!"));
     }
 
@@ -89,12 +75,12 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3), "5t5t")
-                .edit(stringField.getField(appFormDB.stringField3),"text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"), "5t5t")
+                .editStringField(dbInfo.getString("string_field_3"),"text")
                 .saveButtonClick()
-                .asserts().assertTrue(compare(textOfNotification,
+                .asserts().assertTrue(helpers.compare(textOfNotification,
                 "Oops! Looks like you have not filled out all of the required fields!"));
     }
 
@@ -104,7 +90,7 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .asserts().assertTrue(decimalField.isDisabled(appFormDB.decimalField1));
+                .asserts().assertTrue(helpers.isDecimalFieldDisabled(dbInfo.getString("decimal_field_1")));
     }
 
     @Test(priority = 7)
@@ -114,7 +100,7 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .asserts().assertTrue(
-                        compare("35", decimalField.getValue(appFormDB.decimalField1)));
+                helpers.compare("35", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_1"))));
     }
 
     @Test(priority = 8)
@@ -123,18 +109,18 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3),"text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"),"text")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts()
-                .assertTrue(compare("1000", decimalField.getValue(appFormDB.decimalField2)))
-                .assertTrue(compare(stringField.getValue(appFormDB.stringField2), "value 1"));
+                .assertTrue(helpers.compare("1000", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare(helpers.getValueOfStringField(dbInfo.getString("string_field_2")), "value 1"));
     }
 
     @Test(priority = 9)
@@ -143,19 +129,19 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3),"text")
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField2))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"),"text")
+                .clearCatalogValue(dbInfo.getString("catalog_field_2"))
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts()
-                .assertTrue(compare("0", decimalField.getValue(appFormDB.decimalField2)))
-                .assertTrue(compare("", stringField.getValue(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("0", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfStringField(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 10)
@@ -164,11 +150,11 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
                 .saveButtonClick()
-                .asserts().assertTrue(compare(textOfNotification,
+                .asserts().assertTrue(helpers.compare(textOfNotification,
                 "Oops! Looks like you have not filled out all of the required fields!"));
     }
 
@@ -178,7 +164,7 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .asserts().assertTrue(stringField.isDisabled(appFormDB.stringField1));
+                .asserts().assertTrue(helpers.isStringFieldDisabled(dbInfo.getString("string_field_1")));
     }
 
     @Test(priority = 12)
@@ -188,7 +174,7 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .asserts().assertTrue(
-                compare("Default value", stringField.getValue(appFormDB.stringField1)));
+                helpers.compare("Default value", helpers.getValueOfStringField(dbInfo.getString("string_field_1"))));
     }
 
     @Test(priority = 13)
@@ -198,9 +184,9 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .asserts()
-                .assertTrue(booleanField.isDisable(appFormDB.booleanField1))
-                .assertTrue(compare("true" ,booleanField.getValue(appFormDB.booleanField1)))
-                .assertTrue(compare("false" ,booleanField.getValue(appFormDB.booleanField2)));
+                .assertTrue(helpers.isBooleanFieldDisable(dbInfo.getString("boolean_field_1")))
+                .assertTrue(helpers.compare("true" , helpers.getValueOfBooleanField(dbInfo.getString("boolean_field_1"))))
+                .assertTrue(helpers.compare("false" , helpers.getValueOfBooleanField(dbInfo.getString("boolean_field_2"))));
     }
 
     @Test(priority = 14)
@@ -209,42 +195,43 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3), "text3")
-                .booleanButtonClick(booleanField.getField(appFormDB.booleanField3))
-                .booleanButtonClick(booleanField.getField(appFormDB.booleanField4))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"),"text")
+                .booleanButtonClick(dbInfo.getString("boolean_field_3"))
+                .booleanButtonClick(dbInfo.getString("boolean_field_4"))
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts()
-                .assertTrue(compare("true" ,booleanField.getValue(appFormDB.booleanField3)))
-                .assertTrue(compare("false" ,booleanField.getValue(appFormDB.booleanField4)));
+                .assertTrue(helpers.compare("true" , helpers.getValueOfBooleanField(dbInfo.getString("boolean_field_3"))))
+                .assertTrue(helpers.compare("false" , helpers.getValueOfBooleanField(dbInfo.getString("boolean_field_4"))));
     }
 
-    /*@Test(priority = 15)                                       раскоментировать когда пофиксят CF-984
-    public void autoInsertBooleanButton() {
-        steps
-                .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .createAppButtonClick()
-                .catalogElementClick(appFormDB.catalogField3)
-                .catalogElementClick(appFormDB.value1)
-                .edit(appFormDB.decimalField3, "150")
-                .edit(appFormDB.stringField3, "text3")
-                .catalogElementClick(appFormDB.CATALOG_FIELD)
-                .catalogElementClick(appFormDB.contractor1)
-                .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertValueOfBooleanField(appFormDB.booleanField3, "true");
-                .clearCatalogValue(appFormDB.CATALOG_FIELD)
-                .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertValueOfBooleanField(appFormDB.booleanField3, "false");
-    }*/
+//    @Test(priority = 15)                                       //раскоментировать когда пофиксят CF-984
+//    public void autoInsertBooleanButton() {
+//        steps
+//                .open(APP_FORM_DEMO_DB)
+//                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+//                .createAppButtonClick()
+//                .catalogFieldClick(catalogField.getField(dbInfo.getString("catalog_field_3")))
+//                .catalogFieldClick(catalogField.getItem(dbInfo.getString("value_1")))
+//                .edit(decimalField.getField(dbInfo.getString("decimal_field_3")), "150")
+//                .edit(stringField.getField(dbInfo.getString("string_field_3")), "text3")
+//                .catalogFieldClick(catalogField.getField(dbInfo.getString("catalog_field_2")))
+//                .catalogFieldClick(catalogField.getItem(dbInfo.getString("contractor_1")))
+//                .saveApplication()
+//                .selectAppByNumber(numberOfCreatedApp)
+//                .clickOnNumberOf(selectedApp)
+//                .asserts().assertTrue(compare((booleanField.getValue(dbInfo.getString("boolean_field_3"))), "false"))
+//                .getAppFormStep()
+//                .clearCatalogValue(catalogField.getField(dbInfo.getString("catalog_field_2")))
+//                .saveApplication()
+//                .selectAppByNumber(numberOfCreatedApp)
+//                .clickOnNumberOf(selectedApp)
+//                .asserts().assertTrue(compare((booleanField.getValue(dbInfo.getString("boolean_field_3"))), "true"));
+//    }
 
     @Test(priority = 16)
     public void requiredCatalogFieldVerification() {
@@ -252,10 +239,10 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3), "text3")
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"), "text3")
                 .saveButtonClick()
-                .asserts().assertTrue(compare(textOfNotification, "Oops! Looks like you have not filled out all of the required fields!"));
+                .asserts().assertTrue(helpers.compare(textOfNotification, "Oops! Looks like you have not filled out all of the required fields!"));
     }
 
     @Test(priority = 17)
@@ -264,9 +251,9 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .asserts().assertTrue(compare("Value 1", catalogField.getValue(appFormDB.catalogField3)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .asserts().assertTrue(helpers.compare("Value 1", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_3"))));
     }
 
     @Test(priority = 18)
@@ -275,10 +262,10 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField3))
-                .asserts().assertTrue(compare("", catalogField.getValue(appFormDB.catalogField3)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_3"))
+                .asserts().assertTrue(helpers.compare("", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_3"))));
     }
 
     @Test(priority = 4)
@@ -287,8 +274,8 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .asserts().assertFalse(isElementPresent(appEditPage.headerOfCatalogPopup));
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .asserts().assertFalse(helpers.isElementPresent(appEditPage.headerOfCatalogPopup));
     }
 
     @Test(priority = 19)
@@ -297,7 +284,7 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .asserts().assertTrue(compare("Prepare Payments 1", catalogField.getValue(appFormDB.catalogField1)));
+                .asserts().assertTrue(helpers.compare("Prepare Payments 1", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_1"))));
     }
 
     @Test(priority = 20)
@@ -306,18 +293,18 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3), "text3")
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .catalogElementClick(appFormDB.contractor1)
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"), "text3")
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts()
-                .assertTrue(compare("1000", decimalField.getValue(appFormDB.decimalField2)))
-                .assertTrue(compare("value 1", stringField.getValue(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("1000", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("value 1", helpers.getValueOfStringField(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 21)
@@ -326,18 +313,18 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
                 .asserts()
-                .assertTrue(isElementPresent(appFormDB.contractor1))
+                .assertTrue(helpers.isElementPresent(helpers.getCatalogItem(dbInfo.getString("contractor_1"))))
                 .getAppFormStep()
-                .catalogElementClick(appEditPage.closeCatalogPopupLocator)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.folder1)
-                .catalogElementClick(appFormDB.value2)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .asserts().assertFalse(isElementPresent(appFormDB.contractor1));
+                .buttonClick(appEditPage.closeCatalogPopupLocator)
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("folder_1"))
+                .catalogElementClick(dbInfo.getString("value_2"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .asserts().assertFalse(helpers.isElementPresent(helpers.getCatalogItem(dbInfo.getString("contractor_1"))));
     }
 
     @Test(priority = 22)
@@ -346,15 +333,15 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .catalogElementClick(appFormDB.contractor1)
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField3))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_3"))
                 .asserts()
-                .assertTrue(compare("", catalogField.getValue(appFormDB.catalogField2)))
-                .assertTrue(compare("", decimalField.getValue(appFormDB.decimalField2)))
-                .assertTrue(compare("", stringField.getValue(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_2"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfStringField(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 23)
@@ -364,10 +351,10 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .asserts()
-                .assertTrue(compare("Organization 1", catalogField.getValue(appFormDB.catalogField5)))
-                .assertTrue(compare("10", decimalField.getValue(appFormDB.decimalField5)))
-                .assertTrue(compare("text1", stringField.getValue(appFormDB.stringField5)))
-                .assertTrue(compare("23.11.2017", dateField.getValue(appFormDB.dateField4)));
+                .assertTrue(helpers.compare("Organization 1", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_5"))))
+                .assertTrue(helpers.compare("10", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_5"))))
+                .assertTrue(helpers.compare("text1", helpers.getValueOfStringField(dbInfo.getString("string_field_5"))))
+                .assertTrue(helpers.compare("23.11.2017", helpers.getValueOfDateField(dbInfo.getString("date_field_4"))));
     }
 
     @Test(priority = 24)
@@ -376,16 +363,16 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3), "text3")
-                .catalogElementClick(dateField.getField(appFormDB.dateField2))
-                .catalogElementClick(appEditPage.tomorrowDate)
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"), "text3")
+                .clickOnDateField(dbInfo.getString("date_field_2"))
+                .buttonClick(appEditPage.tomorrowDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(compare(getTomorrowFullDate(), dateField.getValue(appFormDB.dateField2)));
+                .asserts().assertTrue(helpers.compare(helpers.getTomorrowFullDate(), helpers.getValueOfDateField(dbInfo.getString("date_field_2"))));
     }
 
     @Test(priority = 25)
@@ -394,16 +381,16 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .edit(decimalField.getField(appFormDB.decimalField3),"150")
-                .edit(stringField.getField(appFormDB.stringField3), "text3")
-                .catalogElementClick(dateField.getField(appFormDB.dateField2))
-                .catalogElementClick(appEditPage.yesterdayDate)
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
+                .editStringField(dbInfo.getString("string_field_3"), "text3")
+                .clickOnDateField(dbInfo.getString("date_field_2"))
+                .buttonClick(appEditPage.yesterdayDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(compare(getYesterdayFullDate(), dateField.getValue(appFormDB.dateField2)));
+                .asserts().assertTrue(helpers.compare(helpers.getYesterdayFullDate(), helpers.getValueOfDateField(dbInfo.getString("date_field_2"))));
     }
 
     @Test(priority = 26)
@@ -412,11 +399,11 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .catalogElementClick(appFormDB.contractor1)
-                .asserts().assertTrue(compare("24.10.2016", dateField.getValue(appFormDB.dateField1)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .asserts().assertTrue(helpers.compare("24.10.2016", helpers.getValueOfDateField(dbInfo.getString("date_field_1"))));
     }
 
     @Test(priority = 27)
@@ -425,12 +412,12 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField2))
-                .catalogElementClick(appFormDB.contractor1)
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField2))
-                .asserts().assertTrue(compare("", dateField.getValue(appFormDB.dateField1)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_2"))
+                .asserts().assertTrue(helpers.compare("", helpers.getValueOfDateField(dbInfo.getString("date_field_1"))));
     }
 
     @Test(priority = 28)
@@ -439,7 +426,7 @@ public class FieldsValidation extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(dateField.getField(appFormDB.dateField1))
-                .asserts().assertFalse(isElementPresent(appEditPage.headerOfCatalogPopup));
+                .clickOnDateField(dbInfo.getString("date_field_1"))
+                .asserts().assertFalse(helpers.isElementPresent(appEditPage.headerOfDatepicker));
     }
 }

@@ -1,30 +1,18 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Title;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.BooleanField;
-import com.abmcloud.cf.test.Fields.CatalogField;
-import com.abmcloud.cf.test.Fields.DecimalField;
-import com.abmcloud.cf.test.Fields.StringField;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FieldsValidationTests extends BaseTest {
 
-    BooleanField booleanField;
-    CatalogField catalogField;
-    DecimalField decimalField;
-    StringField stringField;
-    AppFormDBInfo appFormDBInfo;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        booleanField = new BooleanField();
-        catalogField = new CatalogField();
-        decimalField = new DecimalField();
-        stringField = new StringField();
-        appFormDBInfo = new AppFormDBInfo();
+        dbInfo = new DataBaseInfo("app_form_db.json");
     }
 
     public void createIncomeApp() {
@@ -32,15 +20,15 @@ public class FieldsValidationTests extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .booleanButtonClick(appEditPage.inOutSwitch)
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField3))
-                .catalogElementClick(appFormDBInfo.value1)
-                .edit(decimalField.getField(appFormDBInfo.decimalField3), "150")
-                .edit(stringField.getField(appFormDBInfo.stringField3), "text")
+                .inOutButtonClick()
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
+                .editStringField(dbInfo.getString("string_field_3"), "text")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(compare("Inflow", booleanField.getInOutValue()));
+                .asserts().assertTrue(helpers.compare("Inflow", helpers.getInOutValue()));
     }
 
     public void createOutFlowApp() {
@@ -48,14 +36,14 @@ public class FieldsValidationTests extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField3))
-                .catalogElementClick(appFormDBInfo.value1)
-                .edit(decimalField.getField(appFormDBInfo.decimalField3), "150")
-                .edit(stringField.getField(appFormDBInfo.stringField3), "text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
+                .editStringField(dbInfo.getString("string_field_3"), "text")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(compare("Outflow", booleanField.getInOutValue()));
+                .asserts().assertTrue(helpers.compare("Outflow", helpers.getInOutValue()));
     }
 
     @Test(priority = 1)
@@ -68,18 +56,18 @@ public class FieldsValidationTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .asserts().assertTrue(compare("Outflow", booleanField.getInOutValue()));
+                .asserts().assertTrue(helpers.compare("Outflow", helpers.getInOutValue()));
     }
 
     public void defaultInflowValue() {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments3)
+                .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
-                .asserts().assertTrue(compare("Inflow", booleanField.getInOutValue()));
+                .asserts().assertTrue(helpers.compare("Inflow", helpers.getInOutValue()));
     }
 
     @Test(priority = 2)
@@ -93,12 +81,12 @@ public class FieldsValidationTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .asserts().assertTrue(booleanField.isInOutDisable())
+                .asserts().assertTrue(helpers.isInOutDisable())
                 .getAppFormStep().backButtonClick()
-                .openAppList(appFormDBInfo.preparePayments3)
+                .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
-                .asserts().assertTrue(booleanField.isInOutDisable());
+                .asserts().assertTrue(helpers.isInOutDisable());
     }
 }

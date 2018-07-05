@@ -1,18 +1,24 @@
 package com.abmcloud.cf.test.AppList.AppListTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppListDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class ElementsVisibilityOfAppList extends BaseTest {
+
+    DataBaseInfo dbInfo;
+
+    public ElementsVisibilityOfAppList() {
+        dbInfo = new DataBaseInfo("app_list_db.json");
+    }
 
     @Test(priority = 1)
     public void filesButton() {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .openFilesOf(selectedApp)
                 .asserts().assertTextInElement(appListPage.FilesPopup, "Файлы к заявке № "+numberOfCreatedApp);
@@ -23,7 +29,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)
                 .asserts().assertTextInElement(appListPage.stepsPopup, "Цепочка согласования по заявке # "+numberOfCreatedApp);
@@ -34,7 +40,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts().assertTextInElement(appEditPage.editPopupTitle, "Редактирование заявки № "+numberOfCreatedApp);
@@ -45,7 +51,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
         steps
                 .open(APP_LIST_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
-                .createApp(new AppListDBInfo())
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)

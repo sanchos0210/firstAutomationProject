@@ -1,13 +1,13 @@
 package com.abmcloud.cf.test.pages;
 
 import com.abmcloud.cf.test.API.BasePage;
-import org.openqa.selenium.WebDriver;
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(Driver driver) {
         super(driver);
     }
 
@@ -34,11 +34,4 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = ".btn.btn-warning.btn-auth.pointer.reset_pass_submit")
             public WebElement changePasswordButton;
-
-    public void loginWithSuccessful(String email, String password) {
-        emailInput.sendKeys(email);
-        passwordInput.sendKeys(password);
-        submitButton.click();
-        loginWait();
-    }
 }

@@ -1,27 +1,18 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.CatalogField;
-import com.abmcloud.cf.test.Fields.DecimalField;
-import com.abmcloud.cf.test.Fields.StringField;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AdditionalTabTest extends BaseTest {
 
-    AppFormDBInfo appFormDBInfo;
-    DecimalField decimalField;
-    StringField stringField;
-    CatalogField catalogField;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        appFormDBInfo = new AppFormDBInfo();
-        decimalField = new DecimalField();
-        stringField = new StringField();
-        catalogField = new CatalogField();
+        dbInfo = new DataBaseInfo("app_form_db.json");
     }
 
     @Test(priority = 1)
@@ -29,16 +20,16 @@ public class AdditionalTabTest extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments4)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .openTab("Additional")
-                .edit(stringField.getField(appFormDBInfo.stringField1), "text")
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField2))
-                .catalogElementClick(appFormDBInfo.value1)
+                .editStringField(dbInfo.getString("string_field_1"), "text")
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("value_1"))
                 .openTab("Main")
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "150")
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "150")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 10)
@@ -46,16 +37,16 @@ public class AdditionalTabTest extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments4)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .openTab("Additional")
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "150")
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField2))
-                .catalogElementClick(appFormDBInfo.value1)
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "150")
+                .catalogFieldClick(dbInfo.getString("catalog_field_2"))
+                .catalogElementClick(dbInfo.getString("value_1"))
                 .openTab("Main")
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "150")
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "150")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 20)
@@ -63,15 +54,15 @@ public class AdditionalTabTest extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments4)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .openTab("Additional")
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "150")
-                .edit(stringField.getField(appFormDBInfo.stringField1), "text")
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "150")
+                .editStringField(dbInfo.getString("string_field_1"), "text")
                 .openTab("Main")
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "150")
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "150")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 30)
@@ -79,12 +70,12 @@ public class AdditionalTabTest extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments4)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField1))
-                .catalogElementClick(appFormDBInfo.contractor1)
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
                 .openTab("Additional")
-                .asserts().assertTrue(compare("1000", decimalField.getValue(appFormDBInfo.decimalField1)));
+                .asserts().assertTrue(helpers.compare("1000", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_1"))));
     }
 
     @Test(priority = 40)
@@ -92,12 +83,12 @@ public class AdditionalTabTest extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments4)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField1))
-                .catalogElementClick(appFormDBInfo.contractor1)
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
                 .openTab("Additional")
-                .asserts().assertTrue(compare("value 1", stringField.getValue(appFormDBInfo.stringField1)));
+                .asserts().assertTrue(helpers.compare("value 1", helpers.getValueOfStringField(dbInfo.getString("string_field_1"))));
     }
 
     @Test(priority = 40)
@@ -105,11 +96,11 @@ public class AdditionalTabTest extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments4)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDBInfo.catalogField1))
-                .catalogElementClick(appFormDBInfo.contractor1)
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
                 .openTab("Additional")
-                .asserts().assertTrue(compare("Value 1", catalogField.getValue(appFormDBInfo.catalogField2)));
+                .asserts().assertTrue(helpers.compare("Value 1", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_2"))));
     }
 }

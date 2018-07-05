@@ -1,12 +1,17 @@
 package com.abmcloud.cf.test.Fields;
 
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class CatalogField extends BaseField {
 
+    public CatalogField(Driver driver) {
+        super(driver);
+    }
+
     public WebElement getField(String nameOfField) {
-        WebElement catalogField = $(By.xpath("//catalog-field[@*='"+nameOfField+"']"));
+        WebElement catalogField = driver.$(By.xpath("//catalog-field[@*='"+nameOfField+"']"));
         return catalogField;
     }
 
@@ -16,6 +21,6 @@ public class CatalogField extends BaseField {
     }
 
     public WebElement getItem(String nameOfItem) {
-        return $(By.xpath("//directoryelement//span[contains(text(), '"+nameOfItem+"')]//parent::*//parent::*"));
+        return driver.$(By.xpath("//directoryelement//span[contains(text(), '"+nameOfItem+"')]//parent::*//parent::*"));
     }
 }

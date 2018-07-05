@@ -1,4 +1,4 @@
-package proline.ProlineTests;
+package com.abmcloud.cf.test;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import org.testng.annotations.Test;

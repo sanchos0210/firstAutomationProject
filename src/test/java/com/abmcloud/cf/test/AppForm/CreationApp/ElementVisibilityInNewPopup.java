@@ -1,28 +1,16 @@
 package com.abmcloud.cf.test.AppForm.CreationApp;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import Listeners.TestListener;
 
 
-@Listeners({ TestListener.class })
 @Epic("Отображение элементов в форме заявки")
 @Feature("Форма заявки")
 public class ElementVisibilityInNewPopup extends BaseTest {
-
-    AppFormDBInfo appFormDB;
-
-    @BeforeMethod
-    public void objectCreation() {
-        appFormDB = new AppFormDBInfo();
-    }
 
     @Test(priority = 1)
     @Story("Проверяем отображение элементов в форме создания заявки")
@@ -32,12 +20,12 @@ public class ElementVisibilityInNewPopup extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .showInformationBlockClick()
-                .asserts().assertFalse(isElementPresent(appEditPage.approvalSteps))
-                .assertFalse(isElementPresent(appEditPage.changesHistory))
-                .assertFalse(isElementPresent(appEditPage.viewsHistory))
-                .assertFalse(isElementPresent(appEditPage.cancelAppButton))
-                .assertFalse(isElementPresent(appEditPage.approveAppButton))
-                .assertFalse(isElementPresent(appEditPage.copyLinkButton))
-                .assertTrue(isElementPresent(appEditPage.saveButton));
+                .asserts().assertFalse(helpers.isElementPresent(appEditPage.approvalSteps))
+                .assertFalse(helpers.isElementPresent(appEditPage.changesHistory))
+                .assertFalse(helpers.isElementPresent(appEditPage.viewsHistory))
+                .assertFalse(helpers.isElementPresent(appEditPage.cancelAppButton))
+                .assertFalse(helpers.isElementPresent(appEditPage.approveAppButton))
+                .assertFalse(helpers.isElementPresent(appEditPage.copyLinkButton))
+                .assertTrue(helpers.isElementPresent(appEditPage.saveButton));
     }
 }

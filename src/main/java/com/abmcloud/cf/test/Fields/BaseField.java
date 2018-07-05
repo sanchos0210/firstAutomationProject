@@ -1,16 +1,20 @@
 package com.abmcloud.cf.test.Fields;
 
-import com.abmcloud.cf.test.API.API;
-import com.abmcloud.cf.test.API.BaseTest;
-import org.openqa.selenium.WebDriver;
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.WebElement;
 
-public abstract class BaseField extends API {
+public abstract class BaseField {
 
-    @Override
-    public WebDriver getWebDriver() {
-        return BaseTest.driver;
+    Driver driver;
+
+    public BaseField(Driver driver) {
+        this.driver = driver;
     }
+
+//    @Override
+//    public WebDriver getWebDriver() {
+//        return driver.getWebDriver();
+//    }
 
     public abstract WebElement getField(String nameOfField);
 

@@ -1,13 +1,13 @@
 package com.abmcloud.cf.test.pages;
 
 import com.abmcloud.cf.test.API.BasePage;
-import org.openqa.selenium.WebDriver;
+import com.abmcloud.cf.test.API.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CalendarPage extends BasePage {
 
-    public CalendarPage(WebDriver driver) {
+    public CalendarPage(Driver driver) {
         super(driver);
     }
 
@@ -27,7 +27,7 @@ public class CalendarPage extends BasePage {
     public WebElement closeRegistry;
 
     @FindBy(xpath = "//*[@class = 'action_panel']//text()[not(ancestor::i) and contains(., 'Оплатить')]//parent::*")
-    public WebElement pauButton;
+    public WebElement payButton;
 
     @FindBy(xpath = "//*[@class = 'action_panel']//text()[not(ancestor::i) and contains(., 'Утвердить')]//parent::*")
     public WebElement approveButton;

@@ -1,29 +1,18 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.TCH;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TCHFieldsValidation extends BaseTest {
 
-    AppFormDBInfo appFormDB;
-    CatalogField catalogField;
-    DecimalField decimalField;
-    StringField stringField;
-    BooleanField booleanField;
-    DateField dateField;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        appFormDB = new AppFormDBInfo();
-        catalogField = new CatalogField();
-        decimalField = new DecimalField();
-        stringField = new StringField();
-        booleanField = new BooleanField();
-        dateField = new DateField();
+        dbInfo = new DataBaseInfo("app_form_db.json");
     }
 
     @Test(priority = 10)
@@ -31,13 +20,13 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField("Catalog field 2*"))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(stringField.getTCHField("String field 1*"), "text1")
+                .catalogFieldClick("Catalog field 2*")
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editTCHStringField("String field 1*", "text1")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 20)
@@ -45,14 +34,14 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField("Catalog field 2*"))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(stringField.getTCHField("String field 1*"), "text1")
-                .edit(decimalField.getTCHField(appFormDB.decimalField1), "-150")
+                .catalogFieldClick("Catalog field 2*")
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editTCHStringField("String field 1*", "text1")
+                .editTCHDecimalField(dbInfo.getString("decimal_field_1"), "-150")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 30)
@@ -60,14 +49,14 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField("Catalog field 2*"))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(stringField.getTCHField("String field 1*"), "text1")
-                .edit(decimalField.getTCHField(appFormDB.decimalField1), "0")
+                .catalogFieldClick("Catalog field 2*")
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editTCHStringField("String field 1*", "text1")
+                .editTCHDecimalField(dbInfo.getString("decimal_field_1"), "0")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 40)
@@ -75,14 +64,14 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField("Catalog field 2*"))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(stringField.getTCHField("String field 1*"), "text1")
-                .edit(decimalField.getTCHField(appFormDB.decimalField1), "5t5t")
+                .catalogFieldClick("Catalog field 2*")
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editTCHStringField("String field 1*", "text1")
+                .editTCHDecimalField(dbInfo.getString("decimal_field_1"), "5t5t")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 50)
@@ -90,9 +79,9 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .asserts().assertTrue(decimalField.isDisabledTCH(appFormDB.decimalField2));
+                .asserts().assertTrue(helpers.isDecimalFieldDisabledTCH(dbInfo.getString("decimal_field_2")));
     }
 
     @Test(priority = 60)
@@ -100,15 +89,15 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.project1)
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("project_1"))
                 .asserts()
-                .assertTrue(compare("1", decimalField.getTCHValue(appFormDB.decimalField2)))
-                .assertTrue(compare("text1", stringField.getValueTCH(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("1", helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("text1", helpers.getValueOfStringFieldTCH(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 70)
@@ -116,16 +105,16 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.project1)
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField3))
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("project_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_3"))
                 .asserts()
-                .assertTrue(compare("", decimalField.getTCHValue(appFormDB.decimalField2)))
-                .assertTrue(compare("", stringField.getValueTCH(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("", helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfStringFieldTCH(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 80)
@@ -133,11 +122,11 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments3)
+                .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts()
-                .assertTrue(compare("1000", decimalField.getTCHValue(appFormDB.decimalField2)))
-                .assertTrue(compare("value 1", stringField.getValueTCH(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("1000", helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("value 1", helpers.getValueOfStringFieldTCH(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 90)
@@ -145,12 +134,12 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments3)
+                .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField2))
+                .clearCatalogValue(dbInfo.getString("catalog_field_2"))
                 .asserts()
-                .assertTrue(compare("", decimalField.getTCHValue(appFormDB.decimalField2)))
-                .assertTrue(compare("", stringField.getValueTCH(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("", helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfStringFieldTCH(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 100)
@@ -158,10 +147,10 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments3)
+                .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts()
-                .assertTrue(compare("35", decimalField.getTCHValue(appFormDB.decimalField1)));
+                .assertTrue(helpers.compare("35", helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_1"))));
     }
 
     @Test(priority = 110)
@@ -169,13 +158,13 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField("Catalog field 2*"))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(stringField.getTCHField("String field 1*"), "text1")
+                .catalogFieldClick("Catalog field 2*")
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editTCHStringField("String field 1*", "text1")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 120)
@@ -183,9 +172,9 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .asserts().assertTrue(stringField.isDisabledTCH(appFormDB.stringField2));
+                .asserts().assertTrue(helpers.isStringFieldDisabledTCH(dbInfo.getString("string_field_2")));
     }
 
     @Test(priority = 130)
@@ -193,10 +182,10 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments3)
+                .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts()
-                .assertTrue(compare("default text", stringField.getValueTCH(appFormDB.stringField1)));
+                .assertTrue(helpers.compare("default text", helpers.getValueOfStringFieldTCH(dbInfo.getString("string_field_1"))));
     }
 
     @Test(priority = 140)
@@ -204,13 +193,14 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .asserts()
-                .assertTrue(compare("false" , booleanField.getValueTCH(appFormDB.booleanField)))
-                .getAppFormStep().booleanButtonClick(booleanField.getField(appFormDB.booleanField))
+                .assertTrue(helpers.compare("false" , helpers.getValueOfBooleanFieldTCH(dbInfo.getString("boolean_field"))))
+                .getAppFormStep()
+                .booleanButtonClick(dbInfo.getString("boolean_field"))
                 .asserts()
-                .assertTrue(compare("true" ,booleanField.getValueTCH(appFormDB.booleanField)));
+                .assertTrue(helpers.compare("true" , helpers.getValueOfBooleanFieldTCH(dbInfo.getString("boolean_field"))));
     }
 
     @Test(priority = 150)
@@ -218,16 +208,17 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField5))
-                .catalogElementClick(appFormDB.value1)
-                .asserts().assertTrue(compare("true", booleanField.getValueTCH(appFormDB.booleanField)))
-                .getAppFormStep().catalogElementClick(catalogField.getField(appFormDB.catalogField5))
-                .catalogElementClick(appFormDB.value2)
-                .asserts().assertTrue(compare("false", booleanField.getValueTCH(appFormDB.booleanField)))
-                .getAppFormStep().clearCatalogValue(catalogField.getField(appFormDB.catalogField5))
-                .asserts().assertTrue(compare("false", booleanField.getValueTCH(appFormDB.booleanField)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_5"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .asserts().assertTrue(helpers.compare("true", helpers.getValueOfBooleanFieldTCH(dbInfo.getString("boolean_field"))))
+                .getAppFormStep()
+                .catalogFieldClick(dbInfo.getString("catalog_field_5"))
+                .catalogElementClick(dbInfo.getString("value_2"))
+                .asserts().assertTrue(helpers.compare("false", helpers.getValueOfBooleanFieldTCH(dbInfo.getString("boolean_field"))))
+                .getAppFormStep().clearCatalogValue(dbInfo.getString("catalog_field_5"))
+                .asserts().assertTrue(helpers.compare("false", helpers.getValueOfBooleanFieldTCH(dbInfo.getString("boolean_field"))));
     }
 
     @Test(priority = 160)
@@ -235,12 +226,12 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .edit(stringField.getTCHField("String field 1*"), "text1")
-                .edit(decimalField.getTCHField(appFormDB.decimalField1), "150")
+                .editTCHStringField("String field 1*", "text1")
+                .editTCHDecimalField(dbInfo.getString("decimal_field_1"), "150")
                 .saveButtonClick()
-                .asserts().assertTrue(compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
+                .asserts().assertTrue(helpers.compare("Oops! Looks like you have not filled out all of the required fields!", textOfNotification));
     }
 
     @Test(priority = 170)
@@ -248,13 +239,13 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.project1)
-                .asserts().assertTrue(compare("Project1", catalogField.getValue(appFormDB.catalogField3)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("project_1"))
+                .asserts().assertTrue(helpers.compare("Project 1", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_3"))));
     }
 
     @Test(priority = 180)
@@ -262,14 +253,14 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.project1)
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField3))
-                .asserts().assertTrue(compare("", catalogField.getValue(appFormDB.catalogField3)));
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("project_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_3"))
+                .asserts().assertTrue(helpers.compare("", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_3"))));
     }
 
     @Test(priority = 190)
@@ -277,13 +268,13 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .asserts().assertTrue(isElementPresent(appFormDB.project1))
-                .assertFalse(isElementPresent(appFormDB.project2));
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .asserts().assertTrue(helpers.isElementPresent(helpers.getCatalogItem(dbInfo.getString("project_1"))))
+                .assertFalse(helpers.isElementPresent(helpers.getCatalogItem(dbInfo.getString("project_2"))));
     }
 
     @Test(priority = 200)
@@ -291,17 +282,17 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField1))
-                .catalogElementClick(appFormDB.value1)
-                .catalogElementClick(catalogField.getField(appFormDB.catalogField3))
-                .catalogElementClick(appFormDB.project1)
-                .clearCatalogValue(catalogField.getField(appFormDB.catalogField1))
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
+                .catalogFieldClick(dbInfo.getString("catalog_field_3"))
+                .catalogElementClick(dbInfo.getString("project_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_1"))
                 .asserts()
-                .assertTrue(compare("", catalogField.getValue(appFormDB.catalogField3)))
-                .assertTrue(compare("", decimalField.getTCHValue(appFormDB.decimalField2)))
-                .assertTrue(compare("", stringField.getValueTCH(appFormDB.stringField2)));
+                .assertTrue(helpers.compare("", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_3"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_2"))))
+                .assertTrue(helpers.compare("", helpers.getValueOfStringFieldTCH(dbInfo.getString("string_field_2"))));
     }
 
     @Test(priority = 210)
@@ -309,15 +300,15 @@ public class TCHFieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDB.preparePayments2)
+                .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .catalogElementClick(catalogField.getField("Catalog field 2*"))
-                .catalogElementClick(appFormDB.contractor1)
-                .edit(stringField.getTCHField("String field 1"), "text1")
-                .edit(decimalField.getTCHField("Decimal field 1"), "150")
+                .catalogFieldClick("Catalog field 2*")
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .editTCHStringField("String field 1", "text1")
+                .editTCHDecimalField("Decimal field 1", "150")
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(compare(dateField.getTCHValue("Date field 1"), getTodayFullDate()));
+                .asserts().assertTrue(helpers.compare(helpers.getValueOfDateFieldTCH("Date field 1"), helpers.getTodayFullDate()));
     }
 }

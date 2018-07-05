@@ -1,22 +1,16 @@
 package com.abmcloud.cf.test.API;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasePage extends API {
+public class BasePage {
 
-    public WebDriver driver;
+    public Driver driver;
 
-   public BasePage(WebDriver driver) {
+   public BasePage(Driver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
-    @Override
-    public WebDriver getWebDriver() {
-        return driver;
+        PageFactory.initElements(driver.getWebDriver(), this);
     }
 
     @FindBy(css = "div.sn-content")

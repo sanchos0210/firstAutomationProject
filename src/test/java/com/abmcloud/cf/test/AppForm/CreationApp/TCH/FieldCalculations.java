@@ -1,21 +1,18 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.TCH;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.AppFormDBInfo;
+import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.Fields.DecimalField;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FieldCalculations extends BaseTest {
 
-    AppFormDBInfo appFormDBInfo;
-    DecimalField decimalField;
+    DataBaseInfo dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        appFormDBInfo = new AppFormDBInfo();
-        decimalField = new DecimalField();
+        dbInfo = new DataBaseInfo("app_form_db.json");
     }
 
     @Test(priority = 1)
@@ -23,12 +20,13 @@ public class FieldCalculations extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments5)
+                .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "11")
-                .asserts().assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3), "11"))
-                .getAppFormStep().edit(decimalField.getField(appFormDBInfo.decimalField1), "111")
-                .asserts().assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3), "10"));
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "11")
+                .asserts().assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3")), "11"))
+                .getAppFormStep()
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "111")
+                .asserts().assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3")), "10"));
     }
 
     @Test(priority = 10)
@@ -36,18 +34,18 @@ public class FieldCalculations extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments5)
+                .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .addNewLineClick()
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "11")
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "11")
                 .asserts()
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 1), "11"))
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 2), "11"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 1), "11"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 2), "11"))
                 .getAppFormStep()
-                .edit(decimalField.getField(appFormDBInfo.decimalField1), "111")
+                .editDecimalField(dbInfo.getString("decimal_field_1"), "111")
                 .asserts()
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 1), "10"))
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 2), "10"));
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 1), "10"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 2), "10"));
     }
 
     @Test(priority = 20)
@@ -55,14 +53,14 @@ public class FieldCalculations extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
-                .openAppList(appFormDBInfo.preparePayments5)
+                .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .addNewLineClick()
                 .addNewLineClick()
-                .edit(decimalField.getTCHField(appFormDBInfo.decimalField2, 2), "77")
+                .editTCHDecimalField(dbInfo.getString("decimal_field_2"), 2, "77")
                 .asserts()
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 1), "10"))
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 2), "77"))
-                .assertTrue(compare(decimalField.getTCHValue(appFormDBInfo.decimalField3, 3), "10"));
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 1), "10"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 2), "77"))
+                .assertTrue(helpers.compare(helpers.getValueOfDecimalFieldTCH(dbInfo.getString("decimal_field_3"), 3), "10"));
     }
 }
