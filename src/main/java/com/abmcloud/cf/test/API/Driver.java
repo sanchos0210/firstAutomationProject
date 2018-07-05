@@ -22,7 +22,7 @@ public class Driver {
     private WebDriver driver;
 
     public Driver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vera\\Desktop\\chrome-driver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
