@@ -31,8 +31,8 @@ public class BaseTest {
 
     //-----------------------------------------------CONSTANT VALUES----------------------------------------------------l
     //URL constants
-    public static final String APP_FORM_DEMO_DB = "https://dev5.cf.abmcloud.com";     //"https://test12.cf.abmcloud.com";       //https://demo12.cf.abmcloud.com";
-    public static final String APP_LIST_DEMO_DB = "https://dev6.cf.abmcloud.com";
+    public static final String APP_FORM_DEMO_DB = "https://dev6.cf.abmcloud.com";     //"https://test12.cf.abmcloud.com";       //https://demo12.cf.abmcloud.com";
+    public static final String APP_LIST_DEMO_DB = "https://dev5.cf.abmcloud.com";
     public static final String CALENDAR_DEMO_DB = "";//https://demo12.cf.abmcloud.com";
     //--------------------------------------Data information about test users-------------------------------------------
     //General test user
