@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite" >
     <test name="LoginTest">
-        <classes>
-            <class name="com.abmcloud.cf.test.AppForm.CreationApp.ElementVisibilityInNewPopup">
-            </class>
-        </classes>
+        <packages>
+            <package name="com.abmcloud.cf.test.AppForm"></package>
+            <package name="com.abmcloud.cf.test.AppList"></package>
+        </packages>
     </test>
 </suite>

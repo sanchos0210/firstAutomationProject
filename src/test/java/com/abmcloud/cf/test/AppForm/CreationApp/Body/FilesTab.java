@@ -104,4 +104,15 @@ public class FilesTab extends BaseTest {
                 .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\png-файл.png")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # png-файл.png uploaded successfully.");
     }
+
+    @Test(priority = 10)
+    public void addCSVFile() {
+        steps
+                .open(APP_FORM_DEMO_DB)
+                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .createAppButtonClick()
+                .openFilesTab()
+                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\csv-файл.csv")
+                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # csv-файл.csv uploaded successfully.");
+    }
 }
