@@ -3,7 +3,7 @@
 <suite name="All Tests" >
     <test name="All Tests">
         <classes>
-		<class name="com.abmcloud.cf.test.LoginTest"></class>
+		<class name="com.abmcloud.cf.test.LoginTests"></class>
 		<class name="com.abmcloud.cf.test.AppForm.CreationApp.ElementVisibilityInNewPopup"></class>
 		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.AdditionalTabTest"></class>
 		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldCalculationTests"></class>
