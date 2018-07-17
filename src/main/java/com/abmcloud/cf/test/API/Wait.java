@@ -41,14 +41,14 @@ public class Wait {
     }
 
     public void preloadWait() {
-        driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        //driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         (new WebDriverWait(driver.getWebDriver(), 6)).until(ExpectedConditions.attributeContains
                 (By.cssSelector("div#preloader"), "style",
                         "display: block; background: none rgba(0, 0, 0, 0.7);"));
         (new WebDriverWait(driver.getWebDriver(), 6)).until(ExpectedConditions.attributeContains
                 (By.cssSelector("div#preloader"), "style",
                         "display: none; background: none;"));
-        driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        //driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
     public void calendarPreloadWait() {

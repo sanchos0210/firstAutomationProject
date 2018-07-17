@@ -3,30 +3,7 @@
 <suite name="All Tests" >
     <test name="All Tests">
         <classes>
-		<class name="com.abmcloud.cf.test.LoginTests"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.ElementVisibilityInNewPopup"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.AdditionalTabTest"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldCalculationTests"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldsValidation"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.FilesTab"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.TCH.FieldCalculations"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.TCH.TCHFieldsValidation"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Title.ElementVisibilityInTitleInNewPopup"></class>
-		<class name="com.abmcloud.cf.test.AppForm.CreationApp.Title.FieldsValidationTests"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.ElementVisibilityInEditPopup"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.Body.ChangesHistoryTests"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.Body.FieldEdition"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.Body.FilesTabTests"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.Body.ViewsHistoryTests"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.TCH.DataVisibility"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.TCH.FieldsEdition"></class>
-		<class name="com.abmcloud.cf.test.AppForm.EditionApp.Title.ElementVisibilityInTitleInEditPopup"></class>
 		<class name="com.abmcloud.cf.test.AppList.AppListTests.ActionMenuTests"></class>
-		<class name="com.abmcloud.cf.test.AppList.AppListTests.ElementsVisibilityOfAppList"></class>
-		<class name="com.abmcloud.cf.test.AppList.AppListTests.StatusOfAppTests"></class>
-		<class name="com.abmcloud.cf.test.AppList.BuisnessProcessTests.ChainsStepsTests"></class>
-		<class name="com.abmcloud.cf.test.AppList.BuisnessProcessTests.ChainsTests"></class>
-		<class name="com.abmcloud.cf.test.AppList.HeaderOfApplList.GlobalFilterTests"></class>
 	</classes>
     </test>
 </suite>
