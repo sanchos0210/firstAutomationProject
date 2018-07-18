@@ -3,7 +3,7 @@
 <suite name="All Tests" >
     <test name="All Tests">
         <classes>
-		<class name="com.abmcloud.cf.test.AppList.AppListTests.ActionMenuTests"></class>
-	</classes>
+		<class name="com.abmcloud.cf.test.AppList.AppListTests.StatusOfAppTests"/>
+	    </classes>
     </test>
 </suite>
