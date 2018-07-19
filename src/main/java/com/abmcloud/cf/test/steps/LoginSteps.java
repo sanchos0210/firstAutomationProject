@@ -15,6 +15,7 @@ public class LoginSteps extends BaseSteps {
         loginPage = new LoginPage(driver);
     }
 
+
     @Step("Заходим на страницу логина")
     public LoginSteps open(String url) {
         driver.get(url);
@@ -23,6 +24,7 @@ public class LoginSteps extends BaseSteps {
 
     @Step("Попробовать залогинится")
     public LoginSteps login(String email, String pass) {
+        //logs.infoMsg("Logining to CF system: email = " + email  + "; password = " + pass);
         loginPage.emailInput.sendKeys(email);
         loginPage.passwordInput.sendKeys(pass);
         loginPage.submitButton.click();
@@ -38,6 +40,7 @@ public class LoginSteps extends BaseSteps {
 
     @Step("Залогинится")
     public AppListSteps loginAs(UsersData user) {
+        //logs.infoMsg("Logining to CF system: \nemail = " + user.getUserEmail()  + "; password = " + user.getUserPassword());
         try {
             login(user.getUserEmail(), user.getUserPassword());
             getWait().loginWait();

@@ -17,7 +17,7 @@ public class StatusOfAppTests extends BaseTest {
     public void sendForApprovalButton() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(new UsersData(USER, EMAIL, "123", RU))
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)

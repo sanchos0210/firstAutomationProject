@@ -29,14 +29,17 @@ public class Driver {
     }
 
     public void get(String url) {
+        //logs.infoMsg("Opening page " + url);
         driver.get(url);
     }
 
     public void close() {
+        //logs.infoMsg("Closing browsers tab");
         driver.close();
     }
 
     public void quit() {
+        //logs.infoMsg("Closing browser");
         driver.quit();
     }
 
