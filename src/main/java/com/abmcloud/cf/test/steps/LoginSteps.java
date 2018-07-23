@@ -2,17 +2,18 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
+import com.abmcloud.cf.test.API.Logs;
 import com.abmcloud.cf.test.DBInfo.UsersData;
 import com.abmcloud.cf.test.pages.LoginPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 
 public class LoginSteps extends BaseSteps {
 
     public LoginSteps(Driver driver) {
         this.driver = driver;
         loginPage = new LoginPage(driver);
+        logs = new Logs(LoginSteps.class.getName());
     }
 
 
@@ -24,7 +25,7 @@ public class LoginSteps extends BaseSteps {
 
     @Step("Попробовать залогинится")
     public LoginSteps login(String email, String pass) {
-        //logs.infoMsg("Logining to CF system: email = " + email  + "; password = " + pass);
+        logs.infoMsg("Logining to CF system: email = " + email  + "; password = " + pass);
         loginPage.emailInput.sendKeys(email);
         loginPage.passwordInput.sendKeys(pass);
         loginPage.submitButton.click();
@@ -40,12 +41,14 @@ public class LoginSteps extends BaseSteps {
 
     @Step("Залогинится")
     public AppListSteps loginAs(UsersData user) {
-        //logs.infoMsg("Logining to CF system: \nemail = " + user.getUserEmail()  + "; password = " + user.getUserPassword());
+        logs.infoMsg("Logining to CF system: \nemail = " + user.getUserEmail()  + "; password = " + user.getUserPassword());
         try {
             login(user.getUserEmail(), user.getUserPassword());
             getWait().loginWait();
             BaseTest.activeUser = user;
-        }catch(NoSuchElementException e) {}
+        }catch(RuntimeException e) {
+            logs.errorMsg(e.toString());
+        }
         return  getAppListSteps();
     }
 

@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
+import com.abmcloud.cf.test.API.Logs;
 import com.abmcloud.cf.test.Fields.DateField;
 import com.abmcloud.cf.test.pages.AppEditPage;
 import com.abmcloud.cf.test.pages.AppListPage;
@@ -18,6 +19,7 @@ public class CalendarSteps extends BaseSteps {
     public CalendarSteps(Driver driver) {
         this.driver = driver;
         calendarPage = new CalendarPage(driver);
+        logs = new Logs(CalendarSteps.class.getName());
     }
 
     private AppListPage getAppListPage() {

@@ -10,10 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.logging.Handler;
-import java.util.logging.LogManager;
 
 public class BaseTest {
 
@@ -33,7 +30,7 @@ public class BaseTest {
     public static String numberOfCreatedApp;
     public static String textOfNotification;
 
-    //-----------------------------------------------CONSTANT VALUES----------------------------------------------------l
+    //-----------------------------------------------CONSTANT VALUES----------------------------------------------------
     //URL constants
     public static final String APP_FORM_DEMO_DB = "https://dev6.cf.abmcloud.com";     //"https://test12.cf.abmcloud.com";       //https://demo12.cf.abmcloud.com";
     public static final String APP_LIST_DEMO_DB = "https://dev5.cf.abmcloud.com";
@@ -66,28 +63,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void initializeDriver(Method method) {
-        try {
-            Handler myHandler = Logs.getFileHandler(method.getName());
-            LogManager.getLogManager().readConfiguration();
-            LogManager.getLogManager().getLogger("global").addHandler(myHandler);
-            /*LogManager.getLogManager().getLogger("sun.net.www.protocol.http.HttpURLConnection").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.net.Urls").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("okio.Okio").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.remote.RemoteWebDriver").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.os.OsProcess").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.remote.ErrorCodes").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("com.google.common.base.Platform").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.remote.RemoteLogs").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.os.WindowsUtils").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.support.ui.ExpectedConditions").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.remote.NewSessionPayload").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("okhttp3.OkHttpClient").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.remote.ProtocolHandshake").addHandler(myHandler);
-            LogManager.getLogManager().getLogger("org.openqa.selenium.net.UrlChecker").addHandler(myHandler);*/
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(System.getProperty("java.util.logging.config.file"));
+        Logs.setFileName(method.getName());
         driver = new Driver();
         loginPage = new LoginPage(driver);
         appListPage = new AppListPage(driver);

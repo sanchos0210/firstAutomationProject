@@ -6,20 +6,21 @@ import java.util.logging.*;
 public class Logs {
 
     private Logger logger;
+    private static String fileName;
+
+    public static void setFileName(String name) {
+        fileName = name + ".log";
+    }
 
     public Logs(String logName) {
         logger = Logger.getLogger(logName);
+        logger.addHandler(getFileHandler());
     }
 
-    public void setFileHandler(FileHandler fileHandler) {
-        logger.addHandler(fileHandler);
-    }
-
-    public static FileHandler getFileHandler(String fileName) {
+    private FileHandler getFileHandler() {
         Handler fileHandler = null;
         try {
             fileHandler = new FileHandler(fileName + ".log");
-            //fileHandler.setFormatter();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -27,25 +28,19 @@ public class Logs {
         return (FileHandler) fileHandler;
     }
 
-    public void setFileName(String fileName) {
-        try {
-            Handler fileHandler = new FileHandler(fileName + ".log");
-            fileHandler.setFormatter(new LoggerFormat());
-            logger.addHandler(fileHandler);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void infoMsg(String msg) {
         logger.log(Level.INFO, msg);
+    }
+
+    public void errorMsg(String msg) {
+        logger.log(Level.SEVERE, msg);
     }
 
     static class LoggerFormat extends Formatter {
 
         @Override
         public String format(LogRecord record) {
-            return record.getLevel() + " :" + record.getMessage() + "\n";
+            return record.getLoggerName() + ". " + record.getLevel() + " :" + record.getMessage() + "\n";
         }
     }
 }

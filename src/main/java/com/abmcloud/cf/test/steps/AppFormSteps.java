@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
+import com.abmcloud.cf.test.API.Logs;
 import com.abmcloud.cf.test.Fields.*;
 import com.abmcloud.cf.test.pages.AppEditPage;
 import com.abmcloud.cf.test.pages.AppListPage;
@@ -23,6 +24,7 @@ public class AppFormSteps extends BaseSteps {
     public AppFormSteps(Driver driver) {
         this.driver = driver;
         appEditPage = new AppEditPage(driver);
+        logs = new Logs(AppFormSteps.class.getName());
     }
 
     private AppListPage getAppListPage() {

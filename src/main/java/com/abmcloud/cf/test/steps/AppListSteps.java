@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
+import com.abmcloud.cf.test.API.Logs;
 import com.abmcloud.cf.test.pages.AppEditPage;
 import com.abmcloud.cf.test.pages.AppListPage;
 import com.abmcloud.cf.test.pages.LoginPage;
@@ -20,6 +21,7 @@ public class AppListSteps extends BaseSteps {
     public AppListSteps(Driver driver) {
         this.driver = driver;
         appListPage = new AppListPage(driver);
+        logs = new Logs(AppListSteps.class.getName());
     }
 
     private LoginPage getLoginPage() {

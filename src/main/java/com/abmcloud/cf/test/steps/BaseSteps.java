@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.steps;
 
 import com.abmcloud.cf.test.API.Asserts;
 import com.abmcloud.cf.test.API.Driver;
+import com.abmcloud.cf.test.API.Logs;
 import com.abmcloud.cf.test.API.Wait;
 import com.abmcloud.cf.test.pages.AppEditPage;
 import com.abmcloud.cf.test.pages.AppListPage;
@@ -15,6 +16,7 @@ public class BaseSteps {
 
    public Driver driver;
    public Wait wait;
+   public Logs logs;
    public LoginPage loginPage;
    public AppListPage appListPage;
    public AppEditPage appEditPage;
