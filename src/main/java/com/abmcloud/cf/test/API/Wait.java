@@ -33,11 +33,15 @@ public class Wait {
     }
 
     public void waitForClickable(int seconds, By locator) {
+        driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         (new WebDriverWait(driver.getWebDriver(), seconds)).until(ExpectedConditions.elementToBeClickable(locator));
+        driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
     public void waitForElementClickable(int seconds, WebElement element) {
+        driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         (new WebDriverWait(driver.getWebDriver(), seconds)).until(ExpectedConditions.elementToBeClickable(element));
+        driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
     public void preloadWait() {

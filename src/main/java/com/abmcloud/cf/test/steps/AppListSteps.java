@@ -114,6 +114,9 @@ public class AppListSteps extends BaseSteps {
     private AppListSteps saveTextAndNumberOfNotification() {
         try {
             BaseTest.textOfNotification = appListPage.applSavedNotification.getText();
+            if(BaseTest.textOfNotification == null) {
+                logs.warning("Text of notification is NULL !");
+            }
             switch (BaseTest.activeUser.getLocalizeLanguage()) {
                 case BaseTest.EN: {     //for english language
                     BaseTest.numberOfCreatedApp = BaseTest.textOfNotification.substring(11, 18);
