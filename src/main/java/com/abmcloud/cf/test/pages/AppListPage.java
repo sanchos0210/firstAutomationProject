@@ -77,6 +77,9 @@ public class AppListPage extends BasePage {
     @FindBy(css = "steps-popup p-dialog .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top .ui-dialog-title")
             public WebElement stepsPopup;
 
+    @FindBy(css = ".fa.fa-fw.fa-close")
+            public WebElement closeChainStepsPopup;
+
     @FindBy(css = "")
             public WebElement stepName;
     //------------------------------------------------------------------------------------------------------------------

@@ -20,27 +20,44 @@ import static com.abmcloud.cf.test.API.Conditions.visible;
 public class Driver {
 
     private WebDriver driver;
+    private Logs logs;
 
     public Driver() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        logs = new Logs(Driver.class.getName());
     }
 
     public void get(String url) {
-        //logs.infoMsg("Opening page " + url);
-        driver.get(url);
+        logs.infoMsg("Opening page: " + url);
+        try {
+            driver.get(url);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public void close() {
-        //logs.infoMsg("Closing browsers tab");
-        driver.close();
+        logs.infoMsg("Closing browsers tab");
+        try {
+            driver.close();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public void quit() {
-        //logs.infoMsg("Closing browser");
-        driver.quit();
+        logs.infoMsg("Shut down driver");
+        try {
+            driver.quit();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public WebDriver getWebDriver() {
@@ -48,28 +65,58 @@ public class Driver {
     }
 
     public List<WebElement> $$(By locator){
-        return (List<WebElement>) newElementsFinderProxyInstance(new ListOfWebElementsBait(), locator);
+        try {
+            return (List<WebElement>) newElementsFinderProxyInstance(new ListOfWebElementsBait(), locator);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public List<WebElement> $$(String cssSelector){
-        return $$(By.cssSelector(cssSelector));
+        try {
+            return $$(By.cssSelector(cssSelector));
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public <V> V waitUntil(Function<? super WebDriver, V> condition, int timeout){
-        return (new WebDriverWait(getWebDriver(), timeout)).until(condition);
+        try {
+            return (new WebDriverWait(getWebDriver(), timeout)).until(condition);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public <V> V assertThat(Function<? super WebDriver, V> condition){
-        return waitUntil(condition, Configuration.timeout);
+        try {
+            return waitUntil(condition, Configuration.timeout);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     public void refresh(){
-        $("body").sendKeys(Keys.F5);
+        try {
+            $("body").sendKeys(Keys.F5);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     // todo: refactor to return the proxy
     protected WebElement $get(List<WebElement> list, int index){
-        return assertThat(listSizeIsAtLeast(list, index + 1)).get(index);
+        try {
+            return assertThat(listSizeIsAtLeast(list, index + 1)).get(index);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------

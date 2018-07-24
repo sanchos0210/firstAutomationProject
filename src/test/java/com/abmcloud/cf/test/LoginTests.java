@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test;
 
 import com.abmcloud.cf.test.API.BaseTest;
+import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
@@ -38,7 +39,7 @@ public class LoginTests extends BaseTest {
     public void loginWithSuccessful() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginWithSuccessful(EMAIL, PASSWORD)
+                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .asserts().assertTextInElement(loginPage.profileName, USER);
     }
 
@@ -54,7 +55,7 @@ public class LoginTests extends BaseTest {
     public void loginAndLogOut() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginWithSuccessful(EMAIL, PASSWORD)
+                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .logOut()
                 .asserts().assertTextInElement(loginPage.cashflowTitle, "ABM cashflow");
     }

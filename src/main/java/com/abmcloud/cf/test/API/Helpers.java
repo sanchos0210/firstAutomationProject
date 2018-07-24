@@ -39,7 +39,7 @@ public class Helpers {
         return (DecimalField) baseField;
     }
 
-    private BooleanField getBoolenField() {
+    private BooleanField getBooleanField() {
         baseField = new BooleanField(driver);
         return (BooleanField) baseField;
     }
@@ -242,23 +242,23 @@ public class Helpers {
     }
 
     public String getValueOfBooleanField(String name) {
-        return getBoolenField().getValue(name);
+        return getBooleanField().getValue(name);
     }
 
     public String getValueOfBooleanFieldTCH(String name) {
-        return getBoolenField().getValueTCH(name);
+        return getBooleanField().getValueTCH(name);
     }
 
     public String getInOutValue() {
-        return getBoolenField().getInOutValue();
+        return getBooleanField().getInOutValue();
     }
 
     public boolean isBooleanFieldDisable(String name) {
-        return getBoolenField().isDisable(name);
+        return getBooleanField().isDisable(name);
     }
 
     public boolean isInOutDisable() {
-        return getBoolenField().isInOutDisable();
+        return getBooleanField().isInOutDisable();
     }
 
     public String getValueOfDateField(String name) {

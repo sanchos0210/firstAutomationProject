@@ -25,44 +25,53 @@ public class LoginSteps extends BaseSteps {
 
     @Step("Попробовать залогинится")
     public LoginSteps login(String email, String pass) {
-        logs.infoMsg("Logining to CF system: email = " + email  + "; password = " + pass);
-        loginPage.emailInput.sendKeys(email);
-        loginPage.passwordInput.sendKeys(pass);
-        loginPage.submitButton.click();
+        try {
+            loginPage.emailInput.sendKeys(email);
+            loginPage.passwordInput.sendKeys(pass);
+            loginPage.submitButton.click();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+        }
         return this;
     }
 
     @Step("Залогинится")
-    public AppListSteps loginWithSuccessful(String email, String pass) {
-        login(email, pass);
-        getWait().loginWait();
-        return  getAppListSteps();
-    }
-
-    @Step("Залогинится")
     public AppListSteps loginAs(UsersData user) {
-        logs.infoMsg("Logining to CF system: \nemail = " + user.getUserEmail()  + "; password = " + user.getUserPassword());
-        try {
+        logs.infoMsg("Logining to CF system: " + user.getUserEmail()  + "; " + user.getUserPassword());
             login(user.getUserEmail(), user.getUserPassword());
+        try {
             getWait().loginWait();
             BaseTest.activeUser = user;
-        }catch(RuntimeException e) {
-            logs.errorMsg(e.toString());
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
         }
         return  getAppListSteps();
     }
 
     @Step("Залогинится по кнопке Enter")
     public AppListSteps loginWithEnter(String email, String pass) {
-        loginPage.emailInput.sendKeys(email);
-        loginPage.passwordInput.sendKeys(pass + Keys.ENTER);
-        getWait().loginWait();
+        logs.infoMsg("Logining to CF system: " + email  + "; " + pass);
+        try {
+            loginPage.emailInput.sendKeys(email);
+            loginPage.passwordInput.sendKeys(pass + Keys.ENTER);
+            getWait().loginWait();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
         return  getAppListSteps();
     }
 
     @Step("Кликнуть на \"Забыл пароль\"")
     public LoginSteps forgotYourPasswordClick() {
-        loginPage.forgotYourPassword.click();
+        try {
+            logs.infoMsg("Click on button: " + loginPage.forgotYourPassword.toString());
+            loginPage.forgotYourPassword.click();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
         return this;
     }
 }
