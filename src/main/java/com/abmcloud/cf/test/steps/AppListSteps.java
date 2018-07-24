@@ -113,6 +113,7 @@ public class AppListSteps extends BaseSteps {
 
     private AppListSteps saveTextAndNumberOfNotification() {
         try {
+            getWait().waitForElementClickable(3, appListPage.applSavedNotification);
             BaseTest.textOfNotification = appListPage.applSavedNotification.getText();
             if(BaseTest.textOfNotification == null) {
                 logs.warning("Text of notification is NULL !");
