@@ -2,19 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Tests" >
     <test name="All Tests">
-        <packages>
-            <package name="com.abmcloud.cf.test" />
-            <package name="com.abmcloud.cf.test.AppForm.CreationApp" />
-            <package name="com.abmcloud.cf.test.AppForm.CreationApp.Body" />
-            <package name="com.abmcloud.cf.test.AppForm.CreationApp.TCH" />
-            <package name="com.abmcloud.cf.test.AppForm.CreationApp.Title" />
-            <package name="com.abmcloud.cf.test.AppForm.EditionApp" />
-            <package name="com.abmcloud.cf.test.AppForm.EditionApp.Body" />
-            <package name="com.abmcloud.cf.test.AppForm.EditionApp.TCH" />
-            <package name="com.abmcloud.cf.test.AppForm.EditionApp.Title" />
-            <package name="com.abmcloud.cf.test.AppList.AppListTests" />
-            <package name="com.abmcloud.cf.test.AppList.BuisnessProcessTests" />
-            <package name="com.abmcloud.cf.test.AppList.HeaderOfApplList" />
-        </packages>
+        <classes>
+            <class name="com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldsValidation">
+                <methods>
+                    <include name="autoClearAfterAutoInsertDateField" />
+                </methods>
+            </class>
+        </classes>
     </test>
 </suite>
