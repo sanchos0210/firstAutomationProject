@@ -11,7 +11,7 @@ public class CatalogField extends BaseField {
     }
 
     public WebElement getField(String nameOfField) {
-        WebElement catalogField = driver.$(By.xpath("//catalog-field[@*='"+nameOfField+"']"));
+        WebElement catalogField = driver.fluentWait(By.xpath("//catalog-field[@*='"+nameOfField+"']"));
         return catalogField;
     }
 

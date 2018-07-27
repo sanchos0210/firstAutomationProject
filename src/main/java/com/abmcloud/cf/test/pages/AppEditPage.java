@@ -7,6 +7,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class AppEditPage extends BasePage {
 
+    public AppEditPage(Driver driver) {
+        super(driver);
+    }
+
     @FindBy(css = ".btn.btn-xs.btn-success.pointer.add_line")
     public WebElement addNewLine;
 
@@ -19,16 +23,8 @@ public class AppEditPage extends BasePage {
     @FindBy(css = ".ui-message.ui-messages-success")
     public WebElement addFileNotification;
 
-    public AppEditPage(Driver driver) {
-        super(driver);
-    }
-
-
     @FindBy(css = "popup-page h3")
             public WebElement editPopupTitle;
-
-    @FindBy(css = ".min-popup-height.dotted_select.ng-untouched.ng-pristine.ng-invalid")
-            public WebElement appFormFieldsBlock;
 
     @FindBy(xpath = "//*[contains(text(), 'Changes history')]")
             public WebElement changesHistory;

@@ -3,11 +3,14 @@ package com.abmcloud.cf.test.API;
 import com.google.common.base.Function;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -19,21 +22,21 @@ import static com.abmcloud.cf.test.API.Conditions.visible;
 
 public class Driver {
 
-    private WebDriver driver;
+    private WebDriver webDriver;
     private Logs logs;
 
     public Driver() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        System.setProperty("webdriver.chrome.webDriver", "chromedriver.exe");
+        webDriver = new ChromeDriver();
+        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        webDriver.manage().window().maximize();
         logs = new Logs(Driver.class.getName());
     }
 
     public void get(String url) {
         logs.infoMsg("Opening page: " + url);
         try {
-            driver.get(url);
+            webDriver.get(url);
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -43,7 +46,7 @@ public class Driver {
     public void close() {
         logs.infoMsg("Closing browsers tab");
         try {
-            driver.close();
+            webDriver.close();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -51,9 +54,9 @@ public class Driver {
     }
 
     public void quit() {
-        logs.infoMsg("Shut down driver");
+        logs.infoMsg("Shut down webDriver");
         try {
-            driver.quit();
+            webDriver.quit();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -61,7 +64,7 @@ public class Driver {
     }
 
     public WebDriver getWebDriver() {
-        return driver;
+        return webDriver;
     }
 
     public List<WebElement> $$(By locator){
@@ -222,6 +225,23 @@ public class Driver {
 
     public WebElement $(String cssSelector){
         return $(By.cssSelector(cssSelector));
+    }
+
+    public WebElement fluentWait(By selector) {
+        return fluentWait(10, 500, selector);
+    }
+
+    public WebElement fluentWait(int timeout, int interval, By selector){
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(webDriver)
+                .withTimeout(Duration.ofSeconds(timeout))
+                .pollingEvery(Duration.ofMillis(interval))
+                .ignoring(NoSuchElementException.class);
+        WebElement element = wait.until(new java.util.function.Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver webDriver) {
+                return webDriver.findElement(selector);
+            }
+        });
+        return element;
     }
 
     class ListOfWebElementsBait implements List<WebElement>{
