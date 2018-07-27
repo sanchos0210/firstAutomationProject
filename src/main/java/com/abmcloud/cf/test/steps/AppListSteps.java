@@ -81,7 +81,7 @@ public class AppListSteps extends BaseSteps {
         } catch (RuntimeException e) {
             logs.errorMsg(e);
         }
-        getWait().waitForElementClickable(4, getAppEditPage().appFormFieldsBlock);
+        getWait().waitForElementClickable(4, getAppEditPage().editPopupTitle);
         return getAppFormSteps();
     }
 
