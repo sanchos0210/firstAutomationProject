@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><suite name="All Tests">
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="All Tests">
   <test name="All Tests">
-    <person>
-      <firstName>John</firstName>
-      <lastName>Doe</lastName>
-      <age>25</age>
-    </person>
+      <classes>
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldsValidation" >
+          <methods>
+              <include name = "autoLimitVerification" />
+          </methods>
+          </class>
+      </classes>
   </test>
 </suite>

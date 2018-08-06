@@ -27,8 +27,8 @@ public class AppListPage extends BasePage {
     //locators in status-cell
     public By statusOfApp = By.cssSelector("td status-cell span.label.appl-status");
     public By sendForApprovalFromStatus = By.cssSelector(".btn.btn-default.btn-sm.no-border.pointer .fa.fa-share");
-    public By approveFromStatus = By.cssSelector("td:nth-of-type(12) .btn.btn-default.btn-xs.no-border.pointer.status_btn .fa.fa-thumbs-o-up");
-    public By cancelFromStatus = By.cssSelector("td:nth-of-type(12) .btn.btn-default.btn-xs.no-border.pointer.status_btn.status_cancel .fa.fa-thumbs-o-down");
+    public By approveFromStatus = By.cssSelector("td .btn.btn-default.btn-xs.no-border.pointer.status_btn .fa.fa-thumbs-o-up");
+    public By cancelFromStatus = By.cssSelector("td .btn.btn-default.btn-xs.no-border.pointer.status_btn.status_cancel .fa.fa-thumbs-o-down");
 
     @FindBy(css = ".btn.btn-default.btn-header.btn-filter.pointer")
     public WebElement filterButton;     //кнопка фильтр - открывает поиск

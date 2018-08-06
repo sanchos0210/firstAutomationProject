@@ -18,6 +18,7 @@ public class AppFormSteps extends BaseSteps {
     private BooleanField booleanField;
     private CatalogField catalogField;
     private DateField dateField;
+    private String nameOfActiveCatalogField;
 
     private boolean fieldHasChanged;
 
@@ -224,8 +225,8 @@ public class AppFormSteps extends BaseSteps {
 
     @Step("Кликнуть на поле каталог:")
     public AppFormSteps catalogFieldClick(String nameOfField) {
+        nameOfActiveCatalogField = nameOfField;
         WebElement element = getCatalogField().getField(nameOfField);
-        getWait().waitForElementClickable(10, element);
         try {
             element.click();
             fieldHasChanged = true;
@@ -239,9 +240,10 @@ public class AppFormSteps extends BaseSteps {
     @Step("Кликнуть на элемент каталога:")
     public AppFormSteps catalogElementClick(String nameOfItem) {
         WebElement element = getCatalogField().getItem(nameOfItem);
-        getWait().waitForElementClickable(10, element);
         try {
             element.click();
+            WebElement activeCatalogField = getCatalogField().getField(nameOfActiveCatalogField);
+            getWait().waitForAttributeContains(activeCatalogField, "ng-reflect-selected", nameOfItem);
             fieldHasChanged = true;
         } catch(RuntimeException e) {
             logs.errorMsg(e);

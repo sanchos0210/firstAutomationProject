@@ -30,7 +30,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
                 .assertTrue(helpers.isElementPresent(appEditPage.viewsHistory))
                 .assertTrue(helpers.isElementPresent(appEditPage.cancelAppButton))
                 .assertFalse(helpers.isElementPresent(appEditPage.approveAppButton))
-                .assertTrue(helpers.isElementPresent(appEditPage.saveButton));
+                .assertFalse(helpers.isElementPresent(appEditPage.saveButton));
     }
 
     @Test(priority = 2)

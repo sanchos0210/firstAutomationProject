@@ -54,6 +54,10 @@ public class Wait {
         driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
+    public void waitForAttributeContains(WebElement element, String attribute, String value) {
+        (new WebDriverWait(driver.getWebDriver(), 5)).until(ExpectedConditions.attributeContains(element, attribute, value));
+    }
+
     public void preloadWait() {
         //driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         try {
