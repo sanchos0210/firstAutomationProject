@@ -252,6 +252,7 @@ public class AppFormSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Кликнуть на папку каталога:")
     public AppFormSteps catalogFolderClick(String nameOfFolder) {
         WebElement element = getCatalogField().getItem(nameOfFolder);
         try {
