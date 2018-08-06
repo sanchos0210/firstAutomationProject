@@ -70,6 +70,7 @@ public class AppFormSteps extends BaseSteps {
 
     private void saveTextAndNumberOfNotification() {
         try {
+            getWait().waitForElementVisibillity(appListPage.applSavedNotification);
             BaseTest.textOfNotification = getAppListPage().applSavedNotification.getText();
             switch (BaseTest.activeUser.getLocalizeLanguage()) {
                 case BaseTest.EN: {     //for english language
