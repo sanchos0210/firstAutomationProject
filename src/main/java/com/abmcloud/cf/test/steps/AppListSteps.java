@@ -255,7 +255,7 @@ public class AppListSteps extends BaseSteps {
 
     @Step("Выполнить действие в статусе заявки:")
     public AppListSteps status(char point, WebElement application) {
-        logs.infoMsg("Executing some action in status of application");
+        //logs.infoMsg("Executing some action in status of application");
         switch(point) {
             case 'A': {     //send for approval from status
                 clickOn(appListPage.sendForApprovalFromStatus, application);
