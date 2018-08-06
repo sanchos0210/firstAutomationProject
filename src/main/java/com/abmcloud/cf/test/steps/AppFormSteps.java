@@ -252,6 +252,17 @@ public class AppFormSteps extends BaseSteps {
         return this;
     }
 
+    public AppFormSteps catalogFolderClick(String nameOfFolder) {
+        WebElement element = getCatalogField().getItem(nameOfFolder);
+        try {
+            element.click();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+        return this;
+    }
+
     @Step("Кликнуть на поле с датой")
     public AppFormSteps clickOnDateField(String nameOfField) {
         WebElement dateField = getDateField().getField(nameOfField);

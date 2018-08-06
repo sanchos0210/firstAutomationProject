@@ -94,7 +94,7 @@ public class FieldEdition extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
-                .catalogElementClick(dbInfo.getString("folder_1"))
+                .catalogFolderClick(dbInfo.getString("folder_1"))
                 .catalogElementClick(dbInfo.getString("value_2"))
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)

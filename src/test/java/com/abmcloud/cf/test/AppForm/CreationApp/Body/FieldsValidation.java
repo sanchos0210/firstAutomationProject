@@ -321,7 +321,7 @@ public class FieldsValidation extends BaseTest {
                 .getAppFormStep()
                 .buttonClick(appEditPage.closeCatalogPopupLocator)
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
-                .catalogElementClick(dbInfo.getString("folder_1"))
+                .catalogFolderClick(dbInfo.getString("folder_1"))
                 .catalogElementClick(dbInfo.getString("value_2"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
                 .asserts().assertFalse(helpers.isElementPresent(helpers.getCatalogItem(dbInfo.getString("contractor_1"))));
