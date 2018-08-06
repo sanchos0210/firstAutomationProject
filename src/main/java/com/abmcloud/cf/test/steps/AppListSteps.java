@@ -313,7 +313,7 @@ public class AppListSteps extends BaseSteps {
                             .catalogElementClick((String) field.get(2));
                 }
             }
-            getAppEditPage().saveButton.click();
+            getAppFormSteps().saveApplication();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
