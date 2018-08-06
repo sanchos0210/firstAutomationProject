@@ -318,7 +318,6 @@ public class AppListSteps extends BaseSteps {
             logs.errorMsg(e);
             throw e;
         }
-        saveTextAndNumberOfNotification();
         return this;
     }
     //----------------------------------------Action menu steps---------------------------------------------------------
