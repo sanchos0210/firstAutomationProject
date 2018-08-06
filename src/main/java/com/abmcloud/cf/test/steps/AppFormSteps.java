@@ -11,6 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.File;
+
 public class AppFormSteps extends BaseSteps {
 
     private DecimalField decimalField;
@@ -394,7 +396,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Прикрепить файл:")
     public AppFormSteps addFile(String wayToFile) {
         try {
-            appEditPage.addFileInput.sendKeys(wayToFile);
+            appEditPage.addFileInput.sendKeys(new File(wayToFile).getAbsolutePath());
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;

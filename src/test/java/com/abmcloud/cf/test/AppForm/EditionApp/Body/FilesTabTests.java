@@ -24,7 +24,7 @@ public class FilesTabTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\png-файл.png")
+                .addFile("testData\\png-файл.png")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # png-файл.png uploaded successfully.");
     }
 }

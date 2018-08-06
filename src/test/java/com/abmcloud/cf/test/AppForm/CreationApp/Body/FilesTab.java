@@ -13,7 +13,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\jpg-файл.jpg")
+                .addFile("testData\\jpg-файл.jpg")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # jpg-файл.jpg uploaded successfully.");
     }
 
@@ -24,7 +24,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\gif-файл.gif")
+                .addFile("testData\\gif-файл.gif")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # gif-файл.gif uploaded successfully.");
     }
 
@@ -35,7 +35,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\doc-файл.doc")
+                .addFile("testData\\doc-файл.doc")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # doc-файл.doc uploaded successfully.");
     }
 
@@ -46,7 +46,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\docx-файл.docx")
+                .addFile("testData\\docx-файл.docx")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # docx-файл.docx uploaded successfully.");
     }
 
@@ -57,7 +57,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\pdf-файл.pdf")
+                .addFile("testData\\pdf-файл.pdf")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # pdf-файл.pdf uploaded successfully.");
     }
 
@@ -68,7 +68,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\xls-файл.xls")
+                .addFile("testData\\xls-файл.xls")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # xls-файл.xls uploaded successfully.");
     }
 
@@ -79,7 +79,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\xlsx-файл.xlsx")
+                .addFile("testData\\xlsx-файл.xlsx")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # xlsx-файл.xlsx uploaded successfully.");
     }
 
@@ -90,7 +90,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\txt-файл.txt")
+                .addFile("testData\\txt-файл.txt")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # txt-файл.txt uploaded successfully.");
     }
 
@@ -101,7 +101,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\png-файл.png")
+                .addFile("testData\\png-файл.png")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # png-файл.png uploaded successfully.");
     }
 
@@ -112,7 +112,7 @@ public class FilesTab extends BaseTest {
                 .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
                 .createAppButtonClick()
                 .openFilesTab()
-                .addFile("C:\\Users\\vera\\Desktop\\cashflow\\прикрепить файлы\\csv-файл.csv")
+                .addFile("testData\\csv-файл.csv")
                 .asserts().assertTextInElement(appEditPage.addFileNotification, "File # csv-файл.csv uploaded successfully.");
     }
 }
