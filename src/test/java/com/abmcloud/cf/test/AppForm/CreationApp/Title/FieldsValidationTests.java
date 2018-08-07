@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.CreationApp.Title;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,7 +17,7 @@ public class FieldsValidationTests extends BaseTest {
     public void createIncomeApp() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .inOutButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -34,7 +33,7 @@ public class FieldsValidationTests extends BaseTest {
     public void createOutFlowApp() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
@@ -55,7 +54,7 @@ public class FieldsValidationTests extends BaseTest {
     public void defaultOutflowValue() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .asserts().assertTrue(helpers.compare("Outflow", helpers.getInOutValue()));
@@ -64,7 +63,7 @@ public class FieldsValidationTests extends BaseTest {
     public void defaultInflowValue() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts().assertTrue(helpers.compare("Inflow", helpers.getInOutValue()));
@@ -80,7 +79,7 @@ public class FieldsValidationTests extends BaseTest {
     public void checkDisabledBooleanField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .asserts().assertTrue(helpers.isInOutDisable())

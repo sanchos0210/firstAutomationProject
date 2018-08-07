@@ -2,10 +2,20 @@
 <suite name="All Tests">
   <test name="All Tests">
       <classes>
-          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldsValidation" >
-          <methods>
-              <include name = "autoLimitVerification" />
-          </methods>
+          <class name = "com.abmcloud.cf.test.AppList.AppListTests.ActionMenuTests" >
+              <methods>
+                  <method>
+                      <include name = "cancelButtonIsNotPresent" />
+                  </method>
+              </methods>
+          </class>
+          <class name = "com.abmcloud.cf.test.AppList.AppListTests.StatusOfAppTests" >
+              <methods>
+                  <method>
+                      <include name = "cancelButtonInStatusIsPresent" />
+                      <include name = "sendForApprovalButton" />
+                  </method>
+              </methods>
           </class>
       </classes>
   </test>

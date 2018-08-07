@@ -36,7 +36,8 @@ public class LoginSteps extends BaseSteps {
     }
 
     @Step("Залогинится")
-    public AppListSteps loginAs(UsersData user) {
+    public AppListSteps loginAs(String name, String email, String pass, char lang) {
+        UsersData user = new UsersData(name, email, pass, lang);
         logs.infoMsg("Logining to CF system: " + user.getUserEmail()  + "; " + user.getUserPassword());
             login(user.getUserEmail(), user.getUserPassword());
         try {

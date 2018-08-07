@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class ChangesHistoryTests extends BaseTest {
     public void changesHistoryOfDecimalField() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -36,7 +35,7 @@ public class ChangesHistoryTests extends BaseTest {
     public void changesHistoryOfStringField() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -53,7 +52,7 @@ public class ChangesHistoryTests extends BaseTest {
     public void changesHistoryOfCatalogField() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -71,7 +70,7 @@ public class ChangesHistoryTests extends BaseTest {
     public void changesHistoryOfBooleanField() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -88,7 +87,7 @@ public class ChangesHistoryTests extends BaseTest {
     public void changesHistoryOfDateField() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)

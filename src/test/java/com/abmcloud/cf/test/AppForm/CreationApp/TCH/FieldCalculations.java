@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.CreationApp.TCH;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class FieldCalculations extends BaseTest {
     public void calculateFieldByCondition() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .editDecimalField(dbInfo.getString("decimal_field_1"), "11")
@@ -33,7 +32,7 @@ public class FieldCalculations extends BaseTest {
     public void calculationTCHFieldByChangingFieldInShapka() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .addNewLineClick()
@@ -52,7 +51,7 @@ public class FieldCalculations extends BaseTest {
     public void calculationTCHFieldByChangingOtherTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .addNewLineClick()

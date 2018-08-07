@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class AdditionalTabTest extends BaseTest {
     public void requiredDecimalFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .openTab("Additional")
@@ -36,7 +35,7 @@ public class AdditionalTabTest extends BaseTest {
     public void requiredStringFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .openTab("Additional")
@@ -53,7 +52,7 @@ public class AdditionalTabTest extends BaseTest {
     public void requiredCatalogFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .openTab("Additional")
@@ -69,7 +68,7 @@ public class AdditionalTabTest extends BaseTest {
     public void autoInsertDecimalFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -82,7 +81,7 @@ public class AdditionalTabTest extends BaseTest {
     public void autoInsertStringFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -95,7 +94,7 @@ public class AdditionalTabTest extends BaseTest {
     public void autoInsertCatalogFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))

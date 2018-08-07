@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppList.AppListTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class StatusOfAppTests extends BaseTest {
@@ -17,7 +16,7 @@ public class StatusOfAppTests extends BaseTest {
     public void sendForApprovalButton() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -29,7 +28,7 @@ public class StatusOfAppTests extends BaseTest {
     public void approveButtonInStatus() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -41,7 +40,7 @@ public class StatusOfAppTests extends BaseTest {
     public void approveButtonInStatusOnParallelStep() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -50,7 +49,7 @@ public class StatusOfAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus)
                 .getAppListStep().logOut()
-                .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
+                .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus);
@@ -60,14 +59,14 @@ public class StatusOfAppTests extends BaseTest {
     public void approveButtonInTwoApprovers() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus)
                 .getAppListStep().logOut()
-                .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
+                .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus);
@@ -77,7 +76,7 @@ public class StatusOfAppTests extends BaseTest {
     public void cancelButtonInStatusIsPresent() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -90,7 +89,7 @@ public class StatusOfAppTests extends BaseTest {
     public void cancelButtonInStatusIsNotPresent() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)

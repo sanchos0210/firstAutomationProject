@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppList.AppListTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class ActionMenuTests extends BaseTest {
@@ -17,7 +16,7 @@ public class ActionMenuTests extends BaseTest {
     public void sendForApprovalButtonInActMenu() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -32,7 +31,7 @@ public class ActionMenuTests extends BaseTest {
     public void approveButtonInZeroStep() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
@@ -43,7 +42,7 @@ public class ActionMenuTests extends BaseTest {
     public void approveButtonInActMenuOnParallelStep() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -53,7 +52,7 @@ public class ActionMenuTests extends BaseTest {
                 .actionMenuButtonClick(selectedApp)
                 .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approve)
                 .getAppListStep().logOut()
-                .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
+                .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
@@ -64,7 +63,7 @@ public class ActionMenuTests extends BaseTest {
     public void approveButtonInTwoApprovers() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -72,7 +71,7 @@ public class ActionMenuTests extends BaseTest {
                 .actionMenuButtonClick(selectedApp)
                 .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approve)
                 .getAppListStep().logOut()
-                .loginAs(new UsersData(USER1, EMAIL1, PASSWORD1, RU))
+                .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
@@ -83,7 +82,7 @@ public class ActionMenuTests extends BaseTest {
     public void editButtonOpenEitPopup() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -98,7 +97,7 @@ public class ActionMenuTests extends BaseTest {
     public void editButtonIsNotPresent() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -112,7 +111,7 @@ public class ActionMenuTests extends BaseTest {
     public void copyPopupOpening() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
@@ -124,7 +123,7 @@ public class ActionMenuTests extends BaseTest {
     public void cancelButtonIsPresent() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -137,7 +136,7 @@ public class ActionMenuTests extends BaseTest {
     public void cancelButtonIsNotPresent() {
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)

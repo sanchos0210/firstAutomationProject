@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppList.BuisnessProcessTests;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class ChainsTests extends BaseTest {
@@ -12,7 +11,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
             steps
                     .open(APP_LIST_DEMO_DB)
-                    .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                    .loginAs(USER, EMAIL, PASSWORD, RU)
                     .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                     .selectAppByNumber(numberOfCreatedApp)
                     .clickOnStatusOf(selectedApp)
@@ -24,7 +23,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)
@@ -36,7 +35,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)
@@ -48,7 +47,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)
@@ -60,7 +59,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_cancel_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -76,7 +75,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
@@ -93,7 +92,7 @@ public class ChainsTests extends BaseTest {
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, RU))
+                .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)

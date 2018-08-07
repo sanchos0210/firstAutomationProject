@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.CreationApp.TCH;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void requiredDecimalTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick("Catalog field 2*")
@@ -33,7 +32,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void negativeValueInDecimalTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick("Catalog field 2*")
@@ -48,7 +47,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void zeroValueInDecimalTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick("Catalog field 2*")
@@ -63,7 +62,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void literalsValueInDecimalTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick("Catalog field 2*")
@@ -78,7 +77,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void disabledDecimalTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .asserts().assertTrue(helpers.isDecimalFieldDisabledTCH(dbInfo.getString("decimal_field_2")));
@@ -88,7 +87,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoInsertDecimalAndStringTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -104,7 +103,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoClearDecAndStrTCHFieldAfterAutoInsert() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -121,7 +120,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoInsertDecAndStrTCHFieldFromBody() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts()
@@ -133,7 +132,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoClearDecAndStrTCHFieldAfterAutoInsertFromBody() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .clearCatalogValue(dbInfo.getString("catalog_field_2"))
@@ -146,7 +145,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void defaultValueInDecimalTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts()
@@ -157,7 +156,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void requiredStringTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick("Catalog field 2*")
@@ -171,7 +170,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void disabledStringTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .asserts().assertTrue(helpers.isStringFieldDisabledTCH(dbInfo.getString("string_field_2")));
@@ -181,7 +180,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void defaultValueInStringTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
                 .asserts()
@@ -192,7 +191,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void checkingBooleanTCHFieldVerification() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .asserts()
@@ -207,7 +206,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoInsertBooleanTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_5"))
@@ -225,7 +224,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void requiredCatalogTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .editTCHStringField("String field 1*", "text1")
@@ -238,7 +237,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void chosenValueOfCatalogTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -252,7 +251,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void clearChosenValueOfCatalogTCHField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -267,7 +266,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoLimitCatalogFieldTCHByFieldFromBody() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -281,7 +280,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void autoClearForAutoLimitCatalogFieldTCHByFieldFromBody() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -299,7 +298,7 @@ public class TCHFieldsValidation extends BaseTest {
     public void chooseTodayDateInDateField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
                 .catalogFieldClick("Catalog field 2*")

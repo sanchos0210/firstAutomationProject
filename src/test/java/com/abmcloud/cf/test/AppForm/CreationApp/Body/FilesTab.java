@@ -1,7 +1,6 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.Test;
 
 public class FilesTab extends BaseTest {
@@ -10,7 +9,7 @@ public class FilesTab extends BaseTest {
     public void addJPEGFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\jpg-файл.jpg")
@@ -21,7 +20,7 @@ public class FilesTab extends BaseTest {
     public void addGIFFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\gif-файл.gif")
@@ -32,7 +31,7 @@ public class FilesTab extends BaseTest {
     public void addDOCFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\doc-файл.doc")
@@ -43,7 +42,7 @@ public class FilesTab extends BaseTest {
     public void addDOCXFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\docx-файл.docx")
@@ -54,7 +53,7 @@ public class FilesTab extends BaseTest {
     public void addPDFFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\pdf-файл.pdf")
@@ -65,7 +64,7 @@ public class FilesTab extends BaseTest {
     public void addXLSFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\xls-файл.xls")
@@ -76,7 +75,7 @@ public class FilesTab extends BaseTest {
     public void addXLSXFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\xlsx-файл.xlsx")
@@ -87,7 +86,7 @@ public class FilesTab extends BaseTest {
     public void addTXTFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\txt-файл.txt")
@@ -98,7 +97,7 @@ public class FilesTab extends BaseTest {
     public void addPNGFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\png-файл.png")
@@ -109,7 +108,7 @@ public class FilesTab extends BaseTest {
     public void addCSVFile() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\csv-файл.csv")

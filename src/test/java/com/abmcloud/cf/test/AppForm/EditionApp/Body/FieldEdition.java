@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class FieldEdition extends BaseTest {
     public void editionDecimalField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -34,7 +33,7 @@ public class FieldEdition extends BaseTest {
     public void autoInsertFieldsInEditPopup() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -59,7 +58,7 @@ public class FieldEdition extends BaseTest {
     public void editionStringField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -74,7 +73,7 @@ public class FieldEdition extends BaseTest {
     public void editionBooleanField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -89,7 +88,7 @@ public class FieldEdition extends BaseTest {
     public void editionCatalogField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -106,7 +105,7 @@ public class FieldEdition extends BaseTest {
     public void editionDateField() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)

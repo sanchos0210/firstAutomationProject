@@ -1,7 +1,6 @@
 package com.abmcloud.cf.test.AppForm.CreationApp;
 
 import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -17,7 +16,7 @@ public class ElementVisibilityInNewPopup extends BaseTest {
     public void elementsVisibilityInCreationAppPopup() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .showInformationBlockClick()
                 .asserts().assertFalse(helpers.isElementPresent(appEditPage.approvalSteps))

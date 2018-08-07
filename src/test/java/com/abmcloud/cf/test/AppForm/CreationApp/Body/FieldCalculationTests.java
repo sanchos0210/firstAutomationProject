@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
-import com.abmcloud.cf.test.DBInfo.UsersData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,7 +18,7 @@ public class FieldCalculationTests extends BaseTest {
     public void calculationChain() {
         steps
                 .open(APP_FORM_DEMO_DB)
-                .loginAs(new UsersData(USER, EMAIL, PASSWORD, EN))
+                .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .openTab("Additional")
