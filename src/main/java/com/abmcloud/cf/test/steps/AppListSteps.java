@@ -97,6 +97,9 @@ public class AppListSteps extends BaseSteps {
                     BaseTest.statusOfSelectedApp = row.findElement(appListPage.statusOfApp).getText();
                     break;
                 }
+                if(j == table.size()) {
+                    logs.warning("Application has not found in application list!");
+                }
             }
         } catch(RuntimeException e) {
                 logs.errorMsg(e);
