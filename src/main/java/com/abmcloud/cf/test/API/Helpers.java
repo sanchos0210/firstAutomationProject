@@ -119,6 +119,54 @@ public class Helpers {
         return getDate(today, "dd.MM.yyyy");
     }
 
+    public List<String> getDaysInMonthFullDates(char requiredMonth) {
+        List<String> daysInMonth = new ArrayList<>();
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        switch(requiredMonth) {
+            case 'A': break;        //for current month
+            case 'B': {     //for last month
+                month = month - 1;
+                break;
+            }
+        }
+        c.set(year, month, 1);
+        int currentMonth = c.get(Calendar.MONTH);
+        while (c.get(Calendar.MONTH) == currentMonth) {
+            Date date = c.getTime();
+            String s = df.format(date);
+            daysInMonth.add(s);
+            c.add(Calendar.DAY_OF_MONTH, 1);
+        }
+        return daysInMonth;
+    }
+
+    public List<String> getMonthsInYearFullDate(char requiredYear) {
+        List<String> months = new ArrayList<>();
+        DateFormat df = new SimpleDateFormat("MMMM");
+        DateFormat yy = new SimpleDateFormat("yyyy г.");
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        switch (requiredYear) {
+            case 'A': break;       //for current year
+            case 'B': {             //for last year
+                year = year - 1;
+                break;
+            }
+        }
+        c.set(year, 0, 1);
+        int currentYear = c.get(Calendar.YEAR);
+        while (c.get(Calendar.YEAR) == currentYear) {
+            Date date = c.getTime();
+            String s = df.format(date).toLowerCase() + " " + yy.format(date);
+            months.add(s);
+            c.add(Calendar.MONTH, 1);
+        }
+        return months;
+    }
+
     public String getTodayDate() {
         // Get the date today using Calendar object.
         Date today = Calendar.getInstance().getTime();
@@ -305,4 +353,5 @@ public class Helpers {
             return false;
         }
     }
+
 }

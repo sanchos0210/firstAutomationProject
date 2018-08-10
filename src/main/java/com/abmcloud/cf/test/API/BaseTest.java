@@ -32,9 +32,9 @@ public class BaseTest {
 
     //-----------------------------------------------CONSTANT VALUES----------------------------------------------------
     //URL constants
-    public static final String APP_FORM_DEMO_DB = "https://dev6.cft.abmcloud.com";     //"https://test12.cf.abmcloud.com";       //https://demo12.cf.abmcloud.com";
-    public static final String APP_LIST_DEMO_DB = "https://dev5.cft.abmcloud.com";
-    public static final String CALENDAR_DEMO_DB = "";//https://demo12.cf.abmcloud.com";
+    public static final String APP_FORM_DEMO_DB = "https://test5.cft.abmcloud.com";    //"https://dev6.cft.abmcloud.com";            //"https://test12.cf.abmcloud.com";
+    public static final String APP_LIST_DEMO_DB = "https://test6.cft.abmcloud.com";    //"https://dev5.cft.abmcloud.com";
+    public static final String CALENDAR_DEMO_DB = "https://test7.cft.abmcloud.com";                                  //https://demo12.cf.abmcloud.com";
     //--------------------------------------Data information about test users-------------------------------------------
     //General test user
     public static final String USER = "Alexandr Verezhevych";
@@ -55,6 +55,12 @@ public class BaseTest {
     //Localize information
     public static final char EN = 'A';
     public static final char RU = 'B';
+    //For date methods in helper class
+    public static final char THIS_MONTH = 'A';
+    public static final char LAST_MONTH = 'B';
+    public static final char THIS_YEAR = 'A';
+    public static final char LAST_YEAR = 'B';
+
     //--------------------------------Constant names for actions in status----------------------------------------------
     public static final char SEND_FOR_APPROVAL = 'A';
     public static final char APPROVE = 'C';

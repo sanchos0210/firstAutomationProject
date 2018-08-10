@@ -105,7 +105,7 @@ public class ChainsStepsTests extends BaseTest {
                 .checkAppWithNumber(numberOfCreatedApp)
                 .approveButtonClick()
                 .closeRegistry()
-                .assertPaid(helpers.getTodayFullDate(), "(10 000)");
+                .assertPaid(helpers.getTodayFullDate(), 10000);
     }
 
     @Test(priority = 60)
