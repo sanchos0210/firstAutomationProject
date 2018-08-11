@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
 
+//refactoring
 public class BaseTest {
 
     private Driver driver;
