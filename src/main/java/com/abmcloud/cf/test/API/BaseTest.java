@@ -1,10 +1,6 @@
 package com.abmcloud.cf.test.API;
 
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.pages.AppEditPage;
-import com.abmcloud.cf.test.pages.AppListPage;
-import com.abmcloud.cf.test.pages.CalendarPage;
-import com.abmcloud.cf.test.pages.LoginPage;
 import com.abmcloud.cf.test.steps.LoginSteps;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -18,11 +14,8 @@ public class BaseTest {
     private Driver driver;
     protected LoginSteps steps;
     protected Helpers helpers;
+    protected ObjectManager objectManager;
 
-    protected LoginPage loginPage;
-    protected AppListPage appListPage;
-    protected AppEditPage appEditPage;
-    protected CalendarPage calendarPage;
 
     public static UsersData activeUser;
     public static WebElement selectedApp;
@@ -72,12 +65,9 @@ public class BaseTest {
     public void initializeDriver(Method method) {
         Logs.setFileName(method.getName());
         driver = new Driver();
-        loginPage = new LoginPage(driver);
-        appListPage = new AppListPage(driver);
-        appEditPage = new AppEditPage(driver);
-        calendarPage = new CalendarPage(driver);
+        objectManager = new ObjectManager(driver);
         helpers = new Helpers(driver);
-        steps = new LoginSteps(driver);
+        steps = objectManager.getLoginSteps();
     }
 
     @AfterMethod

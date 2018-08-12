@@ -274,7 +274,7 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
-                .asserts().assertFalse(helpers.isElementPresent(appEditPage.headerOfCatalogPopup));
+                .asserts().assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().headerOfCatalogPopup));
     }
 
     @Test(priority = 19)
@@ -318,7 +318,7 @@ public class FieldsValidation extends BaseTest {
                 .asserts()
                 .assertTrue(helpers.isElementPresent(helpers.getCatalogItem(dbInfo.getString("contractor_1"))))
                 .getAppFormStep()
-                .buttonClick(appEditPage.closeCatalogPopupLocator)
+                .buttonClick(objectManager.getAppEditPage().closeCatalogPopupLocator)
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogFolderClick(dbInfo.getString("folder_1"))
                 .catalogElementClick(dbInfo.getString("value_2"))
@@ -367,7 +367,7 @@ public class FieldsValidation extends BaseTest {
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
                 .editStringField(dbInfo.getString("string_field_3"), "text3")
                 .clickOnDateField(dbInfo.getString("date_field_2"))
-                .buttonClick(appEditPage.tomorrowDate)
+                .buttonClick(objectManager.getAppEditPage().tomorrowDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -385,7 +385,7 @@ public class FieldsValidation extends BaseTest {
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
                 .editStringField(dbInfo.getString("string_field_3"), "text3")
                 .clickOnDateField(dbInfo.getString("date_field_2"))
-                .buttonClick(appEditPage.yesterdayDate)
+                .buttonClick(objectManager.getAppEditPage().yesterdayDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
@@ -426,6 +426,6 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .clickOnDateField(dbInfo.getString("date_field_1"))
-                .asserts().assertFalse(helpers.isElementPresent(appEditPage.headerOfDatepicker));
+                .asserts().assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().headerOfDatepicker));
     }
 }

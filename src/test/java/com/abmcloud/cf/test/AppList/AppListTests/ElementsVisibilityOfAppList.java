@@ -20,7 +20,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .openFilesOf(selectedApp)
-                .asserts().assertTextInElement(appListPage.FilesPopup, "Файлы к заявке № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppListPage().FilesPopup, "Файлы к заявке № "+numberOfCreatedApp);
     }
 
     @Test(priority = 2)
@@ -31,7 +31,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)
-                .asserts().assertTextInElement(appListPage.stepsPopup, "Цепочка согласования по заявке # "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppListPage().stepsPopup, "Цепочка согласования по заявке # "+numberOfCreatedApp);
     }
 
     @Test(priority = 3)
@@ -42,7 +42,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Редактирование заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Редактирование заявки № "+numberOfCreatedApp);
     }
 
     @Test(priority = 4)
@@ -55,7 +55,7 @@ public class ElementsVisibilityOfAppList extends BaseTest {
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
     }
 
 

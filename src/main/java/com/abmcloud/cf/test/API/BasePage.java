@@ -13,9 +13,6 @@ public class BasePage {
         PageFactory.initElements(driver.getWebDriver(), this);
     }
 
-    @FindBy(css = "div.sn-content")
-    public WebElement applSavedNotification;
-
     @FindBy(css = ".profile-toggle-link.dropdown-toggle")
     public WebElement avatar;
 

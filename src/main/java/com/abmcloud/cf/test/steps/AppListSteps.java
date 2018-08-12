@@ -3,9 +3,7 @@ package com.abmcloud.cf.test.steps;
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
 import com.abmcloud.cf.test.API.Logs;
-import com.abmcloud.cf.test.pages.AppEditPage;
-import com.abmcloud.cf.test.pages.AppListPage;
-import com.abmcloud.cf.test.pages.LoginPage;
+import com.abmcloud.cf.test.API.ObjectManager;
 import io.qameta.allure.Step;
 import org.json.JSONArray;
 import org.openqa.selenium.By;
@@ -15,26 +13,12 @@ import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 
-public class AppListSteps extends BaseSteps {
+public class AppListSteps extends MenuSteps {
 
-    public AppListSteps(Driver driver) {
+    public AppListSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
-        appListPage = new AppListPage(driver);
+        this.objectManager = objectManager;
         logs = new Logs(AppListSteps.class.getName());
-    }
-
-    private LoginPage getLoginPage() {
-        if(loginPage == null) {
-            loginPage = new LoginPage(driver);
-        }
-        return loginPage;
-    }
-
-    private AppEditPage getAppEditPage() {
-        if(appEditPage == null) {
-            appEditPage = new AppEditPage(driver);
-        }
-        return appEditPage;
     }
 
     public void clickOn(By selector, WebElement row) {
@@ -49,23 +33,23 @@ public class AppListSteps extends BaseSteps {
 
     @Step("Вылогинится")
     public LoginSteps logOut() {
-        logs.infoMsg("Logining out from CF system: " + appListPage.avatar.toString() + " " + appListPage.signOutButton.toString());
+        logs.infoMsg("Logining out from CF system: " + objectManager.getAppListPage().avatar.toString() + " " + objectManager.getAppListPage().signOutButton.toString());
         try {
-            appListPage.avatar.click();
-            appListPage.signOutButton.click();
+            objectManager.getAppListPage().avatar.click();
+            objectManager.getAppListPage().signOutButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
         }
-        driver.assertThat(textToBePresentInElement((getLoginPage().cashflowTitle), "ABM cashflow"));     //verificationThat
+        driver.assertThat(textToBePresentInElement((objectManager.getLoginPage().cashflowTitle), "ABM cashflow"));     //verificationThat
         return getLoginSteps();
     }
 
     @Step("Закрыть попап \"Цепочка согласования\"")
     public AppListSteps closeChainStepsPopup() {
-        logs.infoMsg("Click on :" + appListPage.closeChainStepsPopup.toString());
+        logs.infoMsg("Click on :" + objectManager.getAppListPage().closeChainStepsPopup.toString());
         try {
-            appListPage.closeChainStepsPopup.click();
+            objectManager.getAppListPage().closeChainStepsPopup.click();
         } catch (RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -75,26 +59,26 @@ public class AppListSteps extends BaseSteps {
 
     @Step("Кликаем на кнопку \"Новая заявка\"")
     public AppFormSteps createAppButtonClick() {
-        logs.infoMsg("Click on: " + appListPage.addNewButton.toString());
+        logs.infoMsg("Click on: " + objectManager.getAppListPage().addNewButton.toString());
         try {
-            appListPage.addNewButton.click();
+            objectManager.getAppListPage().addNewButton.click();
         } catch (RuntimeException e) {
             logs.errorMsg(e);
         }
-        getWait().waitForElementClickable(4, getAppEditPage().editPopupTitle);
+        getWait().waitForElementClickable(4, objectManager.getAppEditPage().editPopupTitle);
         return getAppFormSteps();
     }
 
     public void selectAppByNumberInTable(String number, List<WebElement> table) {
-        getWait().waitForClickable(appListPage.numberOfApp);
+        getWait().waitForClickable(objectManager.getAppListPage().numberOfApp);
         try {
             for (int j = 0; j < table.size(); j++) {
                 WebElement row = table.get(j);
-                String n = row.findElement(appListPage.numberOfApp).getText();
+                String n = row.findElement(objectManager.getAppListPage().numberOfApp).getText();
                 if (n.equals(number)) {
                     BaseTest.selectedApp = row;
-                    BaseTest.numberOfSelectedApp = row.findElement(appListPage.numberOfApp).getText();
-                    BaseTest.statusOfSelectedApp = row.findElement(appListPage.statusOfApp).getText();
+                    BaseTest.numberOfSelectedApp = row.findElement(objectManager.getAppListPage().numberOfApp).getText();
+                    BaseTest.statusOfSelectedApp = row.findElement(objectManager.getAppListPage().statusOfApp).getText();
                     break;
                 }
                 if(j == table.size()) {
@@ -114,43 +98,12 @@ public class AppListSteps extends BaseSteps {
         return this;
     }
 
-    private AppListSteps saveTextAndNumberOfNotification() {
-        try {
-            getWait().waitForElementVisibillity(appListPage.applSavedNotification);
-            BaseTest.textOfNotification = appListPage.applSavedNotification.getText();
-            if(BaseTest.textOfNotification == null) {
-                logs.warning("Text of notification is NULL !");
-            }
-            switch (BaseTest.activeUser.getLocalizeLanguage()) {
-                case BaseTest.EN: {     //for english language
-                    BaseTest.numberOfCreatedApp = BaseTest.textOfNotification.substring(11, 18);
-                    break;
-                }
-                case BaseTest.RU: {     //for russian language
-                    BaseTest.numberOfCreatedApp = BaseTest.textOfNotification.substring(9, 16);
-                    break;
-                }
-            }
-            appListPage.applSavedNotification.click();
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
-        return this;
-    }
-
     //---------------------------------Steps in approve/cancel confirm popup--------------------------------------------
     @Step("Согласовать заявку и вписать комментарий:")
     public AppListSteps approveInApprovePopup(String comment) {
         logs.infoMsg("Approving application throw confirming popup with comment: " + comment);
-        try {
-            appListPage.commentFieldInCancelPopUp.sendKeys(comment);
-            appListPage.approveButtonInApprovePopUp.click();
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
-        saveTextAndNumberOfNotification();
+        getConfirmPopup().approve(comment);
+        getNotification().saveTextAndNumberInNotificationOfSavedApplication();
         selectAppByNumber(BaseTest.numberOfSelectedApp);
         return this;
     }
@@ -158,28 +111,22 @@ public class AppListSteps extends BaseSteps {
     @Step("Отменить заявку и вписать комментарий:")
     public AppListSteps cancelInCancelPopup(String comment) {
         logs.infoMsg("Cancelling application throw confirming popup with comment: " + comment);
-        try {
-            appListPage.commentFieldInCancelPopUp.sendKeys(comment);
-            appListPage.cancelButtonInCancelPopUp.click();
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
-        saveTextAndNumberOfNotification();
+        getConfirmPopup().cancel(comment);
+        getNotification().saveTextAndNumberInNotificationOfSavedApplication();
         return this;
     }
 
     @Step("Кликнуть на номер заявки")
     public AppFormSteps clickOnNumberOf(WebElement application) {
         logs.infoMsg("Click on number of some application");
-        clickOn(appListPage.numberOfApp, application);
+        clickOn(objectManager.getAppListPage().numberOfApp, application);
         return getAppFormSteps();
     }
 
     @Step("Открыть файлы по заявке")
     public AppListSteps openFilesOf(WebElement application) {
         logs.infoMsg("Click on files button of some application");
-        clickOn(appListPage.filesButton, application);
+        clickOn(objectManager.getAppListPage().filesButton, application);
         return this;
     }
 
@@ -187,8 +134,8 @@ public class AppListSteps extends BaseSteps {
     @Step("Фильтровать по \"Доступно мне\"")
     public AppListSteps openAvailableToMe() {
         try {
-            appListPage.globalFilter.click();
-            appListPage.availibleToMe.click();
+            objectManager.getAppListPage().globalFilter.click();
+            objectManager.getAppListPage().availibleToMe.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -200,8 +147,8 @@ public class AppListSteps extends BaseSteps {
     @Step("Фильтровать по \"Согласованные\"")
     public AppListSteps openApproved() {
         try {
-            appListPage.globalFilter.click();
-            appListPage.approved.click();
+            objectManager.getAppListPage().globalFilter.click();
+            objectManager.getAppListPage().approved.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -213,8 +160,8 @@ public class AppListSteps extends BaseSteps {
     @Step("Фильтровать по \"Согласованные мной\"")
     public AppListSteps openApprovedByMe() {
         try {
-            appListPage.globalFilter.click();
-            appListPage.approvedByMe.click();
+            objectManager.getAppListPage().globalFilter.click();
+            objectManager.getAppListPage().approvedByMe.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -226,8 +173,8 @@ public class AppListSteps extends BaseSteps {
     @Step("Фильтровать по \"У меня на согласовании\"")
     public AppListSteps openOnMyApproval() {
         try {
-            appListPage.globalFilter.click();
-            appListPage.onMyApprovalButton.click();
+            objectManager.getAppListPage().globalFilter.click();
+            objectManager.getAppListPage().onMyApprovalButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -239,8 +186,8 @@ public class AppListSteps extends BaseSteps {
     @Step("Фильтровать по \"Отмененные\"")
     public AppListSteps openCanceled() {
         try {
-            appListPage.globalFilter.click();
-            appListPage.canceledButton.click();
+            objectManager.getAppListPage().globalFilter.click();
+            objectManager.getAppListPage().canceledButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -252,7 +199,7 @@ public class AppListSteps extends BaseSteps {
     @Step("Кликнуть на статус заявки")
     public AppListSteps clickOnStatusOf(WebElement application) {
         logs.infoMsg("Click on status of some application");
-        clickOn(appListPage.statusOfApp, application);
+        clickOn(objectManager.getAppListPage().statusOfApp, application);
         return this;
     }
 
@@ -261,18 +208,18 @@ public class AppListSteps extends BaseSteps {
         //logs.infoMsg("Executing some action in status of application");
         switch(point) {
             case 'A': {     //send for approval from status
-                clickOn(appListPage.sendForApprovalFromStatus, application);
-                saveTextAndNumberOfNotification();
+                clickOn(objectManager.getAppListPage().sendForApprovalFromStatus, application);
+                getNotification().saveTextAndNumberInNotificationOfSavedApplication();
                 break;
             }
             case 'C': {     //approve application from status
-                clickOn(appListPage.approveFromStatus, application);
-                saveTextAndNumberOfNotification();
+                clickOn(objectManager.getAppListPage().approveFromStatus, application);
+                getNotification().saveTextAndNumberInNotificationOfSavedApplication();
                 break;
             }
             case 'E': {     //cancel application from status
-                clickOn(appListPage.cancelFromStatus, application);
-                saveTextAndNumberOfNotification();
+                clickOn(objectManager.getAppListPage().cancelFromStatus, application);
+                getNotification().saveTextAndNumberInNotificationOfSavedApplication();
                 break;
             }
         }
@@ -284,12 +231,12 @@ public class AppListSteps extends BaseSteps {
         logs.infoMsg("Executing some action in status of application");
         switch(point) {
             case 'C': {     //approve application from status
-                clickOn(appListPage.approveFromStatus, application);
+                clickOn(objectManager.getAppListPage().approveFromStatus, application);
                 approveInApprovePopup(comment);
                 break;
             }
             case 'E': {     //cancel application from status
-                clickOn(appListPage.cancelFromStatus, application);
+                clickOn(objectManager.getAppListPage().cancelFromStatus, application);
                 cancelInCancelPopup(comment);
                 break;
             }
@@ -300,7 +247,7 @@ public class AppListSteps extends BaseSteps {
     public AppListSteps createApp(JSONArray fields) {
         logs.infoMsg("Creation application has started");
         try {
-            appListPage.addNewButton.click();
+            objectManager.getAppListPage().addNewButton.click();
             for (int i = 0; i < fields.length(); i++) {
                 JSONArray field = fields.getJSONArray(i);
                 if (field.get(0).equals("DECIMAL_FIELD")) {
@@ -327,44 +274,44 @@ public class AppListSteps extends BaseSteps {
     @Step("Открыть меню действия по заявке")
     public AppListSteps actionMenuButtonClick(WebElement application) {
         logs.infoMsg("Click on action menu button of some application");
-        clickOn(appListPage.actionMenu, application);
+        clickOn(objectManager.getAppListPage().actionMenu, application);
         return this;
     }
 
     @Step("Отправить заявку на согласование из меню действий")
     public AppListSteps sendForApprovalButtonClick(WebElement application) {
         logs.infoMsg("Send for approval some application");
-        clickOn(appListPage.sendForApproval, application);
-        saveTextAndNumberOfNotification();
+        clickOn(objectManager.getAppListPage().sendForApproval, application);
+        getNotification().saveTextAndNumberInNotificationOfSavedApplication();
         return this;
     }
 
     @Step("Кликнуть редактировать заявку в меню действия")
     public AppFormSteps editButtonClick(WebElement application) {
         logs.infoMsg("Click on edit button of some application");
-        clickOn(appListPage.edit, application);
+        clickOn(objectManager.getAppListPage().edit, application);
         return getAppFormSteps();
     }
 
     @Step("Согласовать заявку из меню действий")
     public AppListSteps approve(WebElement application) {
         logs.infoMsg("Click on approve button of some application");
-        clickOn(appListPage.approve, application);
-        saveTextAndNumberOfNotification();
+        clickOn(objectManager.getAppListPage().approve, application);
+        getNotification().saveTextAndNumberInNotificationOfSavedApplication();
         return this;
     }
 
     @Step("Кликнуть на кнопку \"Утвердить\"")
     public AppListSteps approveButtonClick(WebElement application) {
         logs.infoMsg("Click on approve button of some application");
-        clickOn(appListPage.approve, application);
+        clickOn(objectManager.getAppListPage().approve, application);
         return this;
     }
 
     @Step("Согласовать заявку из меню действий и вписать комментарий:")
     public AppListSteps approve(String comment, WebElement application) {
         logs.infoMsg("Click on approve button of some application");
-        clickOn(appListPage.approve, application);
+        clickOn(objectManager.getAppListPage().approve, application);
         approveInApprovePopup(comment);
         return this;
     }
@@ -372,21 +319,21 @@ public class AppListSteps extends BaseSteps {
     @Step("Кликнуть копировать заявку в меню действий")
     public AppFormSteps copyButtonClick(WebElement application) {
         logs.infoMsg("Click on copy button of some application");
-        clickOn(appListPage.copy, application);
+        clickOn(objectManager.getAppListPage().copy, application);
         return getAppFormSteps();
     }
 
     @Step("Отменить заявку из меню действий")
     public AppListSteps cancelButtonClick(WebElement application) {
         logs.infoMsg("Click on cancel button of some application");
-        clickOn(appListPage.cancel, application);
+        clickOn(objectManager.getAppListPage().cancel, application);
         return this;
     }
 
     @Step("Отменить заявку из меню действий и вписать комментарий:")
     public AppListSteps cancelButtonClick(String comment, WebElement application) {
         logs.infoMsg("Click on approve button of some application");
-        clickOn(appListPage.cancel, application);
+        clickOn(objectManager.getAppListPage().cancel, application);
         cancelInCancelPopup(comment);
         return this;
     }

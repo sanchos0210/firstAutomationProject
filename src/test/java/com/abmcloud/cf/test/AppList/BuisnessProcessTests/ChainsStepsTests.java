@@ -60,13 +60,13 @@ public class ChainsStepsTests extends BaseTest {
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "Новая")
+                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Новая")
                 .getAppListStep().status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "В процессе")
+                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "В процессе")
                 .getAppListStep().status(APPROVE, selectedApp, "approve")
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "Оплачена");
+                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
     }
 
     @Test(priority = 40)
@@ -88,7 +88,7 @@ public class ChainsStepsTests extends BaseTest {
                 .status(APPROVE, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnStatusOf(selectedApp)
-                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "Оплачена");
+                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
     }
 
     @Test(priority = 50)
@@ -120,7 +120,7 @@ public class ChainsStepsTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .approveButtonClick(selectedApp)
-                .asserts().assertTrue(helpers.isButtonDisable(appListPage.approveButtonInApprovePopUp));
+                .asserts().assertTrue(helpers.isButtonDisable(objectManager.getConfirmElement().approveButtonInApprovePopUp));
     }
 
     @Test(priority = 60)

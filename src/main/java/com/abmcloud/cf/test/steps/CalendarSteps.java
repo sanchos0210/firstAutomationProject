@@ -1,12 +1,8 @@
 package com.abmcloud.cf.test.steps;
 
-import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
 import com.abmcloud.cf.test.API.Logs;
-import com.abmcloud.cf.test.Fields.DateField;
-import com.abmcloud.cf.test.pages.AppEditPage;
-import com.abmcloud.cf.test.pages.AppListPage;
-import com.abmcloud.cf.test.pages.CalendarPage;
+import com.abmcloud.cf.test.API.ObjectManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -19,30 +15,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CalendarSteps extends BaseSteps {
+public class CalendarSteps extends MenuSteps {
 
     private Map<String, String> paid;
 
-    public CalendarSteps(Driver driver) {
+    public CalendarSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
-        calendarPage = new CalendarPage(driver);
+        this.objectManager = objectManager;
         logs = new Logs(CalendarSteps.class.getName());
         paid = new HashMap<String, String>();
         refreshPaidData();
-    }
-
-    private AppListPage getAppListPage() {
-        if(appListPage == null) {
-            appListPage = new AppListPage(driver);
-        }
-        return appListPage;
-    }
-
-    private AppEditPage getAppEditPage() {
-        if(appEditPage == null) {
-            appEditPage = new AppEditPage(driver);
-        }
-        return appEditPage;
     }
 
     private void refreshPaidData() {
@@ -58,115 +40,64 @@ public class CalendarSteps extends BaseSteps {
 
     @Step("Открыть фильтр период")
     public CalendarSteps clickOnPeriodFilter() {
-        calendarPage.periodButton.click();
+        objectManager.getCalendarPage().periodButton.click();
         return this;
     }
 
     @Step("Выбрать период: Сегодня")
     public CalendarSteps chooseToday() {
-        calendarPage.datePickerToday.click();
+        objectManager.getCalendarPage().datePickerToday.click();
         getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Выбрать период: Этот месяц")
     public CalendarSteps chooseThisMonth() {
-        calendarPage.datePickerThisMonth.click();
+        objectManager.getCalendarPage().datePickerThisMonth.click();
         getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Выбрать период: Прошлый месяц")
     public CalendarSteps chooseLastMonth() {
-        calendarPage.datePickerLastMonth.click();
+        objectManager.getCalendarPage().datePickerLastMonth.click();
         getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Выбрать период: Этот год")
     public CalendarSteps chooseThisYear() {
-        calendarPage.datePickerThisYear.click();
+        objectManager.getCalendarPage().datePickerThisYear.click();
         getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Выбрать период: Прошлый год")
     public CalendarSteps chooseLastYear() {
-        calendarPage.datePickerLastYear.click();
+        objectManager.getCalendarPage().datePickerLastYear.click();
         getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Открыть фильтр \"Период\"")
     public CalendarSteps clickOnPeriodicityFilter() {
-        //calendarPage.periodicityButton.click();
+        objectManager.getCalendarPage().periodicityButton.click();
         return this;
     }
 
     @Step("Выбрать периодичность: \"По месяцам\"")
     public CalendarSteps chooseByMonth() {
-        //calendarPage.periodicityByMonth.click();
-        Select select = new Select(calendarPage.periodicityButton);
+        Select select = new Select(objectManager.getCalendarPage().periodicityButton);
         select.selectByIndex(2);
         getWait().calendarPreloadWait();
         return this;
     }
 
     @Step("Открыть Реестр")
-    public CalendarSteps openRegistry() {
-        calendarPage.reestrButton.click();
-        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
-        return this;
-    }
-
-    @Step("Открыть реестр на дату:")
-    public CalendarSteps changeDateInRegistryOn(String date) {
-        calendarPage.dateInRegistry.click();
-        DateField dateField = new DateField(driver);
-        dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()-1]")), date).click();
-        return this;
-    }
-
-    @Step("Выбрать платежку с номером:")
-    public CalendarSteps checkAppWithNumber(String numberOfApp) {
-        AppListSteps appListSteps = getAppListSteps();
-        appListSteps.selectAppByNumberInTable(numberOfApp, driver.$$(By.cssSelector("table.appl_table.bg_on_hover tbody tr")));
-        appListSteps.clickOn(getAppListPage().checkBox, BaseTest.selectedApp);
-        return this;
-    }
-
-    @Step("Оплатить выбранные платежки")
-    public CalendarSteps payButtonClick() {
-        calendarPage.payButton.click();
-        appListPage.applSavedNotification.click();
-        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
-        return this;
-    }
-
-    @Step("Утвердить выбранные платежки")
-    public CalendarSteps approveButtonClick() {
-        calendarPage.approveButton.click();
-        getAppEditPage().applSavedNotification.click();
-        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
-        return this;
-    }
-
-    @Step("Закрыть реестр")
-    public CalendarSteps closeRegistry() {
-        calendarPage.closeRegistry.click();
-        getWait().calendarPreloadWait();
-        return this;
-    }
-
-    @Step("Изменить дату оплаты в реестре на:")
-    public CalendarSteps changePaymentDate(String date) {
-        DateField dateField = new DateField(driver);
-        dateField.getField("Сменить дату оплаты").click();
-        dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()]")), date).click();
-        calendarPage.changePaymentDateApproveButton.click();
-        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
-        getAppListPage().applSavedNotification.click();
-        return this;
+    public CalendarListSteps openRegistry() {
+        objectManager.getCalendarPage().reestrButton.click();
+        getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
+        return getCalendarListStep();
     }
 
     private List<WebElement> getRowsBy(char in_out) {
@@ -222,15 +153,15 @@ public class CalendarSteps extends BaseSteps {
     }
 
     @Step("Расшифровать сумму с нужными датой, группировкой и инаутом")
-    public CalendarSteps clickOnSum(String date, String rowGroup, char in_out) {
+    public CalendarListSteps clickOnSum(String date, String rowGroup, char in_out) {
         List<WebElement> cells = getCellsInRowWithGroup(getRowsBy(in_out), rowGroup);
         try {
             cells.get(getNumOfCellInRowForDate(date)).findElement(By.cssSelector(".btn.no-border.nopadding.calendar-out")).click();
         } catch(NoSuchElementException e) {
             throw new NoSuchElementException("Не найдены данные в ячейке");
         }
-        getWait().waitForElementClickable(3, calendarPage.headerOfRegistry);
-        return this;
+        getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
+        return getCalendarListStep();
     }
 
     @Step("Проверить оплату на дату с суммой:")
@@ -252,7 +183,7 @@ public class CalendarSteps extends BaseSteps {
 
         int oonvertedPaidBefore = Integer.parseInt(paidBefore);
         int fullSum = sum + oonvertedPaidBefore;
-        asserts().assertTrue(fullSum == verificationSum);
+        Assert.assertEquals(fullSum, verificationSum);
         return this;
     }
 

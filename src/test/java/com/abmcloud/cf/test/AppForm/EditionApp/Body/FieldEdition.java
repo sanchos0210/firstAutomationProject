@@ -110,7 +110,7 @@ public class FieldEdition extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .clickOnDateField(dbInfo.getString("date_field_2"))
-                .buttonClick(appEditPage.tomorrowDate)
+                .buttonClick(objectManager.getAppEditPage().tomorrowDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)

@@ -24,12 +24,12 @@ public class ElementVisibilityInEditPopup extends BaseTest{
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .asserts()
-                .assertTrue(helpers.isElementPresent(appEditPage.approvalSteps))
-                .assertFalse(helpers.isElementPresent(appEditPage.changesHistory))
-                .assertTrue(helpers.isElementPresent(appEditPage.viewsHistory))
-                .assertTrue(helpers.isElementPresent(appEditPage.cancelAppButton))
-                .assertFalse(helpers.isElementPresent(appEditPage.approveAppButton))
-                .assertFalse(helpers.isElementPresent(appEditPage.saveButton));
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().approvalSteps))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().changesHistory))
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().viewsHistory))
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().cancelAppButton))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().saveButton));
     }
 
     @Test(priority = 2)
@@ -47,7 +47,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
                 .asserts()
-                .assertTrue(helpers.isElementPresent(appEditPage.changesHistory));
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().changesHistory));
     }
 
     @Test(priority = 3)
@@ -62,15 +62,15 @@ public class ElementVisibilityInEditPopup extends BaseTest{
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .asserts()
-                .assertFalse(helpers.isElementPresent(appEditPage.cancelAppButton))
-                .assertTrue(helpers.isElementPresent(appEditPage.approveAppButton))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().cancelAppButton))
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton))
                 .getAppFormStep().backButtonClick()
                 .logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.isElementPresent(appEditPage.approveAppButton));
+                .asserts().assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton));
     }
 
 }

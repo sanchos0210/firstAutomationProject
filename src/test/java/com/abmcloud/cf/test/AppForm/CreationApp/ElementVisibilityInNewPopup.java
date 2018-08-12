@@ -19,12 +19,12 @@ public class ElementVisibilityInNewPopup extends BaseTest {
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .showInformationBlockClick()
-                .asserts().assertFalse(helpers.isElementPresent(appEditPage.approvalSteps))
-                .assertFalse(helpers.isElementPresent(appEditPage.changesHistory))
-                .assertFalse(helpers.isElementPresent(appEditPage.viewsHistory))
-                .assertFalse(helpers.isElementPresent(appEditPage.cancelAppButton))
-                .assertFalse(helpers.isElementPresent(appEditPage.approveAppButton))
-                .assertFalse(helpers.isElementPresent(appEditPage.copyLinkButton))
-                .assertTrue(helpers.isElementPresent(appEditPage.saveButton));
+                .asserts().assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().approvalSteps))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().changesHistory))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().viewsHistory))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().cancelAppButton))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().copyLinkButton))
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().saveButton));
     }
 }

@@ -12,9 +12,9 @@ public class ElementVisibilityInTitleInNewPopup extends BaseTest {
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts()
-                .assertTextInElement(appEditPage.editPopupTitle, "Add document")
-                .assertTrue(helpers.isElementPresent(appEditPage.closeAppFormButton))
-                .assertFalse(helpers.isElementPresent(appEditPage.copyLinkButton))
-                .assertTrue(helpers.isElementPresent(appEditPage.showInformationBlock));
+                .assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Add document")
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().closeAppFormButton))
+                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().copyLinkButton))
+                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().showInformationBlock));
     }
 }

@@ -23,7 +23,7 @@ public class GlobalFilterTests extends BaseTest {
                 .openAvailableToMe()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Редактирование заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Редактирование заявки № "+numberOfCreatedApp);
     }
 
     @Test(priority = 10)
@@ -42,7 +42,7 @@ public class GlobalFilterTests extends BaseTest {
                 .openApprovedByMe()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
     }
 
     @Test(priority = 20)
@@ -63,7 +63,7 @@ public class GlobalFilterTests extends BaseTest {
                 .openApproved()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
     }
 
     @Test(priority = 30)
@@ -84,7 +84,7 @@ public class GlobalFilterTests extends BaseTest {
                 .openCanceled()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
     }
 
     @Test(priority = 40)
@@ -107,6 +107,6 @@ public class GlobalFilterTests extends BaseTest {
                 .openCanceled()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № "+numberOfCreatedApp);
     }
 }

@@ -13,7 +13,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\jpg-файл.jpg")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # jpg-файл.jpg uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # jpg-файл.jpg uploaded successfully.");
     }
 
     @Test(priority = 3)
@@ -24,7 +24,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\gif-файл.gif")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # gif-файл.gif uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # gif-файл.gif uploaded successfully.");
     }
 
     @Test(priority = 4)
@@ -35,7 +35,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\doc-файл.doc")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # doc-файл.doc uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # doc-файл.doc uploaded successfully.");
     }
 
     @Test(priority = 5)
@@ -46,7 +46,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\docx-файл.docx")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # docx-файл.docx uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # docx-файл.docx uploaded successfully.");
     }
 
     @Test(priority = 6)
@@ -57,7 +57,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\pdf-файл.pdf")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # pdf-файл.pdf uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # pdf-файл.pdf uploaded successfully.");
     }
 
     @Test(priority = 7)
@@ -68,7 +68,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\xls-файл.xls")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # xls-файл.xls uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # xls-файл.xls uploaded successfully.");
     }
 
     @Test(priority = 8)
@@ -79,7 +79,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\xlsx-файл.xlsx")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # xlsx-файл.xlsx uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # xlsx-файл.xlsx uploaded successfully.");
     }
 
     @Test(priority = 9)
@@ -90,7 +90,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\txt-файл.txt")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # txt-файл.txt uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # txt-файл.txt uploaded successfully.");
     }
 
     @Test(priority = 10)
@@ -101,7 +101,7 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\png-файл.png")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # png-файл.png uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # png-файл.png uploaded successfully.");
     }
 
     @Test(priority = 10)
@@ -112,6 +112,6 @@ public class FilesTab extends BaseTest {
                 .createAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\csv-файл.csv")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # csv-файл.csv uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # csv-файл.csv uploaded successfully.");
     }
 }

@@ -15,7 +15,7 @@ public class LoginTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .login(invalidEmail, PASSWORD)
-                .asserts().assertTextInElement(loginPage.errorMessage, "Неправильный адрес электронной почты");
+                .asserts().assertTextInElement(objectManager.getLoginPage().errorMessage, "Неправильный адрес электронной почты");
     }
 
     @Test(priority = 2)
@@ -23,7 +23,7 @@ public class LoginTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .login(EMAIL, invalidPassword)
-                .asserts().assertTextInElement(loginPage.errorMessage, "Неправильный адрес электронной почты");
+                .asserts().assertTextInElement(objectManager.getLoginPage().errorMessage, "Неправильный адрес электронной почты");
     }
 
     @Test(priority = 3)
@@ -31,7 +31,7 @@ public class LoginTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .login(emailFromUser1, passwordFromUser2)
-                .asserts().assertTextInElement(loginPage.errorMessage, "Неправильный адрес электронной почты");
+                .asserts().assertTextInElement(objectManager.getLoginPage().errorMessage, "Неправильный адрес электронной почты");
     }
 
     @Test(priority = 4)
@@ -39,7 +39,7 @@ public class LoginTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .asserts().assertTextInElement(loginPage.profileName, USER);
+                .asserts().assertTextInElement(objectManager.getLoginPage().profileName, USER);
     }
 
     @Test(priority = 5)
@@ -47,7 +47,7 @@ public class LoginTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .loginWithEnter(EMAIL, PASSWORD)
-                .asserts().assertTextInElement(loginPage.profileName, USER);
+                .asserts().assertTextInElement(objectManager.getLoginPage().profileName, USER);
     }
 
     @Test(priority = 6)
@@ -56,7 +56,7 @@ public class LoginTests extends BaseTest {
                 .open(APP_FORM_DEMO_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .logOut()
-                .asserts().assertTextInElement(loginPage.cashflowTitle, "ABM cashflow");
+                .asserts().assertTextInElement(objectManager.getLoginPage().cashflowTitle, "ABM cashflow");
     }
 
     @Test(priority = 7)
@@ -64,6 +64,6 @@ public class LoginTests extends BaseTest {
         steps
                 .open(APP_FORM_DEMO_DB)
                 .forgotYourPasswordClick()
-                .asserts().assertTextInElement(loginPage.changePasswordButton, "Изменить пароль");
+                .asserts().assertTextInElement(objectManager.getLoginPage().changePasswordButton, "Изменить пароль");
     }
 }

@@ -59,11 +59,11 @@ public class CalendarTests extends BaseTest {
                 .openCalendar("Оплата")
                 .clickOnPeriodFilter()
                 .asserts()
-                .assertTextInElement(calendarPage.datePickerToday, "Сегодня")
-                .assertTextInElement(calendarPage.datePickerThisMonth, "Этот месяц")
-                .assertTextInElement(calendarPage.datePickerThisYear, "Этот год")
-                .assertTextInElement(calendarPage.datePickerLastMonth, "Прошлый месяц")
-                .assertTextInElement(calendarPage.datePickerLastYear, "Прошлый год");
+                .assertTextInElement(objectManager.getCalendarPage().datePickerToday, "Сегодня")
+                .assertTextInElement(objectManager.getCalendarPage().datePickerThisMonth, "Этот месяц")
+                .assertTextInElement(objectManager.getCalendarPage().datePickerThisYear, "Этот год")
+                .assertTextInElement(objectManager.getCalendarPage().datePickerLastMonth, "Прошлый месяц")
+                .assertTextInElement(objectManager.getCalendarPage().datePickerLastYear, "Прошлый год");
     }
 
     @Ignore
@@ -75,10 +75,10 @@ public class CalendarTests extends BaseTest {
                 .openCalendar("Оплата")
                 //.clickOnPeriodicityFilter()
                 .asserts()
-                .assertTextInElement(calendarPage.periodicityByDays, "по дням")
-                .assertTextInElement(calendarPage.periodicityByWeeks, "по неделям")
-                .assertTextInElement(calendarPage.periodicityByMonth, "по месяцам")
-                .assertTextInElement(calendarPage.periodicityByYears, "по годам");
+                .assertTextInElement(objectManager.getCalendarPage().periodicityByDays, "по дням")
+                .assertTextInElement(objectManager.getCalendarPage().periodicityByWeeks, "по неделям")
+                .assertTextInElement(objectManager.getCalendarPage().periodicityByMonth, "по месяцам")
+                .assertTextInElement(objectManager.getCalendarPage().periodicityByYears, "по годам");
     }
 
     @Test(priority = 40)

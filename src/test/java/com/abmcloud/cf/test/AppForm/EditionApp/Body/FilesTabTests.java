@@ -24,6 +24,6 @@ public class FilesTabTests extends BaseTest {
                 .clickOnNumberOf(selectedApp)
                 .openFilesTab()
                 .addFile("testData\\png-файл.png")
-                .asserts().assertTextInElement(appEditPage.addFileNotification, "File # png-файл.png uploaded successfully.");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # png-файл.png uploaded successfully.");
     }
 }

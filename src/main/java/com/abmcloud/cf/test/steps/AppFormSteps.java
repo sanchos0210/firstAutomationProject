@@ -3,9 +3,8 @@ package com.abmcloud.cf.test.steps;
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
 import com.abmcloud.cf.test.API.Logs;
+import com.abmcloud.cf.test.API.ObjectManager;
 import com.abmcloud.cf.test.Fields.*;
-import com.abmcloud.cf.test.pages.AppEditPage;
-import com.abmcloud.cf.test.pages.AppListPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,21 +19,15 @@ public class AppFormSteps extends BaseSteps {
     private BooleanField booleanField;
     private CatalogField catalogField;
     private DateField dateField;
+    private Notification notification;
     private String nameOfActiveCatalogField;
 
     private boolean fieldHasChanged;
 
-    public AppFormSteps(Driver driver) {
+    public AppFormSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
-        appEditPage = new AppEditPage(driver);
+        this.objectManager = objectManager;
         logs = new Logs(AppFormSteps.class.getName());
-    }
-
-    private AppListPage getAppListPage() {
-        if(appListPage == null) {
-            appListPage = new AppListPage(driver);
-        }
-        return appListPage;
     }
 
     private DecimalField getDecimalField() {
@@ -69,48 +62,27 @@ public class AppFormSteps extends BaseSteps {
         else return dateField;
     }
 
-
-    private void saveTextAndNumberOfNotification() {
-        try {
-            BaseTest.textOfNotification = getAppListPage().applSavedNotification.getText();
-            switch (BaseTest.activeUser.getLocalizeLanguage()) {
-                case BaseTest.EN: {     //for english language
-                    BaseTest.numberOfCreatedApp = BaseTest.textOfNotification.substring(11, 18);
-                    break;
-                }
-                case BaseTest.RU: {     //for russian language
-                    BaseTest.numberOfCreatedApp = BaseTest.textOfNotification.substring(9, 16);
-                    break;
-                }
-            }
-            getAppListPage().applSavedNotification.click();
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
-    }
-
     @Step("Сохранить заявку")
     public AppListSteps saveApplication() {
         try {
-            appEditPage.saveButton.click();
+            objectManager.getAppEditPage().saveButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
         }
-        saveTextAndNumberOfNotification();
+        getNotification().saveTextAndNumberInNotificationOfSavedApplication();
         return getAppListSteps();
     }
 
     @Step("Кликнуть кнопку \"сохранить заявку\"")
     public AppFormSteps saveButtonClick() {
         try {
-            appEditPage.saveButton.click();
+            objectManager.getAppEditPage().saveButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
         }
-        saveTextAndNumberOfNotification();
+        getNotification().saveTextAndNumberInNotificationOfSavedApplication();
         return this;
     }
 
@@ -187,7 +159,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Изменить булеан поле")
     public AppFormSteps booleanButtonClick(String nameOfField) {
         try {
-            appEditPage.editPopupTitle.click();     //для активации формы (если кликнуть по кнопке с неактивной формой, то в результате кликом активируется форма, а кнопка не кликнется)
+            objectManager.getAppEditPage().editPopupTitle.click();     //для активации формы (если кликнуть по кнопке с неактивной формой, то в результате кликом активируется форма, а кнопка не кликнется)
             booleanField = new BooleanField(driver);
             WebElement button = booleanField.getField(nameOfField);
             button.click();
@@ -202,8 +174,8 @@ public class AppFormSteps extends BaseSteps {
     @Step("Кликнуть по кнопке in_out:")
     public AppFormSteps inOutButtonClick() {
         try {
-            appEditPage.editPopupTitle.click();     //для активации формы (если кликнуть по кнопке с неактивной формой, то в результате кликом активируется форма, а кнопка не кликнется)
-            appEditPage.inOutSwitch.click();
+            objectManager.getAppEditPage().editPopupTitle.click();     //для активации формы (если кликнуть по кнопке с неактивной формой, то в результате кликом активируется форма, а кнопка не кликнется)
+            objectManager.getAppEditPage().inOutSwitch.click();
             fieldHasChanged = true;
         } catch(RuntimeException e) {
             logs.errorMsg(e);
@@ -284,9 +256,9 @@ public class AppFormSteps extends BaseSteps {
         WebElement catalogField = getCatalogField().getField(nameOfField);
         try {
             catalogField.click();
-            getWait().waitForElementClickable(4, appEditPage.clearCatalogValueButton);
-            appEditPage.clearCatalogValueButton.click();
-            appEditPage.closeCatalogPopupLocator.click();
+            getWait().waitForElementClickable(4, objectManager.getAppEditPage().clearCatalogValueButton);
+            objectManager.getAppEditPage().clearCatalogValueButton.click();
+            objectManager.getAppEditPage().closeCatalogPopupLocator.click();
             fieldHasChanged = true;
         } catch(RuntimeException e) {
             logs.errorMsg(e);
@@ -298,7 +270,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Утвердить заявку из формы заявки")
     public AppListSteps approveButtonClick() {
         try {
-            appEditPage.approveAppButton.click();
+            objectManager.getAppEditPage().approveAppButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -309,7 +281,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Отменить заявку из формы заявки")
     public AppListSteps cancelButtonClick() {
         try {
-            appEditPage.cancelAppButton.click();
+            objectManager.getAppEditPage().cancelAppButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -320,10 +292,10 @@ public class AppFormSteps extends BaseSteps {
     @Step("Закрыть форму заявки")
     public AppListSteps backButtonClick() {
         try {
-            appEditPage.closeAppFormButton.click();
+            objectManager.getAppEditPage().closeAppFormButton.click();
             if (fieldHasChanged == true) {
                 fieldHasChanged = false;
-                appEditPage.yesGoOut.click();
+                objectManager.getAppEditPage().yesGoOut.click();
             }
         } catch(RuntimeException e) {
             logs.errorMsg(e);
@@ -334,9 +306,9 @@ public class AppFormSteps extends BaseSteps {
 
     @Step("Открыть инфо блок")
     public AppFormSteps showInformationBlockClick() {
-        getWait().waitForElementClickable(2, appEditPage.showInformationBlock);
+        getWait().waitForElementClickable(2, objectManager.getAppEditPage().showInformationBlock);
         try {
-            appEditPage.showInformationBlock.click();
+            objectManager.getAppEditPage().showInformationBlock.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -348,7 +320,7 @@ public class AppFormSteps extends BaseSteps {
     public AppFormSteps changesHistoryClick() {
         try {
             if (BaseTest.activeUser.getLocalizeLanguage() == BaseTest.EN)
-                appEditPage.changesHistory.click();
+                objectManager.getAppEditPage().changesHistory.click();
             else driver.$(By.xpath("//*[contains(text(), 'История изменений')]")).click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
@@ -374,7 +346,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Добавить новую строку")
     public AppFormSteps addNewLineClick() {
         try {
-            appEditPage.addNewLine.click();
+            objectManager.getAppEditPage().addNewLine.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -385,7 +357,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Открыть вкладку \"Файлы по заявке\"")
     public AppFormSteps openFilesTab() {
         try {
-            appEditPage.filesTab.click();
+            objectManager.getAppEditPage().filesTab.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -396,7 +368,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Прикрепить файл:")
     public AppFormSteps addFile(String wayToFile) {
         try {
-            appEditPage.addFileInput.sendKeys(new File(wayToFile).getAbsolutePath());
+            objectManager.getAppEditPage().addFileInput.sendKeys(new File(wayToFile).getAbsolutePath());
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;

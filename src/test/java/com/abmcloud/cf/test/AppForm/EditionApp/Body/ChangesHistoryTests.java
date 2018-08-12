@@ -92,7 +92,7 @@ public class ChangesHistoryTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .clickOnDateField(dbInfo.getString("payment_date_field_name"))
-                .buttonClick(appEditPage.tomorrowDate)
+                .buttonClick(objectManager.getAppEditPage().tomorrowDate)
                 .saveApplication()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)

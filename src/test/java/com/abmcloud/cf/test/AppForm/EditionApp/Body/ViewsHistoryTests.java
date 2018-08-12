@@ -23,12 +23,12 @@ public class ViewsHistoryTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
-                .asserts().assertTextInElement(appEditPage.viewsHistory, "История просмотров 1")
+                .asserts().assertTextInElement(objectManager.getAppEditPage().viewsHistory, "История просмотров 1")
                 .getAppFormStep()
                 .backButtonClick()
                 .selectAppByNumber(numberOfCreatedApp)
                 .clickOnNumberOf(selectedApp)
                 .showInformationBlockClick()
-                .asserts().assertTextInElement(appEditPage.viewsHistory, "История просмотров 2");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().viewsHistory, "История просмотров 2");
     }
 }

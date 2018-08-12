@@ -62,14 +62,6 @@ public class AppListPage extends BasePage {
     /*@FindBy(css = "table tbody tr")
             public List<WebElement> table;
             */
-    @FindBy(css = "#comment")
-            public WebElement commentFieldInCancelPopUp;
-
-    @FindBy(css = "button.btn.btn-danger.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left")
-            public WebElement cancelButtonInCancelPopUp;
-
-    @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']//parent::button")
-            public WebElement approveButtonInApprovePopUp;
 
     @FindBy(css = "upload-popup p-dialog .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top .ui-dialog-title")
             public WebElement FilesPopup;

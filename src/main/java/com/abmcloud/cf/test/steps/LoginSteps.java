@@ -3,16 +3,16 @@ package com.abmcloud.cf.test.steps;
 import com.abmcloud.cf.test.API.BaseTest;
 import com.abmcloud.cf.test.API.Driver;
 import com.abmcloud.cf.test.API.Logs;
+import com.abmcloud.cf.test.API.ObjectManager;
 import com.abmcloud.cf.test.DBInfo.UsersData;
-import com.abmcloud.cf.test.pages.LoginPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 
 public class LoginSteps extends BaseSteps {
 
-    public LoginSteps(Driver driver) {
+    public LoginSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
-        loginPage = new LoginPage(driver);
+        this.objectManager = objectManager;
         logs = new Logs(LoginSteps.class.getName());
     }
 
@@ -26,9 +26,9 @@ public class LoginSteps extends BaseSteps {
     @Step("Попробовать залогинится")
     public LoginSteps login(String email, String pass) {
         try {
-            loginPage.emailInput.sendKeys(email);
-            loginPage.passwordInput.sendKeys(pass);
-            loginPage.submitButton.click();
+            objectManager.getLoginPage().emailInput.sendKeys(email);
+            objectManager.getLoginPage().passwordInput.sendKeys(pass);
+            objectManager.getLoginPage().submitButton.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
         }
@@ -54,8 +54,8 @@ public class LoginSteps extends BaseSteps {
     public AppListSteps loginWithEnter(String email, String pass) {
         logs.infoMsg("Logining to CF system: " + email  + "; " + pass);
         try {
-            loginPage.emailInput.sendKeys(email);
-            loginPage.passwordInput.sendKeys(pass + Keys.ENTER);
+            objectManager.getLoginPage().emailInput.sendKeys(email);
+            objectManager.getLoginPage().passwordInput.sendKeys(pass + Keys.ENTER);
             getWait().loginWait();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
@@ -67,8 +67,8 @@ public class LoginSteps extends BaseSteps {
     @Step("Кликнуть на \"Забыл пароль\"")
     public LoginSteps forgotYourPasswordClick() {
         try {
-            logs.infoMsg("Click on button: " + loginPage.forgotYourPassword.toString());
-            loginPage.forgotYourPassword.click();
+            logs.infoMsg("Click on button: " + objectManager.getLoginPage().forgotYourPassword.toString());
+            objectManager.getLoginPage().forgotYourPassword.click();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;

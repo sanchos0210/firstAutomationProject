@@ -24,7 +24,7 @@ public class ActionMenuTests extends BaseTest {
                 .actionMenuButtonClick(selectedApp)
                 .approve(selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "Оплачена");
+                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
     }
 
     @Test(priority = 2)
@@ -35,7 +35,7 @@ public class ActionMenuTests extends BaseTest {
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertFalse(helpers.isButtonPresentInRow(selectedApp, appListPage.approve));
+                .asserts().assertFalse(helpers.isButtonPresentInRow(selectedApp, objectManager.getAppListPage().approve));
     }
 
     @Test(priority = 3)
@@ -50,13 +50,13 @@ public class ActionMenuTests extends BaseTest {
                 .status(APPROVE,selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approve)
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approve)
                 .getAppListStep().logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approve);
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approve);
     }
 
     @Test(priority = 4)
@@ -69,13 +69,13 @@ public class ActionMenuTests extends BaseTest {
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approve)
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approve)
                 .getAppListStep().logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approve);
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approve);
     }
 
     @Test(priority = 9)
@@ -89,7 +89,7 @@ public class ActionMenuTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .editButtonClick(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle,
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle,
                 "Редактирование заявки № " + numberOfSelectedApp);
     }
 
@@ -104,7 +104,7 @@ public class ActionMenuTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .asserts()
-                .assertTrue(helpers.isButtonPresentInRow(selectedApp, appListPage.edit));
+                .assertTrue(helpers.isButtonPresentInRow(selectedApp, objectManager.getAppListPage().edit));
     }
 
     @Test(priority = 20)
@@ -116,7 +116,7 @@ public class ActionMenuTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
                 .copyButtonClick(selectedApp)
-                .asserts().assertTextInElement(appEditPage.editPopupTitle, "Копирование заявки");
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Копирование заявки");
         }
 
     @Test(priority = 29)
@@ -129,7 +129,7 @@ public class ActionMenuTests extends BaseTest {
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertTrue(helpers.isButtonPresentInRow(selectedApp, appListPage.cancel));
+                .asserts().assertTrue(helpers.isButtonPresentInRow(selectedApp, objectManager.getAppListPage().cancel));
     }
 
     @Test(priority = 30)
@@ -142,6 +142,6 @@ public class ActionMenuTests extends BaseTest {
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .actionMenuButtonClick(selectedApp)
-                .asserts().assertFalse(helpers.isButtonPresentInRow(selectedApp, appListPage.cancel));
+                .asserts().assertFalse(helpers.isButtonPresentInRow(selectedApp, objectManager.getAppListPage().cancel));
     }
 }

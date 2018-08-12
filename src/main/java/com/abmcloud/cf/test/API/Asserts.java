@@ -14,11 +14,13 @@ import java.util.concurrent.TimeUnit;
 public class Asserts {
 
     private Driver driver;
+    private ObjectManager objectManager;
     private Wait wait;
     private Helpers helpers;
 
-    public Asserts(Driver driver) {
+    public Asserts(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
+        this.objectManager = objectManager;
     }
 
     private Wait getWait() {
@@ -81,10 +83,10 @@ public class Asserts {
     }
 
     public AppFormSteps getAppFormStep() {
-        return new AppFormSteps(driver);
+        return objectManager.getAppFormSteps();
     }
 
     public AppListSteps getAppListStep() {
-        return new AppListSteps(driver);
+        return objectManager.getAppListSteps();
     }
 }

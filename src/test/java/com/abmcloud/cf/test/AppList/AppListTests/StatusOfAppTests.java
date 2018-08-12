@@ -21,7 +21,7 @@ public class StatusOfAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, appListPage.statusOfApp, "Отправлена в банк");
+                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Отправлена в банк");
     }
 
     @Test(priority = 10)
@@ -33,7 +33,7 @@ public class StatusOfAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus);
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approveFromStatus);
     }
 
     @Test(priority = 20)
@@ -47,12 +47,12 @@ public class StatusOfAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(APPROVE,selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus)
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approveFromStatus)
                 .getAppListStep().logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus);
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approveFromStatus);
     }
 
     @Test(priority = 30)
@@ -64,12 +64,12 @@ public class StatusOfAppTests extends BaseTest {
                 .selectAppByNumber(numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus)
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approveFromStatus)
                 .getAppListStep().logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
                 .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertVisibilityButtonInRow(selectedApp, appListPage.approveFromStatus);
+                .asserts().assertVisibilityButtonInRow(selectedApp, objectManager.getAppListPage().approveFromStatus);
     }
 
     @Test(priority = 40)
@@ -82,7 +82,7 @@ public class StatusOfAppTests extends BaseTest {
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts()
-                .assertTrue(helpers.isButtonPresentInRow(selectedApp, appListPage.cancelFromStatus));
+                .assertTrue(helpers.isButtonPresentInRow(selectedApp, objectManager.getAppListPage().cancelFromStatus));
     }
 
     @Test(priority = 50)
@@ -95,6 +95,6 @@ public class StatusOfAppTests extends BaseTest {
                 .status(SEND_FOR_APPROVAL, selectedApp)
                 .selectAppByNumber(numberOfCreatedApp)
                 .asserts()
-                .assertFalse(helpers.isButtonPresentInRow(selectedApp, appListPage.cancelFromStatus));
+                .assertFalse(helpers.isButtonPresentInRow(selectedApp, objectManager.getAppListPage().cancelFromStatus));
     }
 }
