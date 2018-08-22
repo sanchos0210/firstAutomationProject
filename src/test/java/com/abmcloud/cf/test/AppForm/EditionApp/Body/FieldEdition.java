@@ -1,10 +1,16 @@
 package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
+import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Проверка изменения полей в форме заявки")
+@Feature("Форма заявки")
+@Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class FieldEdition extends BaseTest {
 
     DataBaseInfo dbInfo;
@@ -17,103 +23,103 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 1)
     public void editionDecimalField() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "500")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("500", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_3"))));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare("500", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_3")));
     }
 
     @Test(priority = 2)
     public void autoInsertFieldsInEditPopup() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
                 .catalogElementClick("Contractor 1")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
                 .catalogElementClick("Contractor 5")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .asserts()
-                .assertTrue(helpers.compare("5000", helpers.getValueOfDecimalField(dbInfo.getString("decimal_field_2"))))
-                .assertTrue(helpers.compare("value 5", helpers.getValueOfStringField(dbInfo.getString("string_field_2"))))
-                .assertTrue(helpers.compare("false", helpers.getValueOfBooleanField(dbInfo.getString("boolean_field_3"))))
-                .assertTrue(helpers.compare("02.10.2018", helpers.getValueOfDateField(dbInfo.getString("date_field_1"))));
+                .compare("5000", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_2")))
+                .compare("value 5", objectManager.getStringField().getValue(dbInfo.getString("string_field_2")))
+                .compare("false", objectManager.getBooleanField().getValue(dbInfo.getString("boolean_field_3")))
+                .compare("02.10.2018", objectManager.getDateField().getValue(dbInfo.getString("date_field_1")));
     }
 
     @Test(priority = 10)
     public void editionStringField() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .editStringField(dbInfo.getString("string_field_3"), "new text")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("new text", helpers.getValueOfStringField(dbInfo.getString("string_field_3"))));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare("new text", objectManager.getStringField().getValue(dbInfo.getString("string_field_3")));
     }
 
     @Test(priority = 20)
     public void editionBooleanField() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .booleanButtonClick(dbInfo.getString("boolean_field_3"))
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("true", helpers.getValueOfBooleanField(dbInfo.getString("boolean_field_3"))));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare("true", objectManager.getBooleanField().getValue(dbInfo.getString("boolean_field_3")));
     }
 
     @Test(priority = 30)
     public void editionCatalogField() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogFolderClick(dbInfo.getString("folder_1"))
                 .catalogElementClick(dbInfo.getString("value_2"))
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Value 2", helpers.getValueOfCatalogField(dbInfo.getString("catalog_field_3"))));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare("Value 2", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_3")));
     }
 
     @Test(priority = 40)
     public void editionDateField() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .clickOnDateField(dbInfo.getString("date_field_2"))
-                .buttonClick(objectManager.getAppEditPage().tomorrowDate)
+                .buttonClick(objectManager.getDatePicker().tomorrowDate)
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare(helpers.getTomorrowFullDate(), helpers.getValueOfDateField(dbInfo.getString("date_field_2"))));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare(objectManager.getDateUtil().getTomorrowFullDate(), objectManager.getDateField().getValue(dbInfo.getString("date_field_2")));
     }
 }

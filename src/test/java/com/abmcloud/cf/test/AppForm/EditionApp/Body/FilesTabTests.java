@@ -1,10 +1,16 @@
 package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
+import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Прикрепление файлов к заявке в списке заявок")
+@Feature("Форма заявки")
+@Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class FilesTabTests extends BaseTest {
 
     DataBaseInfo dbInfo;
@@ -17,11 +23,11 @@ public class FilesTabTests extends BaseTest {
     @Test
     public void addFileInEditPopup() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .openFilesTab()
                 .addFile("testData\\png-файл.png")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # png-файл.png uploaded successfully.");

@@ -1,10 +1,16 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Body;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
+import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Расчет полей в форме заявки")
+@Feature("Форма заявки")
+@Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class FieldCalculationTests extends BaseTest {
 
     DataBaseInfo dbInfo;
@@ -17,14 +23,14 @@ public class FieldCalculationTests extends BaseTest {
     @Test(priority = 1)
     public void calculationChain() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
                 .openTab("Additional")
                 .asserts()
-                .assertTrue(helpers.compare(helpers.getValueOfDecimalField("Decimal field 1"), "35"))
-                .assertTrue(helpers.compare(helpers.getValueOfDecimalField("Decimal field 2"), "350"))
-                .assertTrue(helpers.compare(helpers.getValueOfDecimalField("Decimal field 3"), "3500"));
+                .compare(objectManager.getDecimalField().getValue("Decimal field 1"), "35")
+                .compare(objectManager.getDecimalField().getValue("Decimal field 2"), "350")
+                .compare(objectManager.getDecimalField().getValue("Decimal field 3"), "3500");
     }
 }

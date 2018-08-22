@@ -1,10 +1,16 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.Title;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
+import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Валидация полей в форме заявки")
+@Feature("Форма заявки")
+@Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class FieldsValidationTests extends BaseTest {
 
     DataBaseInfo dbInfo;
@@ -16,7 +22,7 @@ public class FieldsValidationTests extends BaseTest {
 
     public void createIncomeApp() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .inOutButtonClick()
@@ -25,14 +31,14 @@ public class FieldsValidationTests extends BaseTest {
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
                 .editStringField(dbInfo.getString("string_field_3"), "text")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Inflow", helpers.getInOutValue()));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare("Inflow", objectManager.getBooleanField().getInOutValue());
     }
 
     public void createOutFlowApp() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -40,9 +46,9 @@ public class FieldsValidationTests extends BaseTest {
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
                 .editStringField(dbInfo.getString("string_field_3"), "text")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Outflow", helpers.getInOutValue()));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().compare("Outflow", objectManager.getBooleanField().getInOutValue());
     }
 
     @Test(priority = 1)
@@ -53,20 +59,20 @@ public class FieldsValidationTests extends BaseTest {
 
     public void defaultOutflowValue() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .asserts().assertTrue(helpers.compare("Outflow", helpers.getInOutValue()));
+                .asserts().compare("Outflow", objectManager.getBooleanField().getInOutValue());
     }
 
     public void defaultInflowValue() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
-                .asserts().assertTrue(helpers.compare("Inflow", helpers.getInOutValue()));
+                .asserts().compare("Inflow", objectManager.getBooleanField().getInOutValue());
     }
 
     @Test(priority = 2)
@@ -78,14 +84,14 @@ public class FieldsValidationTests extends BaseTest {
     @Test(priority = 3)
     public void checkDisabledBooleanField() {
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
-                .asserts().assertTrue(helpers.isInOutDisable())
+                .asserts().assertTrue(objectManager.getBooleanField().isInOutDisable())
                 .getAppFormStep().backButtonClick()
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
-                .asserts().assertTrue(helpers.isInOutDisable());
+                .asserts().assertTrue(objectManager.getBooleanField().isInOutDisable());
     }
 }

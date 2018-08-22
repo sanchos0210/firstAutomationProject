@@ -1,140 +1,157 @@
 package com.abmcloud.cf.test.AppList.BuisnessProcessTests;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
+import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Проверка определения шагов и цепочек для заявке")
+@Feature("Список заявок")
+@Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class ChainsStepsTests extends BaseTest {
+
+    DataBaseInfo dbInfo;
+
+    @BeforeMethod
+    public void initializeJsonFile() {
+        dbInfo = new DataBaseInfo("app_list_db.json");
+    }
 
     @Test(priority = 1)
     public void approverIsAuthor() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnStatusOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Verezhevych Alexandr", helpers.getApprovers(2)))
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Verezhevych Alexandr", objectManager.getStepsPopup().getApprovers(2))
                 .getAppListStep().closeChainStepsPopup()
                 .logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnStatusOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Test1 User1", helpers.getApprovers(2)));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Test1 User1", objectManager.getStepsPopup().getApprovers(2));
+    }
+
+    @Test(priority = 2)
+    public void approverIsOrganizationLead() {
+        steps
+                .open(APP_LIST_TEST_DB)
+                .loginAs(USER, EMAIL, PASSWORD, RU)
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_7th_chain"))
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Verezhevych Alexandr", objectManager.getStepsPopup().getApprovers(2));
     }
 
     @Test(priority = 10)
     public void twoApproversInStep() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnStatusOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Verezhevych Alexandr, Test1 User1", helpers.getApprovers(2)));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Verezhevych Alexandr, Test1 User1", objectManager.getStepsPopup().getApprovers(2));
     }
 
     @Test(priority = 20)
     public void correctApproverVerification() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(SEND_FOR_APPROVAL, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(APPROVE, selectedApp, "Ok")
-                .clickOnStatusOf(selectedApp)
-                .asserts().assertTrue(helpers.compare("Verezhevych Alexandr", helpers.getApprovers(2)));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(APPROVE, testInfo.selectedApp, "Ok")
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Verezhevych Alexandr", objectManager.getStepsPopup().getApprovers(2));
     }
 
     @Test(priority = 30)
     public void checkStatusName() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Новая")
-                .getAppListStep().status(SEND_FOR_APPROVAL, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "В процессе")
-                .getAppListStep().status(APPROVE, selectedApp, "approve")
-                .selectAppByNumber(numberOfCreatedApp)
-                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .asserts().assertTextIn(testInfo.selectedApp, objectManager.getAppListPage().statusOfApp, "Новая")
+                .getAppListStep().status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .asserts().assertTextIn(testInfo.selectedApp, objectManager.getAppListPage().statusOfApp, "В процессе")
+                .getAppListStep().status(APPROVE, testInfo.selectedApp, "approve")
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .asserts().assertTextIn(testInfo.selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
     }
 
     @Test(priority = 40)
     public void paymentFromApplicationListTest() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_6th_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(SEND_FOR_APPROVAL, selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
                 .openCalendar("Утвердить оплаты")
                 .openRegistry()
-                .checkAppWithNumber(numberOfCreatedApp)
+                .checkAppWithNumber(testInfo.numberOfCreatedApp)
                 .approveButtonClick()
                 .closeRegistry()
                 .openAppList(dbInfo.getString("prepare_payments"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(APPROVE, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnStatusOf(selectedApp)
-                .asserts().assertTextIn(selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(APPROVE, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().assertTextIn(testInfo.selectedApp, objectManager.getAppListPage().statusOfApp, "Оплачена");
     }
 
     @Test(priority = 50)
     public void paymentFromCalendarThrowApprove() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_5th_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(SEND_FOR_APPROVAL, selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
                 .openCalendar("Утвердить оплаты")
                 .openRegistry()
-                .checkAppWithNumber(numberOfCreatedApp)
+                .checkAppWithNumber(testInfo.numberOfCreatedApp)
                 .approveButtonClick()
                 .closeRegistry()
-                .assertPaid(helpers.getTodayFullDate(), 10000);
+                .assertPaid(objectManager.getDateUtil().getTodayFullDate(), 10000);
     }
 
     @Test(priority = 60)
     public void requiredCommentForApproval() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(SEND_FOR_APPROVAL, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .actionMenuButtonClick(selectedApp)
-                .approveButtonClick(selectedApp)
-                .asserts().assertTrue(helpers.isButtonDisable(objectManager.getConfirmElement().approveButtonInApprovePopUp));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .actionMenuButtonClick(testInfo.selectedApp)
+                .approveButtonClick(testInfo.selectedApp)
+                .asserts().isButtonDisable(objectManager.getConfirmElement().approveButtonInApprovePopUp, true);
     }
 
     @Test(priority = 60)
     public void nonRequiredCommentForApproval() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(SEND_FOR_APPROVAL, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(APPROVE, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(APPROVE, selectedApp, "");
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(APPROVE, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(APPROVE, testInfo.selectedApp, "");
     }
 }

@@ -1,10 +1,16 @@
 package com.abmcloud.cf.test.AppForm.EditionApp;
 
-import com.abmcloud.cf.test.API.BaseTest;
-import com.abmcloud.cf.test.DBInfo.DataBaseInfo;
+import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Epic("Отображение элементов в попапе редактирования в форме заявки")
+@Feature("Форма заявки")
+@Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class ElementVisibilityInEditPopup extends BaseTest{
 
     DataBaseInfo dbInfo;
@@ -17,60 +23,60 @@ public class ElementVisibilityInEditPopup extends BaseTest{
     public void visibilityOfElementsInEditPopup() {
         dbInfo = new DataBaseInfo("app_form_db.json");
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .showInformationBlockClick()
                 .asserts()
-                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().approvalSteps))
-                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().changesHistory))
-                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().viewsHistory))
-                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().cancelAppButton))
-                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton))
-                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().saveButton));
+                .isElementPresent(objectManager.getAppEditPage().approvalSteps, true)
+                .isElementPresent(objectManager.getAppEditPage().changesHistory, false)
+                .isElementPresent(objectManager.getAppEditPage().viewsHistory, true)
+                .isElementPresent(objectManager.getAppEditPage().cancelAppButton, true)
+                .isElementPresent(objectManager.getAppEditPage().approveAppButton, false)
+                .isElementPresent(objectManager.getAppEditPage().saveButton, false);
     }
 
     @Test(priority = 2)
     public void historyChangesIsVisible() {
         dbInfo = new DataBaseInfo("app_form_db.json");
         steps
-                .open(APP_FORM_DEMO_DB)
+                .open(APP_FORM_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "1900")
                 .saveApplication()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .showInformationBlockClick()
                 .asserts()
-                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().changesHistory));
+                .isElementPresent(objectManager.getAppEditPage().changesHistory, true);
     }
 
     @Test(priority = 3)
     public void cannotCancelAndCanApprove2UsersFromEditPopup() {
         dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_DEMO_DB)
+                .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
-                .selectAppByNumber(numberOfCreatedApp)
-                .status(SEND_FOR_APPROVAL, selectedApp)
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
                 .asserts()
-                .assertFalse(helpers.isElementPresent(objectManager.getAppEditPage().cancelAppButton))
-                .assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton))
+                .isElementPresent(objectManager.getAppEditPage().cancelAppButton, false)
+                .isElementPresent(objectManager.getAppEditPage().approveAppButton, true)
                 .getAppFormStep().backButtonClick()
                 .logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .openOnMyApproval()
-                .selectAppByNumber(numberOfCreatedApp)
-                .clickOnNumberOf(selectedApp)
-                .asserts().assertTrue(helpers.isElementPresent(objectManager.getAppEditPage().approveAppButton));
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().isElementPresent(objectManager.getAppEditPage().approveAppButton, true);
     }
 
 }
