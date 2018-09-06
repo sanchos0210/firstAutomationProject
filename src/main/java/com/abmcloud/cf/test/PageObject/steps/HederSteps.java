@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 
@@ -18,5 +19,13 @@ public class HederSteps extends BaseSteps {
         }
         driver.assertThat(textToBePresentInElement((objectManager.getLoginPage().cashflowTitle), "ABM cashflow"));     //verificationThat
         return getLoginSteps();
+    }
+
+    @Step("Открыть профиль пользователя")
+    public UserProfileSteps openUserProfile() {
+        objectManager.getAppListPage().avatar.click();
+        objectManager.getAppListPage().userProfileButton.click();
+        objectManager.getWait().waitForClickable(3, By.cssSelector("div.user_content"));
+        return objectManager.getUserProfileSteps();
     }
 }

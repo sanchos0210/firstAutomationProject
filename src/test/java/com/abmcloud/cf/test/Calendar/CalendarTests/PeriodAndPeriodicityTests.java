@@ -4,16 +4,12 @@ import com.abmcloud.cf.test.Driver.BaseTest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Epic("Проверка фильтра по периоду и периодичности")
 @Feature("Календарь")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class PeriodAndPeriodicityTests extends BaseTest {
-
+/*
     @Test(priority = 40)
     public void checkTodayByDay() {
         List<String> expectedDays = new ArrayList<>();
@@ -113,5 +109,5 @@ public class PeriodAndPeriodicityTests extends BaseTest {
                 .clickOnPeriodicityFilter()
                 .chooseByYears()
                 .assertVisibleDates(expectedDays);
-    }
+    }*/
 }

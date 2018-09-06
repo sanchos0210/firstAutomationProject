@@ -1,10 +1,8 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
-import com.abmcloud.cf.test.PageObject.Components.Fields.*;
 import com.abmcloud.cf.test.PageObject.Components.Notification;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -13,13 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
 
+import static com.abmcloud.cf.test.Driver.Constants.EN;
+
 public class AppFormSteps extends BaseSteps {
 
-    private DecimalField decimalField;
-    private StringField stringField;
-    private BooleanField booleanField;
-    private CatalogField catalogField;
-    private DateField dateField;
     private Notification notification;
     private String nameOfActiveCatalogField;
 
@@ -29,38 +24,7 @@ public class AppFormSteps extends BaseSteps {
         this.driver = driver;
         this.objectManager = objectManager;
         logs = new Logs(AppFormSteps.class.getName());
-    }
-
-    private DecimalField getDecimalField() {
-        if(decimalField == null) {
-            decimalField = new DecimalField(driver);
-            return  decimalField;
-        }
-        else return decimalField;
-    }
-
-    private StringField getStringField() {
-        if(stringField == null) {
-            stringField = new StringField(driver);
-            return  stringField;
-        }
-        else return stringField;
-    }
-
-    private CatalogField getCatalogField() {
-        if(catalogField == null) {
-            catalogField = new CatalogField(driver);
-            return  catalogField;
-        }
-        else return catalogField;
-    }
-
-    private DateField getDateField() {
-        if(dateField == null) {
-            dateField = new DateField(driver);
-            return  dateField;
-        }
-        else return dateField;
+        notification = objectManager.getNotification();
     }
 
     @Step("Сохранить заявку")
@@ -72,7 +36,7 @@ public class AppFormSteps extends BaseSteps {
             logs.errorMsg(e);
             throw e;
         }
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        notification.saveTextAndAppNumAndClickOnNotification();
         return getAppListSteps();
     }
 
@@ -84,92 +48,50 @@ public class AppFormSteps extends BaseSteps {
             logs.errorMsg(e);
             throw e;
         }
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        notification.saveTextAndAppNumAndClickOnNotification();
         return this;
     }
 
     @Step("Редактировать числовое поле на значение:")
     public AppFormSteps editDecimalField(String nameOfField, String text) {
-        WebElement field = getDecimalField().getField(nameOfField);
-        try {
-            field.clear();
-            field.sendKeys(text);
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getDecimalField().editDecimalField(nameOfField, text);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Редактировать числовое поле в ТЧ на значение:")
     public AppFormSteps editTCHDecimalField(String nameOfField, String text) {
-        WebElement field = getDecimalField().getTCHField(nameOfField);
-        try {
-            field.clear();
-            field.sendKeys(text);
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getDecimalField().editTCHDecimalField(nameOfField, text);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Редактировать числовое поле в строке ТЧ на значение:")
     public AppFormSteps editTCHDecimalField(String nameOfField, int rowNum, String text) {
-        WebElement field = getDecimalField().getTCHField(nameOfField, rowNum);
-        try {
-            field.clear();
-            field.sendKeys(text);
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getDecimalField().editTCHDecimalField(nameOfField, rowNum, text);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Редактировать строчное поле на значение:")
     public AppFormSteps editStringField(String nameOfField, String text) {
-        WebElement field = getStringField().getField(nameOfField);
-        try {
-            field.clear();
-            field.sendKeys(text);
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getStringField().editStringField(nameOfField, text);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Редактировать строчное поле в ТЧ на значение:")
     public AppFormSteps editTCHStringField(String nameOfField, String text) {
-        WebElement field = getStringField().getTCHField(nameOfField);
-        try {
-            field.clear();
-            field.sendKeys(text);
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getStringField().editTCHStringField(nameOfField, text);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Изменить булеан поле")
     public AppFormSteps booleanButtonClick(String nameOfField) {
-        try {
-            objectManager.getAppEditPage().editPopupTitle.click();     //для активации формы (если кликнуть по кнопке с неактивной формой, то в результате кликом активируется форма, а кнопка не кликнется)
-            booleanField = new BooleanField(driver);
-            WebElement button = booleanField.getField(nameOfField);
-            button.click();
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getAppEditPage().editPopupTitle.click();     //для активации формы (если кликнуть по кнопке с неактивной формой, то в результате кликом активируется форма, а кнопка не кликнется)
+        objectManager.getBooleanField().booleanButtonClick(nameOfField);
+        fieldHasChanged = true;
         return this;
     }
 
@@ -201,71 +123,34 @@ public class AppFormSteps extends BaseSteps {
 
     @Step("Кликнуть на поле каталог:")
     public AppFormSteps catalogFieldClick(String nameOfField) {
-        nameOfActiveCatalogField = nameOfField;
-        WebElement element = getCatalogField().getField(nameOfField);
-        try {
-            element.click();
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getCatalogField().catalogFieldClick(nameOfField);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Кликнуть на элемент каталога:")
     public AppFormSteps catalogElementClick(String nameOfItem) {
-        WebElement element = getCatalogField().getItem(nameOfItem);
-        try {
-            element.click();
-            WebElement activeCatalogField = getCatalogField().getField(nameOfActiveCatalogField);
-            getWait().waitForAttributeContains(activeCatalogField, "ng-reflect-selected", nameOfItem);
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getCatalogField().catalogElementClick(nameOfItem);
+        fieldHasChanged = true;
         return this;
     }
 
     @Step("Кликнуть на папку каталога:")
     public AppFormSteps catalogFolderClick(String nameOfFolder) {
-        WebElement element = getCatalogField().getItem(nameOfFolder);
-        try {
-            element.click();
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getCatalogField().catalogFolderClick(nameOfFolder);
         return this;
     }
 
     @Step("Кликнуть на поле с датой")
     public AppFormSteps clickOnDateField(String nameOfField) {
-        WebElement dateField = getDateField().getField(nameOfField);
-        getWait().waitForElementClickable(10, dateField);
-        try {
-            dateField.click();
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getDateField().clickOnDateField(nameOfField);
         return this;
     }
 
     @Step("Очистить поле каталог")
     public AppFormSteps clearCatalogValue(String nameOfField) {
-        WebElement catalogField = getCatalogField().getField(nameOfField);
-        try {
-            catalogField.click();
-            getWait().waitForElementClickable(4, objectManager.getAppEditPage().clearCatalogValueButton);
-            objectManager.getAppEditPage().clearCatalogValueButton.click();
-            objectManager.getAppEditPage().closeCatalogPopupLocator.click();
-            fieldHasChanged = true;
-        } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
-        }
+        objectManager.getCatalogField().clearCatalogValue(nameOfField);
+        fieldHasChanged = true;
         return this;
     }
 
@@ -321,7 +206,7 @@ public class AppFormSteps extends BaseSteps {
     @Step("Открыть историю изменений")
     public AppFormSteps changesHistoryClick() {
         try {
-            if (objectManager.getTestInfo().activeUser.getLocalizeLanguage() == BaseTest.EN)
+            if (objectManager.getTestInfo().activeUser.getLocalizeLanguage() == EN)
                 objectManager.getAppEditPage().changesHistory.click();
             else driver.$(By.xpath("//*[contains(text(), 'История изменений')]")).click();
         } catch(RuntimeException e) {

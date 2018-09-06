@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.PageObject.Components.Fields;
 
 import com.abmcloud.cf.test.Driver.Driver;
+import com.abmcloud.cf.test.Driver.ObjectManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,8 +9,8 @@ import java.util.List;
 
 public class DateField extends BaseField {
 
-    public DateField(Driver driver) {
-        super(driver);
+    public DateField(Driver driver, ObjectManager objectManager) {
+        super(driver, objectManager);
     }
 
     public WebElement getField(String nameOfField) {
@@ -39,4 +40,16 @@ public class DateField extends BaseField {
         }
         return soughtDate;
     }
+
+    public void clickOnDateField(String nameOfField) {
+        WebElement dateField = objectManager.getDateField().getField(nameOfField);
+        objectManager.getWait().waitForElementClickable(10, dateField);
+        try {
+            dateField.click();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+    }
+
 }

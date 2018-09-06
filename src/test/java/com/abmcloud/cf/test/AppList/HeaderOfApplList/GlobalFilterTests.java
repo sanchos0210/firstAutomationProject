@@ -7,6 +7,8 @@ import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.RU;
+
 @Epic("Проверка глобального фильтра в списке заявок")
 @Feature("Список заявок")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
@@ -30,6 +32,10 @@ public class GlobalFilterTests extends BaseTest {
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)
                 .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Редактирование заявки № " + testInfo.numberOfCreatedApp);
+    }
+
+    public void viewAllUsersApplicationsInAvailableToMe() {
+
     }
 
     @Test(priority = 10)

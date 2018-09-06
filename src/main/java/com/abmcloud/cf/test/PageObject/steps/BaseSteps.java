@@ -1,7 +1,6 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
 import com.abmcloud.cf.test.Driver.*;
-import com.abmcloud.cf.test.PageObject.Components.Notification;
 
 public class BaseSteps {
 
@@ -31,14 +30,6 @@ public class BaseSteps {
 
     protected CalendarListSteps getCalendarListStep() {
        return objectManager.getCalendarListSteps();
-    }
-
-    protected Notification getNotification() {
-       return new Notification(driver, getWait());
-    }
-
-    protected ConfirmPopupSteps getConfirmPopup() {
-        return new ConfirmPopupSteps(driver, logs);
     }
 
     public Asserts asserts() {

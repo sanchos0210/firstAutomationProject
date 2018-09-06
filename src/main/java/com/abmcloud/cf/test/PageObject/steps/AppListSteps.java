@@ -3,6 +3,8 @@ package com.abmcloud.cf.test.PageObject.steps;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
+import com.abmcloud.cf.test.PageObject.Components.Confirmation;
+import com.abmcloud.cf.test.PageObject.Components.Notification;
 import io.qameta.allure.Step;
 import org.json.JSONArray;
 import org.openqa.selenium.By;
@@ -12,10 +14,15 @@ import java.util.List;
 
 public class AppListSteps extends MenuSteps {
 
+    Notification notification;
+    Confirmation confirmation;
+
     public AppListSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
         logs = new Logs(AppListSteps.class.getName());
+        notification = objectManager.getNotification();
+        confirmation = objectManager.getConfirmation();
     }
 
     public void clickOn(By selector, WebElement row) {
@@ -77,7 +84,7 @@ public class AppListSteps extends MenuSteps {
     @Step("Выбрать заявку с номером:")
     public AppListSteps selectAppByNumber(String number) {
         logs.infoMsg("Searching application in appList with num: " + number);
-        selectAppByNumberInTable(number, driver.$$(By.cssSelector("table tbody tr")));
+        selectAppByNumberInTable(number, objectManager.getAppListPage().rowsInAppList);
         return this;
     }
 
@@ -85,8 +92,8 @@ public class AppListSteps extends MenuSteps {
     @Step("Согласовать заявку и вписать комментарий:")
     public AppListSteps approveInApprovePopup(String comment) {
         logs.infoMsg("Approving application throw confirming popup with comment: " + comment);
-        getConfirmPopup().approve(comment);
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        confirmation.approve(comment);
+        notification.saveTextAndAppNumAndClickOnNotification();
         selectAppByNumber(objectManager.getTestInfo().numberOfSelectedApp);
         return this;
     }
@@ -94,8 +101,8 @@ public class AppListSteps extends MenuSteps {
     @Step("Отменить заявку и вписать комментарий:")
     public AppListSteps cancelInCancelPopup(String comment) {
         logs.infoMsg("Cancelling application throw confirming popup with comment: " + comment);
-        getConfirmPopup().cancel(comment);
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        confirmation.cancel(comment);
+        notification.saveTextAndAppNumAndClickOnNotification();
         return this;
     }
 
@@ -203,7 +210,7 @@ public class AppListSteps extends MenuSteps {
                 break;
             }
         }
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        notification.saveTextAndAppNumAndClickOnNotification();
         return this;
     }
 
@@ -271,7 +278,7 @@ public class AppListSteps extends MenuSteps {
     public AppListSteps sendForApprovalButtonClick(WebElement application) {
         logs.infoMsg("Send for approval some application");
         clickOn(objectManager.getAppListPage().sendForApproval, application);
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        notification.saveTextAndAppNumAndClickOnNotification();
         return this;
     }
 
@@ -286,7 +293,7 @@ public class AppListSteps extends MenuSteps {
     public AppListSteps approve(WebElement application) {
         logs.infoMsg("Click on approve button of some application");
         clickOn(objectManager.getAppListPage().approve, application);
-        getNotification().saveTextAndNumberInNotificationOfSavedApplication(objectManager.getTestInfo());
+        notification.saveTextAndAppNumAndClickOnNotification();
         return this;
     }
 

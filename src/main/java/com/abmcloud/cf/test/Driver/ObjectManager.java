@@ -1,7 +1,9 @@
 package com.abmcloud.cf.test.Driver;
 
+import com.abmcloud.cf.test.PageObject.Components.Confirmation;
 import com.abmcloud.cf.test.PageObject.Components.DatePicker;
 import com.abmcloud.cf.test.PageObject.Components.Fields.*;
+import com.abmcloud.cf.test.PageObject.Components.Notification;
 import com.abmcloud.cf.test.PageObject.Components.StepsPopup;
 import com.abmcloud.cf.test.PageObject.pages.*;
 import com.abmcloud.cf.test.PageObject.steps.*;
@@ -21,19 +23,28 @@ public class ObjectManager {
     private AppFormSteps appFormSteps;
     private CalendarTableSteps calendarTableSteps;
     private CalendarListSteps calendarListSteps;
-    private CatalogSteps catalogSteps;
+    private CatalogListSteps catalogListSteps;
+    private CatalogFormSteps catalogFormSteps;
     private Asserts asserts;
     private StepsPopup stepsPopup;
+    private UserProfileSteps userProfileSteps;
     //pages
     private LoginPage loginPage;
     private AppListPage appListPage;
     private AppEditPage appEditPage;
     private CalendarPage calendarPage;
-    private ConfirmElement confirmElement;
+    private CatalogListPage catalogListPage;
+    private CatalogFormPage catalogFormPage;
     //components
     private DatePicker datePicker;
+    private Notification notification;
+    private Confirmation confirmation;
     //Fields in application form
-    BaseField baseField;
+    private DecimalField decimalField;
+    private StringField stringField;
+    private BooleanField booleanField;
+    private CatalogField catalogField;
+    private DateField dateField;
 
     public ObjectManager() {
         driver = new Driver();
@@ -78,9 +89,19 @@ public class ObjectManager {
         return calendarListSteps;
     }
 
-    public CatalogSteps getCatalogSteps() {
-        if(catalogSteps == null) catalogSteps = new CatalogSteps(driver, this);
-        return catalogSteps;
+    public CatalogListSteps getCatalogListSteps() {
+        if(catalogListSteps == null) catalogListSteps = new CatalogListSteps(driver, this);
+        return catalogListSteps;
+    }
+
+    public CatalogFormSteps getCatalogFormSteps() {
+        if(catalogFormSteps == null) catalogFormSteps = new CatalogFormSteps(this);
+        return catalogFormSteps;
+    }
+
+    public UserProfileSteps getUserProfileSteps() {
+        if(userProfileSteps == null) userProfileSteps = new UserProfileSteps(this);
+        return userProfileSteps;
     }
 
     public Asserts getAsserts() {
@@ -113,9 +134,14 @@ public class ObjectManager {
         return calendarPage;
     }
 
-    public ConfirmElement getConfirmElement() {
-        if(confirmElement == null) confirmElement = new ConfirmElement(driver);
-        return confirmElement;
+    public CatalogListPage getCatalogListPage() {
+        if(catalogListPage == null) catalogListPage = new CatalogListPage(driver);
+        return catalogListPage;
+    }
+
+    public CatalogFormPage getCatalogFormPage() {
+        if(catalogFormPage == null) catalogFormPage = new CatalogFormPage(driver);
+        return catalogFormPage;
     }
 
     public DatePicker getDatePicker() {
@@ -123,29 +149,39 @@ public class ObjectManager {
         return datePicker;
     }
 
+    public Notification getNotification() {
+        if(notification == null) notification = new Notification(this);
+        return notification;
+    }
+
+    public Confirmation getConfirmation() {
+        if(confirmation == null) confirmation = new Confirmation(driver);
+        return confirmation;
+    }
+
     public DecimalField getDecimalField() {
-        baseField = new DecimalField(driver);
-        return (DecimalField) baseField;
+        if(decimalField == null) decimalField = new DecimalField(driver, this);
+        return decimalField;
     }
 
     public BooleanField getBooleanField() {
-        baseField = new BooleanField(driver);
-        return (BooleanField) baseField;
+        if(booleanField == null) booleanField = new BooleanField(driver, this);
+        return booleanField;
     }
 
     public DateField getDateField() {
-        baseField = new DateField(driver);
-        return (DateField) baseField;
+        if(dateField == null) dateField = new DateField(driver, this);
+        return dateField;
     }
 
     public CatalogField getCatalogField() {
-        baseField = new CatalogField(driver);
-        return (CatalogField) baseField;
+        if(catalogField == null) catalogField = new CatalogField(driver, this);
+        return catalogField;
     }
 
     public StringField getStringField() {
-        baseField = new StringField(driver);
-        return (StringField) baseField;
+        if(stringField == null) stringField = new StringField(driver, this);
+        return stringField;
     }
 
     public DateUtil getDateUtil() {

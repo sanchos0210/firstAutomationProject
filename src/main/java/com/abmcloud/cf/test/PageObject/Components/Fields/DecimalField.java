@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.PageObject.Components.Fields;
 
 import com.abmcloud.cf.test.Driver.Driver;
+import com.abmcloud.cf.test.Driver.ObjectManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,8 +9,8 @@ import java.util.List;
 
 public class DecimalField extends BaseField {
 
-    public DecimalField(Driver driver) {
-        super(driver);
+    public DecimalField(Driver driver, ObjectManager objectManager) {
+        super(driver, objectManager);
     }
 
     public WebElement getField(String nameOfField) {
@@ -61,4 +62,33 @@ public class DecimalField extends BaseField {
         List<WebElement> decimalTCHFields = driver.$$(By.xpath("//*[contains(text(), '"+nameOfField+"')]//parent::td//*[@class='relative d-flex']/input"));
         return decimalTCHFields.get(rowNumber-1);
     }
+
+    public void editDecimalField(String nameOfField, String text) {
+        WebElement decimalField = getField(nameOfField);
+        try {
+            decimalField.clear();
+            decimalField.sendKeys(text);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+    }
+
+    public void editTCHDecimalField(String nameOfField, String text) {
+        editTCHDecimalField(nameOfField, 1, text);
+    }
+
+    public void editTCHDecimalField(String nameOfField, int rowNum, String text) {
+        WebElement field = getTCHField(nameOfField, rowNum);
+        try {
+            field.clear();
+            field.sendKeys(text);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+    }
+
+
+
 }

@@ -1,13 +1,15 @@
 package com.abmcloud.cf.test.Utils;
 
+import com.abmcloud.cf.test.Driver.Constants;
+
 public class UsersData {
 
     private String userName;
     private String userEmail;
     private String userPassword;
-    private char localizeLanguage;
+    private Constants localizeLanguage;
 
-    public UsersData(String name, String email ,String pass, char lang) {
+    public UsersData(String name, String email ,String pass, Constants lang) {
         userName = name;
         userEmail = email;
         userPassword = pass;
@@ -28,7 +30,7 @@ public class UsersData {
         return userPassword;
     }
 
-    public char getLocalizeLanguage() {
+    public Constants getLocalizeLanguage() {
         return localizeLanguage;
     }
 }

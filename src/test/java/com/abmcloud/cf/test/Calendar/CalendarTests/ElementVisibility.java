@@ -7,6 +7,8 @@ import org.junit.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.RU;
+
 @Epic("Отображение элементов в календаре")
 @Feature("Календарь")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)

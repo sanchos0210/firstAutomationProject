@@ -6,6 +6,8 @@ import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.EN;
+
 @Epic("Отображение элементов в попапе создания")
 @Feature("Форма заявки")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)

@@ -4,8 +4,11 @@ import com.abmcloud.cf.test.Driver.BaseTest;
 import com.abmcloud.cf.test.Utils.DataBaseInfo;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import static com.abmcloud.cf.test.Driver.Constants.RU;
 
 @Epic("Проверка меню действий")
 @Feature("Список заявок")
@@ -14,7 +17,8 @@ public class ActionMenuTests extends BaseTest {
 
     DataBaseInfo dbInfo;
 
-    public ActionMenuTests() {
+    @BeforeMethod
+    public void prepareToTest() {
         dbInfo = new DataBaseInfo("app_list_db.json");
     }
 

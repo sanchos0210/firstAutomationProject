@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class AppListPage extends BasePage {
 
     public AppListPage(Driver driver) {
@@ -29,6 +31,9 @@ public class AppListPage extends BasePage {
     public By sendForApprovalFromStatus = By.cssSelector(".btn.btn-default.btn-sm.no-border.pointer .fa.fa-share");
     public By approveFromStatus = By.cssSelector("td .btn.btn-default.btn-xs.no-border.pointer.status_btn .fa.fa-thumbs-o-up");
     public By cancelFromStatus = By.cssSelector("td .btn.btn-default.btn-xs.no-border.pointer.status_btn.status_cancel .fa.fa-thumbs-o-down");
+
+    @FindBy(css = "table tbody tr")
+    public List<WebElement> rowsInAppList;
 
     @FindBy(css = ".btn.btn-default.btn-header.btn-filter.pointer")
     public WebElement filterButton;     //кнопка фильтр - открывает поиск

@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.EN;
+
 @Epic("Валидация полей в форме заявки")
 @Feature("Форма заявки")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
@@ -221,11 +223,11 @@ public class FieldsValidation extends BaseTest {
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
-                .catalogFieldClick(dbInfo.getString("value_1"))
+                .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
                 .editStringField(dbInfo.getString("string_field_3"), "text3")
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
-                .catalogFieldClick(dbInfo.getString("contractor_1"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
                 .saveApplication()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)

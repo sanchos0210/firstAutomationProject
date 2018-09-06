@@ -1,6 +1,5 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,19 +41,19 @@ public class MenuSteps extends HederSteps {
     }
 
     @Step("Открыть каталоги:")
-    public CatalogSteps openCatalogs() {
+    public CatalogListSteps openCatalogs() {
         String nameOfMenuButton = null;
         switch(objectManager.getTestInfo().activeUser.getLocalizeLanguage()) {
-            case BaseTest.EN: {
+            case EN: {
                 nameOfMenuButton = "Catalogs";
                 break;
             }
-            case BaseTest.RU: {
+            case RU: {
                 nameOfMenuButton = "Каталоги";
                 break;
             }
         }
         openMenuTab(driver.$(By.xpath("//*[contains(text(), '"+nameOfMenuButton+"')]")), CATALOGS);
-        return objectManager.getCatalogSteps();
+        return objectManager.getCatalogListSteps();
     }
 }

@@ -6,6 +6,8 @@ import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.EN;
+
 @Epic("Проверка страницы логина")
 @Feature("Страница логина")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)

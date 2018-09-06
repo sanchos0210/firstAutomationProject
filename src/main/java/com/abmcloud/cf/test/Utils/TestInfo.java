@@ -11,4 +11,6 @@ public class TestInfo {
     public String numberOfCreatedApp;
     public String textOfNotification;
 
+    public WebElement selectedCatalogItem;
+
 }

@@ -3,20 +3,24 @@ package com.abmcloud.cf.test.PageObject.steps;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.Components.Fields.DateField;
+import com.abmcloud.cf.test.PageObject.Components.Notification;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class CalendarListSteps extends BaseSteps {
 
+    Notification notification;
+
     public CalendarListSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
+        notification = objectManager.getNotification();
     }
 
     @Step("Открыть реестр на дату:")
     public CalendarListSteps changeDateInRegistryOn(String date) {
         objectManager.getCalendarPage().dateInRegistry.click();
-        DateField dateField = new DateField(driver);
+        DateField dateField = objectManager.getDateField();
         dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()-1]")), date).click();
         return this;
     }
@@ -32,7 +36,7 @@ public class CalendarListSteps extends BaseSteps {
     @Step("Оплатить выбранные платежки")
     public CalendarListSteps payButtonClick() {
         objectManager.getCalendarPage().payButton.click();
-        getNotification().notificationClick();
+        notification.notificationClick();
         getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         return this;
     }
@@ -40,7 +44,7 @@ public class CalendarListSteps extends BaseSteps {
     @Step("Утвердить выбранные платежки")
     public CalendarListSteps approveButtonClick() {
         objectManager.getCalendarPage().approveButton.click();
-        getNotification().notificationClick();
+        notification.notificationClick();
         getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         return this;
     }
@@ -54,12 +58,13 @@ public class CalendarListSteps extends BaseSteps {
 
     @Step("Изменить дату оплаты в реестре на:")
     public CalendarListSteps changePaymentDate(String date) {
-        DateField dateField = new DateField(driver);
-        dateField.getField("Сменить дату оплаты").click();
+        DateField dateField = objectManager.getDateField();
+        //dateField.getField("Сменить дату оплаты").click();  заменил на следующую строку
+        driver.fluentWait(By.xpath("//*[contains(text(), 'Сменить дату оплаты')]//parent::div//date-field//following::div")).click();
         dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()]")), date).click();
         objectManager.getCalendarPage().changePaymentDateApproveButton.click();
         getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
-        getNotification().notificationClick();
+        notification.notificationClick();
         return this;
     }
 }

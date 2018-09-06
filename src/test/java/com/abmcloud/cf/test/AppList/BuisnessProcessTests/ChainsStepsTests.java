@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.RU;
+
 @Epic("Проверка определения шагов и цепочек для заявке")
 @Feature("Список заявок")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
@@ -58,6 +60,28 @@ public class ChainsStepsTests extends BaseTest {
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnStatusOf(testInfo.selectedApp)
                 .asserts().compare("Verezhevych Alexandr, Test1 User1", objectManager.getStepsPopup().getApprovers(2));
+    }
+
+    public void choseDeputyAndCheckCreatedApp() {
+        steps
+                .open(APP_LIST_TEST_DB)
+                .loginAs(USER, EMAIL, PASSWORD, RU)
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
+                .openUserProfile()
+                .redirectApplicationsClick()
+                .choseUser("User2 Deputy")
+                .redirectApplications()
+                .closeUserProfile()
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Test1 User1, Deputy User2", objectManager.getStepsPopup().getApprovers(2))
+                .getAppListStep()
+                .openUserProfile()
+                .returnMyApplications()
+                .closeUserProfile()
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnStatusOf(testInfo.selectedApp)
+                .asserts().compare("Test1 User1, Verezhevych Alexandr", objectManager.getStepsPopup().getApprovers(2));
     }
 
     @Test(priority = 20)
@@ -138,7 +162,7 @@ public class ChainsStepsTests extends BaseTest {
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .actionMenuButtonClick(testInfo.selectedApp)
                 .approveButtonClick(testInfo.selectedApp)
-                .asserts().isButtonDisable(objectManager.getConfirmElement().approveButtonInApprovePopUp, true);
+                .asserts().isButtonDisable(objectManager.getConfirmation().approveButtonInApprovePopUp, true);
     }
 
     @Test(priority = 60)

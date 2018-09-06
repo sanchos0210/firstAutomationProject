@@ -1,14 +1,15 @@
 package com.abmcloud.cf.test.PageObject.Components.Fields;
 
 import com.abmcloud.cf.test.Driver.Driver;
+import com.abmcloud.cf.test.Driver.ObjectManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 public class BooleanField extends BaseField {
 
-    public BooleanField(Driver driver) {
-        super(driver);
+    public BooleanField(Driver driver, ObjectManager objectManager) {
+        super(driver, objectManager);
     }
 
     private WebElement getHeaderOfBooleanField(String nameOfField) {
@@ -60,4 +61,15 @@ public class BooleanField extends BaseField {
             return true;
         }
     }
+
+    public void booleanButtonClick(String nameOfField) {
+        try {
+            WebElement button = getField(nameOfField);
+            button.click();
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+    }
+
 }

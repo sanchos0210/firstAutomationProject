@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static com.abmcloud.cf.test.Driver.Constants.RU;
+
 @Epic("Проверка балансов")
 @Feature("Календарь")
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)

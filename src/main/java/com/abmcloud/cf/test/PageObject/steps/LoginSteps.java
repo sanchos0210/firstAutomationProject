@@ -1,5 +1,6 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
+import com.abmcloud.cf.test.Driver.Constants;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
@@ -35,7 +36,7 @@ public class LoginSteps extends BaseSteps {
     }
 
     @Step("Залогинится")
-    public AppListSteps loginAs(String name, String email, String pass, char lang) {
+    public AppListSteps loginAs(String name, String email, String pass, Constants lang) {
         UsersData user = new UsersData(name, email, pass, lang);
         logs.infoMsg("Logining to CF system: " + user.getUserEmail()  + "; " + user.getUserPassword());
             login(user.getUserEmail(), user.getUserPassword());

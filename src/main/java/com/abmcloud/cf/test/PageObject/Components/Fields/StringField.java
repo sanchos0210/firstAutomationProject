@@ -1,13 +1,14 @@
 package com.abmcloud.cf.test.PageObject.Components.Fields;
 
 import com.abmcloud.cf.test.Driver.Driver;
+import com.abmcloud.cf.test.Driver.ObjectManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class StringField extends BaseField {
 
-    public StringField(Driver driver) {
-        super(driver);
+    public StringField(Driver driver, ObjectManager objectManager) {
+        super(driver, objectManager);
     }
 
     public WebElement getField(String nameOfField) {
@@ -45,5 +46,27 @@ public class StringField extends BaseField {
         stringValue = stringField.getAttribute("ng-reflect-value");
         if(stringValue == null) stringValue = "";
         return stringValue;
+    }
+
+    public void editStringField(String nameOfField, String text) {
+        WebElement field = objectManager.getStringField().getField(nameOfField);
+        try {
+            field.clear();
+            field.sendKeys(text);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+    }
+
+    public void editTCHStringField(String nameOfField, String text) {
+        WebElement field = objectManager.getStringField().getTCHField(nameOfField);
+        try {
+            field.clear();
+            field.sendKeys(text);
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
     }
 }

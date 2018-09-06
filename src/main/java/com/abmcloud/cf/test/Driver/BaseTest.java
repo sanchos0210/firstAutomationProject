@@ -35,9 +35,6 @@ public class BaseTest {
     public static final String USER3 = "Jack Nicholson";
     public static final String EMAIL3 = "tester.cashflow@gmail.com";
     public static final String PASSWORD3 = "test3";
-    //Localize information
-    public static final char EN = 'A';
-    public static final char RU = 'B';
     //For date methods in helper class
     public static final char THIS_MONTH = 'A';
     public static final char LAST_MONTH = 'B';

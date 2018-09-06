@@ -107,6 +107,10 @@ public class Wait {
     }
 
     public void catalogPreloadWait() {
-        waitForClickable(4, By.cssSelector("directorycontainer directoryelement"));
-    }
+        try {
+            (new WebDriverWait(driver.getWebDriver(), 4)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("directorycontainer directoryelement")));
+        } catch(TimeoutException e) {
+            waitForClickable(2, By.cssSelector(".empty_container .fa.fa-square-o.empty_icon"));
+        }
+        }
 }

@@ -16,6 +16,9 @@ public class BasePage {
     @FindBy(css = ".profile-toggle-link.dropdown-toggle")
     public WebElement avatar;
 
+    @FindBy(css = ".pointer.btn_profile")
+    public WebElement userProfileButton;
+
     @FindBy(css = "ul.dropdown-menu.top-dropdown-menu.profile-dropdown li.dropdown-item span.signout")
     public WebElement signOutButton;
 

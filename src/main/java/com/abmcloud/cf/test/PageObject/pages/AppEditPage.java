@@ -11,7 +11,7 @@ public class AppEditPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(css = ".btn.btn-xs.btn-success.pointer.add_line")
+    @FindBy(css = ".btn.btn-xs.btn-success.pointer.line.line-add")
     public WebElement addNewLine;
 
     @FindBy(css = "desktop-buttons .no-border.pointer.option_btn .fa.fa-paperclip")

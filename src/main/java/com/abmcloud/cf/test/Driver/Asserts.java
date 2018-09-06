@@ -2,6 +2,7 @@ package com.abmcloud.cf.test.Driver;
 
 import com.abmcloud.cf.test.PageObject.steps.AppFormSteps;
 import com.abmcloud.cf.test.PageObject.steps.AppListSteps;
+import com.abmcloud.cf.test.PageObject.steps.CatalogListSteps;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -34,17 +35,19 @@ public class Asserts {
         return wait;
     }
 
+    @Step("Проверка на true")
     public Asserts assertTrue(boolean condition) {
         Assert.assertTrue(condition);
         return this;
     }
 
-    @Step("Проверка")
+    @Step("Проверка на false")
     public Asserts assertFalse(boolean condition) {
         Assert.assertFalse(condition);
         return this;
     }
 
+    @Step("Проверка истории изменений поля ${nameOfField}. Значение до: ${fromValue}; значение после: ${toValue}")
     public Asserts checkHistoryOf(String nameOfField, String fromValue, String toValue) {
         String fromValue2;
         String toValue2;
@@ -61,11 +64,13 @@ public class Asserts {
         return this;
     }
 
+    @Step("Проверка отображения текста ${text} в элементе ${element}")
     public Asserts assertTextInElement(WebElement element, String text) {
         driver.assertThat(ExpectedConditions.textToBePresentInElement(element, text));  //verificationThat
         return this;
     }
 
+    @Step("Проверка отображения текста ${text} у элемента из списка элементов ${list}")
     public Asserts assertTextInElementsList(List<WebElement> list, String text) {
         for(WebElement element : list) {
             if(text.equals(element.getText())) {
@@ -77,6 +82,7 @@ public class Asserts {
         return this;
     }
 
+    @Step("Проверка отображения текста ${text} у строки ${row} по локатору {locator}")
     public Asserts assertTextIn(WebElement row, By locator, String text) {
             driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
             (new WebDriverWait(driver.getWebDriver(), 6)).until(
@@ -85,6 +91,7 @@ public class Asserts {
         return this;
     }
 
+    @Step("Проверка отображения кнопки ${locator} в строке ${row}")
     public Asserts assertVisibilityButtonInRow(WebElement row, By buttonLocator) {
         getWait().waitForElementClickable(2, row.findElement(buttonLocator));
         return this;
@@ -98,11 +105,17 @@ public class Asserts {
         return objectManager.getAppListSteps();
     }
 
+    public CatalogListSteps getCatalogListSteps() {
+        return objectManager.getCatalogListSteps();
+    }
+
+    @Step("Сравнение ожидаемого значения ${referenseValue} с фактическим ${verificationValue}")
     public Asserts compare(String referenseValue, String verificationValue) {
         Assert.assertEquals(verificationValue, referenseValue);
         return  this;
     }
 
+    @Step("Сравнение ожидаемого массива ${referenseArray} с фактическим ${verificationArray}")
     public Asserts compare(String[][] referenseArray, String[][] verificationArray) {
         for(int i = 0; i < verificationArray.length; i++) {
             for(int j = 0; j < 2; j++) {
@@ -115,6 +128,7 @@ public class Asserts {
         return this;
     }
 
+    @Step("Сравнение ожидаемого массива ${referenseArray} с фактическим ${verificationArray}")
     public Asserts compare(String[] referenseArray, String[] verificationArray) {
         for(int i = 0; i < verificationArray.length; i++) {
             String referenceValue = referenseArray[i];
@@ -125,11 +139,13 @@ public class Asserts {
         return this;
     }
 
+    @Step("Сравнение ожидаемого списка ${referenceList} с фактическим ${verificationList}")
     public Asserts compare(List<Object> referenceList, List<Object> verificationList) {
         Assert.assertEquals(verificationList, referenceList);
         return this;
     }
 
+    @Step("Проверка на отображение элемента: ${element}")
     private boolean isElementPresent(WebElement element) {
         driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         try {
@@ -142,8 +158,13 @@ public class Asserts {
         }
     }
 
+    public Asserts isElementPresent(By locator, boolean typeOfAssertion) {
+        return isElementPresent(driver.$(locator), typeOfAssertion);
+    }
+
+    @Step("Проверка на отображение элемента ${element}. Ожидаемый результат ${typeOfAssertion}")
     public Asserts isElementPresent(WebElement element, boolean typeOfAssertion) {
-        if(typeOfAssertion == true) {
+        if(typeOfAssertion) {
             Assert.assertTrue(isElementPresent(element));
         }
         else {
@@ -152,6 +173,7 @@ public class Asserts {
         return this;
     }
 
+    @Step("Проверка на отображение элемента ${buttonLocator} в строке ${row}")
     private boolean isButtonPresentInRow(WebElement row, By buttonLocator) {
         driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         try {
@@ -164,6 +186,7 @@ public class Asserts {
         }
     }
 
+    @Step("Проверка на отображение элемента ${buttonLocator} в строке ${row}. Ожидаемый результат: ${typeOfAssertion}")
     public Asserts isButtonPresentInRow(WebElement row, By buttonLocator, boolean typeOfAssertion) {
         if(typeOfAssertion == true) {
             Assert.assertTrue(isButtonPresentInRow(row, buttonLocator));
@@ -174,6 +197,7 @@ public class Asserts {
         return this;
     }
 
+    @Step("Проверка на отображение элемента ${button}")
     private boolean isButtonDisable(WebElement button) {
         try {
             driver.assertThat(ExpectedConditions.attributeContains(button, "disabled", "true"));
@@ -183,6 +207,7 @@ public class Asserts {
         }
     }
 
+    @Step("Проверка на отображение элемента ${button}. Ожидаемый результат: ${typeOfAssertion}")
     public Asserts isButtonDisable(WebElement button, boolean typeOfAssertion) {
         if(typeOfAssertion == true) {
             Assert.assertTrue(isButtonDisable(button));
@@ -190,6 +215,17 @@ public class Asserts {
         else {
             Assert.assertFalse(isButtonDisable(button));
         }
+        return this;
+    }
+
+    public Asserts isFolderEmpty(WebElement folder, boolean typeOfAssertion) {
+        String classesOfEmptyFolder = "directory pointer catalog_item row_highlight ui-widget-content";
+        String classesOfFolder = folder.getAttribute("class");
+            if (typeOfAssertion) {
+                Assert.assertEquals(classesOfFolder, classesOfEmptyFolder);
+            } else {
+                Assert.assertNotEquals(classesOfFolder, classesOfEmptyFolder);
+            }
         return this;
     }
 }

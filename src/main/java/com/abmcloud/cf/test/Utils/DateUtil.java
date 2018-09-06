@@ -15,11 +15,11 @@ public class DateUtil {
     }
 
     public String getTomorrowDate() {
-        df = new SimpleDateFormat("dd");
+        df = new SimpleDateFormat("d");
         calendar.add(Calendar.DAY_OF_MONTH, 1);
         Date tomorrow = calendar.getTime();
-        String s = df.format(tomorrow);
-        return s;
+        String tomorrowDay = df.format(tomorrow);
+        return tomorrowDay;
     }
 
     public String getTodayDate() {
