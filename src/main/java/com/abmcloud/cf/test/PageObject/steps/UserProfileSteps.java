@@ -3,8 +3,11 @@ package com.abmcloud.cf.test.PageObject.steps;
 import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.Components.Confirmation;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -18,19 +21,31 @@ public class UserProfileSteps extends BaseSteps {
     private By checkBoxLocator = By.cssSelector(".ui-chkbox.ui-widget");
     private By backButton = By.cssSelector(".fa.fa-angle-left.pointer");
 
+    @FindBy(xpath = "//span[.='Перенаправить заявки']")
+    public WebElement redirectApplicationsButton;
+
+    @FindBy(xpath = "//span[.='Вернуть заявки мне на утверждение']")
+    public WebElement returnMyAppForApprovalButton;
+
+    @FindBy(xpath = "//span[.='Перенаправить']")
+    public WebElement redirectButton;
+
     public UserProfileSteps(ObjectManager objectManager) {
         this.objectManager = objectManager;
         this.driver = objectManager.getDriver();
         logs = new Logs(UserProfileSteps.class.getName());
         confirmation = objectManager.getConfirmation();
+        PageFactory.initElements(driver.getWebDriver(), this);
     }
 
+    @Step("Кликнуть на кнопку \"Перенаправить заявки\"")
     public UserProfileSteps redirectApplicationsClick() {
-        driver.fluentWait(redirectApplicationsLocator).click();
+        redirectApplicationsButton.click();
         objectManager.getWait().waitForClickable(3, usersListLocators);
         return this;
     }
 
+    @Step("Выбрать заместителя: ${name}")
     public UserProfileSteps choseUser(String name) {
         List<WebElement> usersList = driver.$$(usersListLocators);
         for(WebElement user: usersList) {
@@ -43,32 +58,24 @@ public class UserProfileSteps extends BaseSteps {
         return this;
     }
 
+    @Step("Кликнуть на кнопку \"Перенаправить\"")
     public UserProfileSteps redirectApplications() {
-        String nameOfButton = null;
-        switch(objectManager.getTestInfo().activeUser.getLocalizeLanguage()) {
-            case RU: {
-                nameOfButton = "Перенаправить";
-                break;
-            }
-            case EN: {
-                nameOfButton = "Redirect";
-                break;
-            }
-        }
-        driver.fluentWait(By.xpath("//span[.='" + nameOfButton +"']")).click();
+        redirectButton.click();
         confirmation.clickOnRedButton();
         return this;
     }
 
+    @Step("Закрыть профиль пользователя")
     public AppListSteps closeUserProfile() {
         driver.fluentWait(backButton).click();
         return objectManager.getAppListSteps();
     }
 
+    @Step("Кликнуть на кнопку \"Вернуть мои заявки\"")
     public UserProfileSteps returnMyApplications() {
-        driver.fluentWait(redirectApplicationsLocator).click();
+        returnMyAppForApprovalButton.click();
         confirmation.clickOnRedButton();
-        objectManager.getWait().waitForClickable(3, By.cssSelector("div.user_content"));
+        objectManager.getWait().waitForElementClickable(3, redirectApplicationsButton);
         return this;
     }
 }

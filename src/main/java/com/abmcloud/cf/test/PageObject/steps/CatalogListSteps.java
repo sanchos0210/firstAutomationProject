@@ -99,6 +99,7 @@ public class CatalogListSteps extends MenuSteps {
         return this;
     }
 
+    @Step("Открыть справочник {nameOfFolder}")
     public CatalogListSteps openCatalogList(String nameOfCatalog) {
         driver.fluentWait(By.xpath("//span[contains(text(), '"+ nameOfCatalog +"')]")).click();
         objectManager.getWait().catalogPreloadWait();

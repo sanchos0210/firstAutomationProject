@@ -55,7 +55,7 @@ public class AppListSteps extends MenuSteps {
         } catch (RuntimeException e) {
             logs.errorMsg(e);
         }
-        getWait().waitForElementClickable(4, objectManager.getAppEditPage().editPopupTitle);
+        getWait().waitForElementClickable(4, objectManager.getAppEditPage().appFormBody);
         return getAppFormSteps();
     }
 
@@ -331,6 +331,12 @@ public class AppListSteps extends MenuSteps {
         logs.infoMsg("Click on approve button of some application");
         clickOn(objectManager.getAppListPage().cancel, application);
         cancelInCancelPopup(comment);
+        return this;
+    }
+
+    public AppListSteps refreshPage() {
+        driver.getWebDriver().get(driver.getWebDriver().getCurrentUrl());
+        getWait().loginWait();
         return this;
     }
 }

@@ -62,6 +62,7 @@ public class ChainsStepsTests extends BaseTest {
                 .asserts().compare("Verezhevych Alexandr, Test1 User1", objectManager.getStepsPopup().getApprovers(2));
     }
 
+    @Test(priority = 11)
     public void choseDeputyAndCheckCreatedApp() {
         steps
                 .open(APP_LIST_TEST_DB)
@@ -79,9 +80,10 @@ public class ChainsStepsTests extends BaseTest {
                 .openUserProfile()
                 .returnMyApplications()
                 .closeUserProfile()
+                .refreshPage()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnStatusOf(testInfo.selectedApp)
-                .asserts().compare("Test1 User1, Verezhevych Alexandr", objectManager.getStepsPopup().getApprovers(2));
+                .asserts().compare("Verezhevych Alexandr, Test1 User1", objectManager.getStepsPopup().getApprovers(2));
     }
 
     @Test(priority = 20)

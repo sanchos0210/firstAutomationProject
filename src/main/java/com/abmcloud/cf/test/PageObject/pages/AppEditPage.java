@@ -26,6 +26,9 @@ public class AppEditPage extends BasePage {
     @FindBy(css = "popup-page h3")
             public WebElement editPopupTitle;
 
+    @FindBy(css = "form.min-popup-height.dotted_select.ng-untouched.ng-pristine.ng-invalid")
+            public WebElement appFormBody;
+
     @FindBy(xpath = "//*[contains(text(), 'Changes history')]")
             public WebElement changesHistory;
 
