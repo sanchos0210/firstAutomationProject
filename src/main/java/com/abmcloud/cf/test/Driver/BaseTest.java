@@ -28,9 +28,9 @@ public class BaseTest {
     public static final String EMAIL1 = "user1.indonesia@gmail.com";
     public static final String PASSWORD1 = "123456";
     //Second user
-    public static final String USER2 = "User4 Test4";
-    public static final String EMAIL2 = "user4.indonesia@ukr.net";
-    public static final String PASSWORD2 = "test4";
+    public static final String USER2 = "User2 Deputy";
+    public static final String EMAIL2 = "user2.indonesia@gmail.com";
+    public static final String PASSWORD2 = "123456";
     //Third user
     public static final String USER3 = "Jack Nicholson";
     public static final String EMAIL3 = "tester.cashflow@gmail.com";

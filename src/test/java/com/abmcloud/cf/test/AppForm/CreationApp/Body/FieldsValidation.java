@@ -331,7 +331,8 @@ public class FieldsValidation extends BaseTest {
                 .catalogFolderClick(dbInfo.getString("folder_1"))
                 .catalogElementClick(dbInfo.getString("value_2"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
-                .asserts().isElementPresent(objectManager.getCatalogField().getItem(dbInfo.getString("contractor_1")), false);
+                .asserts().assertFalse(objectManager.getCatalogField().isItemPresent(dbInfo.getString("contractor_1")));
+
     }
 
     @Test(priority = 22)

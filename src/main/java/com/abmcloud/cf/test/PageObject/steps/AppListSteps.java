@@ -334,6 +334,7 @@ public class AppListSteps extends MenuSteps {
         return this;
     }
 
+    @Step("Обновить страницу со списком заявок")
     public AppListSteps refreshPage() {
         driver.getWebDriver().get(driver.getWebDriver().getCurrentUrl());
         getWait().loginWait();

@@ -58,7 +58,7 @@ public class GlobalFilterTests extends BaseTest {
     }
 
     @Test(priority = 20)
-    public void approved() {
+    public void paidMyApp() {
         steps
                 .open(APP_LIST_TEST_DB)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
@@ -72,6 +72,25 @@ public class GlobalFilterTests extends BaseTest {
                 .status(APPROVE, testInfo.selectedApp, "Ok")
                 .logOut()
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
+                .openApproved()
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № " + testInfo.numberOfCreatedApp);
+    }
+
+    @Test(priority = 21)
+    public void subordinatesPaidApp() {
+        steps
+                .open(APP_LIST_TEST_DB)
+                .loginAs(USER1, EMAIL1, PASSWORD1, RU)
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .logOut()
+                .loginAs(USER, EMAIL, PASSWORD, RU)
+                .openOnMyApproval()
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(APPROVE, testInfo.selectedApp, "Ok")
                 .openApproved()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)
@@ -93,6 +112,29 @@ public class GlobalFilterTests extends BaseTest {
                 .openOnMyApproval()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .status(CANCEL, testInfo.selectedApp, "NO")
+                .openCanceled()
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .clickOnNumberOf(testInfo.selectedApp)
+                .asserts().assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Просмотр заявки № " + testInfo.numberOfCreatedApp);
+    }
+
+    @Test(priority = 31)
+    public void subordinatesCancelledApp() {
+        steps
+                .open(APP_LIST_TEST_DB)
+                .loginAs(USER1, EMAIL1, PASSWORD1, RU)
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(APPROVE, testInfo.selectedApp)
+                .logOut()
+                .loginAs(USER, EMAIL, PASSWORD, RU)
+                .openOnMyApproval()
+                .selectAppByNumber(testInfo.numberOfCreatedApp)
+                .status(CANCEL, testInfo.selectedApp, "NO")
+                .logOut()
+                .loginAs(USER2, EMAIL2, PASSWORD2, RU)
                 .openCanceled()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)

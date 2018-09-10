@@ -3,10 +3,12 @@ package com.abmcloud.cf.test.PageObject.Components.Fields;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class CatalogField extends BaseField {
 
@@ -30,7 +32,8 @@ public class CatalogField extends BaseField {
     }
 
     public WebElement getItem(String nameOfItem) {
-        return driver.$(By.xpath("//directoryelement//span[contains(text(), '" + nameOfItem + "')]//parent::*//parent::*"));
+        WebElement item = driver.$(By.xpath("//directoryelement//span[contains(text(), '" + nameOfItem + "')]//parent::*//parent::*"));
+        return item;
     }
 
     public void catalogFieldClick(String nameOfField) {
@@ -92,5 +95,17 @@ public class CatalogField extends BaseField {
         }
         WebElement activeCatalogField = getField(nameOfActiveCatalogField);
         objectManager.getWait().waitForAttributeContains(activeCatalogField, "ng-reflect-selected", nameOfFolder);
+    }
+
+    public boolean isItemPresent(String nameOfItem) {
+        try {
+            WebElement item = getItem(nameOfItem);
+            item.click();
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }
