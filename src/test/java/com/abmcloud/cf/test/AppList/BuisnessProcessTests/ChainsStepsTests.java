@@ -66,7 +66,7 @@ public class ChainsStepsTests extends BaseTest {
     public void checkDeputy() {
         steps
                 .open(APP_LIST_TEST_DB)
-                .loginAs(USER, EMAIL, PASSWORD, RU)
+                .loginAs(USER3, EMAIL3, PASSWORD3, RU)
                 .openUserProfile()
                 .redirectApplicationsClick()
                 .choseUser("User2 Deputy")
@@ -74,14 +74,14 @@ public class ChainsStepsTests extends BaseTest {
                 .closeUserProfile()
                 .logOut()
                 .loginAs(USER, EMAIL, PASSWORD, RU)
-                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_8th_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnStatusOf(testInfo.selectedApp)
-                .asserts().compare("Test1 User1, Deputy User2", objectManager.getStepsPopup().getApprovers(2))
+                .asserts().compare("Deputy User2", objectManager.getStepsPopup().getApprovers(2))
                 //Need to return application from deputy
                 .getAppListStep()
                 .logOut()
-                .loginAs(USER, EMAIL, PASSWORD, RU)
+                .loginAs(USER3, EMAIL3, PASSWORD3, RU)
                 .openUserProfile()
                 .returnMyApplications()
                 .closeUserProfile();
@@ -91,8 +91,8 @@ public class ChainsStepsTests extends BaseTest {
     public void choseDeputyAndCheckCreatedApp() {
         steps
                 .open(APP_LIST_TEST_DB)
-                .loginAs(USER, EMAIL, PASSWORD, RU)
-                .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
+                .loginAs(USER3, EMAIL3, PASSWORD3, RU)
+                .createApp(dbInfo.getJsonArray("fields_configuration_for_8th_chain"))
                 .openUserProfile()
                 .redirectApplicationsClick()
                 .choseUser("User2 Deputy")
@@ -100,7 +100,7 @@ public class ChainsStepsTests extends BaseTest {
                 .closeUserProfile()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnStatusOf(testInfo.selectedApp)
-                .asserts().compare("Test1 User1, Deputy User2", objectManager.getStepsPopup().getApprovers(2))
+                .asserts().compare("Deputy User2", objectManager.getStepsPopup().getApprovers(2))
                 .getAppListStep()
                 .openUserProfile()
                 .returnMyApplications()
@@ -108,7 +108,7 @@ public class ChainsStepsTests extends BaseTest {
                 .refreshPage()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnStatusOf(testInfo.selectedApp)
-                .asserts().compare("Verezhevych Alexandr, Test1 User1", objectManager.getStepsPopup().getApprovers(2));
+                .asserts().compare("Test3 User3", objectManager.getStepsPopup().getApprovers(2));
     }
 
     @Test(priority = 20)
