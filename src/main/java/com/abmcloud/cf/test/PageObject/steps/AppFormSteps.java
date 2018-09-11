@@ -37,6 +37,10 @@ public class AppFormSteps extends BaseSteps {
             throw e;
         }
         notification.saveTextAndAppNumAndClickOnNotification();
+        objectManager.getWait().waitForAttributeContains(driver.$(By.cssSelector("table > tbody > tr.ui-datatable-even.ui-widget-content.row_highlight")),
+                "class", "ui-datatable-even ui-widget-content row_highlight");
+        objectManager.getWait().waitForAttributeContains(driver.$(By.cssSelector("table > tbody > tr.ui-datatable-even.ui-widget-content.row_highlight")),
+                "class", "ui-datatable-even ui-widget-content");
         return getAppListSteps();
     }
 

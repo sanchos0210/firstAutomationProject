@@ -2,8 +2,35 @@
 <suite name="All Tests">
   <test name="All Tests">
       <classes>
-          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.ElementVisibilityInNewPopup" >
-          </class>
+          <class name = "com.abmcloud.cf.test.LoginTests" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldCalculationTests" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Body.AdditionalTabTest" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Body.FieldsValidation" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Body.FilesTab" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.TCH.FieldCalculations" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.TCH.TCHFieldsValidation" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Title.FieldsValidationTests" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.Title.ElementVisibilityInTitleInNewPopup" />
+          <class name = "com.abmcloud.cf.test.AppForm.CreationApp.ElementVisibilityInNewPopup" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.Body.ViewsHistoryTests" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.Body.FieldEdition" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.Body.ChangesHistoryTests" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.Body.FilesTabTests" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.TCH.FieldsEdition" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.TCH.DataVisibility" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.Title.ElementVisibilityInTitleInEditPopup" />
+          <class name = "com.abmcloud.cf.test.AppForm.EditionApp.ElementVisibilityInEditPopup" />
+          <class name = "com.abmcloud.cf.test.AppList.AppListTests.ActionMenuTests" />
+          <class name = "com.abmcloud.cf.test.AppList.AppListTests.ElementsVisibilityOfAppList" />
+          <class name = "com.abmcloud.cf.test.AppList.AppListTests.StatusOfAppTests" />
+          <class name = "com.abmcloud.cf.test.AppList.BuisnessProcessTests.ChainsTests" />
+          <class name = "com.abmcloud.cf.test.AppList.BuisnessProcessTests.ChainsStepsTests" />
+          <class name = "com.abmcloud.cf.test.AppList.HeaderOfApplList.GlobalFilterTests" />
+          <class name = "com.abmcloud.cf.test.Calendar.CalendarTests.BalanceTests" />
+          <class name = "com.abmcloud.cf.test.Calendar.CalendarTests.ElementVisibility" />
+          <class name = "com.abmcloud.cf.test.Calendar.CalendarTests.PeriodAndPeriodicityTests" />
+          <class name = "com.abmcloud.cf.test.Calendar.DetailsAndRegistryTests.RegistryTests" />
+          <class name = "com.abmcloud.cf.test.Catalogs.CatalogTests" />
       </classes>
   </test>
 </suite>
