@@ -68,9 +68,13 @@ public class Wait {
     }
 
     public void waitForElementVisibility(WebElement element) {
+        waitForElementVisibility(5, element);
+    }
+
+        public void waitForElementVisibility(int timeInSec, WebElement element) {
         driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         try {
-        (new WebDriverWait(driver.getWebDriver(), 5)).until(ExpectedConditions.visibilityOf(element));
+        (new WebDriverWait(driver.getWebDriver(), timeInSec)).until(ExpectedConditions.visibilityOf(element));
     } catch(RuntimeException e) {
         logs.errorMsg(e);
         throw e;

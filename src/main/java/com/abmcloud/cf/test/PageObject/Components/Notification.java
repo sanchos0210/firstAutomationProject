@@ -45,7 +45,7 @@ public class Notification {
 
     public void saveTextOfNotification() {
         try {
-            wait.waitForElementVisibility(applSavedNotification);
+            wait.waitForElementVisibility(8, applSavedNotification);
             testInfo.textOfNotification = applSavedNotification.getText();
             if(testInfo.textOfNotification == null) {
                 logs.warning("Text of notification is NULL !");
