@@ -43,7 +43,7 @@ public class RegistryTests extends BaseTest {
                 .isElementPresent(objectManager.getCalendarPage().changePaymentDateApproveButton, true);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void elementVisibilityInDetailsPopup() {
         steps
                 .open(APP_LIST_TEST_DB)
