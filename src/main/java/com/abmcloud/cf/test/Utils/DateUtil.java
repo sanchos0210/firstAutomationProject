@@ -1,8 +1,13 @@
 package com.abmcloud.cf.test.Utils;
 
+import com.abmcloud.cf.test.Driver.Constants;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class DateUtil {
 
@@ -39,14 +44,14 @@ public class DateUtil {
         return soughtDate;
     }
 
-    public List<String> getMonthsInYearFullDate(char requiredYear) {
+    public List<String> getMonthsInYearFullDate(Constants requiredYear) {
         List<String> months = new ArrayList<>();
         df = new SimpleDateFormat("MMMM");
         DateFormat yy = new SimpleDateFormat("yyyy г.");
         int year = calendar.get(Calendar.YEAR);
         switch (requiredYear) {
-            case 'A': break;       //for current year
-            case 'B': {             //for last year
+            case THIS_YEAR: break;       //for current year
+            case LAST_YEAR: {             //for last year
                 year = year - 1;
                 break;
             }
@@ -62,13 +67,13 @@ public class DateUtil {
         return months;
     }
 
-    public List<String> getDaysInMonthFullDates(char requiredMonth) {
+    public List<String> getDaysInMonthFullDates(Constants requiredMonth) {
         List<String> daysInMonth = new ArrayList<>();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         switch(requiredMonth) {
-            case 'A': break;        //for current month
-            case 'B': {     //for last month
+            case THIS_MONTH: break;        //for current month
+            case LAST_MONTH: {     //for last month
                 month = month - 1;
                 break;
             }

@@ -4,7 +4,7 @@ import com.abmcloud.cf.test.BaseTest;
 import com.abmcloud.cf.test.Utils.DataBaseInfo;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.junit.Ignore;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;

@@ -3,7 +3,7 @@ package com.abmcloud.cf.test.Calendar.CalendarTests;
 import com.abmcloud.cf.test.BaseTest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import org.junit.Ignore;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
