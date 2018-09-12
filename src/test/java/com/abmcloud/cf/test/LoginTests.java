@@ -1,6 +1,5 @@
 package com.abmcloud.cf.test;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;

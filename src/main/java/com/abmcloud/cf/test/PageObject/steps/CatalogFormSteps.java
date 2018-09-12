@@ -1,6 +1,5 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
-import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.Components.Notification;
 import com.abmcloud.cf.test.PageObject.pages.CatalogFormPage;
@@ -15,7 +14,7 @@ public class CatalogFormSteps extends BaseSteps {
     public CatalogFormSteps(ObjectManager objectManager) {
         this.driver = objectManager.getDriver();
         this.objectManager = objectManager;
-        logs = new Logs(AppListSteps.class.getName());
+        logs = objectManager.getLogs();
         notification = objectManager.getNotification();
         catalogFormPage = objectManager.getCatalogFormPage();
     }

@@ -13,9 +13,9 @@ public class Wait {
     Driver driver;
     Logs logs;
 
-    public Wait(Driver driver) {
+    public Wait(Driver driver, Logs logs) {
         this.driver = driver;
-        logs = new Logs(Wait.class.getName());
+        this.logs = logs;
     }
 
     public void loginWait() {

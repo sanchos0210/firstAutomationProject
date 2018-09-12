@@ -1,5 +1,6 @@
 package com.abmcloud.cf.test.Driver;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.*;
 
@@ -8,9 +9,10 @@ public class Logs {
     private Logger logger;
     private static String fileName;
     private static Handler fileHandler;
+    private File logsFolder;
 
-    public static void setFileName(String name) {
-        fileName = "logs//" + name + ".log";
+    public void setFileName(String name) {
+        fileName = "logs\\" + name + ".log";
         try {
             fileHandler = new FileHandler(fileName);
         } catch (IOException e) {
@@ -19,8 +21,13 @@ public class Logs {
         fileHandler.setFormatter(new LoggerFormat());
     }
 
-    public Logs(String logName) {
-        logger = Logger.getLogger(logName);
+    public Logs(String testName) {
+        logsFolder = new File("logs");
+        if (!logsFolder.exists()) {
+            logsFolder.mkdir();
+        }
+        setFileName(testName);
+        logger = Logger.getLogger(testName);
         logger.addHandler(fileHandler);
     }
 

@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.Listeners;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.BaseTest;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

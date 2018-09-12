@@ -25,12 +25,12 @@ public class Driver {
     private WebDriver webDriver;
     private Logs logs;
 
-    public Driver() {
+    public Driver(Logs logs) {
         System.setProperty("webdriver.chrome.webDriver", "chromedriver.exe");
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
-        logs = new Logs(Driver.class.getName());
+        this.logs = logs;
     }
 
     public void get(String url) {

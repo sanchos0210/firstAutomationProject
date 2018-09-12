@@ -14,7 +14,7 @@ public abstract class BaseField {
     public BaseField(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
-        this.logs = new Logs(BaseField.class.getName());
+        this.logs = objectManager.getLogs();
     }
 
 //    @Override

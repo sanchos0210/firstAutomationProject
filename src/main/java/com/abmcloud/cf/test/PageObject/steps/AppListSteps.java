@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
+import com.abmcloud.cf.test.Driver.Constants;
 import com.abmcloud.cf.test.Driver.Driver;
-import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.Components.Confirmation;
 import com.abmcloud.cf.test.PageObject.Components.Notification;
@@ -20,7 +20,7 @@ public class AppListSteps extends MenuSteps {
     public AppListSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
-        logs = new Logs(AppListSteps.class.getName());
+        logs = objectManager.getLogs();
         notification = objectManager.getNotification();
         confirmation = objectManager.getConfirmation();
     }
@@ -194,18 +194,18 @@ public class AppListSteps extends MenuSteps {
     }
 
     @Step("Выполнить действие в статусе заявки:")
-    public AppListSteps status(char point, WebElement application) {
+    public AppListSteps status(Constants approvingConstant, WebElement application) {
         //logs.infoMsg("Executing some action in status of application");
-        switch(point) {
-            case 'A': {     //send for approval from status
+        switch(approvingConstant) {
+            case SEND_FOR_APPROVAL: {     //send for approval from status
                 clickOn(objectManager.getAppListPage().sendForApprovalFromStatus, application);
                 break;
             }
-            case 'C': {     //approve application from status
+            case APPROVE: {     //approve application from status
                 clickOn(objectManager.getAppListPage().approveFromStatus, application);
                 break;
             }
-            case 'E': {     //cancel application from status
+            case CANCEL: {     //cancel application from status
                 clickOn(objectManager.getAppListPage().cancelFromStatus, application);
                 break;
             }
@@ -215,15 +215,15 @@ public class AppListSteps extends MenuSteps {
     }
 
     @Step("Выполнить действие в статусе заявки:")
-    public AppListSteps status(char point, WebElement application, String comment) {
+    public AppListSteps status(Constants approvingConstant, WebElement application, String comment) {
         logs.infoMsg("Executing some action in status of application");
-        switch(point) {
-            case 'C': {     //approve application from status
+        switch(approvingConstant) {
+            case APPROVE: {     //approve application from status
                 clickOn(objectManager.getAppListPage().approveFromStatus, application);
                 approveInApprovePopup(comment);
                 break;
             }
-            case 'E': {     //cancel application from status
+            case CANCEL: {     //cancel application from status
                 clickOn(objectManager.getAppListPage().cancelFromStatus, application);
                 cancelInCancelPopup(comment);
                 break;

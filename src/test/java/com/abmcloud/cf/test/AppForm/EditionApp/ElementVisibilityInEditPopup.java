@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.AppForm.EditionApp;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.BaseTest;
 import com.abmcloud.cf.test.Utils.DataBaseInfo;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import static com.abmcloud.cf.test.Driver.Constants.EN;
 import static com.abmcloud.cf.test.Driver.Constants.RU;
+import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
 
 @Epic("Отображение элементов в попапе редактирования в форме заявки")
 @Feature("Форма заявки")

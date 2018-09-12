@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.AppForm.CreationApp;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.BaseTest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;

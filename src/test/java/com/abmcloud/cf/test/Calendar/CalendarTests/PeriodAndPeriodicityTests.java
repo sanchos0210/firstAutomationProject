@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.Calendar.CalendarTests;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.BaseTest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;

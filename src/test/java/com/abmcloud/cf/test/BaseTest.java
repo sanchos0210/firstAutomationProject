@@ -1,5 +1,7 @@
-package com.abmcloud.cf.test.Driver;
+package com.abmcloud.cf.test;
 
+import com.abmcloud.cf.test.Driver.Driver;
+import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.steps.LoginSteps;
 import com.abmcloud.cf.test.Utils.TestInfo;
 import org.testng.annotations.AfterMethod;
@@ -35,22 +37,12 @@ public class BaseTest {
     public static final String USER3 = "User3 Test3";
     public static final String EMAIL3 = "user3.indonesia@i.ua";
     public static final String PASSWORD3 = "123456";
-    //For date methods in helper class
-    public static final char THIS_MONTH = 'A';
-    public static final char LAST_MONTH = 'B';
-    public static final char THIS_YEAR = 'A';
-    public static final char LAST_YEAR = 'B';
 
-    //--------------------------------Constant names for actions in status----------------------------------------------
-    public static final char SEND_FOR_APPROVAL = 'A';
-    public static final char APPROVE = 'C';
-    public static final char CANCEL = 'E';
     //------------------------------------------------------------------------------------------------------------------
 
     @BeforeMethod
     public void initializeDriver(Method method) {
-        Logs.setFileName(method.getName());
-        objectManager = new ObjectManager();
+        objectManager = new ObjectManager(method.getName());
         driver = objectManager.getDriver();
         testInfo = objectManager.getTestInfo();
         steps = objectManager.getLoginSteps();

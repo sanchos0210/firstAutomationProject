@@ -18,7 +18,7 @@ public class Notification {
     public Notification(ObjectManager objectManager) {
         Driver driver = objectManager.getDriver();
         PageFactory.initElements(driver.getWebDriver(), this);
-        logs = new Logs(Notification.class.getName());
+        logs = objectManager.getLogs();
         wait = objectManager.getWait();
         testInfo = objectManager.getTestInfo();
     }

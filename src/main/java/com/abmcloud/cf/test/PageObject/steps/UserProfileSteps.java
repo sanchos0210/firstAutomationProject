@@ -1,6 +1,5 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
-import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.Components.Confirmation;
 import io.qameta.allure.Step;
@@ -33,7 +32,7 @@ public class UserProfileSteps extends BaseSteps {
     public UserProfileSteps(ObjectManager objectManager) {
         this.objectManager = objectManager;
         this.driver = objectManager.getDriver();
-        logs = new Logs(UserProfileSteps.class.getName());
+        logs = objectManager.getLogs();
         confirmation = objectManager.getConfirmation();
         PageFactory.initElements(driver.getWebDriver(), this);
     }

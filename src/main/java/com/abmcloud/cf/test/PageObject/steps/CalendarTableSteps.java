@@ -1,7 +1,6 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
 import com.abmcloud.cf.test.Driver.Driver;
-import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -23,7 +22,7 @@ public class CalendarTableSteps extends MenuSteps {
     public CalendarTableSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
-        logs = new Logs(CalendarTableSteps.class.getName());
+        logs = objectManager.getLogs();
         paid = new HashMap<>();
         balances = new HashMap<>();
         refreshPaidData();

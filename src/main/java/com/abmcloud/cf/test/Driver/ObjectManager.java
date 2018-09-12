@@ -14,6 +14,7 @@ public class ObjectManager {
 
     private Driver driver;
     private TestInfo testInfo;
+    private Logs logs;
 
     //All objects which ObjectManager creates
     private Wait wait;
@@ -46,9 +47,10 @@ public class ObjectManager {
     private CatalogField catalogField;
     private DateField dateField;
 
-    public ObjectManager() {
-        driver = new Driver();
-        testInfo = new TestInfo();
+    public ObjectManager(String testName) {
+        testInfo = new TestInfo(testName);
+        logs = new Logs(testName);
+        driver = new Driver(logs);
     }
 
     public Driver getDriver() {
@@ -59,8 +61,12 @@ public class ObjectManager {
         return testInfo;
     }
 
+    public Logs getLogs() {
+        return logs;
+    }
+
     public Wait getWait() {
-        if(wait == null) wait = new Wait(driver);
+        if(wait == null) wait = new Wait(driver, logs);
         return wait;
     }
 
@@ -155,7 +161,7 @@ public class ObjectManager {
     }
 
     public Confirmation getConfirmation() {
-        if(confirmation == null) confirmation = new Confirmation(driver);
+        if(confirmation == null) confirmation = new Confirmation(driver, logs);
         return confirmation;
     }
 

@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.AppList.AppListTests;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.BaseTest;
 import com.abmcloud.cf.test.Utils.DataBaseInfo;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -8,6 +8,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.abmcloud.cf.test.Driver.Constants.RU;
+import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
 
 @Epic("Отображение элементов в списке заявок")
 @Feature("Список заявок")

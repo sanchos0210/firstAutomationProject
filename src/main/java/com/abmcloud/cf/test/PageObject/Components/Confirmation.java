@@ -19,9 +19,9 @@ public class Confirmation {
     @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']//parent::button")
     public WebElement approveButtonInApprovePopUp;
 
-    public Confirmation(Driver driver) {
+    public Confirmation(Driver driver, Logs logs) {
         PageFactory.initElements(driver.getWebDriver(), this);
-        this.logs = new Logs(Confirmation.class.getName());
+        this.logs = logs;
     }
 
     public void approve(String comment) {

@@ -2,7 +2,6 @@ package com.abmcloud.cf.test.PageObject.steps;
 
 import com.abmcloud.cf.test.Driver.Constants;
 import com.abmcloud.cf.test.Driver.Driver;
-import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.Utils.UsersData;
 import io.qameta.allure.Step;
@@ -13,7 +12,7 @@ public class LoginSteps extends BaseSteps {
     public LoginSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
-        logs = new Logs(LoginSteps.class.getName());
+        logs = objectManager.getLogs();
     }
 
 

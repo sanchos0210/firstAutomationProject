@@ -1,6 +1,6 @@
 package com.abmcloud.cf.test.AppForm.CreationApp.TCH;
 
-import com.abmcloud.cf.test.Driver.BaseTest;
+import com.abmcloud.cf.test.BaseTest;
 import com.abmcloud.cf.test.Utils.DataBaseInfo;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

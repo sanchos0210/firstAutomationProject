@@ -4,6 +4,12 @@ import org.openqa.selenium.WebElement;
 
 public class TestInfo {
 
+    private String testName;
+
+    public TestInfo(String testName) {
+        this.testName = testName;
+    }
+
     public UsersData activeUser;
     public WebElement selectedApp;
     public String numberOfSelectedApp;

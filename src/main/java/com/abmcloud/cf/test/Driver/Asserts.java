@@ -25,12 +25,12 @@ public class Asserts {
     public Asserts(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
-        this.logs = new Logs(Asserts.class.getName());
+        this.logs = objectManager.getLogs();
     }
 
     private Wait getWait() {
         if(wait == null) {
-            wait = new Wait(driver);
+            wait = objectManager.getWait();
         }
         return wait;
     }

@@ -1,7 +1,6 @@
 package com.abmcloud.cf.test.PageObject.steps;
 
 import com.abmcloud.cf.test.Driver.Driver;
-import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.Components.Notification;
 import io.qameta.allure.Step;
@@ -23,7 +22,7 @@ public class AppFormSteps extends BaseSteps {
     public AppFormSteps(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
         this.objectManager = objectManager;
-        logs = new Logs(AppFormSteps.class.getName());
+        logs = objectManager.getLogs();
         notification = objectManager.getNotification();
     }
 
