@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.Listeners;
 
 import com.abmcloud.cf.test.BaseTest;
+import com.abmcloud.cf.test.Driver.Logs;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -28,19 +29,21 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-
-        System.out.println("TEST STARTED");
+        Logs logs = ((BaseTest) iTestResult.getInstance()).objectManager.getLogs();
+        logs.infoMsg("TEST STARTED");
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-
+        Logs logs = ((BaseTest) iTestResult.getInstance()).objectManager.getLogs();
+        logs.infoMsg("TEST SUCCESS");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         makeScreenshot(iTestResult);
-        System.out.println("TEST FAILURE");
+        Logs logs = ((BaseTest) iTestResult.getInstance()).objectManager.getLogs();
+        logs.infoMsg("TEST FAILURE");
     }
 
     @Override
