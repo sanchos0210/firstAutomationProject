@@ -36,7 +36,6 @@ public class Notification {
                     break;
                 }
             }
-            notificationClick();
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;
@@ -47,6 +46,7 @@ public class Notification {
         try {
             wait.waitForElementVisibility(8, applSavedNotification);
             testInfo.textOfNotification = applSavedNotification.getText();
+            notificationClick();
             if(testInfo.textOfNotification == null) {
                 logs.warning("Text of notification is NULL !");
             }
