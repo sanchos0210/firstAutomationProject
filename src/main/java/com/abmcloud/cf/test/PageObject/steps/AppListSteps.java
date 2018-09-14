@@ -198,14 +198,17 @@ public class AppListSteps extends MenuSteps {
         //logs.infoMsg("Executing some action in status of application");
         switch(approvingConstant) {
             case SEND_FOR_APPROVAL: {     //send for approval from status
+                objectManager.getWait().waitForElementClickable(3, application.findElement(objectManager.getAppListPage().sendForApprovalFromStatus));
                 clickOn(objectManager.getAppListPage().sendForApprovalFromStatus, application);
                 break;
             }
             case APPROVE: {     //approve application from status
+                objectManager.getWait().waitForElementClickable(3, application.findElement(objectManager.getAppListPage().approveFromStatus));
                 clickOn(objectManager.getAppListPage().approveFromStatus, application);
                 break;
             }
             case CANCEL: {     //cancel application from status
+                objectManager.getWait().waitForElementClickable(3, application.findElement(objectManager.getAppListPage().cancelFromStatus));
                 clickOn(objectManager.getAppListPage().cancelFromStatus, application);
                 break;
             }
@@ -219,11 +222,13 @@ public class AppListSteps extends MenuSteps {
         logs.infoMsg("Executing some action in status of application");
         switch(approvingConstant) {
             case APPROVE: {     //approve application from status
+                objectManager.getWait().waitForElementClickable(3, application.findElement(objectManager.getAppListPage().approveFromStatus));
                 clickOn(objectManager.getAppListPage().approveFromStatus, application);
                 approveInApprovePopup(comment);
                 break;
             }
             case CANCEL: {     //cancel application from status
+                objectManager.getWait().waitForElementClickable(3, application.findElement(objectManager.getAppListPage().cancelFromStatus));
                 clickOn(objectManager.getAppListPage().cancelFromStatus, application);
                 cancelInCancelPopup(comment);
                 break;
