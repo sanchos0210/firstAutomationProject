@@ -281,7 +281,7 @@ public class TCHFieldsValidation extends BaseTest {
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .asserts().isElementPresent(objectManager.getCatalogField().getItem(dbInfo.getString("project_1")), true)
-                .isElementPresent(objectManager.getCatalogField().getItem(dbInfo.getString("project_2")), false);
+                .assertFalse(objectManager.getCatalogField().isItemPresent(dbInfo.getString("project_2")));
     }
 
     @Test(priority = 200)
