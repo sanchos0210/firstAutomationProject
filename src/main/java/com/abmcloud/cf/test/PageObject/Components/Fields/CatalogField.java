@@ -27,7 +27,12 @@ public class CatalogField extends BaseField {
     }
 
     public String getValue(String nameOfField) {
-        WebElement selectedValue = getField(nameOfField).findElement(By.cssSelector("a"));
+        int i = 0;
+        WebElement selectedValue;
+        do {
+            selectedValue = getField(nameOfField).findElement(By.cssSelector("a"));
+            i++;
+        } while(selectedValue.getText() == null || i == 50);
         return selectedValue.getText();
     }
 
