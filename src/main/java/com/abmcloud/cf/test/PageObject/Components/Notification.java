@@ -37,8 +37,7 @@ public class Notification {
                 }
             }
         } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
+            logs.warning(e.getMessage());
         }
     }
 
@@ -51,8 +50,7 @@ public class Notification {
                 logs.warning("Text of notification is NULL !");
             }
         } catch(RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
+            logs.warning(e.getMessage());
         }
 
     }

@@ -1,6 +1,7 @@
 package com.abmcloud.cf.test.Driver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -75,9 +76,8 @@ public class Wait {
         driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         try {
         (new WebDriverWait(driver.getWebDriver(), timeInSec)).until(ExpectedConditions.visibilityOf(element));
-    } catch(RuntimeException e) {
-        logs.errorMsg(e);
-        throw e;
+    } catch(StaleElementReferenceException e) {
+        logs.warning(e.getMessage());
     }
         driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
