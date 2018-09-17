@@ -60,12 +60,12 @@ public class CalendarListSteps extends BaseSteps {
     @Step("Изменить дату оплаты в реестре на:")
     public CalendarListSteps changePaymentDate(String date) {
         DateField dateField = objectManager.getDateField();
-        //dateField.getField("Сменить дату оплаты").click();  заменил на следующую строку
         driver.fluentWait(By.xpath("//*[contains(text(), 'Сменить дату оплаты')]//parent::div//date-field//following::div")).click();
         dateField.getDateInDatePicker(driver.$(By.xpath("//*[@class='daterangepicker dropdown-menu ltr single opensright show-calendar'][last()]")), date).click();
         objectManager.getCalendarPage().changePaymentDateApproveButton.click();
         getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         notification.notificationClick();
+        objectManager.getWait().preloadWait();
         return this;
     }
 }
