@@ -107,7 +107,7 @@ public class CatalogFormSteps extends BaseSteps {
             logs.errorMsg(e);
             throw e;
         }
-        notification.saveTextOfNotification();
+        notification.saveTextOfNotificationAndClick();
         return objectManager.getCatalogListSteps();
     }
 
@@ -125,8 +125,7 @@ public class CatalogFormSteps extends BaseSteps {
             logs.errorMsg(e);
             throw e;
         }
-        notification.saveTextOfNotification();
-        notification.notificationClick();
+        notification.saveTextOfNotificationAndClick();
         return this;
     }
 }

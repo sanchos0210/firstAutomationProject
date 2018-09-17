@@ -86,8 +86,7 @@ public class CatalogListSteps extends MenuSteps {
     public CatalogListSteps deleteButtonClick() {
         objectManager.getCatalogListPage().deleteButton.click();
         confirmation.clickOnRedButton();
-        notification.saveTextOfNotification();
-        notification.notificationClick();
+        notification.saveTextOfNotificationAndClick();
         return this;
     }
 

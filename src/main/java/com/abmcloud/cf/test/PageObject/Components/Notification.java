@@ -24,7 +24,7 @@ public class Notification {
     }
 
     public void saveTextAndAppNumAndClickOnNotification() {
-        saveTextOfNotification();
+        saveTextOfNotificationAndClick();
         try {
             switch (testInfo.activeUser.getLocalizeLanguage()) {
                 case EN: {     //for english language
@@ -41,7 +41,7 @@ public class Notification {
         }
     }
 
-    public void saveTextOfNotification() {
+    public void saveTextOfNotificationAndClick() {
         try {
             wait.waitForElementVisibility(8, applSavedNotification);
             testInfo.textOfNotification = applSavedNotification.getText();
