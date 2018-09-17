@@ -19,4 +19,8 @@ public class TestInfo {
 
     public WebElement selectedCatalogItem;
 
+    public String getTestName() {
+        return testName;
+    }
+
 }

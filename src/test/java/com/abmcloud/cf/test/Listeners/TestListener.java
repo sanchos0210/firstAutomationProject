@@ -30,7 +30,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         Logs logs = ((BaseTest) iTestResult.getInstance()).objectManager.getLogs();
-        logs.infoMsg("TEST STARTED");
+        logs.infoMsg("TEST " + ((BaseTest) iTestResult.getInstance()).objectManager.getTestInfo().getTestName() + " HAS STARTED");
     }
 
     @Override
