@@ -29,6 +29,7 @@ public class CalendarListSteps extends BaseSteps {
     public CalendarListSteps checkAppWithNumber(String numberOfApp) {
         AppListSteps appListSteps = getAppListSteps();
         appListSteps.selectAppByNumberInTable(numberOfApp, driver.$$(By.cssSelector("table.appl_table.bg_on_hover tbody tr")));
+        objectManager.getWait().waitForClickable(3, objectManager.getAppListPage().checkBox);
         appListSteps.clickOn(objectManager.getAppListPage().checkBox, objectManager.getTestInfo().selectedApp);
         return this;
     }
