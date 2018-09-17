@@ -17,8 +17,15 @@ public class StringField extends BaseField {
 
     public String getValue(String nameOfField) {
         String stringValue;
-        WebElement decimalField = getField(nameOfField).findElement(By.xpath(".//parent::*//parent::*//parent::description-field"));
-        stringValue = decimalField.getAttribute("ng-reflect-value");
+        WebElement stringField = getField(nameOfField).findElement(By.xpath(".//parent::*//parent::*//parent::description-field"));
+        int i = 0;
+        do {
+            stringValue = stringField.getAttribute("ng-reflect-value");
+            i++;
+        } while(stringValue == null || i == timeOut);
+        if(stringValue == null) {
+            logs.warning("Value of string field " + nameOfField + " is null or was not found!");
+        }
         return stringValue;
     }
 

@@ -23,8 +23,17 @@ public class DecimalField extends BaseField {
 
     private String getValue(WebElement field) {
         WebElement headerOfDecimalField = field.findElement(By.xpath(".//parent::div//parent::div//parent::decimal-field"));
-        String decimalValue = headerOfDecimalField.getAttribute("ng-reflect-value");
-        if(decimalValue == null) decimalValue = "";
+        String decimalValue;
+        int i = 0;
+        do {
+            decimalValue = headerOfDecimalField.getAttribute("ng-reflect-value");
+            i++;
+        } while(decimalValue == null || i == timeOut);
+        logs.infoMsg("VALUE OF DECIMAL FIELD: " + decimalValue);
+        if(decimalValue == null) {
+            logs.warning("Value of decimal field is null or was not found!");
+            decimalValue = "";
+        }
         return decimalValue;
     }
 

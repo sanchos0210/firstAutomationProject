@@ -32,10 +32,10 @@ public class CatalogField extends BaseField {
         do {
             selectedValue = getField(nameOfField).findElement(By.cssSelector("a"));
             i++;
-        } while(selectedValue.getText() == null || i == 500);
-        logs.warning("VALUE OF CATALOG FIELD: " + selectedValue.getText());
+        } while(selectedValue.getText() == null || i == timeOut);
+        logs.infoMsg("VALUE OF CATALOG FIELD: " + selectedValue.getText());
         if(selectedValue.getText() == null) {
-            logs.warning("Value of catalog " + nameOfField + " was not found!");
+            logs.warning("Value of catalog " + nameOfField + " is null or was not found!");
         }
         return selectedValue.getText();
     }

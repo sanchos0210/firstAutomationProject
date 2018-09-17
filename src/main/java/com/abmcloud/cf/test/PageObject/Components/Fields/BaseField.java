@@ -7,9 +7,10 @@ import org.openqa.selenium.WebElement;
 
 public abstract class BaseField {
 
-    Driver driver;
-    ObjectManager objectManager;
-    Logs logs;
+    protected Driver driver;
+    protected ObjectManager objectManager;
+    protected Logs logs;
+    protected int timeOut = 5000;
 
     public BaseField(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
