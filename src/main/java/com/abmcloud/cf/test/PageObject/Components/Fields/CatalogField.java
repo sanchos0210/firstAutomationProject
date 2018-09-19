@@ -21,7 +21,7 @@ public class CatalogField extends BaseField {
         super(driver, objectManager);
     }
 
-    public WebElement getField(String nameOfField) {
+    private WebElement getField(String nameOfField) {
         WebElement catalogField = driver.fluentWait(By.xpath("//catalog-field[contains(@ng-reflect-title, '"+ nameOfField +"')]"));
         return catalogField;
     }
@@ -48,6 +48,7 @@ public class CatalogField extends BaseField {
     public void catalogFieldClick(String nameOfField) {
         nameOfActiveCatalogField = nameOfField;
         WebElement catalogField = getField(nameOfField);
+        objectManager.getWait().waitForElementClickable(3, catalogField);
         try {
             catalogField.click();
         } catch (RuntimeException e) {

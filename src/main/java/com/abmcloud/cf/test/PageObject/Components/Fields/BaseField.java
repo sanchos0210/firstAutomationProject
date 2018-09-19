@@ -3,7 +3,6 @@ package com.abmcloud.cf.test.PageObject.Components.Fields;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.Logs;
 import com.abmcloud.cf.test.Driver.ObjectManager;
-import org.openqa.selenium.WebElement;
 
 public abstract class BaseField {
 
@@ -23,7 +22,7 @@ public abstract class BaseField {
 //        return driver.getWebDriver();
 //    }
 
-    public abstract WebElement getField(String nameOfField);
-
-    public abstract String getValue(String nameOfField);
+//    public abstract WebElement getField(String nameOfField);
+//
+//    public abstract String getValue(String nameOfField);
 }
