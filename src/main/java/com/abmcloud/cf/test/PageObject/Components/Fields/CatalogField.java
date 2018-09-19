@@ -22,7 +22,7 @@ public class CatalogField extends BaseField {
     }
 
     public WebElement getField(String nameOfField) {
-        WebElement catalogField = driver.$(By.xpath("//catalog-field[contains(@ng-reflect-title, '" + nameOfField +"')]"));
+        WebElement catalogField = driver.fluentWait(By.xpath("//catalog-field[contains(@ng-reflect-title, '"+ nameOfField +"')]"));
         return catalogField;
     }
 
@@ -60,8 +60,7 @@ public class CatalogField extends BaseField {
         WebElement catalogElement = getItem(nameOfItem);
         try {
             catalogElement.click();
-            WebElement activeCatalogField = getField(nameOfActiveCatalogField);
-            objectManager.getWait().waitForAttributeContains(activeCatalogField, "ng-reflect-selected", nameOfItem);
+            objectManager.getWait().textToBePresentInElement(getField(nameOfActiveCatalogField).findElement(By.cssSelector("a")), nameOfItem);
         } catch (RuntimeException e) {
             logs.errorMsg(e);
             throw e;

@@ -68,6 +68,17 @@ public class Wait {
         driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 
+    public void textToBePresentInElement(WebElement element, String text) {
+        driver.getWebDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        try {
+            (new WebDriverWait(driver.getWebDriver(), 5)).until(ExpectedConditions.textToBePresentInElement(element, text));
+        } catch(RuntimeException e) {
+            logs.errorMsg(e);
+            throw e;
+        }
+        driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+    }
+
     public void waitForElementVisibility(WebElement element) {
         waitForElementVisibility(5, element);
     }
