@@ -1,9 +1,12 @@
 package com.abmcloud.cf.test.Utils;
 
 import com.abmcloud.cf.test.Driver.Constants;
+import org.testng.annotations.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,7 +15,7 @@ import java.util.List;
 public class DateUtil {
 
     private DateFormat df;
-    Calendar calendar;
+    private Calendar calendar;
 
     public DateUtil() {
         df = new SimpleDateFormat("dd.MM.yyyy");
@@ -109,36 +112,55 @@ public class DateUtil {
         return s;
     }
 
-    public List<String> getDefaultPeriodForCalendar() {
-        List<String> daysInWeek = new ArrayList<>();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 1;
-        int endDay = startDay + 6;
-        calendar.set(year, month, startDay);
-        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
-            Date date = calendar.getTime();
-            String s = df.format(date);
-            daysInWeek.add(s);
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-        return daysInWeek;
+//    public List<String> getDefaultPeriodForCalendar() {
+//        List<String> daysInWeek = new ArrayList<>();
+//        int year = calendar.get(Calendar.YEAR);
+//        int month = calendar.get(Calendar.MONTH);
+//        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 1;
+//        int endDay = startDay + 6;
+//        calendar.set(year, month, startDay);
+//        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
+//            Date date = calendar.getTime();
+//            String s = df.format(date);
+//            daysInWeek.add(s);
+//            calendar.add(Calendar.DAY_OF_MONTH, 1);
+//        }
+//        return daysInWeek;
+//    }
+
+//    public List<String> getSetDefaultPeriodForCalendar() {
+//        List<String> daysInWeek = new ArrayList<>();
+//        int year = calendar.get(Calendar.YEAR);
+//        int month = calendar.get(Calendar.MONTH);
+//        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 3;
+//        int endDay = startDay + 13;
+//        calendar.set(year, month, startDay);
+//        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
+//            Date date = calendar.getTime();
+//            String s = df.format(date);
+//            daysInWeek.add(s);
+//            calendar.add(Calendar.DAY_OF_MONTH, 1);
+//        }
+//        return daysInWeek;
+//    }
+
+    public List<String> getPeriodInDays(int countOfDaysBeforeToday, int countOfDaysAfterToday) {
+        List<String> soughtPeriod = new ArrayList<>();
+        LocalDate date = LocalDate.now();
+        LocalDate endDate = date.plusDays(countOfDaysAfterToday);
+        date = date.minusDays(countOfDaysBeforeToday);
+        do {
+            String d = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+            soughtPeriod.add(d);
+            date = date.plusDays(1);
+        } while((date.getDayOfMonth() != endDate.getDayOfMonth()) || (date.getMonthValue() != endDate.getMonthValue()));
+        return soughtPeriod;
     }
 
-    public List<String> getSetDefaultPeriodForCalendar() {
-        List<String> daysInWeek = new ArrayList<>();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 3;
-        int endDay = startDay + 13;
-        calendar.set(year, month, startDay);
-        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
-            Date date = calendar.getTime();
-            String s = df.format(date);
-            daysInWeek.add(s);
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-        return daysInWeek;
+    @Test
+    public void test() {
+        getPeriodInDays(2, 35);
+
     }
 
 //    public List<String> getWeeksForDefaultPeriod() {

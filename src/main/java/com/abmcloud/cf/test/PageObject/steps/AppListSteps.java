@@ -247,8 +247,16 @@ public class AppListSteps extends MenuSteps {
                     getAppFormSteps().editDecimalField((String) field.get(1), (String) field.get(2));
                 }
 
+                if(field.get(0).equals("DECIMAL_TCH_FIELD")) {
+                    getAppFormSteps().editTCHDecimalField((String) field.get(1), (String) field.get(2));
+                }
+
                 if (field.get(0).equals("STRING_FIELD")) {
                     getAppFormSteps().editStringField((String) field.get(1), (String) field.get(2));
+                }
+
+                if (field.get(0).equals("STRING_TCH_FIELD")) {
+                    getAppFormSteps().editTCHStringField((String) field.get(1), (String) field.get(2));
                 }
 
                 if (field.get(0).equals("CATALOG_FIELD")) {

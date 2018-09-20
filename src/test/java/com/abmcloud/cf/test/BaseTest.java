@@ -19,7 +19,7 @@ public class BaseTest {
     //URL constants
     public static final String APP_FORM_TEST_DB = "https://test5.cft.abmcloud.com";    //"https://dev6.cft.abmcloud.com";            //"https://test12.cf.abmcloud.com";
     public static final String APP_LIST_TEST_DB = "https://test6.cft.abmcloud.com";    //"https://dev5.cft.abmcloud.com";
-    public static final String CALENDAR_TEST_DB = "https://test7.cft.abmcloud.com";                                  //https://demo12.cf.abmcloud.com";
+    public static final String SUPER_APP_TEST_DB = "https://test7.cft.abmcloud.com";                                  //https://demo12.cf.abmcloud.com";
     //--------------------------------------Data information about test users-------------------------------------------
     //General test user
     public static final String USER = "Alexandr Verezhevych";

@@ -87,10 +87,9 @@ public class PeriodAndPeriodicityTests extends BaseTest {
                 .assertVisibleDates(expectedDays);
     }
 
-    @Ignore
     @Test(priority = 90)
     public void defaultPeriodTest() {
-        List<String> expectedDays = objectManager.getDateUtil().getDefaultPeriodForCalendar();
+        List<String> expectedDays = objectManager.getDateUtil().getPeriodInDays(1, 5);
         steps
                 .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -105,7 +104,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     @Ignore
     @Test(priority = 90)
     public void setDefaultPeriodTest() {
-        List<String> expectedDays = objectManager.getDateUtil().getSetDefaultPeriodForCalendar();
+        List<String> expectedDays = objectManager.getDateUtil().getPeriodInDays(3, 10);
         steps
                 .open(APP_LIST_TEST_DB)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -113,7 +112,6 @@ public class PeriodAndPeriodicityTests extends BaseTest {
                 .assertVisibleDates(expectedDays);
     }
 
-    @Ignore
     @Test(priority = 100)
     public void periodicityByYears() {
         List<String> expectedDays = objectManager.getDateUtil().getThisYear();

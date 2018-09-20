@@ -62,6 +62,7 @@ public class CatalogField extends BaseField {
         try {
             catalogElement.click();
             objectManager.getWait().textToBePresentInElement(getField(nameOfActiveCatalogField).findElement(By.cssSelector("a")), nameOfItem);
+            objectManager.getAppEditPage().editPopupTitle.click();
         } catch (RuntimeException e) {
             logs.errorMsg(e);
             throw e;
