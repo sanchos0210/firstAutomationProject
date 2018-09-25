@@ -2,7 +2,9 @@ package com.abmcloud.cf.test.PageObject.Components.Fields;
 
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.ObjectManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -51,9 +53,10 @@ public class CatalogField extends BaseField {
         objectManager.getWait().waitForElementClickable(3, catalogField);
         try {
             catalogField.click();
-        } catch (RuntimeException e) {
-            logs.errorMsg(e);
-            throw e;
+        } catch (StaleElementReferenceException e) {
+            logs.warning(e.getMessage());
+            catalogField = getField(nameOfField);
+            catalogField.click();
         }
     }
 
@@ -106,6 +109,7 @@ public class CatalogField extends BaseField {
         objectManager.getWait().waitForAttributeContains(activeCatalogField, "ng-reflect-selected", nameOfFolder);
     }
 
+    @Step("Проверка на отобржение элемента каталога: ${nameOfItem}")
     public boolean isItemPresent(String nameOfItem) {
         try {
             WebElement item = getItem(nameOfItem);

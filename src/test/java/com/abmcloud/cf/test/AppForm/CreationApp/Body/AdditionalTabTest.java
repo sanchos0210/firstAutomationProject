@@ -98,7 +98,7 @@ public class AdditionalTabTest extends BaseTest {
                 .asserts().compare("value 1", objectManager.getStringField().getValue(dbInfo.getString("string_field_1")));
     }
 
-    @Test(priority = 40)
+    @Test(priority = 50)
     public void autoInsertCatalogFieldInAdditionalTab() {
         steps
                 .open(APP_FORM_TEST_DB)

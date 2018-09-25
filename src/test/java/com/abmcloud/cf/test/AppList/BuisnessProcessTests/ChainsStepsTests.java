@@ -194,7 +194,7 @@ public class ChainsStepsTests extends BaseTest {
                 .asserts().isButtonDisable(objectManager.getConfirmation().approveButtonInApprovePopUp, true);
     }
 
-    @Test(priority = 60)
+    @Test(priority = 70)
     public void nonRequiredCommentForApproval() {
         steps
                 .open(APP_LIST_TEST_DB)
