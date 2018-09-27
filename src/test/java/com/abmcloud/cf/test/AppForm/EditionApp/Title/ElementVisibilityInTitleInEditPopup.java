@@ -25,7 +25,7 @@ public class ElementVisibilityInTitleInEditPopup extends BaseTest {
     @Test
     public void visibilityOfElementsInTitleOfEditPopup() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

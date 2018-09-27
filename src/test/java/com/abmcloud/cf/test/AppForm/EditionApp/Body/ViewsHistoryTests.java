@@ -25,7 +25,7 @@ public class ViewsHistoryTests extends BaseTest {
     @Test
     public void viewsHistoryTest() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

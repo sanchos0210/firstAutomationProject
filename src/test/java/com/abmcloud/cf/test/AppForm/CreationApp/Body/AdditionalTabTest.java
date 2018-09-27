@@ -25,7 +25,7 @@ public class AdditionalTabTest extends BaseTest {
     @Test(priority = 1)
     public void requiredDecimalFieldInAdditionalTab() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
@@ -42,7 +42,7 @@ public class AdditionalTabTest extends BaseTest {
     @Test(priority = 10)
     public void requiredStringFieldInAdditionalTab() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
@@ -59,7 +59,7 @@ public class AdditionalTabTest extends BaseTest {
     @Test(priority = 20)
     public void requiredCatalogFieldInAdditionalTab() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
@@ -75,7 +75,7 @@ public class AdditionalTabTest extends BaseTest {
     @Test(priority = 30)
     public void autoInsertDecimalFieldInAdditionalTab() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
@@ -88,7 +88,7 @@ public class AdditionalTabTest extends BaseTest {
     @Test(priority = 40)
     public void autoInsertStringFieldInAdditionalTab() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()
@@ -101,7 +101,7 @@ public class AdditionalTabTest extends BaseTest {
     @Test(priority = 50)
     public void autoInsertCatalogFieldInAdditionalTab() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
                 .createAppButtonClick()

@@ -24,7 +24,7 @@ public class FieldsValidationTests extends BaseTest {
 
     public void createIncomeApp() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .inOutButtonClick()
@@ -40,7 +40,7 @@ public class FieldsValidationTests extends BaseTest {
 
     public void createOutFlowApp() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -61,7 +61,7 @@ public class FieldsValidationTests extends BaseTest {
 
     public void defaultOutflowValue() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -70,7 +70,7 @@ public class FieldsValidationTests extends BaseTest {
 
     public void defaultInflowValue() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
@@ -86,7 +86,7 @@ public class FieldsValidationTests extends BaseTest {
     @Test(priority = 3)
     public void checkDisabledBooleanField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()

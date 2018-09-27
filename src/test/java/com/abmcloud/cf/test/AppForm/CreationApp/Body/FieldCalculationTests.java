@@ -25,7 +25,7 @@ public class FieldCalculationTests extends BaseTest {
     @Test(priority = 1)
     public void calculationChain() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()

@@ -25,7 +25,7 @@ public class FieldCalculations extends BaseTest {
     @Test(priority = 1)
     public void calculateFieldByCondition() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
@@ -39,7 +39,7 @@ public class FieldCalculations extends BaseTest {
     @Test(priority = 10)
     public void calculationTCHFieldByChangingFieldInShapka() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()
@@ -58,7 +58,7 @@ public class FieldCalculations extends BaseTest {
     @Test(priority = 20)
     public void calculationTCHFieldByChangingOtherTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
                 .createAppButtonClick()

@@ -27,7 +27,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 1)
     public void approverIsAuthor() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -45,7 +45,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 2)
     public void approverIsOrganizationLead() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_7th_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -56,7 +56,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 10)
     public void twoApproversInStep() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -67,7 +67,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 11)
     public void checkDeputy() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER3, EMAIL3, PASSWORD3, RU)
                 .openUserProfile()
                 .redirectApplicationsClick()
@@ -92,7 +92,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 12)
     public void choseDeputyAndCheckCreatedApp() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER3, EMAIL3, PASSWORD3, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_8th_chain"))
                 .openUserProfile()
@@ -116,7 +116,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 20)
     public void correctApproverVerification() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -130,7 +130,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 30)
     public void checkStatusName() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -146,7 +146,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 40)
     public void paymentFromApplicationListTest() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_6th_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -167,7 +167,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 50)
     public void paymentFromCalendarThrowApprove() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_5th_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -183,7 +183,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 60)
     public void requiredCommentForApproval() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -197,7 +197,7 @@ public class ChainsStepsTests extends BaseTest {
     @Test(priority = 70)
     public void nonRequiredCommentForApproval() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

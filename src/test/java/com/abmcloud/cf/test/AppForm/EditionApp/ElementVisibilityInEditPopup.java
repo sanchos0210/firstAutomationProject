@@ -27,7 +27,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
     public void visibilityOfElementsInEditPopup() {
         dbInfo = new DataBaseInfo("app_form_db.json");
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -46,7 +46,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
     public void historyChangesIsVisible() {
         dbInfo = new DataBaseInfo("app_form_db.json");
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -64,7 +64,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
     public void cannotCancelAndCanApprove2UsersFromEditPopup() {
         dbInfo = new DataBaseInfo("app_list_db.json");
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

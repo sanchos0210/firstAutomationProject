@@ -16,7 +16,7 @@ public class ElementVisibilityInTitleInNewPopup extends BaseTest {
     @Test
     public void elementVisibilityInTitleInNewPopup() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts()

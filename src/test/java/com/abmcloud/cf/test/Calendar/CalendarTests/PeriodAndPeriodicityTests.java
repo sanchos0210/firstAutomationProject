@@ -23,7 +23,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
         List<String> expectedDays = new ArrayList<>();
         expectedDays.add(objectManager.getDateUtil().getTodayFullDate());
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodFilter()
@@ -36,7 +36,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void checkThisMonthByDays() {
         List<String> expectedDays = objectManager.getDateUtil().getDaysInMonthFullDates(THIS_MONTH);
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodFilter()
@@ -49,7 +49,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void checkThisYearByMonth() {
         List<String> expectedDays = objectManager.getDateUtil().getMonthsInYearFullDate(THIS_YEAR);
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodicityFilter()
@@ -64,7 +64,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void checkLastMonthByDays() {
         List<String> expectedDays = objectManager.getDateUtil().getDaysInMonthFullDates(LAST_MONTH);
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodFilter()
@@ -77,7 +77,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void checkLastYearByMonth() {
         List<String> expectedDays = objectManager.getDateUtil().getMonthsInYearFullDate(LAST_YEAR);
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodicityFilter()
@@ -91,7 +91,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void defaultPeriodTest() {
         List<String> expectedDays = objectManager.getDateUtil().getPeriodInDays(1, 5);
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodFilter()
@@ -106,7 +106,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void setDefaultPeriodTest() {
         List<String> expectedDays = objectManager.getDateUtil().getPeriodInDays(3, 10);
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Утвердить оплаты")
                 .assertVisibleDates(expectedDays);
@@ -116,7 +116,7 @@ public class PeriodAndPeriodicityTests extends BaseTest {
     public void periodicityByYears() {
         List<String> expectedDays = objectManager.getDateUtil().getThisYear();
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Утвердить оплаты")
                 .clickOnPeriodicityFilter()

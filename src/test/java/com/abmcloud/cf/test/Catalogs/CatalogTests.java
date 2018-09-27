@@ -23,7 +23,7 @@ public class CatalogTests extends BaseTest {
     @Test(priority = 1)
     public void elementVisibility() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .asserts()
@@ -35,7 +35,7 @@ public class CatalogTests extends BaseTest {
     @Test(priority = 2)
     public void elementVisibilityInNewPopup() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .addNewClick()
@@ -46,7 +46,7 @@ public class CatalogTests extends BaseTest {
     @Test(priority = 10)
     public void createAndDeleteAFolder() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .addNewClick()
@@ -62,7 +62,7 @@ public class CatalogTests extends BaseTest {
 
     public void createFolderInFolder() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openFolder("Другие организации")
@@ -80,7 +80,7 @@ public class CatalogTests extends BaseTest {
         createFolderInFolder();
         //Need to delete created folder after test
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openFolder("Другие организации")
@@ -91,7 +91,7 @@ public class CatalogTests extends BaseTest {
 
     public void createItem() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .addNewClick()
@@ -105,7 +105,7 @@ public class CatalogTests extends BaseTest {
         createItem();
         //Need to delete created item after test
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .check("Новая организация")
@@ -115,7 +115,7 @@ public class CatalogTests extends BaseTest {
 
     public void createItemInFolder() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openFolder("Другие организации")
@@ -132,7 +132,7 @@ public class CatalogTests extends BaseTest {
         createItemInFolder();
         //Need to delete created item after test
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openFolder("Другие организации")
@@ -143,7 +143,7 @@ public class CatalogTests extends BaseTest {
 
     public void copyFolder() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openCopyFormOf("Другие организации")
@@ -160,7 +160,7 @@ public class CatalogTests extends BaseTest {
         copyFolder();
         //Need to delete created folder after test
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .check("Любимые организации")
@@ -170,7 +170,7 @@ public class CatalogTests extends BaseTest {
 
     public void choseOrganizationForDepartment() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openCatalogList("Подразделение")
@@ -187,7 +187,7 @@ public class CatalogTests extends BaseTest {
         choseOrganizationForDepartment();
         //Need to delete created item after test
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openCatalogList("Подразделение")
@@ -198,7 +198,7 @@ public class CatalogTests extends BaseTest {
 
     public void copyFolderInFolder() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openFolder("Коммерческие")
@@ -213,7 +213,7 @@ public class CatalogTests extends BaseTest {
         copyFolderInFolder();
         //Need to delete created folder
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCatalogs()
                 .openFolder("Коммерческие")

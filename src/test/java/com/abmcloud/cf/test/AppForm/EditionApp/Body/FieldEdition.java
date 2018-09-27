@@ -25,7 +25,7 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 1)
     public void editionDecimalField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -40,7 +40,7 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 2)
     public void autoInsertFieldsInEditPopup() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -65,7 +65,7 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 10)
     public void editionStringField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -80,7 +80,7 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 20)
     public void editionBooleanField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -95,7 +95,7 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 30)
     public void editionCatalogField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -112,7 +112,7 @@ public class FieldEdition extends BaseTest {
     @Test(priority = 40)
     public void editionDateField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

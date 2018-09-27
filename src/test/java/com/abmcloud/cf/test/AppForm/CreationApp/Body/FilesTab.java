@@ -16,7 +16,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 1)
     public void addJPEGFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -27,7 +27,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 3)
     public void addGIFFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -38,7 +38,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 4)
     public void addDOCFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -49,7 +49,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 5)
     public void addDOCXFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -60,7 +60,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 6)
     public void addPDFFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -71,7 +71,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 7)
     public void addXLSFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -82,7 +82,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 8)
     public void addXLSXFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -93,7 +93,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 9)
     public void addTXTFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -104,7 +104,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 10)
     public void addPNGFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()
@@ -115,7 +115,7 @@ public class FilesTab extends BaseTest {
     @Test(priority = 10)
     public void addCSVFile() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .openFilesTab()

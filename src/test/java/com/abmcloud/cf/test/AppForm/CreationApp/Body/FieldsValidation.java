@@ -26,7 +26,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 1)
     public void requiredDecimalFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -40,7 +40,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 2)
     public void nonRequiredDecimalFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createApp(dbInfo.getJsonArray("required_fields"))
                 .asserts().compare(testInfo.textOfNotification,
@@ -50,7 +50,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 3)
     public void negativeValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -65,7 +65,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 4)
     public void zeroVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -80,7 +80,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 5)
     public void lettersVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -95,7 +95,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 6)
     public void disableDecimalFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts().assertTrue(objectManager.getDecimalField().isDisabled(dbInfo.getString("decimal_field_1")));
@@ -104,7 +104,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 7)
     public void defaultValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts().compare("35", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_1")));
@@ -113,7 +113,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 8)
     public void autoInsert1Verification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -133,7 +133,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 9)
     public void autoClearStrAndDecFieldsAfterAutoInsert1() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -154,7 +154,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 10)
     public void requiredStringFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -168,7 +168,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 11)
     public void disableStringFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts().assertTrue(objectManager.getStringField().isDisabled(dbInfo.getString("string_field_1")));
@@ -177,7 +177,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 12)
     public void defaultStringValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts().compare("Default value", objectManager.getStringField().getValue(dbInfo.getString("string_field_1")));
@@ -186,7 +186,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 13)
     public void disableBooleanFieldWithDefaultValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts()
@@ -198,7 +198,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 14)
     public void checkingBooleanFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -219,7 +219,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 15)                                       //раскоментировать когда пофиксят CF-984
     public void autoInsertBooleanButton() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -243,7 +243,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 16)
     public void requiredCatalogFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
@@ -255,7 +255,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 17)
     public void chooseValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -266,7 +266,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 18)
     public void clearCatalogValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -278,7 +278,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 4)
     public void disabledCatalogFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
@@ -288,7 +288,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 19)
     public void defaultCatalogValueVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts().compare("Prepare Payments 1", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_1")));
@@ -297,7 +297,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 20)
     public void autoInsertTwoFields() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -317,7 +317,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 21)
     public void autoLimitVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -338,7 +338,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 22)
     public void autoClearForAutoLimitVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -355,7 +355,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 23)
     public void autoInsertChain() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .asserts()
@@ -368,7 +368,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 24)
     public void choseFutureDate() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -386,7 +386,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 25)
     public void choseYesterdayDate() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -404,7 +404,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 26)
     public void autoInsertDateField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -417,7 +417,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 27)
     public void autoClearAfterAutoInsertDateField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
@@ -431,7 +431,7 @@ public class FieldsValidation extends BaseTest {
     @Test(priority = 28)
     public void disableDateFieldValidation() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .clickOnDateField(dbInfo.getString("date_field_1"))

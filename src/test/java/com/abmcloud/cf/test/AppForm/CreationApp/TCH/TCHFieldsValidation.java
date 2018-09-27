@@ -25,7 +25,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 10)
     public void requiredDecimalTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -39,7 +39,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 20)
     public void negativeValueInDecimalTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -54,7 +54,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 30)
     public void zeroValueInDecimalTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -69,7 +69,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 40)
     public void literalsValueInDecimalTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -84,7 +84,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 50)
     public void disabledDecimalTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -94,7 +94,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 60)
     public void autoInsertDecimalAndStringTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -110,7 +110,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 70)
     public void autoClearDecAndStrTCHFieldAfterAutoInsert() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -127,7 +127,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 80)
     public void autoInsertDecAndStrTCHFieldFromBody() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
@@ -139,7 +139,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 90)
     public void autoClearDecAndStrTCHFieldAfterAutoInsertFromBody() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
@@ -152,7 +152,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 100)
     public void defaultValueInDecimalTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
@@ -163,7 +163,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 110)
     public void requiredStringTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -177,7 +177,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 120)
     public void disabledStringTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -187,7 +187,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 130)
     public void defaultValueInStringTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
                 .createAppButtonClick()
@@ -198,7 +198,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 140)
     public void checkingBooleanTCHFieldVerification() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -213,7 +213,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 150)
     public void autoInsertBooleanTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -231,7 +231,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 160)
     public void requiredCatalogTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -244,7 +244,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 170)
     public void chosenValueOfCatalogTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -258,7 +258,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 180)
     public void clearChosenValueOfCatalogTCHField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -273,7 +273,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 190)
     public void autoLimitCatalogFieldTCHByFieldFromBody() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -287,7 +287,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 200)
     public void autoClearForAutoLimitCatalogFieldTCHByFieldFromBody() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()
@@ -305,7 +305,7 @@ public class TCHFieldsValidation extends BaseTest {
     @Test(priority = 210)
     public void chooseTodayDateInDateField() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
                 .createAppButtonClick()

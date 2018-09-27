@@ -27,7 +27,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 1)
     public void sendForApprovalButtonInActMenu() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -42,7 +42,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 2)
     public void approveButtonInZeroStep() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -53,7 +53,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 3)
     public void approveButtonInActMenuOnParallelStep() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -74,7 +74,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 4)
     public void approveButtonInTwoApprovers() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -93,7 +93,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 9)
     public void editButtonOpenEitPopup() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -108,7 +108,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 10)
     public void editButtonIsNotPresent() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -122,7 +122,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 20)
     public void copyPopupOpening() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -134,7 +134,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 29)
     public void cancelButtonIsPresent() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -147,7 +147,7 @@ public class ActionMenuTests extends BaseTest {
     @Test(priority = 30)
     public void cancelButtonIsNotPresent() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

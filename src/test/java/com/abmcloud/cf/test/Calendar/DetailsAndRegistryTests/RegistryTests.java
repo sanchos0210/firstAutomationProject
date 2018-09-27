@@ -27,7 +27,7 @@ public class RegistryTests extends BaseTest {
     @Test(priority = 1)
     public void elementVisibilityInRegistry() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -47,7 +47,7 @@ public class RegistryTests extends BaseTest {
     @Test(priority = 2)
     public void elementVisibilityInDetailsPopup() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_5th_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -67,7 +67,7 @@ public class RegistryTests extends BaseTest {
     @Test(priority = 10)
     public void changePaymentDateForPaymentInRegistry() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -85,7 +85,7 @@ public class RegistryTests extends BaseTest {
     @Test(priority = 20)
     public void changePaymentDateForApplicationInRegistry() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_5th_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -102,7 +102,7 @@ public class RegistryTests extends BaseTest {
     @Test(priority = 30)
     public void payAppTest() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

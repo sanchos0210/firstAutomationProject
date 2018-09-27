@@ -23,7 +23,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 1)
     public void availableToMe() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .logOut()
@@ -41,7 +41,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 10)
     public void approvedByMe() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -60,7 +60,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 20)
     public void paidMyApp() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -81,7 +81,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 21)
     public void subordinatesPaidApp() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -100,7 +100,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 30)
     public void cancelledByMeInCancelledFilter() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -121,7 +121,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 31)
     public void subordinatesCancelledApp() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -144,7 +144,7 @@ public class GlobalFilterTests extends BaseTest {
     @Test(priority = 40)
     public void cancelled() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER1, EMAIL1, PASSWORD1, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

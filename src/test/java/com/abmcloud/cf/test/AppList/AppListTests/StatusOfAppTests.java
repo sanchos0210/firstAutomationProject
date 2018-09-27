@@ -25,7 +25,7 @@ public class StatusOfAppTests extends BaseTest {
     @Test(priority = 1)
     public void sendForApprovalButton() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -37,7 +37,7 @@ public class StatusOfAppTests extends BaseTest {
     @Test(priority = 10)
     public void approveButtonInStatus() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -49,7 +49,7 @@ public class StatusOfAppTests extends BaseTest {
     @Test(priority = 20)
     public void approveButtonInStatusOnParallelStep() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -68,7 +68,7 @@ public class StatusOfAppTests extends BaseTest {
     @Test(priority = 30)
     public void approveButtonInTwoApprovers() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_2nd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -85,7 +85,7 @@ public class StatusOfAppTests extends BaseTest {
     @Test(priority = 40)
     public void cancelButtonInStatusIsPresent() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
@@ -98,7 +98,7 @@ public class StatusOfAppTests extends BaseTest {
     @Test(priority = 50)
     public void cancelButtonInStatusIsNotPresent() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_3rd_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

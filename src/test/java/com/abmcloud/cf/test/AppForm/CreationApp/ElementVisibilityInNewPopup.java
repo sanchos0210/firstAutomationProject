@@ -19,7 +19,7 @@ public class ElementVisibilityInNewPopup extends BaseTest {
     @Story("Проверяем отображение элементов в форме создания заявки")
     public void elementsVisibilityInCreationAppPopup() {
         steps
-                .open(APP_FORM_TEST_DB)
+                .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .createAppButtonClick()
                 .showInformationBlockClick()

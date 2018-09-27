@@ -13,7 +13,7 @@ public class SuperAppTests extends BaseTest {
     public void cancelSuperAppTest() {
         DataBaseInfo dbInfo = new DataBaseInfo("super_app_db.json");
         steps
-                .open(SUPER_APP_TEST_DB)
+                .open(SUPER_APP_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .createApp(dbInfo.getJsonArray("fields_configuration_for_1st_chain"))
                 .selectAppByNumber(testInfo.numberOfCreatedApp)

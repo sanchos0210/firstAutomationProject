@@ -17,7 +17,7 @@ public class ElementVisibility extends BaseTest {
     @Test(priority = 1)
     public void checkFilterByGroups() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .asserts()
@@ -31,7 +31,7 @@ public class ElementVisibility extends BaseTest {
     @Test(priority = 2)
     public void checkFilterByCatalogs() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .openCatalogFilter()
@@ -46,7 +46,7 @@ public class ElementVisibility extends BaseTest {
     @Test(priority = 3)
     public void checkRegistry() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .openRegistry()
@@ -56,7 +56,7 @@ public class ElementVisibility extends BaseTest {
     @Test(priority = 10)
     public void checkPeriodFilterVisibility() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodFilter()
@@ -72,7 +72,7 @@ public class ElementVisibility extends BaseTest {
     @Test(priority = 20)
     public void checkPeriodicityFilterVisibility() {
         steps
-                .open(APP_LIST_TEST_DB)
+                .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
                 .openCalendar("Оплата")
                 .clickOnPeriodicityFilter()
