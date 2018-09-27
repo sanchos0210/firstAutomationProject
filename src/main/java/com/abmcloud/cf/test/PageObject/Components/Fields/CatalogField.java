@@ -64,7 +64,7 @@ public class CatalogField extends BaseField {
         WebElement catalogElement = getItem(nameOfItem);
         try {
             catalogElement.click();
-            objectManager.getWait().textToBePresentInElement(getField(nameOfActiveCatalogField).findElement(By.cssSelector("a")), nameOfItem);
+            objectManager.getWait().waitForAttributeContains(getField(nameOfActiveCatalogField), "ng-reflect-selected", nameOfItem);
         } catch (RuntimeException e) {
             logs.errorMsg(e);
             throw e;
