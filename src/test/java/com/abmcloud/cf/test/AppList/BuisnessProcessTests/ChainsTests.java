@@ -98,7 +98,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 60)
     public void updateChainOfApp() {
-        String[][] expectedSteps = {{"Документ создан", null},{"Вместе", null},{"Автор", null},{"Первый","Второй"},{"Бухгалтер", null}};
+        String[][] expectedSteps = {{"Документ создан", null},{"Вместе", null},{"Автор", null},{"Первый","Второй"},{"Бухгалтер", null}, {"Оплачено", null}};
         DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
         steps
                 .open(APP_LIST_TEST_DB)
