@@ -52,6 +52,8 @@ public class AppListSteps extends MenuSteps {
         logs.infoMsg("Click on: " + objectManager.getAppListPage().addNewButton.toString());
         try {
             objectManager.getAppListPage().addNewButton.click();
+            long timeOut = 2;
+            objectManager.getWait().waitFullPageLoading(timeOut);
         } catch (RuntimeException e) {
             logs.errorMsg(e);
         }

@@ -1,9 +1,7 @@
 package com.abmcloud.cf.test.Driver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -91,6 +89,22 @@ public class Wait {
         logs.warning(e.getMessage());
     }
         driver.getWebDriver().manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+    }
+
+    /**
+     * Ожидание загрузки всей страницы
+     *
+     * @param time
+     */
+    public void waitFullPageLoading(Long time) {
+        new WebDriverWait(driver.getWebDriver(), time, 200).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState")
+                        .equals("complete");
+            }
+        });
     }
 
     public void preloadWait() {

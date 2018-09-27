@@ -9,7 +9,7 @@ public abstract class BaseField {
     protected Driver driver;
     protected ObjectManager objectManager;
     protected Logs logs;
-    protected int timeOut = 5000;
+    protected int timeOut = 10000;
 
     public BaseField(Driver driver, ObjectManager objectManager) {
         this.driver = driver;
