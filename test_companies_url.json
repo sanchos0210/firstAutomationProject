@@ -1,1 +1,5 @@
-{}
+{
+  "APP_FORM_COMPANY_URL": "https://test5.cft.abmcloud.com",
+  "APP_LIST_COMPANY_URL": "https://test6.cft.abmcloud.com",
+  "SUPER_APP_COMPANY_URL": "https://test7.cft.abmcloud.com"
+}

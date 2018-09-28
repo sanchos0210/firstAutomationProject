@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.AppList.BuisnessProcessTests;
 
 import com.abmcloud.cf.test.BaseTest;
-import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import com.abmcloud.cf.test.Utils.Json;
 import org.testng.annotations.Test;
 
 import static com.abmcloud.cf.test.Driver.Constants.CANCEL;
@@ -11,7 +11,7 @@ public class SuperAppTests extends BaseTest {
 
     @Test(priority = 1)
     public void cancelSuperAppTest() {
-        DataBaseInfo dbInfo = new DataBaseInfo("super_app_db.json");
+        Json dbInfo = new Json("super_app_db.json");
         steps
                 .open(SUPER_APP_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)

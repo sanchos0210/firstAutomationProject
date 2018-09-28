@@ -8,11 +8,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class DataBaseInfo {
+public class Json {
 
     private JSONObject jsonObj;
 
-    public DataBaseInfo(String fileName) {
+    public Json(String fileName) {
         File file = new File(fileName);
         String jsonString = "";
         try {

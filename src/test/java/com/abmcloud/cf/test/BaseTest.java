@@ -3,9 +3,11 @@ package com.abmcloud.cf.test;
 import com.abmcloud.cf.test.Driver.Driver;
 import com.abmcloud.cf.test.Driver.ObjectManager;
 import com.abmcloud.cf.test.PageObject.steps.LoginSteps;
+import com.abmcloud.cf.test.Utils.Json;
 import com.abmcloud.cf.test.Utils.TestInfo;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import java.lang.reflect.Method;
 
@@ -17,9 +19,9 @@ public class BaseTest {
     protected TestInfo testInfo;
     //-----------------------------------------------CONSTANT VALUES----------------------------------------------------
     //URL constants
-    public static final String APP_FORM_COMPANY_URL = "https://test5.cft.abmcloud.com";
-    public static final String APP_LIST_COMPANY_URL = "https://test6.cft.abmcloud.com";
-    public static final String SUPER_APP_COMPANY_URL = "https://test7.cft.abmcloud.com";
+    protected static String APP_FORM_COMPANY_URL;
+    protected static String APP_LIST_COMPANY_URL;
+    protected static String SUPER_APP_COMPANY_URL;
     //--------------------------------------Data information about test users-------------------------------------------
     //General test user
     public static final String USER = "Alexandr Verezhevych";
@@ -39,6 +41,14 @@ public class BaseTest {
     public static final String PASSWORD3 = "123456";
 
     //------------------------------------------------------------------------------------------------------------------
+
+    @BeforeTest
+    public void getCompaniesUrl() {
+        Json json = new Json("test_companies_url.json");
+        APP_FORM_COMPANY_URL = json.getString("APP_FORM_COMPANY_URL");
+        APP_LIST_COMPANY_URL = json.getString("APP_LIST_COMPANY_URL");
+        SUPER_APP_COMPANY_URL = json.getString("SUPER_APP_COMPANY_URL");
+    }
 
     @BeforeMethod
     public void initializeDriver(Method method) {

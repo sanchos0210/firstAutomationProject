@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.AppList.BuisnessProcessTests;
 
 import com.abmcloud.cf.test.BaseTest;
-import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import com.abmcloud.cf.test.Utils.Json;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;
@@ -18,7 +18,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 1)
     public void approveChainWithRuleAmountMoreThan() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
             steps
                     .open(APP_LIST_COMPANY_URL)
                     .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -30,7 +30,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 10)
     public void approveChainWithRuleAmountLessThan() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -42,7 +42,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 20)
     public void approveChainWithTwoRules() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -54,7 +54,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 30)
     public void checkParallelSteps() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -66,7 +66,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 40)
     public void checkCancelChain() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -82,7 +82,7 @@ public class ChainsTests extends BaseTest {
 
     @Test(priority = 50)
     public void checkDefaultCancelStep() {
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)
@@ -99,7 +99,7 @@ public class ChainsTests extends BaseTest {
     @Test(priority = 60)
     public void updateChainOfApp() {
         String[][] expectedSteps = {{"Документ создан", null},{"Вместе", null},{"Автор", null},{"Первый","Второй"},{"Бухгалтер", null}, {"Оплачено", null}};
-        DataBaseInfo dbInfo = new DataBaseInfo("app_list_db.json");
+        Json dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)

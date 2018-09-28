@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.AppForm.EditionApp;
 
 import com.abmcloud.cf.test.BaseTest;
-import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import com.abmcloud.cf.test.Utils.Json;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +17,7 @@ import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class ElementVisibilityInEditPopup extends BaseTest{
 
-    DataBaseInfo dbInfo;
+    Json dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
@@ -25,7 +25,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
 
     @Test(priority = 1)
     public void visibilityOfElementsInEditPopup() {
-        dbInfo = new DataBaseInfo("app_form_db.json");
+        dbInfo = new Json("app_form_db.json");
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
@@ -44,7 +44,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
 
     @Test(priority = 2)
     public void historyChangesIsVisible() {
-        dbInfo = new DataBaseInfo("app_form_db.json");
+        dbInfo = new Json("app_form_db.json");
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
@@ -62,7 +62,7 @@ public class ElementVisibilityInEditPopup extends BaseTest{
 
     @Test(priority = 3)
     public void cannotCancelAndCanApprove2UsersFromEditPopup() {
-        dbInfo = new DataBaseInfo("app_list_db.json");
+        dbInfo = new Json("app_list_db.json");
         steps
                 .open(APP_LIST_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, RU)

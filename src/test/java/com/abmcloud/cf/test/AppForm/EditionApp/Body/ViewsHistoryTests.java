@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.AppForm.EditionApp.Body;
 
 import com.abmcloud.cf.test.BaseTest;
-import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import com.abmcloud.cf.test.Utils.Json;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
@@ -15,11 +15,11 @@ import static com.abmcloud.cf.test.Driver.Constants.RU;
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class ViewsHistoryTests extends BaseTest {
 
-    DataBaseInfo dbInfo;
+    Json dbInfo;
 
     @BeforeMethod
     public void objectCreation() {
-        dbInfo = new DataBaseInfo("app_list_db.json");
+        dbInfo = new Json("app_list_db.json");
     }
 
     @Test

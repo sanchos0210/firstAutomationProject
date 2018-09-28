@@ -1,7 +1,7 @@
 package com.abmcloud.cf.test.AppList.AppListTests;
 
 import com.abmcloud.cf.test.BaseTest;
-import com.abmcloud.cf.test.Utils.DataBaseInfo;
+import com.abmcloud.cf.test.Utils.Json;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Listeners;
@@ -15,10 +15,10 @@ import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class ElementsVisibilityOfAppList extends BaseTest {
 
-    DataBaseInfo dbInfo;
+    Json dbInfo;
 
     public ElementsVisibilityOfAppList() {
-        dbInfo = new DataBaseInfo("app_list_db.json");
+        dbInfo = new Json("app_list_db.json");
     }
 
     @Test(priority = 1)

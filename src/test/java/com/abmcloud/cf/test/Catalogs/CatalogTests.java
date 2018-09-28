@@ -13,11 +13,11 @@ import static com.abmcloud.cf.test.Driver.Constants.RU;
 @Listeners(com.abmcloud.cf.test.Listeners.TestListener.class)
 public class CatalogTests extends BaseTest {
 
-//    DataBaseInfo dbInfo;
+//    Json dbInfo;
 //
 //    @BeforeMethod
 //    public void getDataForTest() {
-//        dbInfo = new DataBaseInfo("app_list_db.json");
+//        dbInfo = new Json("app_list_db.json");
 //    }
 
     @Test(priority = 1)
