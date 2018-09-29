@@ -13,7 +13,7 @@ public class Confirmation {
     @FindBy(css = "#comment")
     public WebElement commentFieldInCancelPopUp;
 
-    @FindBy(css = ".btn.btn-danger.btn-xs")   //button.btn.btn-danger.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left
+    @FindBy(css = ".danger.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only")
     public WebElement cancelButtonInCancelPopUp;
 
     @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']//parent::button")
