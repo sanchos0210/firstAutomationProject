@@ -38,7 +38,7 @@ public class AppListPage extends BasePage {
     public WebElement filterButton;     //кнопка фильтр - открывает поиск
 
     //Locators of Global filter----------------------------------------------------------------------
-    @FindBy(css = "button.btn-group.btn.btn-header.btn-default.no-border.btn-type")
+    @FindBy(css = "button.btn-group.btn.btn-header.btn-default.no-border.btn-type span")
     public WebElement globalFilter;
 
     @FindBy(css = ".col-xs-12.col-sm-3.col-md-3.col-lg-3.dropdown__filter .dropdown-item *")

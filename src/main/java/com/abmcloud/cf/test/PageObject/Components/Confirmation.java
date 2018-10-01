@@ -14,10 +14,13 @@ public class Confirmation {
     public WebElement commentFieldInCancelPopUp;
 
     @FindBy(css = ".danger.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only")
-    public WebElement cancelButtonInCancelPopUp;
+    public WebElement redButton;
 
     @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']//parent::button")
     public WebElement approveButtonInApprovePopUp;
+
+    @FindBy(css = ".btn.btn-danger.btn-xs.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left")
+    public WebElement cancelButtonInCancelPopUp;
 
     public Confirmation(Driver driver, Logs logs) {
         PageFactory.initElements(driver.getWebDriver(), this);
@@ -54,6 +57,6 @@ public class Confirmation {
     }
 
     public void clickOnRedButton() {
-        cancelButtonInCancelPopUp.click();
+        redButton.click();
     }
 }
