@@ -16,6 +16,9 @@ public class Confirmation {
     @FindBy(css = ".danger.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only")
     public WebElement redButton;
 
+    @FindBy(css = ".success.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only")
+    public WebElement greenButton;
+
     @FindBy(xpath = "//*[@class = 'ui-button-text ui-clickable'][.='Утвердить']//parent::button")
     public WebElement approveButtonInApprovePopUp;
 
@@ -58,5 +61,9 @@ public class Confirmation {
 
     public void clickOnRedButton() {
         redButton.click();
+    }
+
+    public void clickOnGreenButton() {
+        greenButton.click();
     }
 }
