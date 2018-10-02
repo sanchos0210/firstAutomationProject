@@ -38,6 +38,7 @@ public class CalendarListSteps extends BaseSteps {
     public CalendarListSteps payButtonClick() {
         objectManager.getCalendarPage().payButton.click();
         objectManager.getConfirmation().clickOnGreenButton();
+        objectManager.getWait().preloadWait();
         notification.notificationClick();
         getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         return this;
@@ -47,6 +48,7 @@ public class CalendarListSteps extends BaseSteps {
     public CalendarListSteps approveButtonClick() {
         objectManager.getCalendarPage().approveButton.click();
         objectManager.getConfirmation().clickOnGreenButton();
+        objectManager.getWait().preloadWait();
         notification.notificationClick();
         getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         return this;
