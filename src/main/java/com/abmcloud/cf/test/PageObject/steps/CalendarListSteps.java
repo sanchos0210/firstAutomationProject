@@ -39,7 +39,7 @@ public class CalendarListSteps extends BaseSteps {
         objectManager.getCalendarPage().payButton.click();
         objectManager.getConfirmation().clickOnGreenButton();
         notification.notificationClick();
-        getWait().waitForElementClickable(3, objectManager.getCalendarPage().closeRegistry);
+        getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         return this;
     }
 
@@ -48,12 +48,13 @@ public class CalendarListSteps extends BaseSteps {
         objectManager.getCalendarPage().approveButton.click();
         objectManager.getConfirmation().clickOnGreenButton();
         notification.notificationClick();
-        getWait().waitForElementClickable(3, objectManager.getCalendarPage().closeRegistry);
+        getWait().waitForElementClickable(3, objectManager.getCalendarPage().headerOfRegistry);
         return this;
     }
 
     @Step("Закрыть реестр")
     public CalendarTableSteps closeRegistry() {
+        getWait().waitForElementClickable(3, objectManager.getCalendarPage().closeRegistry);
         objectManager.getCalendarPage().closeRegistry.click();
         getWait().calendarPreloadWait();
         return getCalendarSteps();
