@@ -1,7 +1,6 @@
 package com.abmcloud.cf.test.Utils;
 
 import com.abmcloud.cf.test.Driver.Constants;
-import org.testng.annotations.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -153,14 +152,12 @@ public class DateUtil {
             String d = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
             soughtPeriod.add(d);
             date = date.plusDays(1);
+            if((date.getDayOfMonth() == endDate.getDayOfMonth()) && (date.getMonthValue() == endDate.getMonthValue())) {    //чтобы последняя дата попала в список
+                d = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+                soughtPeriod.add(d);                                                                                        //иначе метод будет возвращать список,
+            }                                                                                                               //который не будет включать в себя последнюю дату
         } while((date.getDayOfMonth() != endDate.getDayOfMonth()) || (date.getMonthValue() != endDate.getMonthValue()));
         return soughtPeriod;
-    }
-
-    @Test
-    public void test() {
-        getPeriodInDays(2, 35);
-
     }
 
 //    public List<String> getWeeksForDefaultPeriod() {

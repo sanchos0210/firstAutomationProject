@@ -18,7 +18,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\jpg-файл.jpg")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # jpg-файл.jpg uploaded successfully.");
@@ -29,7 +29,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\gif-файл.gif")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # gif-файл.gif uploaded successfully.");
@@ -40,7 +40,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\doc-файл.doc")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # doc-файл.doc uploaded successfully.");
@@ -51,7 +51,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\docx-файл.docx")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # docx-файл.docx uploaded successfully.");
@@ -62,7 +62,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\pdf-файл.pdf")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # pdf-файл.pdf uploaded successfully.");
@@ -73,7 +73,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\xls-файл.xls")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # xls-файл.xls uploaded successfully.");
@@ -84,7 +84,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\xlsx-файл.xlsx")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # xlsx-файл.xlsx uploaded successfully.");
@@ -95,7 +95,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\txt-файл.txt")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # txt-файл.txt uploaded successfully.");
@@ -106,7 +106,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\png-файл.png")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # png-файл.png uploaded successfully.");
@@ -117,7 +117,7 @@ public class FilesTab extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openFilesTab()
                 .addFile("testData\\csv-файл.csv")
                 .asserts().assertTextInElement(objectManager.getAppEditPage().addFileNotification, "File # csv-файл.csv uploaded successfully.");

@@ -127,7 +127,6 @@ public class Wait {
         try {
             driver.assertThat(ExpectedConditions.attributeContains(By.cssSelector("spec-loader #calendarLoader"), "style", "display: block;"));
             driver.assertThat(ExpectedConditions.attributeContains(By.cssSelector("spec-loader #calendarLoader"), "style", "display: none;"));
-            //verificationThat(ExpectedConditions.attributeContains(By.cssSelector("spec-loader #calendarLoader"), "style", "display: none;"));
         } catch(RuntimeException e) {
             logs.errorMsg(e);
             throw e;

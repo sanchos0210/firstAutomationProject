@@ -48,7 +48,7 @@ public class AppListSteps extends MenuSteps {
     }
 
     @Step("Кликаем на кнопку \"Новая заявка\"")
-    public AppFormSteps createAppButtonClick() {
+    public AppFormSteps newAppButtonClick() {
         logs.infoMsg("Click on: " + objectManager.getAppListPage().addNewButton.toString());
         try {
             objectManager.getAppListPage().addNewButton.click();

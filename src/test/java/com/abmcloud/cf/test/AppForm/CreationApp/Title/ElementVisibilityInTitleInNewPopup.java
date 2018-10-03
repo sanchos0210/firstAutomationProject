@@ -18,7 +18,7 @@ public class ElementVisibilityInTitleInNewPopup extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts()
                 .assertTextInElement(objectManager.getAppEditPage().editPopupTitle, "Add document")
                 .isElementPresent(objectManager.getAppEditPage().closeAppFormButton, true)

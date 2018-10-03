@@ -26,7 +26,7 @@ public class FieldsValidationTests extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .inOutButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
@@ -42,7 +42,7 @@ public class FieldsValidationTests extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
@@ -64,7 +64,7 @@ public class FieldsValidationTests extends BaseTest {
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().compare("Outflow", objectManager.getBooleanField().getInOutValue());
     }
 
@@ -73,7 +73,7 @@ public class FieldsValidationTests extends BaseTest {
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_3"))
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().compare("Inflow", objectManager.getBooleanField().getInOutValue());
     }
 
@@ -89,11 +89,11 @@ public class FieldsValidationTests extends BaseTest {
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_2"))
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().assertTrue(objectManager.getBooleanField().isInOutDisable())
                 .getAppFormStep().backButtonClick()
                 .openAppList(dbInfo.getString("prepare_payments_3"))
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().assertTrue(objectManager.getBooleanField().isInOutDisable());
     }
 }

@@ -21,7 +21,7 @@ public class ElementVisibilityInNewPopup extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .showInformationBlockClick()
                 .asserts().isElementPresent(objectManager.getAppEditPage().approvalSteps, false)
                 .isElementPresent(objectManager.getAppEditPage().changesHistory, false)

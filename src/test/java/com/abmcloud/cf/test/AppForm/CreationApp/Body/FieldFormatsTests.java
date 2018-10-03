@@ -27,7 +27,7 @@ public class FieldFormatsTests extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts()
                 .compare("0,1 - 1000000000", objectManager.getDecimalField().getPlaceHolder(dbInfo.getString("decimal_field_2")));
     }
@@ -38,7 +38,7 @@ public class FieldFormatsTests extends BaseTest {
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_4"))
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .editDecimalField(dbInfo.getString("decimal_field_2"), "555")
                 .asserts()
                 .compare("555", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_2")));

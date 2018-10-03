@@ -28,7 +28,7 @@ public class FieldCalculationTests extends BaseTest {
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
                 .openAppList(dbInfo.getString("prepare_payments_5"))
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .openTab("Additional")
                 .asserts()
                 .compare(objectManager.getDecimalField().getValue("Decimal field 1"), "35")

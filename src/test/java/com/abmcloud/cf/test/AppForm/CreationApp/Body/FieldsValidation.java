@@ -28,7 +28,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editStringField(dbInfo.getString("string_field_3"),"text")
@@ -52,7 +52,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"-150")
@@ -67,7 +67,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"0")
@@ -82,7 +82,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "5t5t")
@@ -97,7 +97,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().assertTrue(objectManager.getDecimalField().isDisabled(dbInfo.getString("decimal_field_1")));
     }
 
@@ -106,7 +106,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().compare("35", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_1")));
     }
 
@@ -115,7 +115,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
@@ -135,7 +135,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
@@ -156,7 +156,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
@@ -170,7 +170,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().assertTrue(objectManager.getStringField().isDisabled(dbInfo.getString("string_field_1")));
     }
 
@@ -179,7 +179,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().compare("Default value", objectManager.getStringField().getValue(dbInfo.getString("string_field_1")));
     }
 
@@ -188,7 +188,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts()
                 .assertTrue(objectManager.getBooleanField().isDisable(dbInfo.getString("boolean_field_1")))
                 .compare("true" , objectManager.getBooleanField().getValue(dbInfo.getString("boolean_field_1")))
@@ -200,7 +200,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
@@ -221,7 +221,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"), "150")
@@ -245,7 +245,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
                 .editStringField(dbInfo.getString("string_field_3"), "text3")
                 .saveButtonClick()
@@ -257,7 +257,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .asserts().compare("Value 1", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_3")));
@@ -268,7 +268,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .clearCatalogValue(dbInfo.getString("catalog_field_3"))
@@ -280,7 +280,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_1"))
                 .asserts().isElementPresent(objectManager.getAppEditPage().headerOfCatalogPopup, false);
     }
@@ -290,7 +290,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts().compare("Prepare Payments 1", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_1")));
     }
 
@@ -299,7 +299,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
@@ -319,7 +319,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
@@ -340,7 +340,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
@@ -357,7 +357,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .asserts()
                 .compare("Organization 1", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_5")))
                 .compare("10", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_5")))
@@ -370,7 +370,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
@@ -388,7 +388,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .editDecimalField(dbInfo.getString("decimal_field_3"),"150")
@@ -406,7 +406,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
@@ -419,7 +419,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .catalogFieldClick(dbInfo.getString("catalog_field_3"))
                 .catalogElementClick(dbInfo.getString("value_1"))
                 .catalogFieldClick(dbInfo.getString("catalog_field_2"))
@@ -433,7 +433,7 @@ public class FieldsValidation extends BaseTest {
         steps
                 .open(APP_FORM_COMPANY_URL)
                 .loginAs(USER, EMAIL, PASSWORD, EN)
-                .createAppButtonClick()
+                .newAppButtonClick()
                 .clickOnDateField(dbInfo.getString("date_field_1"))
                 .asserts().isElementPresent(objectManager.getDatePicker().headerOfDatepicker, false);
     }
