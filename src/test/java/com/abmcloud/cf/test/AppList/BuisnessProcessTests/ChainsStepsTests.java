@@ -8,9 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static com.abmcloud.cf.test.Driver.Constants.APPROVE;
-import static com.abmcloud.cf.test.Driver.Constants.RU;
-import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
+import static com.abmcloud.cf.test.Driver.Constants.*;
 
 @Epic("Проверка определения шагов и цепочек для заявке")
 @Feature("Список заявок")
@@ -177,7 +175,7 @@ public class ChainsStepsTests extends BaseTest {
                 .checkAppWithNumber(testInfo.numberOfCreatedApp)
                 .approveButtonClick()
                 .closeRegistry()
-                .assertPaid(objectManager.getDateUtil().getTodayFullDate(), 10000);
+                .assertPaid(objectManager.getDateUtil().getDate(TODAY, "dd.MM.yyyy"), 10000);
     }
 
     @Test(priority = 60)

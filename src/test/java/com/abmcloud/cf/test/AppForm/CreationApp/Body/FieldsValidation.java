@@ -10,6 +10,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.abmcloud.cf.test.Driver.Constants.EN;
+import static com.abmcloud.cf.test.Driver.Constants.TOMORROW;
+import static com.abmcloud.cf.test.Driver.Constants.YESTERDAY;
 
 @Epic("Валидация полей в форме заявки")
 @Feature("Форма заявки")
@@ -380,7 +382,7 @@ public class FieldsValidation extends BaseTest {
                 .saveApplication()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)
-                .asserts().compare(objectManager.getDateUtil().getTomorrowFullDate(), objectManager.getDateField().getValue(dbInfo.getString("date_field_2")));
+                .asserts().compare(objectManager.getDateUtil().getDate(TOMORROW, "dd.MM.yyyy"), objectManager.getDateField().getValue(dbInfo.getString("date_field_2")));
     }
 
     @Test(priority = 25)
@@ -398,7 +400,7 @@ public class FieldsValidation extends BaseTest {
                 .saveApplication()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)
-                .asserts().compare(objectManager.getDateUtil().getYesterdayFullDate(), objectManager.getDateField().getValue(dbInfo.getString("date_field_2")));
+                .asserts().compare(objectManager.getDateUtil().getDate(YESTERDAY, "dd.MM.yyyy"), objectManager.getDateField().getValue(dbInfo.getString("date_field_2")));
     }
 
     @Test(priority = 26)

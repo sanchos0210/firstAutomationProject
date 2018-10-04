@@ -9,6 +9,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.abmcloud.cf.test.Driver.Constants.EN;
+import static com.abmcloud.cf.test.Driver.Constants.TODAY;
 
 @Epic("Валидация полей в табличной части форме заявки")
 @Feature("Форма заявки")
@@ -316,6 +317,6 @@ public class TCHFieldsValidation extends BaseTest {
                 .saveApplication()
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .clickOnNumberOf(testInfo.selectedApp)
-                .asserts().compare(objectManager.getDateField().getTCHValue("Date field 1"), objectManager.getDateUtil().getTodayFullDate());
+                .asserts().compare(objectManager.getDateField().getTCHValue("Date field 1"), objectManager.getDateUtil().getDate(TODAY, "dd.MM.yyyy"));
     }
 }

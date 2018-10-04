@@ -21,31 +21,6 @@ public class DateUtil {
         calendar = Calendar.getInstance();
     }
 
-    public String getTomorrowDate() {
-        df = new SimpleDateFormat("d");
-        calendar.add(Calendar.DAY_OF_MONTH, 1);
-        Date tomorrow = calendar.getTime();
-        String tomorrowDay = df.format(tomorrow);
-        return tomorrowDay;
-    }
-
-    public String getTodayDate() {
-        // Get the date today using Calendar object.
-        Date today = Calendar.getInstance().getTime();
-        return getDate(today, "dd");
-    }
-
-    public String getDate(Date date, String format) {
-        // Create an instance of SimpleDateFormat used for formatting
-        // the string representation of date (month/day/year)
-        df = new SimpleDateFormat(format);
-
-        // Using DateFormat format method we can create a string
-        // representation of a date with the defined format.
-        String soughtDate = df.format(date);
-        return soughtDate;
-    }
-
     public List<String> getMonthsInYearFullDate(Constants requiredYear) {
         List<String> months = new ArrayList<>();
         df = new SimpleDateFormat("MMMM");
@@ -69,79 +44,25 @@ public class DateUtil {
         return months;
     }
 
-    public List<String> getDaysInMonthFullDates(Constants requiredMonth) {
-        List<String> daysInMonth = new ArrayList<>();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        switch(requiredMonth) {
-            case THIS_MONTH: break;        //for current month
-            case LAST_MONTH: {     //for last month
-                month = month - 1;
+    public String getDate(Constants requiredDate, String format) {
+        DateFormat dateFormat = new SimpleDateFormat(format);
+        switch (requiredDate) {
+            case TODAY: {
+                break;
+            }
+            case YESTERDAY: {
+                calendar.add(Calendar.DAY_OF_MONTH, -1);
+                break;
+            }
+            case TOMORROW: {
+                calendar.add(Calendar.DAY_OF_MONTH, 1);
                 break;
             }
         }
-        calendar.set(year, month, 1);
-        int currentMonth = calendar.get(Calendar.MONTH);
-        while (calendar.get(Calendar.MONTH) == currentMonth) {
-            Date date = calendar.getTime();
-            String s = df.format(date);
-            daysInMonth.add(s);
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-        return daysInMonth;
-    }
-
-    public String getTodayFullDate() {
-        // Get the date today using Calendar object.
-        Date today = Calendar.getInstance().getTime();
-        return getDate(today, "dd.MM.yyyy");
-    }
-
-    public String getTomorrowFullDate() {
-        calendar.add(Calendar.DAY_OF_MONTH, 1);
-        Date tomorrow = calendar.getTime();
-        String s = df.format(tomorrow);
+        Date date = calendar.getTime();
+        String s = dateFormat.format(date);
         return s;
     }
-
-    public String getYesterdayFullDate() {
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        Date yesterday = calendar.getTime();
-        String s = df.format(yesterday);
-        return s;
-    }
-
-//    public List<String> getDefaultPeriodForCalendar() {
-//        List<String> daysInWeek = new ArrayList<>();
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH);
-//        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 1;
-//        int endDay = startDay + 6;
-//        calendar.set(year, month, startDay);
-//        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
-//            Date date = calendar.getTime();
-//            String s = df.format(date);
-//            daysInWeek.add(s);
-//            calendar.add(Calendar.DAY_OF_MONTH, 1);
-//        }
-//        return daysInWeek;
-//    }
-
-//    public List<String> getSetDefaultPeriodForCalendar() {
-//        List<String> daysInWeek = new ArrayList<>();
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH);
-//        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 3;
-//        int endDay = startDay + 13;
-//        calendar.set(year, month, startDay);
-//        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
-//            Date date = calendar.getTime();
-//            String s = df.format(date);
-//            daysInWeek.add(s);
-//            calendar.add(Calendar.DAY_OF_MONTH, 1);
-//        }
-//        return daysInWeek;
-//    }
 
     public List<String> getPeriodInDays(int countOfDaysBeforeToday, int countOfDaysAfterToday) {
         List<String> soughtPeriod = new ArrayList<>();
@@ -160,31 +81,34 @@ public class DateUtil {
         return soughtPeriod;
     }
 
-//    public List<String> getWeeksForDefaultPeriod() {
-//        List<String> weeks = new ArrayList<>();
-//        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-//        Calendar calendar = Calendar.getInstance();
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH);
-//        int startDay = calendar.get(Calendar.DAY_OF_MONTH) - 1;
-//        int endDay = startDay + 6;
-//        calendar.set(year, month, startDay);
-//        Set<Integer> weeksInPeriod = new HashSet<>();
-//        while (calendar.get(Calendar.DAY_OF_MONTH) <= endDay) {
-//            weeksInPeriod.add(calendar.get(Calendar.WEEK_OF_YEAR));
-//            calendar.add(Calendar.DAY_OF_MONTH, 1);
-//        }
-//        while(weeksInPeriod.iterator().hasNext()) {
-//            calendar.set(Calendar.WEEK_OF_YEAR, weeksInPeriod.iterator().next());
-//            calendar.set(Calendar.DAY_OF_YEAR, calendar.getFirstDayOfWeek());
-//            String week = df.format(calendar.getTime());
-//            calendar.add(Calendar.WEEK_OF_YEAR, 1);
-//            calendar.set(Calendar.DAY_OF_YEAR, calendar.getFirstDayOfWeek());
-//            week = week + df.format(calendar.getTime());
-//            weeks.add(week);
-//        }
-//        return weeks;
-//    }
+    public List<String> getPeriodInDays(Constants requiredPeriod) {
+        List<String> soughtPeriod = new ArrayList<>();
+        LocalDate date = LocalDate.now();
+        int numOfToday = date.getDayOfMonth();
+        date = date.minusDays((numOfToday-1));  //получаем 1-е число текущего месяца
+        LocalDate endDate = null;
+        switch (requiredPeriod) {
+            case THIS_MONTH: {
+                endDate = date.plusMonths(1);
+                break;
+            }
+            case LAST_MONTH: {
+                endDate = date;
+                date = date.minusMonths(1);
+                 break;
+            }
+        }
+        do {
+            String d = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+            soughtPeriod.add(d);
+            date = date.plusDays(1);
+            if((date.getDayOfMonth() == endDate.getDayOfMonth()) && (date.getMonthValue() == endDate.getMonthValue())) {    //чтобы последняя дата попала в список
+                d = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+                soughtPeriod.add(d);                                                                                        //иначе метод будет возвращать список,
+            }                                                                                                               //который не будет включать в себя последнюю дату
+        } while (date.getDayOfMonth() != endDate.getDayOfMonth());
+        return soughtPeriod;
+    }
 
     public List<String> getThisYear() {
         List<String> thisYear = new ArrayList<>();

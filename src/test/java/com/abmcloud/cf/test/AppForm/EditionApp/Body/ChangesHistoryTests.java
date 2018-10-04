@@ -9,6 +9,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.abmcloud.cf.test.Driver.Constants.RU;
+import static com.abmcloud.cf.test.Driver.Constants.TODAY;
+import static com.abmcloud.cf.test.Driver.Constants.TOMORROW;
 
 @Epic("Проверка истории изменений в форме заявки")
 @Feature("Форма заявки")
@@ -106,6 +108,9 @@ public class ChangesHistoryTests extends BaseTest {
                 .clickOnNumberOf(testInfo.selectedApp)
                 .showInformationBlockClick()
                 .changesHistoryClick()
-                .asserts().checkHistoryOf(dbInfo.getString("payment_date_field_name"), objectManager.getDateUtil().getTodayFullDate(), objectManager.getDateUtil().getTomorrowFullDate());
+                .asserts().checkHistoryOf(
+                        dbInfo.getString("payment_date_field_name"),
+                        objectManager.getDateUtil().getDate(TODAY, "dd.MM.yyyy"),
+                        objectManager.getDateUtil().getDate(TOMORROW, "dd.MM.yyyy"));
     }
 }

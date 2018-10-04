@@ -9,8 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static com.abmcloud.cf.test.Driver.Constants.RU;
-import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
+import static com.abmcloud.cf.test.Driver.Constants.*;
 
 @Epic("Проверка реестра")
 @Feature("Календарь")
@@ -53,7 +52,7 @@ public class RegistryTests extends BaseTest {
                 .selectAppByNumber(testInfo.numberOfCreatedApp)
                 .status(SEND_FOR_APPROVAL, testInfo.selectedApp)
                 .openCalendar(dbInfo.getString("approve_payment"))
-                .clickOnSum(objectManager.getDateUtil().getTodayFullDate(), "Организация 1", 'B')
+                .clickOnSum(objectManager.getDateUtil().getDate(TODAY, "dd.MM.yyyy"), "Организация 1", 'B')
                 .checkAppWithNumber(testInfo.numberOfCreatedApp)
                 .asserts()
                 .isElementPresent(objectManager.getCalendarPage().organizationFilterInRegistry, false)
@@ -75,9 +74,9 @@ public class RegistryTests extends BaseTest {
                 .openCalendar(dbInfo.getString("payment_calendar"))
                 .openRegistry()
                 .checkAppWithNumber(testInfo.numberOfCreatedApp)
-                .changePaymentDate(objectManager.getDateUtil().getTomorrowDate())
+                .changePaymentDate(objectManager.getDateUtil().getDate(TOMORROW, "d"))
                 .closeRegistry()
-                .clickOnSum(objectManager.getDateUtil().getTomorrowFullDate(), "Организация 1", 'B')    //B = OUTCOME
+                .clickOnSum(objectManager.getDateUtil().getDate(TOMORROW, "dd.MM.yyyy"), "Организация 1", 'B')    //B = OUTCOME
                 .checkAppWithNumber(testInfo.numberOfCreatedApp);
     }
 
@@ -93,9 +92,9 @@ public class RegistryTests extends BaseTest {
                 .openCalendar(dbInfo.getString("approve_payment"))
                 .openRegistry()
                 .checkAppWithNumber(testInfo.numberOfCreatedApp)
-                .changePaymentDate(objectManager.getDateUtil().getTomorrowDate())
+                .changePaymentDate(objectManager.getDateUtil().getDate(TOMORROW, "d"))
                 .closeRegistry()
-                .clickOnSum(objectManager.getDateUtil().getTomorrowFullDate(), "Организация 1", 'B')    //B = OUTCOME
+                .clickOnSum(objectManager.getDateUtil().getDate(TOMORROW, "dd.MM.yyyy"), "Организация 1", 'B')    //B = OUTCOME
                 .checkAppWithNumber(testInfo.numberOfCreatedApp);
     }
 
@@ -112,6 +111,6 @@ public class RegistryTests extends BaseTest {
                 .checkAppWithNumber(testInfo.numberOfCreatedApp)
                 .payButtonClick()
                 .closeRegistry()
-                .assertPaid(objectManager.getDateUtil().getTodayFullDate(), 150);
+                .assertPaid(objectManager.getDateUtil().getDate(TODAY, "dd.MM.yyyy"), 150);
     }
 }

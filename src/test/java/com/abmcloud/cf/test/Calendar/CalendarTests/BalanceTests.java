@@ -8,8 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static com.abmcloud.cf.test.Driver.Constants.RU;
-import static com.abmcloud.cf.test.Driver.Constants.SEND_FOR_APPROVAL;
+import static com.abmcloud.cf.test.Driver.Constants.*;
 
 @Epic("Проверка балансов")
 @Feature("Календарь")
@@ -59,6 +58,6 @@ public class BalanceTests extends BaseTest {
                 .checkAppWithNumber(testInfo.numberOfCreatedApp)
                 .payButtonClick()
                 .closeRegistry()
-                .assertBalance(objectManager.getDateUtil().getTodayFullDate(), 150);
+                .assertBalance(objectManager.getDateUtil().getDate(TODAY, "dd.MM.yyyy"), 150);
     }
 }
