@@ -18,17 +18,9 @@ public class DateUtil {
         calendar = Calendar.getInstance();
     }
 
-//    @Test
-//    public void testik() {
-//        df = DateFormat.getDateInstance(DateFormat.SHORT, new Locale("ru"));
-//        Date date = calendar.getTime();
-//        String s = df.format(date);
-//        System.out.println(s);
-//    }
-
     public List<String> getMonthsInYearFullDate(Constants requiredYear) {
         List<String> months = new ArrayList<>();
-        df = new SimpleDateFormat("MMMM");
+        df = new SimpleDateFormat("MMMM", new Locale("ru"));
         DateFormat yy = new SimpleDateFormat("yyyy г.");
         int year = calendar.get(Calendar.YEAR);
         switch (requiredYear) {
