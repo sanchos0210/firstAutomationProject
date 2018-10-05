@@ -6,10 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class DateUtil {
 
@@ -17,9 +14,17 @@ public class DateUtil {
     private Calendar calendar;
 
     public DateUtil() {
-        df = new SimpleDateFormat("dd.MM.yyyy");
+        df = new SimpleDateFormat("dd.MM.yyyy", new Locale("ru"));
         calendar = Calendar.getInstance();
     }
+
+//    @Test
+//    public void testik() {
+//        df = DateFormat.getDateInstance(DateFormat.SHORT, new Locale("ru"));
+//        Date date = calendar.getTime();
+//        String s = df.format(date);
+//        System.out.println(s);
+//    }
 
     public List<String> getMonthsInYearFullDate(Constants requiredYear) {
         List<String> months = new ArrayList<>();
