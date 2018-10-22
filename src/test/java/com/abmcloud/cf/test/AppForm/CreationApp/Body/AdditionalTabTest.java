@@ -110,4 +110,21 @@ public class AdditionalTabTest extends BaseTest {
                 .openTab("Additional")
                 .asserts().compare("Value 1", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_2")));
     }
+
+    @Test(priority = 60)
+    public void autoClearAfterAutoInsertInAdditionalTab() {
+        steps
+                .open(APP_FORM_COMPANY_URL)
+                .loginAs(USER, EMAIL, PASSWORD, EN)
+                .openAppList(dbInfo.getString("prepare_payments_4"))
+                .newAppButtonClick()
+                .catalogFieldClick(dbInfo.getString("catalog_field_1"))
+                .catalogElementClick(dbInfo.getString("contractor_1"))
+                .clearCatalogValue(dbInfo.getString("catalog_field_1"))
+                .openTab("Additional")
+                .asserts()
+                .compare("", objectManager.getCatalogField().getValue(dbInfo.getString("catalog_field_2")))
+                .compare("", objectManager.getStringField().getValue(dbInfo.getString("string_field_1")))
+                .compare("", objectManager.getDecimalField().getValue(dbInfo.getString("decimal_field_1")));
+    }
 }
