@@ -16,8 +16,6 @@ public class UsersData {
         localizeLanguage = lang;
     }
 
-    public static String pass = "Adelina-4";
-
     public String getUserName() {
         return userName;
     }

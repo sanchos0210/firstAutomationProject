@@ -17,14 +17,6 @@ public class TestListener implements ITestListener {
         WebDriver driver = ((BaseTest) iTestResult.getInstance()).objectManager.getDriver().getWebDriver();
         TakesScreenshot scr = ((TakesScreenshot) driver);
         return scr.getScreenshotAs(OutputType.BYTES);
-//        try {
-//            File screenshotFile = scr.getScreenshotAs(OutputType.FILE);
-//            FileUtils.copyFile(screenshotFile, new File(iTestResult.getTestName() + ".png"));
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        } catch (IOException io) {
-//            io.printStackTrace();
-//        }
     }
 
     @Override
